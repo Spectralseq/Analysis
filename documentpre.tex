@@ -1,0 +1,269 @@
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks,linkcolor=blue,hyperfootnotes=false]{hyperref}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{textgreek,bm,upgreek,mathrsfs}
+\usepackage{arydshln}
+\usepackage{textcomp}
+\usepackage{stmaryrd}
+\expandafter\def\csname opt@stmaryrd.sty\endcsname
+{only,shortleftarrow,shortrightarrow}
+\usepackage{extpfeil}
+\usepackage{extarrows}
+\usepackage[bottom]{footmisc}
+\usepackage{enumitem}
+\usepackage{epigraph}
+\usepackage[many]{tcolorbox}
+\usepackage[english]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{microtype} 
+\usepackage[framemethod=tikz]{mdframed} 
+\usepackage[tikz]{bclogo}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{epigraph}
+\usepackage[many]{tcolorbox}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath}
+\usepackage{palatino}
+
+\linespread{1.05}
+
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
+\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+\pagestyle{fancy}
+\setlength{\headheight}{15.0pt}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\bf\nouppercase{\rightmark}}
+\fancyhead[LO]{\bf\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\def\sub{\subseteq}
+\def\sups{\supseteq}
+\def\emp{\varnothing}
+
+\def\End{\mathrm{End}}
+\def\Hom{\mathrm{Hom}}
+\def\Aut{\mathrm{Aut}}
+\def\im{\mathrm{im}\,}
+\def\det{\mathrm{det}\,}
+\def\tr{\mathrm{tr}}
+\def\sgn{\mathrm{sgn}}
+\def\Inn{\mathrm{Inn}}
+\def\Sym{\mathrm{Sym}}
+\def\Alt{\mathrm{Alt}}
+\def\rank{\mathrm{rank}}
+\def\id{\mathrm{id}}
+\def\lcm{\mathrm{lcm}}
+\def\dom{\mathrm{dom}}
+\def\ran{\mathrm{ran}}
+\def\Rad{\mathrm{Rad}}
+\def\Poi{\mathrm{Poi}}
+\def\Hyp{\mathrm{Hyp}}
+\def\Cau{\mathrm{Cau}}
+\def\Cov{\mathrm{Cov}}
+\def\Var{\mathrm{Var}}
+\def\bal{\mathrm{bal}}
+\def\conv{\mathrm{conv}}
+\def\balcore{\mathrm{balcore}}
+\def\convbal{\mathrm{convbal}}
+\def\Lat{\mathrm{Lat}}
+\def\inv{\mathrm{inv}}
+
+\def\Diff{\mathrm{Diff}}
+\def\Int{\mathrm{Int}\,}
+\def\Ext{\mathrm{Ext}\,}
+\def\Iso{\mathrm{Iso}}
+\def\diam{\mathrm{diam}}
+\def\codim{\mathrm{codim}\,}
+\def\Div{\mathrm{Div}}
+
+\def\pr{\mathrm{pr}}
+\def\supp{\mathrm{supp}}
+\def\vol{\mathrm{vol}}
+
+\def\GL{\mathrm{GL}}
+\def\PGL{\mathrm{PGL}}
+\def\PSL{\mathrm{PSL}}
+\def\SL{\mathrm{SL}}
+\def\O{\mathrm{O}}
+\def\SO{\mathrm{SO}}
+\def\U{\mathrm{U}}
+\def\SU{\mathrm{SU}}
+
+\def\p{\mathfrak{p}}
+\def\z{\mathfrak{z}}
+\def\g{\mathfrak{g}}
+\def\h{\mathfrak{h}}
+\def\m{\mathfrak{m}}
+\def\n{\mathfrak{n}}
+\def\k{\mathfrak{k}}
+\def\gl{\mathfrak{gl}}
+\def\sl{\mathfrak{sl}}
+\def\o{\mathfrak{o}}
+\def\so{\mathfrak{so}}
+\def\u{\mathfrak{u}}
+\def\su{\mathfrak{su}}
+\def\Lie{\mathfrak{Lie}}
+\def\Ad{\mathrm{Ad}}
+\def\ad{\mathrm{ad}}
+\def\Spec{\mathrm{Spec}}
+\def\Max{\mathrm{Max}}
+\def\grad{\mathrm{grad}\,}
+\def\div{\mathrm{div}}
+\def\curl{\mathrm{curl}\,}
+\def\inj{\mathrm{inj}}
+\def\Res{\mathrm{Res}}
+\def\Gr{\mathrm{Gr}}
+\def\C{\mathbb{C}}
+\def\F{\mathbb{F}}
+\def\K{\mathbb{K}}
+\def\R{\mathbb{R}}
+\def\B{\mathbb{B}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+\def\T{\mathbb{T}}
+\def\D{\mathbb{D}}
+\def\N{\mathbb{N}}
+\def\H{\mathbb{H}}
+\def\X{\mathfrak{X}}
+\def\J{\mathfrak{J}}
+\def\RP{\mathbb{RP}}
+\def\CP{\mathbb{CP}}
+\def\P{\mathscr{P}}
+\def\hash{\!\textit{\texttt{\#}}}
+
+\def\dcheck{\check{ }\hspace{4pt}\check{}}
+\def\eps{\varepsilon}
+\def\And{\hspace{8pt}\text{and}\hspace{8pt}}
+\def\for{\hspace{8pt}\text{for}\hspace{6pt}}
+\def\llim{\varprojlim\limits}
+\def\rlim{\varinjlim\limits}
+
+\def\One{\mathrm{\Rmnum{1}}}
+\def\Two{\mathrm{\Rmnum{2}}}
+\def\Ric{\mathrm{Ric}}
+\def\sec{\mathrm{sec}}
+\def\loc{\mathrm{loc}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\renewcommand{\i}{\mathrm{i}}
+
+\tikzcdset{scale/.style={every label/.append style={scale=#1},
+    cells={nodes={scale=#1}}}}
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\nunder}[2][5]{\mathrlap{\mkern\the\numexpr#1/2mu\relax\underline{\phantom{\mathrm{#2}\mkern-#1mu}}}#2}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\newcommand{\intprod}{\mathbin{\raisebox{\depth}{\scalebox{1}[-1]{$\lnot$}}}}%defining interior product
+\newcommand{\bigw}{\scalebox{.95}[1]{\boldmath{$\bigwedge$}\hspace{-1pt}}}%define a nice wedge product
+
+
+\@addtoreset{figure}{section}
+\makeatother
+
+\def\llim{\varprojlim\limits}
+\def\rlim{\varinjlim\limits}
+\tikzcdset{row sep/normal=1cm}
+\tikzcdset{column sep/normal=1cm}
+
+\makeatletter
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+\newcommand{\Log}{\mathop{}\!\mathrm{Log}\mathop{}\!}
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+
+\let\save@mathaccent\mathaccent
+\newcommand*\if@single[3]{%
+	\setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
+	\setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
+	\ifdim\ht0=\ht2 #3\else #2\fi
+}
+%The bar will be moved to the right by a half of \macc@kerna, which is computed by amsmath:
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+%If there's a superscript following the bar, then no negative kern may follow the bar;
+%an additional {} makes sure that the superscript is high enough in this case:
+\newcommand*\widebar[1]{\@ifnextchar^{{\wide@bar{#1}{0}}}{\wide@bar{#1}{1}}}
+%Use a separate algorithm for single symbols:
+\newcommand*\wide@bar[2]{\if@single{#1}{\wide@bar@{#1}{#2}{1}}{\wide@bar@{#1}{#2}{2}}}
+\newcommand*\wide@bar@[3]{%
+	\begingroup
+	\def\mathaccent##1##2{%
+		%Enable nesting of accents:
+		\let\mathaccent\save@mathaccent
+		%If there's more than a single symbol, use the first character instead (see below):
+		\if#32 \let\macc@nucleus\first@char \fi
+		%Determine the italic correction:
+		\setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
+		\setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
+		\dimen@\wd\tw@
+		\advance\dimen@-\wd\z@
+		%Now \dimen@ is the italic correction of the symbol.
+		\divide\dimen@ 3
+		\@tempdima\wd\tw@
+		\advance\@tempdima-\scriptspace
+		%Now \@tempdima is the width of the symbol.
+		\divide\@tempdima 10
+		\advance\dimen@-\@tempdima
+		%Now \dimen@ = (italic correction / 3) - (Breite / 10)
+		\ifdim\dimen@>\z@ \dimen@0pt\fi
+		%The bar will be shortened in the case \dimen@<0 !
+		\rel@kern{0.6}\kern-\dimen@
+		\if#31
+		\overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
+		\advance\dimen@0.4\dimexpr\macc@kerna
+		%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
+		\let\final@kern#2%
+		\ifdim\dimen@<\z@ \let\final@kern1\fi
+		\if\final@kern1 \kern-\dimen@\fi
+		\else
+		\overline{\rel@kern{-0.6}\kern\dimen@#1}%
+		\fi
+	}%
+	\macc@depth\@ne
+	\let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+	\mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+	\macc@set@skewchar\relax
+	\let\mathaccentV\macc@nested@a
+	%The following initialises \macc@kerna and calls \mathaccent:
+	\if#31
+	\macc@nested@a\relax111{#1}%
+	\else
+	%If the argument consists of more than one symbol, and if the first token is
+	%a letter, use that letter for the computations:
+	\def\gobble@till@marker##1\endmarker{}%
+	\futurelet\first@char\gobble@till@marker#1\endmarker
+	\ifcat\noexpand\first@char A\else
+	\def\first@char{}%
+	\fi
+	\macc@nested@a\relax111{\first@char}%
+	\fi
+	\endgroup
+}
+

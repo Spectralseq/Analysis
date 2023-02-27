@@ -1,0 +1,1293 @@
+\chapter{Probability Theory}
+\section{Basics concepts}
+\subsection{Events and radom variables}
+In probability theory one describes and analyzes random situations, often called \textbf{experiments}. Let us look at how such situations can be modeled using measure theory. We begin with some terminology.\par
+A \textbf{probability space} is a measure space $(\Omega,\mathcal{A},P)$ such that $P(\Omega)=1$. The elements of $\Omega$ are called the \textbf{elementary outcomes} or the \textbf{sample points} of our experiment, and the members of $\mathcal{A}$ are called \textbf{events}. If $A\in\mathcal{A}$, then $P(A)$ is the probability of the event $A$.
+\begin{example}
+We illustrate these concepts with a very simple example. Suppose we toss a fair coin (one for which a head has probability $1/2$) twice. There are four possible outcomes: we get two heads, we get a head and then a tail, we get a tail and then a head, or we get two tails. So we can let our set $\Omega$ of elementary outcomes be $\{HH,HT,TH,TT\}$. It is natural in this case to let $\mathcal{A}$ contain all the subsets of $\Omega$. For example, $\{HT,TH\}$ is one of the subsets of $\Omega$; it corresponds to the realworld event in which we get a head on exactly one of the tosses. Finally, in this situation each elementary outcome has probability $1/4$ of occurring, and so we let the probability of an event $A$ be $1/4$ times the number of elements of $A$.
+\end{example}
+A \textbf{real-valued random variable} on a probability space $(\Omega,\mathcal{A},P)$ is an $\mathcal{A}$-measurable function from $\Omega$ to $\R$. Such a variable represents a numerical observation or measurement whose value depends on the outcome of the random experiment represented by $(\Omega,\mathcal{A},P)$. More generally, a \textbf{random variable} with values in a measurable space $(S,\mathcal{B})$ is a measurable function from $(\Omega,\mathcal{A})$ to $(S,\mathcal{B})$. Let $X$ be a random variable with values in $(S,\mathcal{B})$. The \textbf{distribution} of $X$ is the measure $X_*P$ defined on $(S,\mathcal{B})$ by $(X_*P)(A)=P(X^{-1}(A))$. We will often write $P_X$ for the distribution of a random variable $X$, and $X\sim\mu$ if $\mu=P_X$ and say that $X$ has distribution $\mu$.\par
+If $X$ is a random variable on $\Omega$, then $P_X$ is a probability measure on $\R$, called the \textbf{distribution} of $X$, and the function
+\[F(x)=P_X((-\infty,x])=P(X\leq x)\]
+is called the distribution function of $X$. If $(X_i)_{i\in I}$ is a family of random variables such that $P_{X_i}=P_{X_j}$ for $i\neq j$, the $X_i$'s are said to be \textbf{identically distributed}.\par
+More generally, if $X_1,\dots,X_n$ are $(S,\mathcal{B})$-valued random variables on $(\Omega,\mathcal{A},P)$, then the formula $X(\omega)=(X_1(\omega),\dots,X_n(\omega))$ defines an $S^n$-valued random variable $X$; the distribution of $X$ is called the \textbf{joint distribution} of $X_1,\dots,X_n$. It is a general principle that all properties of random variables that are relevant to probability theory can be expressed in terms of their joint distributions.
+\begin{example}
+Let us continue with our coin-tossing example. The number of heads that appear when our two coins are tossed can be represented with the random variable $X$ defined by
+\[X(\omega)=\begin{cases}
+0&\omega=TT,\\
+1&\text{$\omega=TH$ or $HT$},\\
+2&\omega=HH.
+\end{cases}\]
+The distribution $P_X$ of $X$ is given by $P_X=\frac{1}{4}\delta_0+\frac{1}{2}\delta_1+\frac{1}{4}\delta_2$.
+\end{example}
+An abbreviated notation for events is common in probability. We introduce it with a couple of examples. Suppose that $(\Omega,\mathcal{A},P)$ is a probability space and that $X$ and $\{X_n\}$ are real-valued random variables on $\Omega$. Then the event
+\[\{\omega:X(\omega)\geq 0\},\quad \{\omega:X(\omega)=\lim_nX_n(\omega)\},\quad \{\omega:\lim_nX_n(\omega)\text{ exists}\}\]
+are often abbreviated as $\{X\geq 0\}$, $\{X=\lim_nX_n\}$, and $\{\lim_nX_n\text{ exists}\}$. Sometimes one goes a bit further and simply writes $P(X\geq 0)$ instead of $P(\{X\geq 0\})$ or $P(\{\omega:X(\omega)\geq 0\})$.
+\begin{theorem}
+For any distribution function $F$, there exists a real random variable $X$ with $F_X=F$.
+\end{theorem}
+\begin{proof}
+We explicitly construct a probability space $(\Omega,\mathcal{A},P)$ and a random variable $X:\Omega\to\R$ such that $F_X=F$. The simplest choice would be $(\Omega,\mathcal{A})=(\R,\mathcal{B}(\R))$, $X:\R\to\R$ the identity map and $P$ the Borel measure with distribution function $F$ (see Theorem~\ref{Lebesgue-Stieltjes measure}).\par
+A more instructive approach is based on first constructing, independently of $F$, a sort of standard probability space on which we define a random variable with uniform distribution on $(0,1)$. In a second step, this random variable will be transformed by applying the inverse map $F^{-1}$. Let $\Omega:=[0,1]$, $A:=\mathcal{B}([0,1])$ and let $P$ be the Lebesgue measure on $[0,1]$. Define the left continuous inverse of $F$:
+\[F^{-1}(t)=\inf\{x\in\R:F(x)\geq t\}.\]
+Then we see $F^{-1}(t)\leq x$ if and only if $t\leq F(x)$. In particular, $F^{-1}$ is measurable and
+\[P(\{t:F^{-1}(t)\leq x\})=\lambda([0,F(x)])=F(x).\]
+Concluding, $X:=F^{-1}$ is the random variable that we wanted to construct.
+\end{proof}
+\begin{example}
+We present some prominent distributions of real random variables $X$. These are some of the most important distributions in probability theory, and we will come back to these examples in many places.
+\begin{itemize}
+\item[(\rmnum{1})] Let $p\in[0,1]$. Then the \textbf{Bernoulli distribution with parameter $\bm{p}$} is defined by
+\[B_{1,p}=(1-p)\delta_0+p\delta_1.\]
+Its distribution function is
+\[F_X(x)=\begin{cases}
+0&x<0,\\
+1-p&x\in[0,1),\\
+1&x\geq 1.
+\end{cases}\] 
+The distribution $P_Y$ of $Y:=2X-1$ is sometimes called the \textbf{Rademacher distribution} with parameter $p$; formally $\Rad_p=(1-p)\delta_{-1}+p\delta_1$. In particular, $\Rad_{1/2}$ is called the \textbf{Rademacher distribution}.
+\item[(\rmnum{2})] Let $p\in [0,1]$ and $n>0$, and let $X:\Omega\to\{0,\dots,n\}$ be such that
+\[P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.\]
+Then $P_X=:B_{n,p}$ is called the binomial distribution with parameters $n$ and $p$; formally 
+\[B(n,p)=\sum_{k=0}^{n}\binom{n}{k}p^k(1-p)^{n-k}\delta_k.\]
+\item[(\rmnum{3})] Let $p\in(0,1]$ and $X:\Omega\to\N_0$ with
+\[P(x=n)=p(1-p)^n\for n=0,1,\dots.\]
+Then $\gamma_p:=B^-_{1,p}=P_X$ is called the \textbf{geometric distribution} with parameter $p$; formally
+\[\gamma_p=\sum_{n=0}^{\infty}p(1-p)^n\delta_n.\]
+Its distribution function is $F(x)=1-(1-p)^{\max\{0,[x+1]\}}$ for $x\in\R$. We can interpret $X$ as the waiting time for the first success in a series of independent random experiments, any of which yields a success with probability $p$.
+\item[(\rmnum{4})] Let $r>0$ (note that $r$ need not be an integer) and let $p\in(0,1]$. We denote by
+\[B^-_{r,p}:=\sum_{k=0}^{\infty}\binom{-r}{k}(-1)^kp^r(1-p)^k\delta_k.\]
+the \textbf{negative binomial distribution} or \textbf{Pascal distribution} with parameters $r$ and $p$. If $r\in\N$, then one can show as in the preceding example that $B^-_{r,p}$ is the distribution of the waiting time for the $r$-th success in a series of random experiments.
+\item[(e)] Let $\lambda\in[0,+\infty)$ and let $X:\Omega\to\N$ be such that
+\[P(X=n)=e^{-\lambda}\frac{\lambda^n}{n!}.\]
+Then $P_X=:\Poi_\lambda$ is called the \textbf{Poisson distribution} with parameter $\lambda$.
+\item[(\rmnum{5})] Consider an urn with $B$ black balls and $W$ white balls. Draw $n\in\N$ balls from the urn without replacement. A little bit of combinatorics shows that the probability of drawing exactly $k$ black balls is given by the \textbf{hypergeometric distribution} with parameters $B,W,n$:
+\[\Hyp_{B,W,n}(\{k\})=\frac{\binom{B}{k}\binom{W}{n-k}}{\binom{B+W}{n}}\for k=0,\dots,n.\]
+\end{itemize}
+\end{example}
+\begin{definition}
+Now suppose that the distribution function $F:\R^n\to[0,1]$ is of the form
+\[F(x)=\int_{-\infty}^{x_1}dt_1\cdots\int_{-\infty}^{x_n}f(t_1,\dots,t_n)\,dt_n\for x=(x_1,\dots,x_n)\in\R^n\]
+for some integrable function $f:\R^n\to[0,+\infty)$. Then the function $f$ is called the \textbf{density} of the distribution.
+\end{definition}
+\begin{example}
+\mbox{}
+\begin{itemize}
+\item[(\rmnum{1})] Now suppose that we choose a real number from the interval $[a,b]$ in such a way that the probability that the number chosen lies in a subinterval $I$ of $[a,b]$ is proportional to the length of $I$. We can describe this situation with the probability space $([a,b],\mathcal{B}([a,b]),P)$, where the measure $P$ is given by $P(A)=\lambda(A)/(b-a)$. In this case one has a \textbf{uniform distribution} on $[a,b]$.
+\item[(\rmnum{2})] Let $\mu\in\R$, $\sigma^2>0$ and let $X$ be a real random variable with 
+\[P(X\leq x)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^{x}e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt.\]
+Then $P_X=:\mathcal{N}_{\mu,\sigma^2}$ is called the \textbf{Gaussian normal distribution with parameters $\bm{\mu}$ and $\bm{\sigma^2}$}. In particular, $\mathcal{N}_{0,1}$ is called the \textbf{standard normal distribution}.
+\item[(\rmnum{3})] Let $\theta>0$ and let $X$ be a nonnegative random variable such that
+\[P(X\leq x)=\int_{0}^{x}\theta e^{-\theta t}dt\for x\geq 0.\]
+Then $P_X=:\exp_\theta$ is called the \textbf{exponential distribution with parameter $\theta$}.
+\item[(\rmnum{4})] Let $\mu\in\R^n$ and let $\Sigma$ be a positive definite symmetric $n\times n$ matrix. Let $X$ be an $\R^n$-valued random variable with density
+\[f(x)=\frac{1}{\sqrt{\det(2\pi\Sigma)}}e^{-\frac{1}{2}\langle t-\mu,\Sigma^{-1}(t-\mu)\rangle}.\]
+Then $P_X=:\mathcal{N}_{\mu,\Sigma}$ is the $n$-dimensional normal distribution with parameters $\mu$ and $\Sigma$.
+\item[(\rmnum{5})] Let $\theta,r>0$ and let $\Gamma_{\theta,r}$ be the distribution on $[0,+\infty)$ with density
+\[f(x)=\frac{\theta^r}{\Gamma(r)}x^{r-1}e^{-\theta x}.\]
+Then $\Gamma_{\theta,r}$ is called the \textbf{Gamma distribution} with scale parameter $\theta$ and shape parameter $r$.
+\item[(\rmnum{6})] Let $r,s>0$ and let $\beta_{r,s}$ be the distribution on $[0,1]$ with density
+\[f(x)=\frac{\Gamma(r+s)}{\Gamma(r)\Gamma(s)}x^{r-1}(1-x)^{s-1}.\]
+Then $\beta_{r,s}$ is called the \textbf{Beta distribution} with parameters $r$ and $s$.
+\item[(\rmnum{7})] Let $a>0$ and let $\Cau_a$ be the distribution on $\R$ with density
+\[f(x)=\frac{1}{\pi a}\frac{1}{1+(x/a)^2}.\]
+Then $\Cau_a$ is called the \textbf{Cauchy distribution} with parameter $a$.
+\end{itemize}
+\end{example}
+\subsection{Independence of events}
+Let $(\Omega,\mathcal{A},P)$ be a probability space, and let $(A_i)_{i\in I}$ be an indexed family of events. The events $A_i$ are called \textbf{independent} if for each finite subset $I_0$ of $I$ we have
+\[P\Big(\bigcap_{i\in I_0}A_i\Big)=\prod_{i\in I_0}P(A_i).\]
+The most prominent example of an independent family of infinitely many events is given by the perpetuated independent repetition of a random experiment.
+\begin{example}\label{infinite Bernoulli experiment independent}
+Let $E$ be a finite set (the set of possible outcomes of the individual experiment) and let $(p_e)_{e\in E}$ be a probability vector on $E$. Equip the probability space $\Omega=E^{\N}$ with the product algebra and with the Bernoulli measure $p=(\sum_{e\in E}p_e)^{\otimes\N}$ (see Proposition~\ref{Radon product infinite}); that is, we have
+\[P(\{\omega\in\Omega:\omega_1=e_1,\omega_2=e_2,\dots,\omega_n=e_n\})=\prod_{i=1}^{n}p_{e_i}.\]
+Let $\widetilde{A}_i\in E$ for any $i\in\N$, and let $A_i$ be the event where $\widetilde{A}_i$ occurs in the $i$-th experiment. Intuitively, the family $(A_i)_{i\in\N}$ should be independent if the definition of independence makes any sense at all. We check that this is indeed the case. Let $I\sub\N$ be finite and $n=\max I$. Define
+\[B_i=\begin{cases}
+A_i&i\in I,\\
+\Omega&i\notin I,
+\end{cases}\quad\widetilde{B}_i=\begin{cases}
+\widetilde{A}_i&i\in I,\\
+E&i\notin I.
+\end{cases}
+\]
+Then we observe that
+\begin{align*}
+P\Big(\bigcap_{i\in I}A_i\Big)&=P\Big(\bigcap_{i\in I}A_i\Big)=P\Big(\bigcap_{i=1}^{n}B_i\Big)=\sum_{e_1\in\widetilde{B}_1,\dots,e_n\in\widetilde{B}_n}\prod_{i=1}^{n}p_{e_i}\\
+&=\prod_{i=1}^{n}\Big(\sum_{e\in\widetilde{B}_i}p_e\Big)=\prod_{i\in I}\Big(\sum_{e\in\widetilde{A}_i}p_e\Big).
+\end{align*}
+This is true in particular for $I=\{i\}$. Hence $P(A_i)=\sum_{e\in E_i}p_e$ for all $i\in\N$, whence
+\[P\Big(\bigcap_{i\in I}A_i\Big)=\prod_{i\in I}P(A_i).\]
+Since this holds for all finite $I\sub\N$, the family $(A_i)_{i\in I}$ is independent.
+\end{example}
+If $A$ and $B$ are independent, then it is not hard to see that $A^c$ and $B$ also are independent. We generalize this observation in the following theorem.
+\begin{theorem}
+Let $I$ be an arbitrary index set and let $(A_i)_{i\in I}$ be a family of events. Define $B_i^0=A_i$ and $B_i^1=A_i^c$ for $i\in I$. Then the following three statements are equivalent.
+\begin{itemize}
+\item[(\rmnum{1})] The family $(A_i)_{i\in I}$ is independent.
+\item[(\rmnum{2})] There is an $\alpha\in\{0,1\}^I$ such that the family $(B_i^{\alpha_i})_{i\in I}$ is independent.
+\item[(\rmnum{3})] For any $\alpha\in\{0,1\}^I$, the family $(B_i^{\alpha_i})_{i\in I}$ is independent. 
+\end{itemize}
+\end{theorem}
+\begin{example}[\textbf{Euler's prime number formula}]
+The Riemann zeta function is defined by the Dirichlet series
+\[\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}\for s>1.\]
+Euler's prime number formula is a representation of the Riemann zeta function as an infinite product
+\[\zeta(s)=\prod_{\text{$p$ is prime}}\frac{1}{1-p^{-s}}.\]
+We give a probabilistic proof for this formula. Let $\Omega=\N$ and define a probability on $(\Omega,2^\Omega)$ by
+\[P(\{n\})=\zeta(s)^{-1}n^{-s}.\]
+For each $p\in\N$, we set $p\N=\{pn:n\in\N\}$. Then the probability on $p\N$ is given by
+\[P(p\N)=\sum_{n=1}^{\infty}\zeta(s)^{-1}(pn)^{-s}=\zeta(s)^{-1}p^{-s}\sum_{n=1}^{\infty}\frac{1}{n^s}=p^{-s}.\]
+Moreover, for distinct primes $p_{i_1},\dots,p_{i_r}$, the events $p_{i_1}\N,\dots,p{i_r}\N$ are independent, because
+\begin{align*}
+P\Big(\bigcap_{j=1}^{r}p_{i_j}\N\Big)=P(p_{i_1}\cdots p_{i_r}\N)=(p_{i_1}\cdots p_{i_r})^{-s}=\prod_{j=1}^{r}P(p_{i_j}\N).
+\end{align*}
+Therefore, the events $\{(p\N)^c:\text{$p$ is a prime}\}$ are independent, and we have
+\begin{align*}
+\zeta(s)^{-1}=P(\{1\})&=P\Big(\Big(\bigcup_{\text{$p$ is prime}}p\N\Big)^c\Big)=P\Big(\bigcap_{\text{$p$ is prime}}(p\N)^c\Big)\\
+&=\prod_{\text{$p$ is prime}}(1-P(p\N))=\prod_{\text{$p$ is prime}}(1-p^{-s}).
+\end{align*}
+This shows the claim.
+\end{example}
+If we roll a die infinitely often, what is the chance that the face shows a six infinitely often? This probability should equal one. Otherwise there would be a last point in time when we see a six and after which the face only shows a number one to five. However, this is not very plausible.\par
+Recall that we formalized the event where infinitely many of a series of events occur by means of the limes superior. The following theorem confirms the conjecture mentioned above and also gives conditions under which we cannot expect that infinitely many of the events occur.
+\begin{theorem}[\textbf{Borel-Cantelli lemma}]
+Let $(A_n)_{n\in\N}$ be a collection of events.
+\begin{itemize}
+\item[(a)] If $\sum_{n=1}^{\infty}P(A_n)<+\infty$, then $P(\varlimsup_{n}A_n)=0$.
+\item[(b)] If $\sum_{n=1}^{\infty}P(A_n)=+\infty$ and $(A_n)_{n\in\N}$ is independent, then $P(\varlimsup_nA_n)=1$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+We observe that
+\[P(\varlimsup_nA_n)=P\Big(\bigcap_{n=1}^{\infty}\bigcup_{k=n}^{\infty}A_k\Big)\leq p\Big(\bigcup_{k=n}^{\infty}A_k\Big)\leq\sum_{k=n}^{\infty}P(A_k).\]
+If $\sum_nP(A_n)<+\infty$, then $\sum_{k=n}^{\infty}P(A_k)\to 0$, so this implies $P(\varlimsup_nA_n)=0$.\par
+Now assume that $A_n$'s are independent and $\sum_nP(A_n)=+\infty$. Then $A_n^c$'s are independent and
+\begin{align*}
+P\Big(\bigcap_{k=n}^{N}A_k^c\Big)=\prod_{k=n}^{N}(1-P(A_k))\leq\prod_{k=n}^{N}e^{-P(A_k)}=e^{-\sum_{k=n}^{N}P(A_k)}.
+\end{align*}
+Since $\sum_{k=n}^{\infty}P(A_k)=+\infty$ for any fixed $n$, the last expression tends to zero as $N\to+\infty$, which yields
+\[1-P(\varlimsup_nA_n)=P(\varliminf_nA_n^c)=P\Big(\bigcup_{n=1}^{\infty}\bigcap_{k=n}^{\infty}A_k^c\Big)=\lim_{n\to+\infty}P\Big(\bigcap_{k=n}^{\infty}P(A_k^c)\Big)=0.\]
+This implies the claim.
+\end{proof}
+\begin{example}
+We throw a die again and again and ask for the probability of seeing a six infinitely often. Hence $\Omega=\{1,\dots,6\}^{\N}$, $\mathcal{A}$ is the product $\sigma$-algebra and $P$ is the Bernoulli measure on $\Omega$ (see Proposition~\ref{Radon product infinite}). Furthermore, let $A_n=\{\omega:\omega_n=6\}$ be the event where the $n$-th roll shows a six. Then $\varlimsup_nA_n$ is the event where we see a six infinitely often. Furthermore, $(A_n)_{n\in\N}$ is an independent family with the property $\sum_nP(A_n)=+\infty$. Hence the Borel-Cantelli lemma yields $P(\varlimsup_nA_n)=1$.
+\end{example}
+\begin{example}
+We roll a die only once and define $A_n$ for any $n\in\N$ as the event where in this one roll the face showed a six. Note that $A_n$'s are identical, and $\sum_nP(A_n)=+\infty$; however, $P(\varlimsup_nA_n)=P(A_1)=1/6$. This shows that in part (b) of the Borel-Cantelli lemma, the assumption of independence is indispensable.
+\end{example}
+\begin{example}
+Let $\Lambda\in(0,+\infty)$ and $0\leq\lambda_n\leq\Lambda$ for $n\in\N$. For each $n\in\N$, let $X_n$ be Poisson random variable with parameter $\lambda_n$. Then
+\begin{align*}
+\sum_{n=1}^{\infty}P(X_n\geq n)=\sum_{n=1}^{\infty}\sum_{k=n}^{\infty}e^{-\lambda_n}\frac{\lambda_n^k}{k!}=\sum_{k=1}^{\infty}\sum_{n=1}^{k}e^{-\lambda_n}\frac{\lambda_n^k}{k!}\leq\sum_{k=1}^{\infty}\frac{k\Lambda^k}{k!}=e^{\Lambda}<+\infty.
+\end{align*}
+Thus the Borel-Cantelli lemma implies $P(X_n\geq n\text{ for infinitely many $n$})=0$.
+\end{example}
+Now we extend the notion of independence from families of events to families of classes of events. Let $I$ be an arbitrary index set and let $\mathcal{E}_i\sub\mathcal{A}$ for all $i\in I$. The family $(\mathcal{E}_i)_{i\in I}$ is called \textbf{independent} if, for any finite subset $J\sub I$ and any choice of $E_j\in\mathcal{E}_j$, $j\in J$, the events $E_j$ are independent.
+\begin{example}
+let $(\Omega,\mathcal{A},P)$ be the product space of infinitely many repetitions of a random experiment whose possible outcomes $e$ are the elements of the finite set $E$ and have probabilities $p=(p_e)_{e\in E}$. For $\in\N$, define
+\[\mathcal{E}_i=\big\{\{\omega\in\Omega:\omega_i\in A\}:A\sub E\big\}.\]
+For any choice of sets $A_i\in\mathcal{E}_i$, $i\in\N$, the family $(A_i)_{i\in\N}$ is independent; hence $(\mathcal{E}_i)_{i\in\N}$ is independent.
+\end{example}
+\begin{theorem}\label{independent family prop}
+Let $(\Omega,\mathcal{A},P)$ be a probability space. Let $(\mathcal{E}_i)_{i\in I}$ be an indexed family of events.
+\begin{itemize}
+\item[(a)] If $I$ is finite, then $(\mathcal{E}_i)_{i\in I}$ is independent if and only if for any choice $E_i\in\mathcal{E}_i$, the events $E_i$ are independent.
+\item[(b)] The family $(\mathcal{E}_i)_{i\in I}$ is independent if and only if $(\mathcal{E}_j)_{j\in J}$ is independent for any finite set $J\sub I$. 
+\item[(c)] If for each $i\in I$, the family $\mathcal{E}_i\cup\{\emp\}$ is a $\pi$-system, then $(\mathcal{E}_i)_{i\in I}$ is independent if and only if $(\sigma(\mathcal{E}_i))_{i\in I}$ is independent.
+\item[(d)] Let $\{S_j\}_{j\in J}$ be a partition of $I$ and for each $j\in J$ let $\mathcal{B}_j=\bigcup_{i\in S_j}\mathcal{E}_i$. If $(\mathcal{E}_i)_{i\in I}$ is independent, then the family $(\mathcal{B}_j)_{j\in J}$ is independent. 
+\end{itemize}
+\end{theorem}
+\begin{proof}
+The first two parts are trivial, so is the last part. Now assume the condition in (c) and let $(\mathcal{E}_i)$ be independent. Let $J\sub I$ be finite. We will show that for any two finite sets $J$ and $J'$ with $J\sub J'\sub I$,
+\begin{align}\label{independent family prop-1}
+P\Big(\bigcap_{i\in J'}E_i\Big)=\prod_{i\in J'}P(E_i)\text{ for any choice }\begin{cases}
+E_i\in\sigma(\mathcal{E}_i)&i\in J,\\
+E_i\in\mathcal{E}_i&i\in J'\setminus J.
+\end{cases}
+\end{align}
+The case $J=J'$ is exactly the claim we have to show.\par
+We carry out the proof of $(\ref{independent family prop-1})$ by induction on $\#J$. For $\#J=0$, the statement holds by assumption of the independence of $(\mathcal{E}_i)$. Now assume that $(\ref{independent family prop-1})$ holds for every $J$ with $\#J=n$ and for every finite $J'\sups J$. Fix such a $J$ and let $j\in I\setminus J$. Choose $J'\sups\widetilde{J}:=J\cup\{j\}$. We show the validity of $(\ref{independent family prop-1})$ with $J$ replaced by $\widetilde{J}$. Since $\#\widetilde{J}=n+1$, this verifies the induction step.\par
+Let $\mathcal{E}_i\in\sigma(\mathcal{E}_i)$ for any $i\in J$, and let $E_i\in\mathcal{E}_i$ for any $i\in J'\setminus \widetilde{J}$. Define two measures $\mu$ and $\nu$ on $(\Omega,\sigma(\mathcal{E}_j))$ by
+\[\mu:E_j\mapsto P\Big(\bigcap_{i\in J'}E_i\Big),\quad\nu:E_j\mapsto \prod_{i\in J'}P(E_i).\]
+By the induction hypothesis, we have $\mu(E_j)=\nu(E_j)$ for every $E_j\in \mathcal{E}_j\cup\{\emp\}$. Since $\mathcal{E}_j\cup\{\emp\}$ is a $\pi$-system, Proposition~\ref{measure coincide on finite inter class} yields that $\mu(E_j)=\nu(E_j)$ for all $E_j\in\sigma(\mathcal{E}_j)$. That is, $(\ref{independent family prop-1})$ holds for $\widetilde{J}$.
+\end{proof}
+\subsection{Independent random variables}
+Now that we have studied independence of events, we want to study independence of random variables. Here also the definition ends up with a product formula. Formally, however, we can also define independence of random variables via independence of the $\sigma$-algebras they generate. This is the reason why we studied independence of classes of events.\par
+Let $I$ be an arbitrary index set. For each $i\in I$, let $(\Omega_i,\mathcal{A}_i)$ be a measurable space
+and let $X_i:\Omega\to\Omega_i$ be a random variable with generated $\sigma$-algebra $\sigma(X_i)=X_i^{-1}(\mathcal{A}_i)$. The family of random variables $(X_i)_{i\in I}$ is called \textbf{independent} if the $\sigma$-algebras $\sigma(X_i)$ are independent. As a shorthand, we say that a family $(X_i)_{i\in I}$ is "i.i.d." (for independent and identically distributed) if $(X_i)$ is independent and if $P_{X_i}=P_{X_j}$ for all $i,j\in I$.
+\begin{example}
+If $(\mathcal{E}_i)_{i\in I}$ is an independent family of $\sigma$-algebras and if each $X_i$ is $(\mathcal{E}_i,\mathcal{A}_i)$-measurable, then $(X_i)_{i\in I}$ is independent. This is a direct consequence of the fact that $\sigma(X_i)\sub\mathcal{E}_i$.
+\end{example}
+\begin{theorem}[\textbf{Independent Generators}]
+For any $i\in I$, let $\mathcal{E}_i$ be a $\pi$-system that generates $\mathcal{A}_i$. If $(X_i^{-1}(\mathcal{E}_i))_{i\in I}$ is independent, then $(X_i)_{i\in I}$ is independent.
+\end{theorem}
+\begin{proof}
+Since $X_i^{-1}(\mathcal{E}_i)$ is a $\pi$-system that generates the $\sigma$-algebra $X^{-1}(\mathcal{A}_i)=\sigma(X_i)$. Hence the statement follows from Theorem~\ref{independent family prop}.
+\end{proof}
+\begin{example}
+Let $E$ be a countable set and let $(X_i)_{i\in I}$ be random variables with values in $(E,2^E)$. In this case, $(X_i)$ is independent if and only if, for any finite $J\sub I$ and any choice of $x_j\in E$, $j\in J$,
+\[P(X_j=x_j\text{ for all $j\in J$})=\prod_{j\in J}P(X_j=x_i).\]
+This is obvious since $\{\{x\}:x\in E\}\cup\{\emp\}$ is a $\pi$-system that generates $2^E$.
+\end{example}
+\begin{example}
+Let $E$ be a finite set and let $p=(p_e)_{e\in E}$ be a probability vector. Repeat a random experiment with possible outcomes $e\in E$ and probabilities $p_e$ for $e\in E$ infinitely often. Let $\Omega=E^\N$ be the infinite product space and let $\mathcal{A}$ be the product $\sigma$-algebra. Let $P$ be the Bernoulli measure. Further, for any $n\in\N$, let
+\[X_n:\Omega\to E,\quad (\omega_i)_{i\in\N}\mapsto \omega_n\]
+be the projection on the nth coordinate. In other words: For any simple event $\omega\in\Omega$, $X_n(\omega)$ yields the result of the $n$-th experiment. Then, by Example~\ref{infinite Bernoulli experiment independent}, we have
+\begin{align*}
+P(X_i=x_i\text{ for all $i=1,\dots,n$})=P\Big(\bigcap_{i=1}^{n}X_i^{-1}(\{x_i\})\Big)=\prod_{i=1}^{n}P(X_i^{-1}(\{x_i\}))=\prod_{i=1}^{n}P(X_i=x_i).
+\end{align*}
+By virtue of Theorem~\ref{independent family prop}(a), this implies that the family $(X_1,\dots,X_n)$ is independent and hence, by Theorem~\ref{independent family prop}(b), $\{X_n\}$ is independent as well.
+\end{example}
+In particular, we have shown the following theorem.
+\begin{theorem}
+Let $E$ be a finite set and let $(p_e)_{e\in E}$ be a probability vector on $E$. Then there exists a probability space $(\Omega,\mathcal{A},P)$ and an independent family $\{X_n\}$ of $E$-valued random variables on $\Omega$ such that $P(X_n=e)=p_e$ for any $e\in E$ and $n\in\N$.
+\end{theorem}
+Later we will see that the assumption that $E$ is finite can be dropped. Also one can allow for different distributions in the respective factors. For the time being, however, this theorem gives us enough examples of interesting families of independent random variables.\par
+Our next goal is to deduce simple criteria in terms of distribution functions and densities for checking whether a family of random variables is independent or not.
+\begin{theorem}\label{independent radom variable iff joint}
+Let $(\Omega,\mathcal{A},P)$ be a probability space, let $(S,\mathcal{B})$ be a measurable space, let $(X_n)$ be $S$-valued random variables on $\Omega$. For each finite set $J\sub I$, let $P_{X_J}$ be the joint distribution of $(X_j)_{j\in J}$. Then the family $(X_i)_{i\in I}$ is independent if and only if for any finite set $J\sub I$,
+\[P_{X_J}=\prod_{j\in J}P_{X_j}.\]
+\end{theorem}
+\begin{proof}
+If we rewrite the definition of independence, we find that $X_1,\dots,X_n$ are independent if and only if
+\[P_{X_J}(\prod_{j\in J}A_j)=\prod_{j\in J}P_{X_j}(A_j)\]
+holds for each choice of sets $A_j\in\mathcal{B}$. Thus if $P_{X_J}$ is equal to the product of the measures $P_{X_j}$, then $(X_j)_{j\in J}$ are independent. The converse follows from the uniqueness of product measures.
+\end{proof}
+\begin{corollary}
+Let $(X_i)_{i\in I}$ be a family of real radom variables. If for each finite set $J\sub I$, the distribution $P_{X_J}$ has a continuous density $f_J$. Then the family $(X_i)_{i\in I}$ is independent if and only if, for any finite $J\sub I$,
+\[f_J(x)=\prod_{j\in J}f_j(x_j)\for x\in\R^J.\]
+\end{corollary}
+\begin{corollary}
+Let $n\in\N$ and let $\mu_1,\dots,\mu_n$ be probability measures on $(\R,\mathcal{B}(\R))$. Then there exists a probability space $(\Omega,\mathcal{A},P)$ and an independent family of random variables $\{X_i\}_{i=1}^{n}$ on $(\Omega,\mathcal{A},P)$ with $P_{X_i}=\mu_i$ for each $i=1,\dots,n$.
+\end{corollary}
+\begin{proof}
+Let $\Omega=\R^n$ and $\mathcal{A}=\mathcal{B}(\R^n)$. Let $P=\prod_{i=1}^{n}\mu_i$ be the product measure of the $\mu_i$. Further, let $X_i$ be the projection on the $i$-th coordinate for each $i=1,\dots,n$. Then, for any $i=1,\dots,n$,
+\begin{align*}
+P(X_i\leq x)=P(\R^{i-1}\times(-\infty,x]\times R^{n-i})=\mu_i((-\infty,x])\cdot\prod_{j\neq i}\mu_j(\R)=\mu_i((-\infty,x]).
+\end{align*}
+Hence $P_{X_i}=\mu_i$. Furthermore, for all $x_1,\dots,x_n\in\R$,
+\begin{align*}
+P(\prod_{i=1}^{n}(-\infty,x_i])=\prod_{i=1}^{n}\mu_i((-\infty,x_i])=\prod_{i=1}^{n}P_{X_i}((-\infty,x_i]).
+\end{align*}
+Hence Theorem~\ref{independent radom variable iff joint} yields the independence of $\{X_i\}_{i=1}^{n}$.
+\end{proof}
+The following proposition expresses the fact that functions of independent random variables are independent.
+\begin{proposition}
+Let $\{X_{n,j}:1\leq j\leq J(n),n\in\N\}$ be independent random variables, and let $f_n:\R^{J(n)}\to\R$ be Borel measurable for $n\in\N$. Then the random variables $Y_n=f_n(X_{n,1},\dots,X_{n,J(n)})$ are independent.
+\end{proposition}
+\begin{proof}
+Let $X_n=(X_{n,1},\dots,X_{n,J(n)})$. If $B_1,\dots,B_N$ are Borel subsets of $\R$, we have $Y_n^{-1}(B_n)=X_n^{-1}(f_n^{-1}(B_n))$ and hence
+\begin{align*}
+(Y_1,\dots,Y_N)^{-1}(B_1\times\cdots\times B_N)&=\bigcap_{n=1}^{N}Y_n^{-1}(B_n)=\bigcap_{n=1}^{N}X_n^{-1}(f_n^{-1}(B_n))\\
+&=(X_1,\dots,X_N)^{-1}(f_1^{-1}(B_1)\times\cdots\times f_N^{-1}(B_N)).
+\end{align*}
+Therefore, by the independence of the $X_{n,j}$'s and Fubini's theorem,
+\begin{align*}
+P_{(Y_1,\dots,Y_N)}(B_1\times\cdots\times B_N)&=P_{(X_1,\dots,X_N)}(f_1^{-1}(B_1)\times\cdots\times f_N^{-1}(B_N))\\
+&=\Big(\prod_{n=1}^{N}\prod_{j=1}^{J(n)}P_{X_{n,j}}\Big)(f_1^{-1}(B_1)\times\cdots\times f_N^{-1}(B_N))\\
+&=\prod_{n=1}^{N}P_{X_n}(f_n^{-1}(B_n))=\prod_{n=1}^{N}P_{Y_n}(B_n).
+\end{align*}
+Thus the claim follows by Theorem~\ref{independent radom variable iff joint}.
+\end{proof}
+We now present some fundamental properties of independent real random variables. For the first one we need the notion of convolutions of measures on $\R$. An easy induction shows that if $\mu_1,\dots,\mu_n\in M(\R)$, then $\mu_1\ast\cdots\ast\mu_n$ is given by
+\[(\mu_1\ast\cdots\ast\mu_n)(A)=\int\chi_A(t_1+\cdots+t_n)\,d\mu_1(t_1)\cdots d\mu_n(t_n).\]
+\begin{proposition}
+If $\{X_i\}_{i=1}^{n}$ are independent random variables, then
+\[P_{X_1+\cdots+X_n}=P_{X_1}\ast\cdots\ast P_{X_n}.\]
+\end{proposition}
+\begin{proof}
+Let $f(t_1,\dots,t_n)=\sum_{j=1}^{n}t_j$. Then $X_1+\cdots+X_n=f(X_1,\dots,X_n)$, so
+\begin{align*}
+P_{X_1+\cdots+X_n}&=(X_1+\cdots+X_n)_*P=f(X_1,\dots,X_n)_*P\\
+&=f_*((X_1,\dots,X_n)_*P)=f_*P_{(X_1,\dots,X_n)}=f_*\Big(\prod_{i=1}^{n}P_{X_i}\Big)
+\end{align*}
+and the last expression equals $P_{X_1}\ast\cdots\ast P_{X_n}$.
+\end{proof}
+\begin{example}
+Let $X_1,\dots,X_n$ be independent exponentially distributed random variables with parameters $\theta_1,\dots,\theta_n\in(0,+\infty)$. Then
+\[F_i(x)=\int_{0}^{x}\theta_ie^{-\theta_it}\,dt=1-e^{-\theta_i x}\for x\geq 0.\]
+and hence
+\[P(X_i\leq x_i\text{ for all $i$})=\prod_{i=1}^{n}(1-e^{-\theta_i x_i}).\]
+Consider now the random variables $Y=\max(X_1,\dots,X_n)$ and $Z:=\min(X_1,\dots,X_n)$. We have
+\[P(Y\leq x)=P(X_i\leq x\text{ for all $i$})=\prod_{i=1}^{n}(1-e^{-\theta_ix}),\]
+and
+\[P(Z\leq x)=1-P(Z>x)=1-P(X_i>x\text{ for all $i$})=1-\prod_{i=1}^{n}e^{-\theta_i x}=1-e^{-(\theta_1+\cdots+\theta_n)x}.\]
+Note that $Z$ is exponentially distributed with parameter $\theta_1+\cdots+\theta_n$.
+\end{example}
+\begin{theorem}\label{independent radom variable partition}
+Let $(X_i)_{i\in I}$ be a family of independent radom variables. Let $\{S_j\}_{j\in J}$ be a partition of $I$, then the family $(\sigma(X_i:i\in S_j))_{j\in J}$ is independent.
+\end{theorem}
+\begin{proof}
+By the hypothesis we know $(\sigma(X_i))_{i\in I}$ is independent. Hence $(\sigma(\bigcup_{i\in S_j}\sigma(X_i)))_{j\in J}$ is also independent. It is clear that for each $j\in J$, $\sigma(X_i:i\in S_j)$ is contained in $\sigma(\bigcup_{i\in S_j}\sigma(X_i))$, thus the claim follows.
+\end{proof}
+\begin{example}
+If $\{X_n\}$ is an independent family of random variables, then also $\{Y_n=X_{2n+1}-X_{2n}\}$ is independent. Indeed, for any $n\in\N$, the random variable $Y_n$ is $\sigma(X_{2n},X_{2n-1})$-measurable, and $\{\sigma(X_{2n},X_{2n-1})\}$ is independent by Theorem~\ref{independent radom variable partition}.
+\end{example}
+\section{The law of large numbers}
+\subsection{Kolmogorov's \boldmath$0$-$1$ law}
+With the Borel-Cantelli lemma, we have seen a first $0$-$1$ law for independent events. We now come to another $0$-$1$ law for independent events and for independent $\sigma$-algebras. To this end, we first introduce the notion of the tail $\sigma$-algebra.
+\begin{definition}
+Let $I$ be a countably infinite index set and let $(\mathcal{A}_i)_{i\in I}$ be a family of $\sigma$-algebras. Then
+\[\mathcal{T}((\mathcal{A}_i)_{i\in I})=\bigcap_{J\sub I\text{ is finite}}\sigma\Big(\bigcup_{j\in I\setminus J}\mathcal{A}_i\Big)\]
+is called the \textbf{tail $\bm{\sigma}$-algebra} of $(\mathcal{A}_i)_{i\in I}$. If $(A_i)_{i\in I}$ is a family of events, then we define
+\[\mathcal{T}((A_i)_{i\in I})=\mathcal{T}\big((\sigma(A_i))_{i\in I}\big)=\mathcal{T}\big((\{\emp,\Omega,A_i,A_i^c\})_{i\in I}\big).\]
+If $(X_i)_{i\in I}$ is a family of random variables, then we define $\mathcal{T}((X_i)_{i\in I})=\mathcal{T}((\sigma(X_i))_{i\in I})$.
+\end{definition}
+The tail $\sigma$-algebra contains those events $A$ whose occurrence is independent of any fixed finite subfamily of the $X_i$. To put it differently, for any finite subfamily of the $X_i$, we can change the values of the $X_i$ arbitrarily without changing whether $A$ occurs or not.
+\begin{theorem}
+Let $\{J_n\}$ be a sequence of increasing finite subsets of $I$ such that $\bigcup_nJ_n=I$. Then
+\[\mathcal{T}((\mathcal{A}_i)_{i\in I})=\bigcap_{n=1}^{\infty}\sigma\Big(\bigcup_{i\in I\setminus J_n}\mathcal{A}_i\Big).\]
+In the particular case $I=\N$, this reads $\mathcal{T}((\mathcal{A}_i)_{i\in\N})=\bigcap_{n=1}^{\infty}\sigma(\bigcup_{i=n}^{\infty}\mathcal{A}_i)$.
+\end{theorem}
+\begin{proof}
+It is clear that $\mathcal{T}((\mathcal{A}_i)_{i\in I})$ is contained in the right side. For the other inclusion, let $J\sub I$ be finite. Then there exists an $N>0$ with $J\sub J_N$ and
+\begin{align*}
+\bigcap_{n=1}^{\infty}\sigma\Big(\bigcup_{i\in I\setminus J_n}\mathcal{A}_i\Big)\sub\bigcap_{n=1}^{N}\sigma\Big(\bigcup_{i\in I\setminus J_n}\mathcal{A}_i\Big)=\sigma\Big(\bigcup_{i\in I\setminus J_N}\mathcal{A}_i\Big)\sub\sigma\Big(\bigcup_{i\in I\setminus J}\mathcal{A}_i\Big).
+\end{align*}
+The left-hand side does not depend on $J$. Hence we can form the intersection over all finite $J$ and obtain
+\[\bigcap_{n=1}^{\infty}\sigma\Big(\bigcup_{i\in I\setminus J_n}\mathcal{A}_i\Big)\sub \mathcal{T}((\mathcal{A}_i)_{i\in I}).\]
+This proves the claim.
+\end{proof}
+Maybe at first glance it is not evident that there are any interesting events in the tail $\sigma$-algebra at all. It might not even be clear that we do not have $\mathcal{T}=\{\emp,\Omega\}$. Hence we now present simple examples of tail events and tail $\sigma$-algebra measurable random variables. Later we will study a more complicated example.
+\begin{example}[\textbf{Examples of tail $\bm{\sigma}$-algebras}]
+\mbox{}
+\begin{itemize}
+\item[(a)] Let $(A_n)_{n\in\N}$ be a sequence of events. Then $\varliminf_nA_n$ and $\varlimsup_nA_n$ are in $\mathcal{T}((A_n)_{n\in\N})$. Indeed, we have $\varlimsup_nA_n=\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_i$ and $\bigcup_{i=n}^{\infty}A_i\in\sigma((A_i)_{i\geq n})$ for each $n$. Thus $\varlimsup_nA_n\in\bigcap_n\sigma((A_i)_{i\geq n})=\mathcal{T}((A_n)_{n\in\N})$. The case for $\varliminf_nA_n$ is similar.
+\item[(b)] Let $(X_n)_{n\in\N}$ be a family of real valued random variables. Then the maps $\varliminf_{n}X_n$ and $\varlimsup_nX_n$ are $\mathcal{T}((X_n)_{n\in\N})$-measurable. Indeed, if we define $Y_n:=\sup_{i\geq n}X_i$, then $Y_n$ is $\sigma(X_i:i\geq n)$ measurable, and we have $\varlimsup_nX_n=\inf_nY_n$. This implies $\varlimsup_nX_n$ is $\mathcal{T}((X_n)_{n\in\N})$-measurable. The case for $\varliminf_nX_n$ is similar.
+\item[(c)] Let $(X_n)_{n\in\N}$ be $\widebar{\R}$-valued random variables. Then the \textbf{Ces\'aro limits}
+\[\varliminf_{n\to+\infty}\frac{1}{n}\sum_{i=1}^{n}X_i,\quad\varlimsup_{n\to+\infty}\frac{1}{n}\sum_{i=1}^{n}X_i\]
+are $\mathcal{T}((X_n)_{n\in\N})$-measurable. In order to show this, choose $N\in\N$ and note that
+\[\varliminf_{n\to+\infty}\frac{1}{n}\sum_{i=1}^{n}X_i=\varliminf_{n\to+\infty}\frac{1}{n}\sum_{i=N}^{n}X_i\]
+is $\sigma((X_n)_{n\geq N})$-measurable. Since this holds for any $N$, the left-side is $\mathcal{T}((X_n)_{n\in\N})$-measurable. The case of the limes superior is similar.
+\end{itemize}
+\end{example}
+\begin{theorem}[\textbf{Kolmogorov's $\bm{0}$-$\bm{1}$ Law}]
+Let $I$ be a countably infinite index set and let $(\mathcal{A}_i)_{i\in I}$ be an independent family of $\sigma$-algebras. Then the tail $\sigma$-algebra is $P$-trivial, that is,
+\[P(A)\in\{0,1\}\ \ \text{ for any }\ A\in\mathcal{T}((\mathcal{A}_i)_{i\in I}).\]
+\end{theorem}
+\begin{proof}
+It is enough to consider the case $I=\N$. For $n\in\N$, Let $\mathcal{T}$ be the tail $\sigma$-algebra for the sequence $(\mathcal{A}_n)_{n\in\N}$. Proposition~\ref{independent family prop} implies that for each $n$ the $\sigma$-algebras $\mathcal{A}_1,\dots,\mathcal{A}_{n-1}$ and $\sigma(\bigcup_{i=n}^{\infty}\mathcal{A}_i)$ are independent and hence that $\mathcal{A}_1,\dots,\mathcal{A}_{n-1}$ and $\mathcal{T}$ are independent. Since this is true for every $n$, it follows that the collection $(\mathcal{A}_n)$ together with $\mathcal{T}$ is independent. Applying Proposition~\ref{independent family prop} once more shows that $\sigma(\bigcup_{n=1}^{\infty}\mathcal{A}_n)$ and $\mathcal{T}$ are independent. Since $\mathcal{T}$ is a sub-$\sigma$-algebra of $\sigma(\bigcup_{n=1}^{\infty}\mathcal{A}_n)$, $\mathcal{T}$ must be independent of $\mathcal{T}$. Thus each $A$ in $\mathcal{T}$ satisfies $P(A)=P(A\cap A)=P(A)P(A)$, from which it follows that $P(A)=0$ or $P(A)=1$.
+\end{proof}
+\begin{corollary}
+Let $(A_n)_{n\in\N}$ be a sequence of independent events. Then
+\[P(\varlimsup_nA_n)\in\{0,1\},\quad P(\varliminf_nA_n)\in\{0,1\}.\]
+\end{corollary}
+\begin{proof}
+Essentially this is a simple conclusion of the Borel-Cantelli lemma. However, the statement can also be deduced from Kolmogorov's 0–1 law as limes superior and limes inferior are in the tail $\sigma$-algebra.
+\end{proof}
+\begin{corollary}\label{tail algebra measurable is constant}
+Let $(A_n)_{n\in\N}$ be a sequence of independent events. If $X$ is a $\widebar{\R}$-valued random variable that is $\mathcal{T}((A_n)_{n\in\N})$-measurable, then $X$ is almost surely constant.
+\end{corollary}
+\begin{proof}
+For any $x\in\R$, we have $\{X\leq x\}\in\mathcal{T}((A_n)_{n\in\N})$; hence $P(X\leq x)\in\{0,1\}$. Define
+\[x_*=\inf\{x\in\R:P(X\leq x)=1\}\in\widebar{\R}.\]
+It is clear from continuity that $P(X\leq x_*)=1$, so $P(X>x_*)=0$. If $x_*=-\infty$, then we can are done since $X\geq-\infty$ holds automatically. Otherwise, we must show that $P(X<x_*)=0$. This comes from the following observation:
+\[P(X<x_*)=\lim_{n\to+\infty}P(X\leq x_*-1/n)=0.\]
+Thus $P(X=x_*)=1$.
+\end{proof}
+\begin{corollary}
+Let $(X_n)_{n\in\N}$ be an independent family of $\widebar{\R}$-valued random variables. Then $X_*:=\varliminf_nX_n$ and $X^*:=\varlimsup_nX_n$ are almost surely constant. If all $X_i$ are real-valued, then the Ces\'aro limits are also almost surely constant.
+\end{corollary}
+\begin{proof}
+This follows from Corollary~\ref{tail algebra measurable is constant}.
+\end{proof}
+\begin{example}
+Let $(X_n)_{n\in\N}$ be an independent family of $\Rad_{1/2}$ random variables and let $S_n=X_1+\cdots+X_n$ for any $n\in\N$. The we claim that $\varlimsup_{n}S_n=+\infty$ almost surely. In fact, for the inequality $\varlimsup_nS_n<+\infty$ to hold, $X_n$ must be all zero after some term. But this is not plausible.
+\end{example}
+\subsection{Moments}
+\begin{definition}
+Let $(\Omega,\mathcal{A},P)$ be a probability space and $X$ be a real-valued random variable on $\Omega$.
+\begin{itemize}
+\item If $X\in L^1$, then $X$ is called \textbf{integrable} and we call
+\[E(X)=\int X\,dP\]
+the expectation or mean of $X$. If $E(X)=0$, then $X$ is called \textbf{centered}. More generally, we also write $E(X)=\int X\,dP$ if $X$ is extended integrable.
+\item More generally, if $n\in\N$ and $X\in L^n$, then the quantities
+\[E(X^r),\quad E(|X|^r)\for r=1,\dots,n\]
+are called the $r$-th \textbf{moments} and $r$-th \textbf{absolute moments}, respectively, of $X$. Note that the first moments is just the expectation of $X$.
+\item If $X\in L^2$, then $X$ is called \textbf{square integrable} and
+\[\Var(X)=E((X-E(X))^2)=E(X^2)-E(X)^2\]
+is the \textbf{variance} of $X$. The number $\sigma(X):=\sqrt{\Var(X)}$ is called the \textbf{standard deviation} of $X$. Formally, we sometimes write $\Var(X)=+\infty$ if $E(X^2)=+\infty$.
+\item If $X,Y\in L^2$, then we define the \textbf{covariance} of $X$ and $Y$ by
+\[\Cov(X,Y)=E((X-E(X))(Y-E(Y)))=E(XY)-E(X)E(Y).\]
+$X$ and $Y$ are called \textbf{uncorrelated} if $\Cov(X,Y)=0$ and \textbf{correlated} otherwise.
+\end{itemize}
+\end{definition}
+We collect the most important rules of expectations in a theorem. All of these properties are direct consequences of the corresponding properties of the integral.
+\begin{theorem}
+Let $X,Y,X_n,Y_n$ be real integrable random variables on $(\Omega,\mathcal{A},P)$.
+\begin{itemize}
+\item[(a)] If $P_X=P_Y$, then $E(X)=E(Y)$.
+\item[(b)] Let $\alpha\in\R$. Then $\alpha X\in L^1$ and $X+Y\in L^1$ as well as
+\[E(\alpha X)=\alpha E(X),\quad E(X+Y)=E(X)+E(Y).\] 
+\item[(c)] If $X\geq 0$ almost surely, then $X=0$ if and only if $E(X)=0$.
+\item[(d)] If $X\leq Y$ almost surely, then $E(X)\leq E(Y)$ with equality if
+and only if $X=Y$ almost surely.
+\item[(e)] $|E(X)|\leq E(|X|)$.
+\item[(f)] If $X_n\geq 0$ almost surely for all $n\in\N$, then $\sum_nE(X_n)=E(\sum_nX_n)$.
+\item[(g)] If $Y_n$ converges to $Y$ monotonically, then $E(Y)=\lim_nE(Y_n)$.  
+\end{itemize}
+\end{theorem}
+Again probability theory comes into play when independence enters the stage; that is, when we exit the realm of linear integration theory.
+\begin{theorem}
+Suppose that $\{X_i\}_{i=1}^{n}$ are independent random variables. If $X_i\in L^1$ for all $i$, then $\prod_{i=1}^{n}X_i\in L^1$ and $E(\prod_{i=1}^{n}X_i)=\prod_{i=1}^{n}P(X_i)$. In particular, independent random variables are uncorrelated.
+\end{theorem}
+\begin{proof}
+We have $\prod_{i=1}^{n}|X_i|=f(X_1,\dots,X_n)$ where $f(t_1,\dots,t_n)=\prod_{i=1}^{n}|t_i|$. Hence
+\begin{align*}
+E(\prod_{i=1}^{n}|X_i|)=\int f\,dP_{(X_1,\dots,X_n)}=\int f\,d\Big(\prod_{i=1}^{n}P_{X_i}\Big)=\prod_{i=1}^{n}\int|t_i|\,dP_{X_i}=\prod_{i=1}^{n}E(X_i).
+\end{align*}
+This proves the first assertion, and once this is known, the same argument (with the absolute values removed) proves the second one.
+\end{proof}
+We collect some basic properties of the variance
+\begin{theorem}
+Let $X\in L^2$, then
+\begin{itemize}
+\item[(a)] $\Var(X)=E((X-E(X))^2)\geq 0$ and $\Var(X)=0$ if and only if $X=E(X)$ almost surely.
+\item[(b)] $\Var(X)=\inf_{a\in\R}E((X-a)^2)$.
+\end{itemize}
+\end{theorem}
+\begin{theorem}
+The map $\Cov:L^2\times L^2\to\R$ is a positive semidefinite symmetric bilinear form and $\Cov(Y,Y)=0$ if $Y$ is almost surely constant. Moreover precisely, let $X_1,\dots,X_n$ and $Y_1,\dots,Y_m$ be square integrable radom variables and $\alpha_1,\dots,\alpha_n,\beta_1,\dots,\beta_n\in\R$ as well as $a,b\in\R$. Then
+\begin{align*}
+\Cov\Big(a+\sum_{i=1}^{n}\alpha_iX_i,b+\sum_{j=1}^{m}\beta_jY_j\Big)=\sum_{i,j}\alpha_i\beta_j\Cov(\alpha_i,\beta_j).
+\end{align*}
+In particular, $\Var(\alpha X)=\alpha\Var(X)$ and the Bienaym\'e formula holds
+\begin{align*}
+\Var\Big(\sum_{i=1}^{n}X_i\Big)=\sum_{i=1}^{n}\Var(X)+\sum_{i\neq j}\Cov(X_i,X_j).
+\end{align*}
+For uncorrelated $X_1,\dots,X_n$, we have $\Var(\sum_{i=1}^{n}X_i)=\sum_{i=1}^{n}\Var(x_i)$.
+\end{theorem}
+\begin{proof}
+This follows from a direct computation:
+\begin{align*}
+\Cov\Big(a+\sum_{i=1}^{n}\alpha_iX_i,b+\sum_{j=1}^{m}\beta_jY_j\Big)&=E\Big[\Big(\sum_{i=1}^{n}\alpha_i(X_i-E(X_i))\Big)\Big(\sum_{j=1}^{m}\beta_j(Y_j-E(Y_j))\Big)\Big]\\
+&=\sum_{i,j}\alpha_i\beta_jE((X_i-E(X_i))(Y_j-E(Y_j)))\\
+&=\sum_{i,j}\alpha_i\beta_j\Cov(X_i,Y_j).
+\end{align*}
+This proves the claim.
+\end{proof}
+\begin{theorem}[\textbf{Cauchy-Schwarz inequality}]
+If $X,Y\in L^2$, then
+\[(\Cov(X,Y))^2\leq\Var(X)\Var(Y).\]
+Equality holds if and only if there are $a,b,c\in\R$ which are not simultaneously zero and such that $aX+bY+c=0$ a.s.
+\end{theorem}
+\begin{example}
+\mbox{}
+\begin{itemize}
+\item[(a)] Let $n\in\N$ and $p\in[0,1]$. Let $X$ be binomially distributed: $X\sim B_{n,p}$. Then
+\begin{align*}
+E(X)&=\sum_{k=0}^{n}k\binom{n}{k}p^k(1-p)^{n-k}=np,\\
+E(X^2)&=\sum_{k=0}^{n}k^2\binom{n}{k}p^k(1-p)^{n-k}=n^2p^2+np(1-p),\\
+\Var(X)&=E(X^2)-E(X)^2=np(1-p).
+\end{align*}
+In fact, the statement can be derived more simply than by direct computation if we make use of the fact that $b_{n,p}=b^{\ast n}_{1,p}$.
+\item[(b)] Let $X$ be normally distributed: $X\sim\mathcal{N}_{\mu,\sigma^2}$. Then
+\begin{align*}
+E(X)&=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^{+\infty}xe^{-\frac{(x-\mu)^2}{2\sigma^2}}dx=\mu,\\
+\Var(X)&=E((x-\mu)^2)=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^{+\infty}(x-\mu)^2e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx=\sigma^2.
+\end{align*}
+\item[(c)] Let $X$ be exponentially distributed: $X\sim\exp_\theta$. Then
+\begin{align*}
+E(X)&=\int_{0}^{+\infty}\theta xe^{-\theta x}dx=\theta^{-1},\\
+\Var(X)&=\int_{0}^{\infty}\theta(x-\theta^{-1})^2e^{-\theta x}dx=\theta^{-2}.
+\end{align*}
+\end{itemize}
+\end{example}
+\begin{theorem}[\textbf{Wald's identity}]
+Let $T$ and $\{X_n\}$ be independent real random variables in $L^1$. Asssume that $T$ takes positive integers almost surely and that $\{X_n\}$ are identically distributed. Define
+\[S_T=\sum_{i=1}^{T}X_i.\]
+Then $S_T\in L^1$ and $E(S_T)=E(T)E(X_1)$.
+\end{theorem}
+\begin{proof}
+Define $S_n=\sum_{i=1}^{n}X_n$. Then $S_T=\sum_{n=1}^{\infty}S_n\chi_{\{T=n\}}$. The random variables $S_n$ and $\chi_{\{T=n\}}$are independent for any $n\in\N$. Therefore,
+\begin{align*}
+E(|S_T|)&=\sum_{n=1}^{\infty}E(|S_n||\chi_{\{T=n\}}|)=\sum_{n=1}^{\infty}E(|S_n|)E(\chi_{\{T=n\}})\\
+&\leq \sum_{n=1}^{\infty}nE(|X_1|)P(T=n)=E(|X_1|)\sum_{n=1}^{\infty}nP(T=n)=E(|X_1|)E(T).
+\end{align*}
+This implies $S_T\in L^1$. The same computation without absolute values yields the remaining part of the claim.
+\end{proof}
+\begin{theorem}[\textbf{Blackwell-Girshick}]
+Let $T$ and $\{X_n\}$ be independent real random variables in $L^2$. Asssume that $T$ takes positive integers almost surely and that $\{X_n\}$ are identically distributed. Define
+\[S_T=\sum_{i=1}^{T}X_i.\]
+Then $S_T\in L^2$ and
+\[\Var(S_T)=E(X_1)^2\Var(T)+E(T)\Var(X_1).\]
+\end{theorem}
+\begin{proof}
+Define $S_n=\sum_{i=1}^{n}S_i$ for $n\in\N$. Then (as in the proof of Wald's identity) $S_n$ and $\chi_{\{T=n\}}$ are independent; hence $S_n^2$ and $\chi_{\{T=n\}}$ are uncorrelated and thus
+\begin{align*}
+E(S_T^2)&=\sum_{n=0}^{\infty}E(S_n^2\chi_{\{T=n\}})=\sum_{n=0}^{\infty}E(S_n^2)P(T=n)=\sum_{n=1}^{\infty}P(T=n)[E(S_n)^2+\Var(S_n)]\\
+&=\sum_{n=1}^{\infty}P(T=n)[n^2E(X_1)^2+n\Var(X_1)]=E(T^2)E(X_1)^2+E(T)\Var(X_1).
+\end{align*}
+By Wald's identity, we have $E(S_T)=E(T)E(X_1)$; hence
+\begin{align*}
+\Var(S_T)&=E(S_T^2)-E(S_T)^2=E(T^2)E(X_1)^2+E(T)\Var(X_1)-E(T)^2E(X_1)^2\\
+&=\Var(T)E(X_1)^2+E(T)\Var(X_1)
+\end{align*}
+as claimed.
+\end{proof}
+\subsection{Law of large numbers}
+\begin{definition}
+Let $\{X_n\}$ be a sequence of real random variables in $L^1$ and define $\hat{S}_n=\sum_{i=1}^{n}(X_i-E(X_i))$.
+\begin{itemize}
+\item We say that $\{X_n\}$ fulfills the \textbf{weak law of large numbers} if for every $\eps>0$,
+\[\lim_{n\to+\infty}P\Big(\Big|\frac{\hat{S}_n}{n}\Big|\geq\eps\Big)=0.\]
+That is, if $\{\hat{S}_n/n\}$ converges to $0$ in probability.
+\item We say that $\{X_n\}$ fulfills the \textbf{strong law of large numbers} if for every $\eps>0$,
+\[P\Big(\varlimsup_{n\to+\infty}\Big|\frac{\hat{S}_n}{n}\Big|\geq\eps\Big)=0.\]
+That is, if $\{\hat{S}_n/n\}$ converges to $0$ almost surely.
+\end{itemize}
+\end{definition}
+Note that, since $P$ is a finite measure, the strong law of large number implies the weak law of large number.
+\subsubsection{Weak law of large numbers}
+We first recall the following useful inequality in measure theory.
+\begin{proposition}[\textbf{Chebyshev inequality}]
+Let $X$ be a real random variable. If $X\in L^2$, then for any $\eps>0$,
+\[P(|X-E(X)|\geq\eps)\leq\eps^{-2}\Var(X).\]
+\end{proposition}
+\begin{theorem}[\textbf{The Weak Law of Large Numbers}]
+Let $\{X_n\}$ be uncorrelated random variables in $L^2$ with $n^{-2}\sum_{i=1}^{n}\Var(X_i)\to 0$. Then $\{X_n\}$ fulfills the weak law of large numbers. More precisely, for any $\eps>0$, we have
+\[P\Big(\Big|\frac{\hat{S}_n}{n}\Big|\geq\eps\Big)\leq \eps^{-2}n^{-2}\sum_{i=1}^{n}\Var(X_i).\]
+\end{theorem}
+\begin{proof}
+Without loss of generality, assume $E(X_i)=0$ for all $i\in\N$ and thus $\hat{S}_n=X_1+\dots+X_n$. By Bienaym\'es's formula, we obtain
+\[\Var\Big(\frac{\hat{S}_n}{n}\Big)=n^{-2}\sum_{i=1}^{n}\Var(X_i).\]
+Thus by Chebyshev's inequality, for any $\eps>0$,
+\begin{align*}
+P\Big(\Big|\frac{\hat{S}_n}{n}\Big|\geq\eps\Big)\leq\eps^{-2}n^{-2}\sum_{i=1}^{n}\Var(X_i).
+\end{align*}
+This proves the claim.
+\end{proof}
+\subsubsection{Strong law of large number}
+To give the strong law of large numbers, we need the following improvement of Chebyshev's inequality.
+\begin{proposition}[\textbf{Kolmogorov's Inequality}]
+Let $\{X_n\}$ be independent random variables with zero mean and finite variances, and let $S_j=\sum_{i=1}^{j}X_i$. Then for any $\eps>0$ and any decreasing positive sequence $\{C_j\}$, we have 
+\[P\Big(\max_{m\leq j\leq n}C_j|S_j|\geq\eps\Big)\leq\eps^{-2}\Big(C_m^2\sum_{j=1}^{m}\Var(X_j)+\sum_{j=m+1}^{n}C_j^2\Var(X_j)\Big).\]
+\end{proposition}
+\begin{proof}
+For each $m\leq j\leq n$, let $E_j$ be the set where $C_i|S_i|<\eps$ for $m\leq i<j$ and $C_j|S_j|\geq\eps$. Then the $E_j$'s are disjoint and their union is the set where $\max_{m\leq j\leq n}C_j|S_j|\geq\eps$, so
+\begin{align}\label{Kolmogorov's inequality-1}
+P\Big(\max_{1\leq j\leq n}|S_j|\geq\eps\Big)=\sum_{j=m}^{n}P(E_j).
+\end{align}
+For any $m\leq j<k\leq n$, we claim that
+\[E(\chi_{E_j}S_j^2)\leq E(\chi_{E_j}S_k^2).\]
+To see this, note that the radom variable $\chi_{E_j}S_j$ depends on $X_1,\dots,X_j$, while $S_k-S_j$ does not contain them. Hence, if we write $S_k^2$ as $(S_j+(S_k-S_j))^2$ and expand, we find
+\begin{align*}
+E(\chi_{E_j}S_k^2)&=E[\chi_{E_j}(S_j+(S_k-S_j))^2]\\
+&=E(\chi_{E_j}S_j^2)+2E(\chi_{E_j}S_j(S_k-S_j))+E(\chi_{E_j}(S_k-S_j)^2)\\
+&=E(\chi_{E_j}S_j^2)+2E(\chi_{E_j}S_j)E(S_k-S_j)+E(\chi_{E_j}(S_k-S_j)^2)\\
+&=E(\chi_{E_j}S_j^2)+E(\chi_{E_j}(S_k-S_j)^2)\geq E(\chi_{E_j}S_j^2).
+\end{align*}
+Now define a radom variable $Y$ by
+\[Y=\sum_{j=m}^{n-1}(C_j^2-C_{j+1}^2)S_j^2+C_n^2S_n^2=C_m^2S_m^2+\sum_{j=m+1}^{n}C_j^2(S_j^2-S_{j-1}^2).\]
+Then for $m\leq j\leq n$, we have
+\begin{equation*}\small
+\begin{aligned}
+E(\chi_{E_j}Y)&=\sum_{k=m}^{n-1}(C_k^2-C_{k+1}^2)E(\chi_{E_j}S_k^2)+C_n^2E(\chi_{E_j}S_n^2)\geq\sum_{k=j}^{n-1}(C_k^2-C_{k+1}^2)E(\chi_{E_j}S_k^2)+C_n^2E(\chi_{E_j}S_n^2)\\
+&\geq\sum_{k=j}^{n-1}(C_k^2-C_{k+1}^2)E(\chi_{E_j}S_j^2)+C_n^2E(\chi_{E_j}S_j^2)=C_j^2E(\chi_{E_j}S_j^2)\geq\eps^2P(E_j).
+\end{aligned}
+\end{equation*}
+It follows from this and $(\ref{Kolmogorov's inequality-1})$ that
+\[E(Y)\geq\sum_{j=m}^{n}E(\chi_{E_jY})\geq\eps^2\sum_{j=m}^{n}P(E_j).\]
+Since the $X_n$'s are independent, we have $E(S_n^2)=\sum_{j=1}^{n}\Var(X_j)$. Thus
+\[E(Y)=C_m^2\sum_{j=1}^{m}\Var(X_j)+\sum_{j=m+1}^{n}C_j^2\Var(X_j)^2\]
+from which the claim follows.
+\end{proof}
+\begin{proposition}\label{variance converge imply converge series}
+Let $\{X_n\}$ be a sequence of independent random variables that have mean $0$ and satisfy $\sum_nE(X_n^2)<+\infty$. Then $\sum_nX_n$ converges almost surely.
+\end{proposition}
+\begin{proof}
+If for each $n<m$ we apply Kolmogorov's inequality to the sequence $X_n,\dots,X_m$ and then let $m$ approach infinity, we find
+\[P(\{\sup_{j\geq n}|S_j-S_n|\geq\eps\})\leq\frac{1}{\eps^2}\sum_{j=n}^{+\infty}E(X_j^2)\to 0.\]
+By Lemma~\ref{converge a.e. iff}, $S_n$ converges almost everywhere.
+\end{proof}
+\begin{lemma}[\textbf{Kronecker's Lemma}]
+If $\{x_n\}$ is an infinite sequence of real numbers such that $\sum_nx_n<+\infty$, then for any increasing positive sequence $\{b_n\}$ with $b_n\to+\infty$, we have
+\[\lim_n\frac{1}{b_n}\sum_{i=1}^{n}b_ix_i=0.\]
+\end{lemma}
+\begin{proof}
+Let $S_n$ denote the partial sums and let $s=\sum_nx_n$. For any $\eps>0$, choose $N$ so that $|S_n-s|<\eps$ for $n>N$. Then using summation by parts,
+\begin{equation*}\small
+\begin{aligned}
+\frac{1}{b_n}\sum_{i=1}^{n}b_ix_i&=S_n-\frac{1}{b_n}\sum_{i=1}^{n-1}(b_{i+1}-b_i)S_i=S_n-\frac{1}{b_n}\sum_{i=1}^{N}(b_{i+1}-b_i)S_i-\frac{1}{b_n}\sum_{i=N+1}^{n-1}(b_{i+1}-b_i)S_i\\
+&=S_n-\frac{1}{b_n}\sum_{i=1}^{N}(b_{i+1}-b_i)S_i-\frac{1}{b_n}\sum_{i=N+1}^{n-1}(b_{i+1}-b_i)s-\frac{1}{b_n}\sum_{i=N+1}^{n-1}(b_{i+1}-b_i)(S_i-s)\\
+&=S_n-\frac{1}{b_n}\sum_{i=1}^{N}(b_{i+1}-b_i)S_i-\frac{b_n-b_N}{b_n}s-\frac{1}{b_n}\sum_{i=N+1}^{n-1}(b_{i+1}-b_i)(S_i-s).
+\end{aligned}
+\end{equation*}
+Now, let $n$ go to infinity. The first term goes to $s$, which cancels with the third term. The second term goes to zero (as the sum is a fixed value). Since the sequence $b_n$ is increasing, the last term is bounded by $\eps(b_n-b_N)/b_n\leq\eps$.
+\end{proof}
+\begin{theorem}[\textbf{Kolmogorov's Strong Law of Large Numbers}]\label{Kolmogorov's Strong Law of Large Numbers}
+If $\{X_n\}$ is a sequence of independent $L^2$ random variables such that $\sum_{n}n^{-2}\Var(X_n)<+\infty$, then $\{X_n\}$ fulfills the strong law of large numbers.
+\end{theorem}
+\begin{proof}
+If we take $C_j=j^{-1}$ in Kolmogorov's inequality, we get
+\[P\Big(\sup_{j\geq n}j^{-1}|S_j|\geq\eps\Big)\leq\frac{1}{\eps^2}\Big(\frac{1}{n^2}\sum_{j=1}^{n}\Var(X_j)+\sum_{j=n+1}^{+\infty}\frac{\Var(X_j)}{j^2}\Big).\]
+Since $\sum_nn^{-2}\Var(X_n)<+\infty$, by Kronecker's lemma we have $n^{-2}\sum_{j=1}^{n}\Var(X_j)\to 0$. Thus for any $\eps>0$ we get
+\[\lim_{n\to+\infty}P\Big(\sup_{j\geq n}j^{-1}|S_j|\geq\eps\Big)=0\]
+which means $\{n^{-1}S_n\}$ converges to zero almost surely.
+\end{proof}
+The hypotheses of this theorem are a bit stronger than those of the weak law. They are certainly satisfied when the $X_n$'s are identically distributed $L^2$ random variables, since then $\Var(X_n)$ is independent of $n$. However, in the identically distributed case the assumption that $X_n\in L^2$ can be weakened.
+\begin{theorem}[\textbf{Khinchine's Strong Law of Large Numbers}]
+If $\{X_n\}$ is a sequence of independent identically distributed $L^1$ random variables, then $\{X_n\}$ fulfills the strong law of large numbers.
+\end{theorem}
+\begin{proof}
+Replacing $X_n$ by $X_n-E(X_n)$, we may assume that $E(X_n)=0$. Let $\mu$ be the common distribution of the $X_n$'s; we are thus assuming that
+\[\int|t|\,d\mu(t)<+\infty,\quad\int t\,d\mu(t)=0.\]
+Let $Y_n=X_n\chi_{\{|X_n|\leq n\}}$ be the truncation of $X_n$ at $n$. Then by Proposition~\ref{finite measure integrable iff},
+\begin{align*}
+\sum_{n=1}^{\infty}P(X_n\neq Y_n)&=\sum_{n=1}^{\infty}P(|X_n|>n)=\sum_{n=1}^{\infty}\mu(\{x:|x|>n\})<+\infty.
+\end{align*}
+By the Borel-Cantelli lemma, then, with probability one we have $X_n=Y_n$ for $n$ sufficiently large, and it therefore suffices to show that $n^{-1}\sum_{i=1}^{n}Y_i\to 0$ almost surely. We have
+\begin{equation*}\small
+\begin{aligned}
+\sum_{n=1}^{\infty}n^{-2}\Var(Y_n)&\leq\sum_{n=1}^{\infty}n^{-2}E(Y_n^2)=\sum_{n=1}^{\infty}\int_{|t|\leq n}t^2\,d\mu=\sum_{n=1}^{\infty}\sum_{k=1}^{n}n^{-2}\int_{k-1<|t|\leq k}t^2\,d\mu(t)\\
+&\leq\sum_{n=1}^{\infty}\sum_{k=1}^{n}kn^{-2}\int_{k-1<|t|\leq k}|t|\,d\mu(t)\leq 2\sum_{k=1}^{\infty}\int_{k-1<|t|\leq k}|t|\,d\mu(t)=2\int_{-\infty}^{+\infty}|t|\,d\mu(t)
+\end{aligned}
+\end{equation*}
+where we use the fact that $\sum_{n=k}^{\infty}n^{-2}\leq 2k^{-1}$ (by comparison to $\int_{k}^{\infty}x^2\,dx$). By Theorem~\ref{Kolmogorov's Strong Law of Large Numbers}, therefore, if $\mu_n=E(Y_n)$ we have $n^{-1}\sum_{i=1}^{n}(Y_i-\mu_i)\to 0$ almost surely. However, by the dominated convergence theorem,
+\[\mu_n=\int_{|t|\leq n}t\,d\mu(t)\to\int_{-\infty}^{+\infty}t\,d\mu(t)=0,\]
+and it follows easily that $n^{-1}\sum_{i=1}^{n}\mu_i\to 0$ also. Hence $n^{-1}\sum_{i=1}^{n}Y_i\to 0$ a.s., and the proof is complete.
+\end{proof}
+\begin{theorem}[\textbf{Converse to the Strong Law of Large Numbers}]
+Let $\{X_n\}$ be a sequence of independent identically distributed random variables that do not have finite expected values. For each $n$ let $S_n=X_1+\cdots+X_n$. Then $\varlimsup_n|S_n/n|=+\infty$ almost surely.
+\end{theorem}
+\begin{proof}
+Let $K$ be a positive integer, fixed for a moment, and for each $n$ let $A_n$ be the event $\{|X_n|\geq Kn\}$. Since the variables $\{X_i\}$ have a common distribution $\mu$, but do not have a finite expected value, it follows Proposition~\ref{finite measure integrable iff} that
+\begin{align*}
+\sum_nP(A_n)=\sum_{n=1}^{\infty}\mu(\{|x|\geq Kn\})=+\infty.
+\end{align*}
+The second part of the Borel-Cantelli lemmas implies that $P(\varlimsup_nA_n)=1$ and hence that
+\[P\Big(\varlimsup_n\frac{|X_n|}{n}\geq K\Big)=1.\]
+This is true for each positive integer $K$, and so it follows that $\varlimsup_n|X_n/n|=+\infty$ almost surely. However,
+\[\frac{X_n}{n}=\frac{S_n}{n}-\frac{n-1}{n}\frac{S_{n-1}}{n-1},\]
+from which it follows that $\varlimsup_n|X_n/n|\leq 2\limsup_n|S_n/n|$; thus $\varlimsup_n|S_n/n|$ is also almost surely infinite.
+\end{proof}
+\begin{example}
+The Weierstrass approximation theorem says that every continuous function on a closed bounded subinterval of $\R$ can be uniformly approximated by polynomials. Now we derive this for functions on $[0,1]$ from the weak law of large numbers.\par
+Let $f$ be a continuous real-valued function on $[0,1]$, let $\{X_n\}$ be a sequence of independent random variables, each of which has a Bernoulli distribution with parameter $p$, and for each $n$ let $S_n=X_1+\cdots+X_n$ and $Y_n=S_n/n$. For each $p$ in $[0,1]$ let $g_n(p)$ be $E(f\circ Y_n)$, the expected value of $f\circ Y_n$ in the case where the underlying Bernoulli distribution has parameter $p$. Then
+\[g_n(p)=\sum_{k=0}^{n}f(k/n)\binom{n}{k}p^k(1-p)^{n-k}.\]
+and so $g_n$ is a polynomial in $p$. Now the weak law of large numbers says that for each $\eps$ we have
+\[P(|S_n/n-p|\geq\eps)\leq\eps^{-2}n^{-2}\sum_{i=1}^{n}\Var(X_i)=\eps^{-2}n^{-2}\sum_{i=1}^{n}p(1-p)\leq\frac{1}{4n\eps^2}.\]
+Thus the sequence $|S_n/n-p|=|Y_n-p|$ converges to $0$ in probability uniformly on $p$. By the uniform continuity of $f$, it follows that $E(f\circ Y_n)$ converges uniformly to $f(p)$.
+\end{example}
+\begin{example}
+Let $b$ be an integer such that $b\geq 2$. The digits that can occur in a base $b$ expansion of a number are, of course, $0,1,\dots,b-1$. A number $x$ in $[0,1]$ is \textbf{normal to base $\bm{b}$} if each value in $\{0,1,\dots,b-1\}$ occurs the expected fraction (namely $1/b$) of the time in the base $b$ expansion of $x$---that is, if
+\[\lim_n\frac{\text{number of times $k$ occurs among the first $n$ digits of $x$}}{n}=\frac{1}{b}.\]
+holds for $k=0,1,\dots,b-1$. The value $x$ is \textbf{normal} if it is normal to base $b$ for every $b$.\par
+We claim that for a given base $b$, almost every number $x$ in $[0,1]$ is normal. To see this, let $\{X_n\}$ be the radom variables on $[0,1]$ such that $X_n(x)$ is the $n$-th number in the base $b$ expansion of $x$. Then $\{X_n\}$ is a sequence of independent random variables, each of which has a uniform distribution on $\{0,1,\dots,b-1\}$. Let $k\in\{0,1,\dots,b-1\}$ be fixed, we define a radom variable $Y_n^{(k)}$ on $[0,1]$ by
+\[Y_n^{(k)}=\frac{1}{n}\sum_{i=1}^{n}\chi_{\{X_n=k\}}.\]
+That is, $Y_n^{(k)}$ is the number of times $k$ occurs among the first $n$ digits of $x$. Then $x$ is normal in base $b$ if and only if $\lim_nY_n^{(k)}(x)=1/b$ for each $k$. For any fixed $k$, note that $Y_n^{(k)}$ is a Bernoulli distribution on $\Omega$ with parameter $1/b$ and $\{\chi_{\{X_n=k\}}\}$ is independent since $\{X_n\}$ is. Thus it follows from strong law of large number that $Y_n^{(k)}$ converges to $1/b$ a.e. on $[0,1]$. That is, almost every number in $[0,1]$ is normal to base $b$. Since there are only countably many $b$'s, we conclude that almost every number in $[0,1]$ is normal.
+\end{example}
+The above example has another application. Let $(\Omega,\mathcal{A},P)$ be a probability space, let $\mu$ be a probability distribution on $(\R,\mathcal{B}(\R))$, let $F$ be its distribution function, and let $\{X_n\}$ be a sequence of independent random variables on $(\Omega,\mathcal{A},P)$, each of which has distribution $\mu$. For each $\omega$ in $\Omega$, $\{X_n(\omega)\}$ is a sequence of real numbers, and we can define a sequence $\{\mu_n^{\omega}\}$ of measures on $(\R,\mathcal{B}(\R))$ by letting
+\[\mu_n^{\omega}=\frac{1}{n}\sum_{i=1}^{n}\delta_{X_i(\omega)}.\]
+Also, let $F_n^{\omega}$ be the distribution function of the measure $\mu_n^{\omega}$; thus,
+\[F_n^{\omega}(x)=\frac{\sum_{i=1}^{n}\chi_{\{X_i(\omega)\leq x\}}}{n}=\frac{\text{number of $i$ in $\{1,2,\dots,n\}$ for which $X_i(\omega)\leq x$}}{n}.\]
+The functions $F_n^{\omega}$ are called \textbf{empirical distribution functions}. Since $\mu$ describes the distribution of values of the $X_n$'s, it seems plausible that for a typical $\omega$, the measures $\mu_n^\omega$ might approach $\mu$ as $n$ becomes large, whatever $\omega$ is. In fact we can prove a stronger conclusion.
+\begin{theorem}[\textbf{Glivenko-Cantelli}]
+Let $\{X_n\}$ be i.i.d. real random variables with distribution function $F$, and let $\{F_n^\omega\}$ be the empirical distribution functions. Then for almost every $\omega\in\Omega$ we have
+\[\lim_{n\to+\infty}\sup_{x\in\R}|F_n^\omega(x)-F(x)|=0.\]
+That is, $\{F_n^\omega\}$ converges to $F$ uniformly on $\R$.
+\end{theorem}
+\begin{proof}
+Fix $x\in\R$. Define $Y_n(x)=\chi_{\{X_n(\omega)\leq x\}}$ and $Z_n(x)=\chi_{\{X_n(\omega)\leq x\}}$. Then each $\{Y_n(x)\}$ and $\{Z_n(x)\}$ is a Bernoulli distribution on $\Omega$ with parameter $P(X_i\leq x)$ and $P(X_i<x)$, respectively, and $\{Y_n(x)\}$, $\{Z_n(x)\}$ is independent. Thus by Strong law of large number,
+\[F_n^\omega(x)=\frac{1}{n}\sum_{i=1}^{n}Y_n(x)\to F(x)\quad a.s.,\]
+and
+\[F_n^\omega(x^-)=\frac{1}{n}\sum_{i=1}^{n}Z_n(x)\to F(x^-)\quad a.s.\]
+Now fix $\eps>0$ and let $x_1,x_2,\dots,x_k$ be real numbers such that $x_1<x_2<\cdots<x_k$ and such that
+\[\max\{F(x_i)-F(x_{i-1}):i=1,\dots,k\}<\eps.\]
+If $\omega\in\Omega$ is such that $\lim_nF_n^\omega(x_i)=F(x_i)$ and $\lim_nF_n^\omega(x_i^-)=F(x_i^-)$ hold for $i=1,2,\dots,k$, then for $x\in(x_{i-1},x_i)$ we have
+\[F_n^\omega(x)\leq F_n^\omega(x_i^-)=F(x_i^-)+[F_n^\omega(x_i^-)-F(x_i^-)]\leq F(x)+\eps+[F_n^\omega(x_i^-)-F(x_i^-)].\]
+Thus by our choice of $\omega$, we have 
+\[\varlimsup_{n\to+\infty}\sup_{x\in\R}|F_n^\omega(x)-F(x)|\leq\eps.\]
+Since $\eps$ is arbitrary, we get the claim.
+\end{proof}
+\section{Weak convergence and the central limit theorem}
+\subsection{Weak convergence}
+In this part we will study the convergence of probability measures. For simplicity, we only consider measures on $\R$. More general results can be obtained, however, by a similar approach, for general metric spaces.\par
+As a rather trivial example, if $n$ is large, then the point mass $\delta_{1/n}$ concentrated at $1/n$ should be considered to be close to the point mass $\delta_0$ concentrated at $0$. As a somewhat less trivial example, for large values of $n$ the measure $(1/n)\sum_{i=1}^{n}\delta_{i/n}$ would seem to give a reasonable approximation to the uniform distribution on $[0,1]$. More significantly, we will see in the central limit theorem that the distributions of certain normalized sums of random variables are well
+approximated by Gaussian distributions.\par
+We should note that for our current purposes the total variation norm does not lead to a reasonable criterion for closeness. For example, the total variation distance between $\delta_{1/n}$ and $\delta_0$ is $2$, however large $n$ is. We need a definition that, for large $n$, will classify these measures as close.\par
+We will deal with such questions in terms of convergence of sequences of measures. Let $\{\mu_n\}$ be a sequence in $M(\R)$. Then $\mu_n$ is said to \textbf{convergence weakly} to a measure $\mu\in M(\R)$ if for every $f\in BC(\R)$ we have
+\[\lim_{n\to+\infty}f\,d\mu_n=\int f\,d\mu.\]
+Before doing anything else, we should verify that limits in distribution of
+sequences of probability measures are unique. In other words, we should check that if the sequence {μn} converges in distribution to $\mu$ and to $\nu$, then $\mu=\nu$. This, however, is an immediate consequence of the following lemma.
+\begin{lemma}
+Let $\mu$ and $\nu$ be probability measures on $(\R,\mathcal{B}(\R))$. If $\int f\,d\mu=\int f\,d\nu$ holds for each bounded continuous $f$ on $\R$, then $\mu=\nu$.
+\end{lemma}
+\begin{proof}
+This follows from the Riesz representation theorem.
+\end{proof}
+The following theorem is a characterization for weak convergence and will be repeatedly used henceforth.
+\begin{theorem}[\textbf{Portmanteau Theorem}]\label{measure weak converge iff}
+Let $\{\mu_n\}$ and $\mu$ be in probability measures on $\R$. Then the conditions are equivalent.
+\begin{itemize}
+\item[(\rmnum{1})] $\mu_n$ converges weakly to $\mu$.
+\item[(\rmnum{2})] Each bounded Lipschitz continuous $f$ satisfies $\lim_n\int f\,d\mu_n=\int f\,d\mu$. 
+\item[(\rmnum{2})] Each closed subset $F$ satisfies $\varlimsup_n\mu_n(F)\leq\mu(F)$.
+\item[(\rmnum{3})] Each open subset $U$ satisfies $\mu(U)\leq\varliminf_n\mu_n(U)$.
+\item[(\rmnum{4})] Each Borel subset $A$ whose boundary has measure $0$ under $\mu$ satisfies $\mu(A)=\lim_n\mu_n(A)$. 
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Since every uniformly continuous function is continuous, condition (\rmnum{2}) is an immediate consequence of condition (\rmnum{1}). Now assume that condition (\rmnum{2}) holds. If $F$ is a nonempty closed subset of $\R$, then the functions $f_n:\R\to\R$ defined by $f_n(x)=\max\{0,1-nd(x,F)\}$ are Lipschitz continuous and bounded by $1$. Since these functions decrease to the indicator function of $F$, it follows from monotone convergence theorem that $\mu(F)=\lim_n\int f_n\,d\mu$. Now suppose that $\eps$ is a positive constant, and choose $k$ such that $\int f_k\,d\mu<\mu(F)+\eps$. Then, since $\mu_n(F)=\int\chi_F\,d\mu_n\leq\int f_k\,d\mu_n$ holds for each $n$, we have
+\[\varlimsup_n\mu_n(F)\leq\lim_n\int f_k\,d\mu_n=\int f_k\,d\mu<\mu(F)+\eps.\]
+and the condition in (\rmnum{2}) follows. It is easy to check that condition (\rmnum{3}) is equivalent to condition (\rmnum{2}). Now suppose that conditions (\rmnum{2}) and (\rmnum{3}) hold, and let $A$ be a Borel set whose boundary has $\mu$-null. Let $F$ and $U$ be the closure and interior of $A$. Then $F\setminus U$ is the boundary of $A$, and so $\mu(F)=\mu(U)=\mu(B)$, from which it follows that
+\[\mu(A)=\mu(U)\leq\varliminf_n\mu_n(U)\leq\varliminf_n\mu_n(A)\leq\varlimsup_n\mu_n(A)\leq\varlimsup_n\mu_n(F)\leq\mu(F)=\mu(A).\]
+Thus, condition (\rmnum{4}) follows from conditions (\rmnum{2}) and (\rmnum{3}).\par
+Finally, we derive condition (\rmnum{1}) from condition (\rmnum{4}). So suppose that condition (\rmnum{4}) holds, and let $f\in BC(\R)$. Suppose that $\eps$ is a positive number. Let $M$ be a positive number such that $|f(x)|\leq M$ holds for all $x$, and let $c_0,\dots,c_k$ be numbers such that $-M=c_0<\cdots<c_k=M$. (we still need to look at the details of how the $c_i$'s are to be chosen). For $i=1,\dots,k$, let $C_k=\{x\in\R:c_{k-1}\leq f(x)<c_k\}$. The continuity of $f$ implies that the boundary of $C_k$ is included in the set of points $x$ such that $f(x)$ is equal to $c_{k-1}$ or $c_k$. Since the sets $\{x:f(x)=c\}$, where $c$ ranges over $\R$, are disjoint and Borel, at most a countable number of them can have positive measure under $\mu$. It follows that we can choose our points $c_i$ so that the boundaries of the sets $C_i$ have $\mu$-measure $0$ and so that each interval $[c_{i-1},c_i)$ has length less than $\eps$. If we define $g=\sum_{i=1}^{k}c_i\chi_{C_i}$, then $f\leq g\leq f+\eps$, and so, if we apply condition (\rmnum{4}) to the sets $C_i$, we find
+\begin{align*}
+\varlimsup_n\int f\,d\mu_n\leq\lim_n\int g\,d\mu_n=\int g\,d\mu\leq\int f\,d\mu+\eps.
+\end{align*}
+A similar calculation shows that $\int f\,d\mu-\eps\leq\varliminf_n\int f\,d\mu_n$. Since $\eps$ is arbitrary, condition (\rmnum{1}) follows, and with that the proof of the proposition is complete.
+\end{proof}
+As we have seen, measures on $(\R,\mathcal{B}(\R))$ can be identified with distribution functions. We make the following definition.
+\begin{definition}
+Let $F$ and $\{F_n\}$ be distribution functions of probability measures on $\R$. We say that $\{F_n\}$ \textbf{converges weakly} to $F$ if the measures $\{\mu_F\}$ converges weakly to $\mu_F$.
+\end{definition}
+\begin{definition}
+Let $X$ and $\{X_n\}$ be random variables. We say that $\{X_n\}$ \textbf{converges in distribution} to $X$ if the distributions $P_{X_n}$ converge weakly to $P_X$.
+\end{definition}
+Note that $\int fdP_X=\int f(X)dP$ for any measurable function $f$ on $\R$. Thus $X_n$ converges to $X$ in distribution if and only if $E(f(X_n))\to E(f(X))$ for all $f\in BC(\R)$.
+\begin{proposition}\label{distribution of propability measure weakly converge iff}
+Let $F$ and $\{F_n\}$ be distribution functions of probability measures. Then the following conditions are equivalent.
+\begin{itemize}
+\item[(\rmnum{1})] $F_n$ converges weakly to $F$.
+\item[(\rmnum{2})] $F(x)=\lim_nF_n(x)$ holds at each $x$ at which $F$ is continuous.
+\item[(\rmnum{3})] $F(x)=\lim_nF_n(x)$ holds at each $x$ in some dense subset of $\R$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+Let $\mu_n$ and $\mu$ be the corresponding probability measures. It follows from Proposition~\ref{measure weak converge iff} that condition (\rmnum{1}) implies condition (\rmnum{2}) and from the fact that a monotone function has at most countably many discontinuities that condition (\rmnum{2}) implies condition (\rmnum{3}). To show that condition (\rmnum{3}) implies condition (\rmnum{1}), we will assume that condition (\rmnum{3}) holds and prove that each open subset $U$ of $\R$ satisfies $\mu(U)\leq\varliminf_n\mu_n(U)$. So suppose that $U$ is a nonempty open subset of $\R$. Then there is a sequence $\{U_i\}$ of disjoint open intervals whose union is $U$. We can choose an integer $k$ such that $\mu(U)-\eps<\mu(\bigcup_{i=1}^{k}U_i)$. Next we approximate the sets $U_1,\dots,U_k$ with subintervals $C_i$ such that $\sum_{i=1}^{k}\mu(U_i)-\eps<\sum_{i=1}^{n}\mu(C_i)$ and such that each $C_i$ is of the form $(c_i,d_i]$, where $c_i$ and $d_i$ belong to the dense set given by condition (\rmnum{3}). Then each $C_i$ satisfies $\mu(C_i)=\lim_n\mu_n(C_i)$, and it follows that
+\[\mu(U)-2\eps<\sum_{i=1}^{k}\mu(C_i)\leq\varliminf_n\mu_n(U).\]
+This finishes the proof.
+\end{proof}
+\begin{remark}
+Recall that by Proposition~\ref{vague convergence in R via distribution}, if $\{\mu_n\}$ is uniformly bounded sequence of positive measures, then $\mu_n\to\mu$ vaguely if and only if the corresponding distribution functions converge at the continuous point of $F$. The point of Proposition~\ref{distribution of propability measure weakly converge iff} is that the measures $\mu_n$ and $\mu$ are all probability measures. Without this assumption it may fail that $\mu_n\to\mu$ weakly, in spite of the convergence of $F_n$ to $F$. For example, consider the sequence $\{\delta_n\}$ on $\R$.
+\end{remark}
+The continuous-mapping theorem is a simple result, but it is extremely useful. If the sequence of random vectors $X_n$ converges to $X$ and $f$ is continuous, then $f(X_n)$ converges to $f(X)$. This is true for each of the three modes of convergence.
+\begin{theorem}[\textbf{Continuous Mapping Theorem}]
+Let $f:\R^n\to\R^m$ be continuous on a set $C$ such that $P(X\in C)=1$.
+\begin{itemize}
+\item[(a)] If $X_n\to X$ in distribution, then $f(X_n)\to f(X)$ in distribution.
+\item[(b)] If $X_n\to X$ in probability, then $f(X_n)\to f(X)$ in probability.
+\item[(c)] If $X_n\to X$ almost surely, then $f(X_n)\to f(X)$ almost surely.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+The event $\{f(X_n)\in F\}$ is identical to the event $\{X_n\in f^{-1}(F)\}$. For any closed set $F$ we have
+\[f^{-1}(F)\sub \widebar{f^{-1}(F)}\sub f^{-1}(F)\cup C^c.\]
+To see the second inclusion, take $x$ in the closure of $f^{-1}(F)$. Thus, there exists a sequence $x_n$ with $x_n\to x$ and $f(x_n)\in F$ for every $F$. If $x\in C$, then $f(x_n)\to f(x)$, which is in $F$ because $F$ is closed; otherwise $x\in C^c$. By the portmanteau theorem,
+\[\varlimsup_nP(f(X_n)\in F)\leq\varlimsup_nP(X_n\in\widebar{f^{-1}(F)})\leq P(X\in\widebar{f^{-1}(F)})\leq P(X\in f^{-1}(F))+P(C^c).\]
+Since $P(C^c)=0$, it follows that from portmanteau theorem again that $f(X_n)\to f(X)$.\par
+Fix arbitrary $\eps>0$. For each $\delta>0$ let $B_\delta$ be the set of $x$ for which there exists $y$ with $d(x,y)<\delta$, but $d(f(x),f(y))>\eps$. If $X\notin B_\delta$ and $d(f(X_n),f(X))>\eps$, then $d(X_n,X)\geq\delta$. Consequently,
+\[P(d(f(X_n),f(X))>\eps)\leq P(X\in B_\delta)+P(d(X_n,X)\geq\delta).\]
+The second term on the right converges to zero as $n\to+\infty$ for every fixed $\eps>0$. Because $B_\delta\cap C\to\emp$ by continuity of $f$, the first term converges to zero as $\delta\to 0$.
+\end{proof}
+\begin{theorem}[\textbf{Slutzky's theorem}]
+Let $X_n$, $X$ and $Y_n$ be random variables. Then
+\begin{itemize}
+\item[(a)] If $X_n\to X$ in distribution and $Y_n\to c$ in probability, then $(X_n,Y_n)\to(X_n,c)$ in distribution.
+\item[(b)] If $X_n\to X$ in probability and $Y_n\to Y$ in probability, then $(X_n,Y_n)\to(X,Y)$ in probability.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+Part (b) follows from the observation that $d((x_1,y_1),(x_2,y_2))\leq d(x_1,x_2)+d(y_1,y_2)$. For (a), first note that $d((X_n,Y_n),(X_n,c))=d(Y_n,c)\to 0$ in probability. Thus it suffices to show that $(X_n,c)\to (X,c)$ in distribution. For every continuous, bounded function $f(x,y)$, the function $f(x,c)$ is continuous and bounded. Thus $E(f(X_n,c))\to E(f(X,c))$ if $X_n\to X$ in distribution.
+\end{proof}
+Combine Slutzky's theorem with continuous mapping theorem, we get the following important consequence.
+\begin{corollary}\label{convergence in distribution add mul}
+Let $X_n$, $X$ and $Y_n$ be random variables. If $X_n\to X$ in distribution and $Y_n\to c$ in probability, then $X_n+Y_n\to c$ and $X_nY_n\to cX$ in distribution.
+\end{corollary}
+Now we use Corollary~\ref{convergence in distribution add mul} to establish some results about convergence in distribution and convergence in probability.
+\begin{proposition}\label{convergence in distribution to constant}
+Let $\{X_n\}$ be random variables. If $X_n$ converges to $c\in\R$ in distribution, then it also converges to $c$ in probability.
+\end{proposition}
+\begin{proof}
+For any $\eps>0$, note that
+\[P(|X_n-c|\geq\eps)=P(X_n\geq c+\eps)+P(X_n\leq c-\eps)=P_{X_n}([c+\eps,+\infty))+P_{X_n}((-\infty,c-\eps]).\]
+Since $c+\eps$ and $c-\eps$ are $\delta_c$-null, by Theorem~\ref{measure weak converge iff} we see $\lim_nP(|X_n-a|\geq\eps)\to 0$. Thus $X_n\to c$ in probability.
+\end{proof}
+\begin{proposition}\label{convergence in probability imply in distribution}
+Let $X$ and $\{X_n\}$ be random variables. If $X_n$ converges to $X$ in probability, then $X_n$ converges to $X$ in distribution.
+\end{proposition}
+\begin{proof}
+clearly $X\to X$ in distribution. Thus if $X_n-X\to 0$ in probability then by Slutzky's theorem $X_n=X+X_n-X\to X$ in distribution.
+\end{proof}
+\begin{corollary}
+Let $X$ and $\{X_n\}$ be random variables. If $X_n-X\to 0$ in distribution, then $X_n\to X$ in distribution. The converse does not hold.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{convergence in distribution to constant} $X_n-X\to 0$ in distribution iff in probability. Thus the result follows from Proposition~\ref{convergence in probability imply in distribution}.
+\end{proof}
+\subsection{Tightness}
+Let $\mathcal{P}(\R)$ be the space of all probability measures on $\R$. A fundamental question is: When does a sequence $\{\mu_n\}$ of probability measures on $\R$ converge weakly or does at least have a weak limit point? For vague convergence this has a simple answer: Let $X$ be a locally compact Huasdorff space, then by Alaoglu theorem, the unit ball in $C_0(X)^*=M_r(X)$ is compact under the weak$^*$ topology. Thus any bounded sequence of probability measures has a limit point in $M_r(\R)$.
+\begin{theorem}[\textbf{Helly}]
+For every sequence $\{F_n\}$ of distribution functions there exists a subsequence $\{F_{n_k}\}$ and a nondecreasing, right-continuous function $F$ such that $\lim_kF_{n_k}(x)=F(x)$ at continuity points $x$ of $F$.
+\end{theorem}
+\begin{proof}
+Let $\{\mu_n\}$ be the corresponding probability measure. As we have pointed, the sequence $\{\mu_n\}$ has a vague limit point $\mu$ in $M(\R)$. This limit $\mu$ is necessarily positive and satisfies $\mu(\R)\leq 1$: if $\mu$ is signed, then there exists a set $A\in\mathcal{B}(\R)$ such $\mu(A)>0$ and $\mu(E)<0$ for $E\sub A$. By regularity we may replace $A$ by an open set $U$ in $\R$. Then we can choose a function $f\in C_c(\R)$ that is supported in $U$. Then
+\[0\leq \lim_n\int f\,d\mu_n=\int f\,d\mu<0,\]
+which is a contradiction. Similalry, if $\mu(\R)>1$ then there exists, by inner regularity, a compact set $K$ such that $\mu(K)>1$. Let $f\in C_c(\R)$ be a bump function that restricts to $\chi_K$ on $K$ and satisfies $0\leq f\leq 1$. Then $\int f\,d\mu\geq\mu(K)>1$, but
+\[\lim_n\int f\,d\mu_n=\int f\,d\mu\leq 1,\]
+which is a contradiction. Let $F$ be the distribution function of $\mu$, then by Proposition~\ref{vague convergence in R via distribution}, $F_{n_k}(x)$ converges to $F(x)$ at every continuous point of $F$.
+\end{proof}
+Note that the function $F$ in Helly's theorem need not be a probability distribution function. We have the following example.
+\begin{example}
+Let $\{\delta_n\}$ be the point mass on $\R$. Then for any $f\in BC(\R)$ we have $\int f\delta_n=f(n)$. Since not every bounded continuous function $f$ has a limit at $+\infty$, it turns out that $\{\delta_n\}$ has no limit point under weak convergence. However, one can easily see that $\{\delta_n\}$ converges vaguely to $0$.
+\end{example}
+In general, a positive measure $\mu$ on $\R$ satisfying $\mu(\R)\leq 1$ is called a sub-probability measure, and the space of all sub-probability measures is denoted by $\mathcal{SP}(\R)$. Then by Alaoglu's theorem, $\mathcal{SP}(\R)$ is compact in $M(\R)$ with the vague topology. Now it is appealing to have some conditions to obtain this result in the weak topology.\par
+Let $\mathscr{P}$ be a family in $M(\R)$. Then $\mathscr{P}$ is called \textbf{tight} if for every $\eps>0$ there exists a compact set $K$ such that
+\[|\mu|(K^c)<\eps\for\mu\in\mathscr{P}.\]
+By the inner regularity of Borel measures on $\R$, it is clear that the singleton $\{\mu\}$ is tight for any finite measure $\mu$ on $\R$, and so any finite set is tight. Thus we can think tight as a compactness condition on measures.\par
+It is clear that the sequence $\{\delta_n\}$ is not tight. In fact, if $\{\delta_{x_n}\}$ be a sequence of point mass, then it is easy to see $\{\delta_{x_n}\}$ is tight if and only if $\{x_n\}$ is bounded. Here are more examples.
+\begin{proposition}\label{measure vague converge variation converge is tight}
+Let $\mu$ and $\{\mu_n\}$ be in $M(\R)$. If $\mu_n\to\mu$ vaguely and $\|\mu_n\|\to\|\mu\|$, then $\{\mu_n\}$ is tight.
+\end{proposition}
+\begin{proof}
+Since $M(\R)=C_0(\R)^*$, for each $\eps>0$ there exists $f\in C_0(\R)$ such that $\|f\|_\infty\leq 1$ and $\int f\,d\mu\geq\|\mu\|-\eps$. Then by the vague convergence and $\|\mu_n\|\to\|\mu\|$, there exists $N>0$ such that for $n>N$ we have 
+\[\Big|\int f\,d\mu_n-\|\mu_n\|\Big|<2\eps,\]
+and so
+\[\int(1-|f|)\,d|\mu_n|\leq\int(1-|f|)\,d|\mu_n|+\int|f|\,d|\mu_n|-\Big|\int f\,d\mu_n\Big|=\|\mu_n\|-\Big|\int f\,d\mu_n\Big|<2\eps.\]
+Now set $K=\{x:|f(x)|\geq 1/2\}$. Since $f\in C_0$, $K$ is comapct. Also, by Markov's inequality,
+\[|\mu_n|(K^c)\leq 2\int_{K^c}(1-|f|)\,d|\mu_n|\leq 2\int(1-|f|)\,d|\mu_n|<4\eps.\]
+This implies that $\{\mu_n:n>N\}$ is tight. Since $\{\mu_1,\dots,\mu_N\}$ is also tight, this compeltes the proof.
+\end{proof}
+\begin{example}
+If $\{X_n\}$ is a family of random variables with bounded $p$-moments, then $\{P_{X_n}\}$ is tight. This follows from Markov's inequality and $P_{X_n}([-M,M]^c)=P(|X_n|\geq M)$.
+\end{example}
+We return to subprobability measures. The importance of tightness is revealed in the following theorem.
+\begin{theorem}[\textbf{Prokhorov's Theorem}]\label{Prokhorov theorem}
+Let $\mathscr{F}$ be a family in $\mathcal{SP}(\R)$. Then $\mathscr{F}$ is precompact in the weak topology if and only if it is tight.
+\end{theorem}
+Before proving theorem, let's give a useful criterion of tightness for families of subprobability measures.
+\begin{lemma}\label{tight iff}
+A family $\mathscr{F}$ of subprobability measures on $\R$ is tight if and only if for any $\eps>0$ and $r>0$ there is a finite family of balls $\{B_r(x_i)\}_{i=1}^{n}$ such that
+\begin{align}\label{tight iff-1}
+\mu\Big(\Big(\bigcup_{i=1}^{n}B_r(x_i)\Big)^c\Big)<\eps\for\mu\in\mathscr{F}.
+\end{align}
+\end{lemma}
+\begin{proof}
+Let $\mathscr{F}$ be tight, $\eps>0$, and $r>0$. Select a compact set $K$ such that $\mu(K^c)<\eps$ for all $\mu\in\mathscr{F}$. Since any compact set is totally bounded, there is a finite family of balls $\{B_r(x_i)\}_{i=1}^{n}$ which cover $K$. Consequently, $(\ref{tight iff-1})$ holds for all $\mu\in\mathscr{F}$.\par
+Let us prove the converse statement. Fix $\eps>0$. Then for any integer $k>0$ there is a family of balls $\{B_{1/k}(x_i^{(k)})\}_{i=1}^{n_k}$ such that
+\[\mu\Big(\Big(\bigcup_{i=1}^{n_k}B_{1/k}(x_i^{(k)}\Big)^c\Big)<2^{-k}\eps\for\mu\in\mathscr{F}.\]
+Then the set $A=\bigcap_{n=1}^{\infty}\bigcup_{i=1}^{n_k}B_{1/k}(x_i^{(k)})$ satisfies $\mu(A^c)<\eps$ for all $\mu\in\mathscr{F}$ and is totally bounded. Therefore, its closure is compact in $\R$.
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{Prokhorov theorem}]
+Since $\mathscr{F}$ is bounded in the variation norm, every sequence in $\mathscr{F}$ contains a vaguely convergent subsequence. As $\mathscr{F}$ is tight, a vaguely convergent sequence of $\mathscr{F}$ converges weakly to the same limit. Thus $\mathscr{F}$ is compact.\par
+Assume that the family $\mathscr{F}$ is precompact but not tight. By Lemma~\ref{tight iff}, there exist $\eps>0$ and $r>0$ such that for any family $B_1,\dots,B_n$ of balls of radius $r$, we have $\mu((\bigcup_{i=1}^{n}B_i)^c)\geq\eps$ for some $\mu\in\mathscr{F}$. Since $\R$ is separable, it can be represented as a countable union of balls of radius $r$, that is, $\R=\bigcup_{i=1}^{\infty}B_i$. Let $A_n=\bigcup_{i=1}^{n}B_i$. Then we can select $\mu_n\in\mathscr{F}$ such that $\mu_n(A_n^c)\geq\eps$. Assume that a subsequence $\mu_{n_k}$ converges to a limit $\mu$ weakly. For each fixed $n$, since $A_n$ is open, by Portemanteau theorem we have
+\[\mu(A_n^c)\geq\varlimsup_{k\to+\infty}\mu_{n_k}(A_{n}^c)\geq\varlimsup_{k\to+\infty}\mu_{n_k}(A_{n_k}^c)\geq\eps.\]
+But $A_n^c\to\emp$, so $\mu(A_n^c)\to 0$. This is a contradiction.
+\end{proof}
+We come to an application of Prohorov's theorem.
+\begin{theorem}\label{weak iff tight and converge on separating family}
+Let $\{\mu_n\}$ and $\mu$ be subprobability measures on $\R$. Then the following are equivalent.
+\begin{itemize}
+\item[(\rmnum{1})] $\{\mu_n\}$ converges to $\mu$ weakly.
+\item[(\rmnum{2})] $\{\mu_n\}$ is tight and there is a separating family $\mathscr{C}\sub BC(\R)$ for $M(\R)$ such that
+\begin{align}\label{weak iff tight and converge on separating family-1}
+\lim_{n\to+\infty}\int f\,d\mu_n=\int f\,d\mu\for f\in\mathscr{C}.
+\end{align}
+\end{itemize}
+\end{theorem}
+\begin{proof}
+If $\mu_n\to\mu$ weakly, then the set $\{\mu_n\}\cup\{\mu\}$ is compact in the weak topology. Thus $\{\mu_n\}$ is tight by Prokhorov's theorem.\par
+Now assume that $\{\mu_n\}$ is tight and $\mathscr{C}$ is a separating family in $BC(\R)$ such that $(\ref{weak iff tight and converge on separating family-1})$ holds. Assume that $\{\mu_n\}$ does not converge weakly to $\mu$. Then there are $\eps_0>0$, $f\in BC(\R)$ and a subsequence $\{\mu_{n_k}\}$ such that
+\begin{align}\label{weak iff tight and converge on separating family-2}
+\Big|\int f\,d\mu_{n_k}-\int f\,d\mu\Big|>\eps_0\for k\in\N.
+\end{align}
+By Prohorov's theorem, there exists a sub-probability measure $\nu$ and a subsequence $\{\mu_{k_i}\}$ of $\{\mu_{n_k}\}$ with $\mu_{k_i}\to\nu$ weakly. Due to $(\ref{weak iff tight and converge on separating family-2})$, we have $|\int f\,d\mu-\int f\,d\nu|>\eps_0$; hence $\mu\neq\nu$. On the other hand, for any $h\in\mathscr{C}$, we have 
+\[\int h\,d\mu=\lim_{i\to+\infty}\int h\,d\mu_{k_i}=\int h\,d\nu,\]
+hence $\mu=\nu$. This contradicts the assumption and thus (\rmnum{1}) holds.
+\end{proof}
+\begin{corollary}
+Let $\mu$ and $\{\mu_n\}$ be subprobability measures. Then the following are equivalent.
+\begin{itemize}
+\item[(\rmnum{1})] $\{\mu_n\}$ converges to $\mu$ weakly.
+\item[(\rmnum{2})] $\{\mu_n\}$ converges to $\mu$ vaguely and $\|\mu\|=\lim_n\|\mu_n\|$.
+\item[(\rmnum{3})] $\{\mu_n\}$ converges to $\mu$ vaguely and $\{\mu_n\}$ is tight.
+\end{itemize}
+\end{corollary}
+\begin{proof}
+It is clear that $(\rmnum{1})\Rightarrow(\rmnum{2})$ and $(\rmnum{2})\Rightarrow(\rmnum{3})$ by Theorem~\ref{measure vague converge variation converge is tight}. Since $C_0(\R)$ is a separating family by Riesz representation theorem, $(\rmnum{3})\Rightarrow(\rmnum{1})$ by Theorem~\ref{weak iff tight and converge on separating family}.
+\end{proof}
+\subsection{Characteristic function}
+\begin{definition}
+The \textbf{characteristic function} of a measure $\mu$ is the function $\varphi(t)$ of the variable $t\in\R$ given by
+\[\varphi(t)=\int e^{it x}\,d\mu(x).\]
+\end{definition}
+If $\mu=\mu_X$, we shall denote the characteristic function by $\varphi_X(t)$ and call it the \textbf{characteristic function of the random variable $\bm{X}$}. The definition of the characteristic function means that $\varphi_X(t)=E(e^{it X})$. For example, if $X$ takes values $\{a_n\}$ with probabilities $\{p_n\}$, then
+\[\varphi_X(t)=\sum_{n=1}^{\infty}p_ne^{it a_n}.\]
+The following properties of characteristic functions come from that of Fourier transform.
+\begin{proposition}[\textbf{Properties of Characteristic Functions}]\label{characteristic function prop}
+\mbox{}
+\begin{itemize}
+\item[(a)] $\varphi(0)=1$ and $|\varphi(t)|\leq 1$.
+\item[(b)] If $Y=aX+b$, where $a$ and $b$ are constants, then $\varphi_{Y}(t)=e^{i bt}\varphi_X(at)$.
+\item[(c)] If $\varphi_X(t_0)=e^{2\pi i\alpha}$ for some $t_0\neq 0$ and some real $\alpha$, then $X$ takes at most a countable number of values. The values of $X$ are of the form $2\pi(\alpha+n)/t_0$, where $n$ is an integer.
+\item[(d)] Assume that the random variable $X$ has $k$-th moment. Then $\varphi_X(t)$ is $k$-times continuously differentiable and $\varphi_X^{(k)}(0)=i^kE(X^k)$.
+\item[(e)] If $X$ and $Y$ are independent, then $\varphi_{X+Y}=\varphi_X\varphi(Y)$. 
+\end{itemize}
+\end{proposition}
+\begin{proof}
+The first one is trivial. The second follows from the observation
+\[\varphi_Y(t)=E(e^{it Y})=E(e^{it(aX+b)})=e^{ibt}E(e^{it aX})=e^{ibt}\varphi_X(at).\]
+In order to prove (c), we define $Y=X-2\pi\alpha/t_0$. By (b) we have
+\[E(e^{it_0Y})=\varphi_Y(t_0)=e^{-2\pi i\alpha}\varphi_X(t_0)=1.\]
+Since $\cos(t_0Y)\leq 1$, the latter equality means that $\cos(t_0Y)=1$ with probability one. This is possible only when $Y$ takes values of the form $2\pi n/t_0$, where $n$ is an integer. Part (d) and (e) comes from the properties of Fourier transform.
+\end{proof}
+Note that the family $\{e^{itx}:t\in\R\}$ is dense in $C_0(\R)$ by Stone-Weierstrass theorem, so the uniqueness of characteristic functions is an immediate result by Riesz representation theorem. In fact, one can always recover the measure $\mu$ from its characteristic function $\varphi(t)$, as the next theorem shows.
+\begin{theorem}\label{characteristic function inversion}
+For any interval $[a,b]$,
+\[\lim_{T\to+\infty}\frac{1}{2\pi}\int_{-T}^{T}\frac{e^{-it a}-e^{-t b}}{it}\varphi(t)\,dt=\mu((a,b))+\frac{\mu(\{a\})+\mu(\{b\})}{2}.\]
+\end{theorem}
+\begin{proof}
+By the Fubini Theorem, since the integrand is bounded, we can write
+\begin{equation*}\small
+\begin{aligned}
+\frac{1}{2\pi}\int_{-T}^{T}\frac{e^{-it a}-e^{-t b}}{it}\varphi(t)\,dt&=\frac{1}{2\pi}\int_{-T}^{T}\frac{e^{-it a}-e^{-t b}}{it}\,dt\int_{-\infty}^{+\infty}e^{it x}\,d\mu(x)\\
+&=\frac{1}{2\pi}\int_{-\infty}^{+\infty}d\mu(x)\int_{-T}^{T}\frac{e^{it(x-a)}-e^{it(x-b)}}{it}\,dt\\
+&=\frac{1}{2\pi}\int_{-\infty}^{+\infty}d\mu(x)\int_{-T}^{T}\frac{\sin t(x-a)-\sin t(x-b)}{t}\,dt.
+\end{aligned}
+\end{equation*}
+BY the dominated convergence theorem, we then have
+\begin{equation*}\small
+\begin{aligned}
+\lim_{T\to+\infty}\frac{1}{2\pi}\int_{-T}^{T}\frac{e^{-it a}-e^{-t b}}{it}\varphi(t)\,dt&=\lim_{T\to+\infty}\frac{1}{2\pi}\int_{-\infty}^{+\infty}\int_{-T}^{T}\frac{\sin t(x-a)-\sin t(x-b)}{t}\,dt d\mu(x)\\
+&=\frac{1}{2\pi}\int_{-\infty}^{+\infty}\pi(\sgn(x-a)-\sgn(x-b))\,d\mu(x)\\
+&=\frac{1}{2}\Big(\mu(\{a\})+\mu(\{b\})+2\mu((a,b))\Big).
+\end{aligned}
+\end{equation*}
+This completes the proof.
+\end{proof}
+\begin{example}
+Let $T$ and $\{X_n\}$ be independent real random variables. Asssume that $T$ takes positive integers almost surely and that $\{X_n\}$ are identically distributed. Define
+\[S_T=\sum_{i=1}^{T}X_i.\]
+Let $\varphi(t)$ be the characteristic function of $X_1$. Then we have
+\[\varphi_{S_T}(t)=\int e^{itx}\,dF_{S_T}(x)=\sum_{n}P(T=n)\int e^{itx}\,dF_{S_n}(x)=\sum_nP(T=n)\varphi^n(t).\]
+If $g(e^{it})$ is the characteristic function of $T$, then we see $\varphi_{S_T}(t)=g(\varphi(t))$.
+\end{example}
+One of the reasons why characteristic functions are helpful in probability
+theory is the following criterion of weak convergence of probability measures, as we will establish now.
+\begin{theorem}\label{tight family characteristic function}
+If $\mathscr{F}$ is a tight family in $\mathcal{SP}(\R)$, then $\{\varphi_\mu:\mu\in\mathscr{F}\}$ is uniformly equicontinuous. In particular, every characteristic function is uniformly continuous.
+\end{theorem}
+\begin{proof}
+As $\mathscr{F}$ is tight, there exists an $N>0$ with $\mu([-N,N]^c)>1-\eps$ for all $\mu\in\mathscr{F}$. Furthermore, there exists a $\delta>0$ such that, for $x\in[-N,N]$ and $|u|<\delta$, we have $|1-e^{iux}|<\eps$. Hence we get, for all $\mu\in\mathscr{F}$ and $|u|<\delta$, that
+\begin{align*}
+1-\Re(\varphi_\mu(u))\leq\int_{\R}|1-e^{iux}|\,d\mu(x)\leq 2\eps+\int_{[-N,N]}|1-e^{iux}|\,d\mu(x)\leq 2\eps+\eps(1-\eps).
+\end{align*}
+Now, from the inequality
+\begin{equation*}\small\
+\begin{aligned}
+|\varphi(t)-\varphi(s)|^2&=\Big|\int(e^{itx}-e^{isx})\,d\mu(x)\Big|^2=\Big|\int(e^{i(t-s)x}-1)e^{isx}\,d\mu(x)\Big|^2\leq\int|e^{i(t-s)x}-1|^2\,d\mu(x)\\
+&=\int(e^{i(t-s)x}-1)(e^{-i(t-s)x}-1)\,d\mu(x)=2(1-\Re(\varphi(t-s))),
+\end{aligned}
+\end{equation*}
+we get the desired claim.
+\end{proof}
+\begin{theorem}[\textbf{L\'evy's continuity theorem}]
+Let $\mu$ and $\{\mu_n\}$ be propability measures on $\R$ with characteristic functions $\varphi$ and $\varphi_n$. Then
+\begin{itemize}
+\item[(a)] If $\mu_n\to\mu$ weakly, then $\varphi_n\to\varphi$ uniformly on compact sets.
+\item[(b)] If $\varphi_n\to\varphi$ pointwise for some $\varphi$ that is continuous at $0$, then there exists a probability measure $\mu$ such that $\varphi_\mu=\varphi$ and $\mu_n\to\mu$ weakly.
+\end{itemize} 
+\end{theorem}
+\begin{proof}
+If $\mu\to\mu$ weakly, then by take $f=e^{it x}$ we get
+\[\lim_n\varphi(t)=\lim_n\int e^{it x}\,d\mu_n(x)=\int e^{it x}\,d\mu=\varphi(t).\]
+As the family $\{\mu_n\}$ is tight, by Theorem~\ref{tight family characteristic function}, $\{\varphi_n\}$ is uniformly equicontinuous, so $\{\varphi_n\}$ converges uniformly on compact sets.\par
+Now we prove (b). We first show the sequence $\{\mu_n\}$ is tight. By Fubini's theorem, for every $u>0$ we have
+\begin{align*}
+\frac{1}{u}\int_{-u}^{u}(1-\varphi_n(t))\,dt&=\int_{-\infty}^{+\infty}\Big(\frac{1}{u}\int_{-u}^{u}(1-e^{itx})\,dt\Big)d\mu_n(x)=2\int_{-\infty}^{+\infty}\Big(1-\frac{\sin ux}{ux}\Big)\,d\mu_n(x)\\
+&\geq 2\int_{|ux|>2}\Big(1-\frac{1}{|ux|}\Big)\,d\mu_n(x)\geq \mu_n(\{x:|x|\geq 2/u\}).
+\end{align*}
+Since $\varphi$ is continuous at the origin and $\varphi(0)=1$, for every $\eps>0$ there exists $u>0$ such that $u^{-1}\int_{-u}^{u}(1-\varphi(t))\,dt<\eps/2$. Since $\varphi_n$ converges to $\varphi$, the bounded convergence theorem implies that there exists $N>0$ such that for $n>N$,
+\[\mu_n(\{x:|x|\geq 2/u\})\leq\frac{1}{u}\int_{-u}^{u}(1-\varphi_n(t))\,dt<\frac{1}{u}\int_{-u}^{u}(1-\varphi(t))\,dt+\eps/2<\eps.\]
+This implies $\{\mu_n\}$ is tight, so by Prokhorov's theorem, every subsequence $\{\mu_{n_k}\}$ of $\{\mu_n\}$ has a further subsequence converging weakly to a probability measure $\mu$. By hypothesis we must have $\varphi_\mu(t)=\varphi(t)$. Since a probability measure is uniquely determined by its characteristic function, it follows that $\mu_n\to\mu$ weakly.
+\end{proof}
+In this proof the continuity of $\varphi$ was used to establish tightness. Hence if $\{\mu_n\}$ is assumed tight in the first place, the hypothesis of continuity can be suppressed:
+\begin{corollary}
+Suppose that $\lim_n\varphi_n(t)=\varphi(t)$ exists for each $t$ and that $\{\mu_n\}$ is tight. Then there exists a $\mu$ such that $\mu_n\to\mu$ weakly and $\mu$ has characteristic function $\varphi$.
+\end{corollary}
+\begin{example}
+Let $X_n$ be independent radom variables with distribution $b_{1,1/2}$. Then the characteristic function of $X_n$ is
+\[\varphi(t)=\frac{1}{2}(e^{it}+1)=\frac{1}{2}(e^{\frac{it}{2}}+e^{-\frac{it}{2}})e^{\frac{it}{2}}=\cos\frac{t}{2}e^{\frac{it}{2}}.\]
+Set $Y=\sum_{n=1}^{\infty}X_n/2^n$. Then $Y$ has uniform distribution on $[0,1]$. To see this, we compute the characteristic function of $Y$:
+\begin{align*}
+\varphi_Y(t)&=\prod_{n=1}^{+\infty}\varphi(t/2^n)=\lim_{n\to+\infty}\cos\frac{t}{2^2}\cdots\cos\frac{t}{2^{n+1}}e^{it(\frac{1}{2^2}+\cdots+\frac{1}{2^{n+1}})}\\
+&=\lim_{n\to+\infty}\frac{1}{2^n}\frac{\sin\frac{t}{2}}{\sin\frac{t}{2^{n+1}}}e^{it(\frac{1}{2}-\frac{1}{2^{n+1}})}=\frac{2}{t}\sin\frac{t}{2}e^{\frac{it}{2}}=\frac{2}{t}\frac{e^{\frac{it}{2}}-e^{-\frac{it}{2}}}{2i}e^{\frac{it}{2}}=\frac{e^{it}-1}{it}.
+\end{align*}
+Since $(e^{it}-1)/it$ is the characteristic function of uniform distribution on $[-1,1]$, the claim follows from L\'evy's continuity theorem
+\end{example}
+\begin{example}
+Let $\mu_n$ be the uniform distribution over $[-n,n]$, then its characteristic function is 
+\[\varphi_n(t)=\begin{cases}
+\dfrac{\sin nt}{nt}&t\neq 0,\\[8pt]
+1,&t=0.
+\end{cases}\]
+Thus $\varphi_n(t)$ converges to $\chi_{\{0\}}(t)$. In this case $\{\mu_n\}$ is not tight, the limit function is not continuous at $0$, and $\{\mu_n\}$ does not converge weakly. It converges vaguely to zero, however.
+\end{example}
+\subsection{The central limit theorem}
+In the strong law of large numbers, we saw that, for large $n$, the order of magnitude of the sum $S_n=X_1+\cdots+X_n$ of i.i.d. integrable random variables is $nE(X_1)$. Of course, for any $n$, the actual value of $S_n$ will sometimes be smaller than $nE(X_1)$ and sometimes larger. In the central limit theorem (CLT), we study the size and shape of the typical fluctuations around $nE(X_1)$ in the case where the $X_i$ have a finite variance.\par
+We prepare for the proof of the CLT with a lemma.
+\begin{lemma}
+Let $\{X_n\}$ be i.i.d. real random variables with expectation $\mu$ and variance $\sigma^2$. Let
+\[S_n^*=\frac{1}{\sqrt{n\sigma^2}}\sum_{i=1}^{n}(X_i-\mu)\]
+be the normalized $n$-th partial sum. Then $\varphi_{S_n^*}(t)\to e^{-\frac{t^2}{2}}$ for all $t\in\R$. 
+\end{lemma}
+\begin{proof}
+Let $\varphi=\varphi_{X_i-\mu}$, then since $X_i$ has finite variance,
+\[\varphi(t)=1-\frac{\sigma^2}{2}t^2+\eps(t)t^2\]
+where the error term $\eps(t)$ goes to $0$ as $t\to 0$. Since $\{X_n\}$ is independent, by Proposition~\ref{characteristic function prop} we have
+\[\varphi_{S_n^*}(t)=\varphi\Big(\frac{t}{\sqrt{n\sigma^2}}\Big)^n,\]
+and therefore
+\begin{align*}
+\Big|\Big(1-\frac{t^2}{2n}\Big)^n\Big|\leq n\Big|1-\frac{t^2}{2n}-\varphi\Big(\frac{t}{\sqrt{n\sigma^2}}\Big)\Big|=\frac{t^2}{\sigma^2}\Big|\eps\Big(\frac{t}{\sqrt{n\sigma^2}}\Big)\Big|\to 0.
+\end{align*}
+Since $(1-t^2/(2n))^n\to e^{-\frac{t^2}{2}}$, the claim follows.
+\end{proof}
+\begin{theorem}[\textbf{Central limit theorem}]\label{CLT for iid}
+Let $\{X_n\}$ be i.i.d. real random variables with expectation $\mu$ and variance $\sigma^2$. Let
+\[S_n^*=\frac{1}{\sqrt{n\sigma^2}}\sum_{i=1}^{n}(X_i-\mu)\]
+be the normalized $n$-th partial sum. Then $P_{S_n^*}\to \mathcal{N}_{0,1}$ weakly. In particular, for any $-\infty\leq a<b\leq+\infty$ we have
+\[\lim_{n\to+\infty}P(a\leq S_n^*\leq b)=\frac{1}{\sqrt{2\pi}}\int_a^be^{-\frac{t^2}{2}}\,dt.\]
+\end{theorem}
+\begin{proof}
+By L\'evy's continuity theorem, $\{P_{S_n^*}\}$ converges to the distribution with characteristic function $\varphi(t)=e^{-\frac{t^2}{2}}$, which is exactly $\mathcal{N}_{0,1}$. The second claim follows immediately since the density of $\mathcal{N}_{0,1}$ is continuous.
+\end{proof}
+\begin{example}
+Let $\{X_n\}$ be i.i.d radom variables with distribution $\Poi(1)$, so that $S_n=\sum_{i=1}^{n}X_i$ has Poission distribution with parameter $n$. By the central limit theorem, we have
+\[\lim_{n\to+\infty}P(S_n^*\leq 0)=\lim_{n\to+\infty}P(S_n\leq n)=\frac{1}{2}.\]
+By definition, the probability $P(S_n\leq n)$ is given by
+\[P(S_n\leq n)=e^{-n}\sum_{k=0}^{n}\frac{n^k}{k!},\]
+so we get the following interesting limit:
+\[\lim_{n\to+\infty}e^{-n}\sum_{k=0}^{n}\frac{n^k}{k!}=\frac{1}{2}.\]
+\end{example}
+We want to weaken the assumption in Theorem~\ref{CLT for iid} that the random variables are identically distributed. In fact, we can even take a different set of summands for every $n$. The essential assumptions are that the summands are independent, each summand contributes only a little to the sum and the sum is centered and has variance $1$.
+\begin{definition}
+For every $n\in\N$, let $X_{n,1},\dots,X_{n,r_n}$ be real random variables. We say that $\{X_{n,k}\}$ is an \textbf{array of random variables} and set
+\[S_n=\sum_{k=1}^{r_n}X_{n,k},\quad\sigma_{n,k}^2=\Var(X_{n,k}),\quad s_n^2=\Var(S_n).\]
+The array is called
+\begin{itemize}
+\item \textbf{independent} if, for every $n\in\N$, the family $\{X_{n,k}\}_{k=1}^{r_n}$ is independent,
+\item \textbf{centered} if each $X_{n,k}$ has finite expectation and $E(X_{n,k})=0$ for all $n$ and $k$,
+\item \textbf{normed} if each $X_{n,k}$ has finite variance and $s_n=1$ for all $n\in\N$.
+\end{itemize}
+\end{definition}
+\begin{definition}
+Let $\{X_{n,k}\}$ be an array of radom variables. It is called \textbf{null} if its individual variances are asymptotically negligible in the sense that, for all $\eps>0$, we have
+\[\max_{1\leq k\leq r_n}\sigma^2_{n,k}/s_n^2\to 0.\]
+\end{definition}
+\begin{definition}
+Let $\{X_{n,k}\}$ be an array of radom variables, we say it satisfy the \textbf{Lindeberg condition} if for every $\eps>0$,
+\begin{align}\label{Lindeberg condition}
+L_n(\eps):=\frac{1}{s_n^2}\sum_{k=1}^{r_n}\int_{\{|X_{n,k}|>\eps s_n\}}X_{n,k}^2\,dP.
+\end{align}
+\end{definition}
+\begin{theorem}[\textbf{Central limit theorem of Lindeberg-Feller}]\label{CLT of Linderberg}
+Let $\{X_{n,k}\}$ be an independent centered array of real random variables that satisfies the Lindeberg condition. Then $\{X_{n,k}\}$ is a null array and $P_{S_n/s_n}\to \mathcal{N}_{0,1}$ weakly.
+\end{theorem}
+Before proving this theorem, we need some lemmas.
+\begin{lemma}\label{product inequality}
+Let $z_1,\dots,z_n$ and $w_1,\dots,w_n$ be complex numbers of modulus at most $1$; then
+\begin{align*}
+|\prod_{i=1}^{n}z_i-\prod_{i=1}^{n}w_i|\leq\sum_{i=1}^{n}|z_i-w_i|.
+\end{align*}
+\end{lemma}
+\begin{proof}
+This follows by induction from the equality
+\[\prod_{i=1}^{n}z_i-\prod_{i=1}^{n}w_i=(z_1-w_1)z_2\cdots z_n+w_1(\prod_{i=2}^{n}z_i-\prod_{i=2}^{n}w_i).\]
+Note that the inequality is clear for $n=1$.
+\end{proof}
+\begin{lemma}\label{e^ix taylor expansion estimate}
+For any $t\in\R$ and $n\geq 1$,
+\begin{align}\label{e^ix taylor expansion estimate-1}
+|e^{ix}-\sum_{k=1}^{n}\frac{(ix)^k}{k!}|\leq\min\{\frac{|x|^{n+1}}{(n+1)!},\frac{2|x|^n}{n!}\}.
+\end{align}
+Consequently, for any random variable $X$ with characteristic function $\varphi$ and finite $n$-th moment, we have
+\begin{align}\label{e^ix taylor expansion estimate-2}
+|\varphi(t)-\sum_{k=0}^{n}\frac{(it)^k}{k!}E(X^k)|\leq E\Big(\min\Big\{\frac{|tX|^{n+1}}{(n+1)!},\frac{2|tX|^n}{n!}\Big\}\Big).
+\end{align}
+\end{lemma}
+\begin{proof}
+Integration by parts shows that
+\begin{align}\label{e^ix taylor expansion estimate-3}
+\int_0^x(x-s)^ne^{is}\,ds=\frac{x^{n+1}}{n+1}+\frac{i}{n+1}\int_0^x(x-s)^{n+1}e^{is}\,ds,
+\end{align}
+and it follows by induction that
+\begin{equation}\label{e^ix taylor expansion estimate-4}
+\begin{aligned}
+e^{ix}&=\sum_{k=1}^{n}\frac{(ix)^k}{k!}+\frac{i^{n+1}}{n!}\int_0^x(x-s)^ne^{is}\,ds=\sum_{k=1}^{n-1}\frac{(ix)^k}{k!}+\frac{i^{n}}{(n-1)!}\int_0^x(x-s)^{n-1}e^{is}\,ds\\
+&=\sum_{k=1}^{n}\frac{(ix)^k}{k!}+\frac{i^{n}}{(n-1)!}\int_0^x(x-s)^{n-1}(e^{is}-1)\,ds.
+\end{aligned}
+\end{equation}
+Estimating the two integrals in $(\ref{e^ix taylor expansion estimate-4})$ (consider separately the cases $x>0$ and $x<0$) now leads to $(\ref{e^ix taylor expansion estimate-1})$.
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{CLT of Linderberg}]
+By replacing $X_{n,k}$ with $X_{n,k}/s_n$, we may assume that $s_n^2=1$ for all $n$. First assume the Lindeberg condition. Then for any $\eps>0$, we have
+\begin{equation*}
+\begin{aligned}
+\max_{1\leq k\leq r_n}\sigma_{n,k}^2=\max_{1\leq k\leq r_n}(E(X_{n,k}^2\chi_{\{|X_{n,k}|\geq\eps\}})+E(X_{n,k}^2\chi_{\{|X_{n,k}|<\eps\}}))\leq\eps^2+L_n(\eps).
+\end{aligned}
+\end{equation*}
+Since $\eps$ is arbitrary and $L_n(\eps)\to 0$, this implies $\{X_{n,k}\}$ is null. Let $\varphi_{n,k}$ and $\varphi_n$ be the characteristic function of $P_{X_{n,k}}$ and $P_{S_n}$. By Lemma~\ref{e^ix taylor expansion estimate}, since $E(X_{n,k})=0$, we have
+\begin{equation*}
+\begin{aligned}
+|\varphi_{n,k}(t)-e^{-\sigma_{n,k}^2t^2/2}|&\leq E\Big(\min\Big\{\frac{|tX_{n,k}|^3}{6},|tX_{n,k}|^2\Big\}\Big)+\frac{\sigma_{n,k}^4t^4}{8}\\
+&\leq E(t^2X_{n,k}^2\chi_{\{|X_{n,k}|>\eps\}})+\frac{1}{6}E(|t^3X_{n,k}^3|\chi_{\{|X_{n,k}|\leq\eps\}})+\frac{\sigma_{n,k}^4t^4}{8}\\
+&\leq t^2E(X_{n,k}^2\chi_{\{|X_{n,k}|>\eps\}})+\frac{|t|^3\eps}{6}E(X_{n,k}^2)+\frac{t^4\sigma_{n,k}^2}{8}\max_{1\leq k\leq r_n}\sigma_{n,k}^2.
+\end{aligned}
+\end{equation*}
+Then, for any fixed $t$, by Lemma~\ref{product inequality} we estimate that
+\begin{equation*}
+\begin{aligned}
+|\varphi_n(t)-e^{-t^2/2}|&=|\prod_{k=1}^{r_n}\varphi_{n,k}(t)-\prod_{i=1}^{r_n}e^{-\sigma_{n,k}^2t^2/2}|\leq\sum_{i=1}^{r_n}|\varphi_{n,k}(t)-e^{-\sigma_{n,k}^2t^2/2}|\\
+&\leq \sum_{k=1}^{r_n}\Big(t^2E(X_{n,k}^2\chi_{\{|X_{n,k}|>\eps\}})+\frac{|t|^3\eps}{6}E(X_{n,k}^2)+\frac{t^4\sigma_{n,k}^2}{8}\max_{1\leq k\leq r_n}\sigma_{n,k}^2\Big)\\
+&=t^2L_n(\eps)+|t|^2\eps+\frac{t^4}{8}\max_{1\leq k\leq r_n}\sigma_{n,k}^2.
+\end{aligned}
+\end{equation*}
+Since $\eps>0$ is arbitrary, it follows that $\varphi_n(t)\to e^{-t^2/2}$ for all $t$. Levy's continuity theorem implies $P_{S_n}\to \mathcal{N}_{0,1}$.
+\end{proof}
+Suppose that the $|X_{n,k}|^{2+\delta}$ are integrable for some positive $\delta$ and that the following \textbf{Lyapounov's condition} holds:
+\begin{align}\label{Lyapounov's condition}
+\lim_n\frac{1}{s_n^{2+\delta}}\sum_{k=1}^{r_n}E(|X_{n,k}|^{2+\delta})=0.
+\end{align}
+Then Lindeberg's condition follows because
+\begin{equation*}\label{Lyapounov imply Lindeberg}
+\begin{aligned}
+L_n(\eps)\leq\frac{1}{s_n^2}\sum_{k=1}^{r_n}\int_{\{|X_{n,k}|>\eps s_n\}}\frac{|X_{n,k}|^{2+\delta}}{\eps^\delta s_n^\delta}\,dP\leq\frac{1}{\eps^\delta s_n^{2+\delta}}\sum_{k=1}^{r_n}E(|X_{n,k}|^{2+\delta}).
+\end{aligned}
+\end{equation*}
+Thus Theorem~\ref{CLT of Linderberg} has the following corollary.
+\begin{corollary}
+Suppose that $\{X_{n,k}\}$ is an independent centered array. If the Lyapounov's condition holds for some positive $\delta$, then $P_{S_n/s_n}\to \mathcal{N}_{0,1}$ weakly.
+\end{corollary}
+\begin{proposition}
+Suppose that $\{X_n\}$ are independent and have mean $0$. If there exists $K_n$ such that $|X_{n,k}|\leq K_n$ for each $k$ and $K_n/s_n\to 0$, then $P_{S_n/s_n}\to \mathcal{N}_{0,1}$.
+\end{proposition}
+\begin{proof}
+Since $K_n/s_n\to 0$, for each $\eps>0$ there exist $N>0$ such that $K_n\leq\eps s_n$ for $n\geq N$. Since $|X_{n,k}|\leq K_n$, we have
+\[1=\frac{1}{s_n^2}\sum_{k=1}^{r_n}E(X_{n,k}^2)=\frac{1}{s_n^2}\sum_{k=1}^{r_n}\int_{|X_{n,k}|\leq\eps s_n}X_{n,k}^2\,dP=1-L_n(\eps).\]
+Thus $\{X_{n,k}\}$ satisfies the Linderberg condition, and the claim follows.
+\end{proof}
+
+
+As an application of the Lindeberg-Feller theorem, we give the so-called three-series theorem, which is due to Kolmogorov.
+\begin{theorem}[\textbf{Kolmogorov's three-series theorem}]
+Let $\{X_n\}$ be independent real random variables. Let $K>0$ and $Y_n:=X_n\chi_{\{|X_n|\leq K\}}$ for all $n\in\N$. The series $\sum_{n}X_n$ converges almost surely if and only if each of the following conditions hold:
+\begin{itemize}
+\item[(\rmnum{1})] $\sum_nP(|X_n|>K)<+\infty$.
+\item[(\rmnum{2})] $\sum_nE(Y_n)<+\infty$.
+\item[(\rmnum{3})] $\sum_n\Var(Y_n)<\infty$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+If the proposed series all converge, then the converges of $\sum_n(Y_n-E(Y_n))$ is implied by Proposition~\ref{variance converge imply converge series}. Together with (\rmnum{2}), this implies $\sum_nY_n<+\infty$ almost surely. On the other hand, condition (\rmnum{1}) and Borel-Cantelli lemma implies $P(X_n\neq Y_n,i.o.)=0$. Consequently, $\sum_nX_n$ converges.\par
+Now suppose that $\sum_nX_n$ converges almost surely. Then clearly (\rmnum{1}) holds, thus $\sum_nY_n<+\infty$ by the Borel-Cantelli lemma. We now assume that (\rmnum{3}) does not converge and produce a contradiction. To this end, let $\sigma_n^2=\sum_{k=1}^{n}\Var(Y_k)$ and define an array by
+\[Z_{n,k}=\frac{Y_k-E(Y_k)}{\sigma_n},\ \ k=1,\dots,n.\]
+This array is centered and normed. Since $\sigma_n^2\to+\infty$ and each $Y_n$ is bounded, it follows that thus $L_n(\eps)\to 0$, and by the Lindeberg-Feller theorem, we then get $S_n\to\mathcal{N}_{0,1}$ in distribution. Since $\sum_nY_n$ converges and $\sigma_n^2\to+\infty$, $T_n:=(Y_1+\cdots+Y_n)/\sigma_n$ converges to zero almost surely. Thus, by Slutzky's theorem, we also have $(S_n-T_n)\to\mathcal{N}_{0,1}$ in distribution. However, $S_n-T_n=n\sigma_n^{-1}\sum_{k=1}^{n}E(Y_n)$ is constant for each $n$, which is a contradiction. With (\rmnum{3}), it follows from Proposition~\ref{variance converge imply converge series} and $\sum_nY_n$ that (\rmnum{2}) holds. This completes the proof.
+\end{proof}
+\begin{example}
+Let $\{X_n\}$ be a sequence of independent random variables such that each $X_n$ satisfies $P(X_n=1)=P(X_n=-1)=1/2$. Let $\{a_n\}$ be a sequence of real numbers and $Y_n=a_nX_n\chi_{\{|a_nX_n|\leq 1\}}$. Then we have
+\[P(|a_nX_n|>1)=\begin{cases}
+0&|a_n|\leq 1,\\
+1&|a_n|>1,
+\end{cases}\quad E(Y_n)=0,\quad \Var(Y_n)=\begin{cases}
+a_n^2&|a_n|\leq 1,\\
+0&|a_n|>1.
+\end{cases}\]
+Thus by the three-series theorem, $\sum_na_nX_n$ converges iff the series $\sum_nP(|a_nX_n|>1)$ and $\sum_n\Var(Y_n)$ converge, iff $\{a_n\}\in\ell^2$.
+\end{example}
+\subsection{Infinitely divisible measure}
+Suppose that $X_\lambda$ has the Poisson distribution with parameter $\lambda$ and that $X_{n,1},\dots,X_{n,n}$ are independent and $P(X_{n,k}=1)=\lambda/n$, $P(X_{n,k}=0)=1-\lambda/n$. Then $X_{n,1}+\cdot+X_{n,n}\to X_{\lambda}$ in distribution. This contrasts with the central limit theorem, in which the limit law is normal. What is the class of all possible limit laws for independent triangular arrays? A suitably restricted form of this question will be answered here.\par
+A distribution $F$ is \textbf{infinitely divisible} if for each $n$ there is a distribution function $F_n$ such that $F$ is the $n$-fold convolution $F_n\ast\cdots\ast F_n$ ($n$ copies) of $F_n$. The class of possible limit measures for an independent centered triangular array will turn out to consist of the infinitely divisible distributions with mean $0$ and finite variance. It will be possible to exhibit the characteristic functions of these laws in an explicit way.
+\begin{theorem}[\textbf{Kolmogorov's Canonical Representation}]
+Suppose that
+\begin{align}\label{infinite divisible canonical representation}
+\varphi(t)=\exp\int(e^{itx}-1-itx)\frac{d\mu(x)}{x^2}
+\end{align}
+where $\mu$ is a positive finite measure on $\R$. Then $\varphi$ is the characteristic function of an infinitely divisible distribution with mean $0$ and variance $\mu(\R)$.
+\end{theorem}
+\begin{proof}
+Let $\mu_n$ have mass $\mu((j/2^k,(j+1)/2^k])$ at $j/2^k$ for $j=0,\pm 1,\dots,\pm 2^{2k}$. Then $\mu_n\to\mu$ vaguely. If $\varphi_k(t)$ is $(\ref{infinite divisible canonical representation})$ with $\mu_k$ in place of $\mu$, then $\mu_k$ is a characteristic function since it is a product of that of point masses. For each $t$ the integrand in $(\ref{infinite divisible canonical representation})$ vanishes at $\infty$; since $\sup_k\mu_k(\R)<+\infty$, $\varphi_k(t)\to\varphi(t)$ follows. By L\'evy's continuity theorem, $\varphi(t)$ is itself a characteristic function. Further, the distribution corresponding to $\varphi_k(t)$ has second moment $\mu_k(\R)$, and since this is bounded, it follows that the distribution corresponding to $\varphi(\R)$ has a finite second moment. Differentiation shows that the mean is $\varphi'(0)=0$ and the variance is $-\varphi''(0)=\mu(\R)$. Thus $(\ref{infinite divisible canonical representation})$ is always the characteristic function of a distribution with mean $0$ and variance $\mu(\R)$.\par
+If $\psi_{n}(t)$ is $(\ref{infinite divisible canonical representation})$ with $\mu_n$ in place of $\mu$, then $\varphi(t)=\psi_{n}^n(t)$, so that the distribution corresponding to $\varphi(t)$ is indeed infinitely divisible.
+\end{proof}
+\begin{example}\label{normal diatribution generate measure}
+If $\delta$ is the point mass at zero, then $(\ref{infinite divisible canonical representation})$ gives
+\[\varphi(t)=\exp\Big(\lim_{x\to 0}\frac{e^{itx}-1-itx}{x^2}\Big)=e^{-\frac{t^2}{2}},\]
+which is the characteristic function of the normal distribution $\mathcal{N}_{0,1}$. Moreover generally, if $\mu=\sigma^2\delta$, then $\varphi_\mu(x)=e^{-\frac{\sigma^2t^2}{2}}$ is the characteristic function of $\mathcal{N}_{0,\sigma^2}$.
+\end{example}
+\begin{example}\label{Poission diatribution generate measure}
+If $\mu=\lambda x_0^2\delta_{x_0}$, then $(\ref{infinite divisible canonical representation})$ gives
+\[\varphi(t)=e^{\lambda(e^{itx_0}-1-itx_0)}=e^{-it\lambda x_0}\cdot e^{\lambda(e^{itx_0-1})}\]
+which is the characteristic function of $x_0(\Poi_\lambda-\lambda)$. Thus the Poission distribution is infinitely divisible. 
+\end{example}
+\begin{theorem}[\textbf{Infinite Divisible Distributions}]
+\mbox{}
+\begin{itemize}
+\item[(a)] Every infinitely divisible distribution with mean $0$ and finite variance is the limit distribution of $S_n$ for some independent centered triangular null array with bounded variance $s_n^2$
+\item[(b)] Conversely, if $F$ is the limit distribution of $S_n$ for some independent centered triangular null array with bounded variance $s_n^2$, then $F$ has characteristic function of the form $(\ref{infinite divisible canonical representation})$ for some finite positive measure $\mu$.
+\end{itemize}
+\end{theorem}
+\begin{proof}
+If $F$ is infinitely divisible, then for each $n$, we have $F=F_n^{\ast n}$. Let $X_{n,1},\dots,X_{n,n}$ be independent radom variables with distribution $F_n$, then the array $\{X_{n,k}\}$ satisfies the requirement.\par
+Conversely, assume that $F$ is the limit distribution of $S_n$ for some independent centered triangular null array with bounded variance $s_n^2$. Let $\varphi_{n,k}(t)$ be the characteristic function of $X_{n,k}$. The first step is to prove that
+\begin{align}\label{limit distribution char-1}
+\delta_n(t):=\prod_{k=1}^{r_n}\varphi_{n,k}(t)-\exp\sum_{k=1}^{r_n}(\varphi_{n,k}(t)-1)\to 0
+\end{align}
+for each $t\in\R$. Since $|e^{z-1}|=e^{\Re z-1}<1$ when $|z|<1$, it follows by $(\ref{product inequality})$ that the difference $\delta_n(t)$ above satisfies
+\[|\delta_n(t)|\leq\sum_{k=1}^{r_n}|\varphi_{n,k}(t)-\exp(\varphi_{n,k}(t)-1)|.\]
+Fix $t$. If $\theta_{n,k}:=\varphi_{n,k}(t)-1$, then $|\theta_{n,k}|\leq t^2\sigma_{n,k}^2/2$, and it follows by the null condition and the bounded condition that $\max_k|\theta_{n,k}|\to 0$ and $\sum_{k=1}^{r_n}|\theta_{n,k}|=O(1)$. Therefore, for sufficiently large $n$, we have
+\[|\delta_n(t)|\leq\sum_{k=1}^{r_n}|1+\theta_{n,k}-e^{\theta_{n,k}}|\leq e^2\sum_{k=1}^{r_n}|\theta_{n,k}|^2\leq e^2\max_k|\theta_{n,k}|\cdot\sum_{k=1}^{r_n}|\theta_{n,k}|\to 0.\]
+Thus $(\ref{limit distribution char-1})$ follows.\par
+If $F_{n,k}$ is the distribution function of $X_{n,k}$, then since each $X_{n,k}$ is centered, we have
+\[\sum_{k=1}^{r_n}(\varphi_{n,k}(t)-1)=\sum_{k=1}^{r_n}\int(e^{itx}-1)\,dF_{n,k}(x)=\sum_{k=1}^{r_n}\int(e^{itx}-1-itx)\,dF_{n,k}(x).\]
+Let $\mu_n$ be the finite measure satisfying $d\mu_n=\sum_{k=1}^{r_n}x^2\,dF_{n,k}(x)$ and put
+\begin{align}\label{limit distribution char-2}
+\varphi_n(t)=\exp\int(e^{itx}-1-itx)\frac{d\mu_n(x)}{x^2}.
+\end{align}
+Then $(\ref{limit distribution char-1})$ can be written as
+\begin{align*}
+\prod_{k=1}^{r_n}\varphi_{n,k}(t)-\varphi_n(t)&=\prod_{k=1}^{r_n}\varphi_{n,k}(t)-\exp\sum_{k=1}^{r_n}\int(e^{itx}-1-itx)\,dF_{n,k}(x)\\
+&=\prod_{k=1}^{r_n}\varphi_{n,k}(t)-\exp\sum_{k=1}^{r_n}(\varphi_{n,k}(t)-1)\to 0.
+\end{align*}
+By definition, $\mu_n(\R)=\sum_{k=1}^{r_n}E(X_{n,k}^2)=s_n^2$, and this is bounded by assumption. Thus $\{\mu_n\}$ is bounded, and some subsequence $\{\mu_{n_k}\}$ converges vaguely to a finite measure $\mu$. Since the integrand in $(\ref{limit distribution char-2})$ vanishes at $\infty$, by vague convergence we have $\varphi_{n_k}(t)\to\varphi(t)$, where $\varphi$ is given by 
+\[\varphi(t)=\exp\int(e^{itx}-1-itx)\frac{d\mu(x)}{x^2}.\]
+Of course the limit $\lim_k\varphi_{n_k}(t)$ must coincide with the characteristic function of the limit distribution $F$, which exists by hypothesis. Thus $F$ must have characteristic function of the form $(\ref{infinite divisible canonical representation})$.
+\end{proof}
+\begin{theorem}\label{limit distribution of array char}
+Suppose that $F$ has characteristic function $(\ref{infinite divisible canonical representation})$ and $\{X_{n,k}\}$ is an independent centered triangular null array with bounded variance $s_n^2$. Then $S_n$ has limit distribution $F$ if and only if $\mu_n\to\mu$ vaguely, where $\mu_n$ is defined by $(\ref{limit distribution char-2})$.
+\end{theorem}
+\begin{proof}
+Since $(\ref{limit distribution char-1})$ holds as before, $S_n$ has limit distribution $F$ if and only if $\varphi_n(t)$ (defined by $(\ref{limit distribution char-2})$) converges for each $t$ to $\varphi(t)$. If $\mu_n\to\mu$ vaguely, then this follows because the integrand is in $C_0$.\par
+Now suppose that $\varphi_n(t)\to\varphi(t)$. Since $\mu_n(\R)=s_n^2$ is bounded, each subsequence $\{\mu_{n_k}\}$ contains a further subsequence $\{\mu_{k_i}\}$ converging vaguely to some $\nu$. By the definition of $\varphi_n(t)$, it follows that $\varphi(t)$ must coincide with the function
+\[\psi(t)=\exp\int(e^{itx}-1-itx)\frac{d\nu(x)}{x^2}.\]
+Differentiating this equality twice yeilds $\int e^{itx}\,d\nu(x)=\int e^{itx}\,d\mu(x)$, so it follows from the uniqueness of characteristic function that $\mu=\nu$. Since this holds for any subsequence of $\{\mu_n\}$, it follows that $\mu_n\to\mu$ vaguely.
+\end{proof}
+As an application of Theorem~\ref{limit distribution of array char}, we prove a converse of Theorem~\ref{CLT of Linderberg}.
+\begin{corollary}
+Let $\{X_{n,k}\}$ be an independent centered null array of real random variables such that $P_{S_n/s_n}\to \mathcal{N}_{0,1}$ weakly. Then $\{X_{n,k}\}$ satisfies the Lindeberg condition.
+\end{corollary}
+\begin{proof}
+We may assume that $s_n^2=1$, so that $S_n$ converges to the normal distribution. According to Theorem~\ref{limit distribution of array char}, the measures $\mu_n$ must converge vaguely to $\mu$, where $\mu$ gives the characteristic function $e^{-t^2/2}$ by $(\ref{infinite divisible canonical representation})$. We already seen that $\mu=\delta$, so $\mu_n$ must converges vaguely to the point mass $\delta$, and therefore
+\[L_n(\eps)=\sum_{k=1}^{r_n}\int_{\{|X_{n,k}|>\eps\}}X_{n,k}^2\,dP=\sum_{k=1}^{r_n}\int_{\{|x|>\eps\}}x^2\,dF_{n,k}(x)=\mu_n([-\eps,\eps]^c).\]
+Since $\mu_n([-\eps,\eps])\to\delta([-\eps,\eps])=1$, it follows that $L_n(\eps)\to 0$, so Lindeberg's condition is satisfied.
+\end{proof}
+\begin{example}
+Let $\{X_n\}$ be i.i.d. radom variables with distribution function $F$, expectation $\mu$ and variance $\sigma^2$. Consider the following array of independent centered normed radomed variables:
+\[Y_{n,k}=\frac{X_k-\mu}{\sqrt{n\sigma^2}},\ \ k=1,\dots,n.\]
+Then the distribution function of $Y_{n,k}$ is $F_{n,k}(x)=F(\mu+\sqrt{n\sigma^2}x)$, so the measures $\mu_n$ in Theorem~\ref{limit distribution of array char} are given by
+\[d\mu_n(x)=\sum_{k=1}^{n}x^2dF_{n,k}(x)=nx^2dF(\mu+\sqrt{n\sigma^2}x).\]
+We claim that $\mu_n\to\delta$ vaguely, so that $P_{S_n}\to \mathcal{N}_{0,1}$ in distribution by Theorem~\ref{limit distribution of array char} and Example~\ref{normal diatribution generate measure}. Let $f\in C_0(\R)$, then
+\[\int f(x)\,d\mu_n(x)=\int f(x)nx^2\,dF(\mu+\sqrt{n\sigma^2}x)=\frac{1}{\sigma^2}\int f(\frac{t}{\sqrt{n\sigma^2}})t^2\,dF(\mu+t),\]
+so that
+\[\lim_{n\to+\infty}\int f(x)\,d\mu_n(x)=\frac{f(0)}{\sigma^2}\int t^2\,dF(\mu+t)=\frac{f(0)}{\sigma^2}\int(t-\mu)^2\,dF=f(0).\]
+Note that
+\[S_n=\sum_{k=1}^{n}Y_{n,k}=\frac{1}{\sqrt{n\sigma^2}}\sum_{k=1}^{n}(X_k-\mu)=S_n^*,\]
+so we have recovered Theorem~\ref{CLT for iid} from Theorem~\ref{limit distribution of array char}.
+\end{example}
+\begin{example}
+Let $\{X_{n,k}\}$ be independent radom variables such that $X_{n,k}\sim b_{1,p_n}$ for each $n$ and consider the centered array $\{Y_{n,k}=X_{n,k}-p_n\}$. In this case, the measures $\mu_n$ in Theorem~\ref{limit distribution of array char} are given by
+\[d\mu_n(x)=\sum_{k=1}^{n}x^2dY_{n,k}(x)=\sum_{k=1}^{n}x^2((1-p_n)d\delta_0+p_nd\delta_1)=nx^2((1-p_n)d\delta_0+p_nd\delta_1).\]
+Assume that $np_n\to\lambda$. Then $\mu_n\to\lambda\delta_1$ vaguely because for $f\in C_0(\R)$ we have
+\[\int f\,d\mu_n=\int f(x)nx^2((1-p_n)d\delta_0+p_nd\delta_1)=\int f(x)nx^2p_nd\delta_1=np_nf(1)\to\lambda f(1).\]
+By Example~\ref{Poission diatribution generate measure} and Theorem~\ref{limit distribution of array char}, we conclude that $\sum_{k=1}^{n}Y_{n,k}\to\Poi_\lambda-\lambda$. Thus, if we set $S_n=X_{n,1}+\cdots+X_{n,n}$, then $S_n\sim b_{n,p_n}$ and $S_n\to\Poi_\lambda$.
+\end{example}
