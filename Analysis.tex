@@ -59,9 +59,9 @@ Let us now come back to an Euclidian vector space $(V,\langle\cdot\ ,\cdot\rangl
 \[\omega(v,w)=\langle Jv,w\rangle=-\langle v,Jw\rangle.\]
 Since $\langle\cdot\ ,\cdot\rangle$ is compatible with $J$, it is easy to see $\omega$ is alternating:
 \[\omega(v,w)=\langle Jv,w\rangle=\langle J^2v,Jw\rangle=-\langle v,Jw\rangle=-\omega(w,v).\]
-Moreover, we note that $\omega$ is invariant under $\mathbf{J}$:
-\[(\mathbf{J}\omega)(v,w)=\omega(\mathbf{J}v,\mathbf{J}w)=\langle J^2v,Jw\rangle=\langle Jv,w\rangle=\omega(v,w)\]
-so that $\omega\in\bigw^{1,1}V^*_{\C}$. We also note that two of the three structures $\{\langle\cdot\ ,\cdot\rangle),J,\omega\}$ determine the remaining
+Moreover, we note that $\omega$ is invariant under $J$:
+\[(J\omega)(v,w)=\omega(Jv,Jw)=\langle J^2v,Jw\rangle=\langle Jv,w\rangle=\omega(v,w)\]
+so that $\omega\in\bigw^{1,1}V^*_{\C}$. We also note that two of the three structures $\{\langle\cdot\ ,\cdot\rangle,J,\omega\}$ determine the remaining
 one.\par
 Following a standard procedure, the scalar product and the fundamental form are encoded by a natural hermitian form.
 \begin{proposition}\label{almost complex space induce Hermitian}
@@ -195,7 +195,7 @@ It is clear that each $\bigw^kV^*$ is an eigenspace of $H$. With $H$, $L$, $\Lam
 \begin{theorem}\label{almost complex space sl(2,C) representation}
 Let $(V,\langle\cdot\ ,\cdot\rangle)$ be an Euclidian vector space endowed with a compatible almost complex structure $J$. Consider the linera operators $H$, $L$, $\Lambda$, and $\Pi$.
 \begin{itemize}
-\item[(a)] $[L,\mathbf{J}]=[\Lambda,\mathbf{J}]=0$.
+\item[(a)] $[L,J]=[\Lambda,J]=0$.
 \item[(b)] $[H,L]=2L$, $[H,\Lambda]=-2\Lambda$, and $[\Lambda,L]=H$.
 \end{itemize}
 \end{theorem}
@@ -276,7 +276,7 @@ It is clear that $[L,e(\eta)]=0$ since $\omega$ is a $2$-form. As for $[\Lambda,
 \begin{proposition}\label{almost complex space interoir prod commutator with L,Lambda}
 Let $\omega$ be the fundamental form of $(V,\langle\cdot\ ,\cdot\rangle)$ and $\eta$ be a real $1$-form. Then
 \begin{align}\label{almost complex space interoir prod commutator with L,Lambda-2}
-[\Lambda,e(\eta)]=-\mathbf{J}e^*(\eta)\mathbf{J}^{-1}.
+[\Lambda,e(\eta)]=-Je^*(\eta)J^{-1}.
 \end{align}
 In particular, if $\eta$ is a $(1,0)$-form, we have
 \begin{align}\label{almost complex space interoir prod commutator with L,Lambda-1}
@@ -322,7 +322,7 @@ Again, this is zero if $j\notin K$, and if $j\in K$ we have
 [\Lambda,e(z^j)](z^I\wedge\bar{z}^K)=-\i\cdot(-1)^{|I|+n(j,K)}z^I\wedge\bar{z}^{K-\{j\}}.
 \end{align*}
 In both cases, we have $[\Lambda,e(z^j)](z^I\wedge\bar{z}^K)=-\i e^*(\bar{z}^j)(z^I\wedge\bar{z}^K)$, so the first equality of (\ref{almost complex space interoir prod commutator with L,Lambda-1}) follows. The second one can be proved similarly. Finally, to see (\ref{almost complex space interoir prod commutator with L,Lambda-2}), we simply note that any real $1$-form can be written in the form $\eta=\alpha+\beta$, where $\alpha$ is of type $(1,0)$ and $\beta$ is of type $(0,1)$. Then we can check that
-\[-\i e^*(\alpha)=-\mathbf{J}e^*(\bar{\alpha})\mathbf{J}^{-1},\quad \i e^*(\beta)=-\mathbf{J}e^*(\beta)\mathbf{J}^{-1}.\]
+\[-\i e^*(\alpha)=-Je^*(\bar{\alpha})J^{-1},\quad \i e^*(\beta)=-Je^*(\beta)J^{-1}.\]
 Combine this with (\ref{almost complex space interoir prod commutator with L,Lambda-1}), we see (\ref{almost complex space interoir prod commutator with L,Lambda-2}) follows.
 \end{proof}
 With these preparations made, we now want to prove two basic lemmas due to Hecht. We introduce the following operator on $\bigw^*V^*_{\C}$ induced by the action of $\SL(2,\C)$ on $\bigw^*V^*_{\C}$ by the representation of $\sl(2,\C)$. Recall that the Weyl element $\theta$ in $\SL(2,\C)$ is given by
@@ -361,7 +361,7 @@ Since every irreducible representation of $V$ is isomorphic to some $\mathrm{Sym
 \begin{lemma}\label{almost complex space conjugate by hash}
 Let $\eta$ be a real $1$-form. Then
 \begin{align}\label{almost complex space conjugate by hash-1}
-\hash e(\eta)\hash^{-1}=-\i\mathbf{J}e^*(\eta)\mathbf{J}^{-1}.
+\hash e(\eta)\hash^{-1}=-\i Je^*(\eta)J^{-1}.
 \end{align}
 \end{lemma}
 \begin{proof}
@@ -404,7 +404,7 @@ Now set $t=\pi/2$, we then find that $e_{\pi/2}=\i[\Lambda,e]$, which proves the
 \begin{lemma}\label{almost complex space hash and Hodge star}
 For any $\alpha\in\bigw^kV^*$, we have
 \begin{align}\label{almost complex space hash and Hodge star-1}
-\ast\alpha=\i^{k^2-n}\mathbf{J}^{-1}\hash\alpha.
+\ast\alpha=\i^{k^2-n}J^{-1}\hash\alpha.
 \end{align}
 \end{lemma}
 \begin{proof}
@@ -415,7 +415,7 @@ We first note that the $\ast$-operator is characterized by
 as an operator on $\bigw^kV^*_{\C}$ for any real $1$-form $\eta$, as the forms obtained from $1$ by repeated application of $e(\eta)$ span $\bigw^*V^*_{\C}$. The first equation is clear, and the second one follows from Proposition~\ref{almost complex space Hodge star operator prop}(c): for a $k$-form $\alpha$, we have
 \[\ast e(\eta)\alpha=\ast e(\eta)\ast\ast^{-1}\alpha=(-1)^ke^*(\eta)\ast\alpha.\]
 Now consider the operator
-\[\tilde{\ast}=\i^{k^2-n}\mathbf{J}\hash\]
+\[\tilde{\ast}=\i^{k^2-n}J\hash\]
 defined on $\bigw^kV^*_{\C}$. We recall that by (\ref{almost complex space action by hash-1}),
 \[\hash L^k\alpha=\i^n\frac{k!}{(n-k)!}L^{n-k}\alpha\]
 if $\alpha$ is primitive of weight $n$. But $1$ is just a primitive form of weight $n$, so apply this equality we have
@@ -424,8 +424,8 @@ We then conclude that
 \[\widetilde{\ast}1=\i^{-n}\cdot\frac{\i^n}{n!}L^n(1)=\frac{L^n(1)}{n!}=\mathrm{vol}.\]
 Similarly, if $\eta$ is a real $1$-form and $\alpha$ is a $k$-form, using (\ref{almost complex space conjugate by hash-1}) we see 
 \begin{align*}
-\tilde{\ast}e(\eta)\alpha&=\i^{(k+1)^2-n}\mathbf{J}^{-1}\hash e(\eta)\alpha=\i^{k^2-n}(-1)^k\i\mathbf{J}^{-1}\hash e(\eta)\hash^{-1}\hash\alpha\\
-&=\i^{k^2-n}(-1)^ke^*(\eta)\mathbf{J}^{-1}\hash\alpha=(-1)^ke^*(\eta)\tilde{\ast}\alpha.
+\tilde{\ast}e(\eta)\alpha&=\i^{(k+1)^2-n}J^{-1}\hash e(\eta)\alpha=\i^{k^2-n}(-1)^k\i J^{-1}\hash e(\eta)\hash^{-1}\hash\alpha\\
+&=\i^{k^2-n}(-1)^ke^*(\eta)J^{-1}\hash\alpha=(-1)^ke^*(\eta)\tilde{\ast}\alpha.
 \end{align*}
 This verifies (\ref{almost complex space hash and Hodge star-2}) for $\tilde{\ast}$, so $\ast=\tilde{\ast}$.
 \end{proof}
@@ -433,7 +433,7 @@ We now prove the following mysterious but extremely useful result about the inte
 \begin{proposition}\label{almost complex space star and L power}
 Let $\alpha$ be a primitive $k$-form in $\bigw^*V^*$. Then for $0\leq j\leq n-k$, we have
 \begin{align}
-\ast L^j\alpha=(-1)^{\frac{k(k+1)}{2}}\frac{j!}{(n-k-j)!}L^{n-k-j}\mathbf{J}\alpha
+\ast L^j\alpha=(-1)^{\frac{k(k+1)}{2}}\frac{j!}{(n-k-j)!}L^{n-k-j}J\alpha
 \end{align}
 \end{proposition}
 \begin{proof}
@@ -441,8 +441,8 @@ Let $V^*_\alpha$ be the subspace of $\bigw^*V^*$ generated by $\{L^j\alpha:0\leq
 \[\hash L^j\alpha=\i^{n-k}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha.\]
 Hence, by Lemma~\ref{almost complex space hash and Hodge star}, if $\alpha\in P^k$ we have (recall that $J^2=\sum_k(-1)^k\Pi^k$)
 \begin{align*}
-\ast L^j\alpha&=\i^{(k+2j)^2-n}\mathbf{J}^{-1}\hash L^j\alpha=\i^{k^2-n}\mathbf{J}^{-1}\i^{n-k}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha\\
-&=\i^{k^2-k}(\mathbf{J}^{-1})^2\frac{j!}{(n-k-j)!}L^{n-k-j}\mathbf{J}\alpha\\
+\ast L^j\alpha&=\i^{(k+2j)^2-n}J^{-1}\hash L^j\alpha=\i^{k^2-n}J^{-1}\i^{n-k}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha\\
+&=\i^{k^2-k}(J^{-1})^2\frac{j!}{(n-k-j)!}L^{n-k-j}J\alpha\\
 &=\i^{k^2-k}(-1)^{p-q}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha\\
 &=\i^{k^2-k}(-1)^{k}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha\\
 &=(-1)^{\frac{k(k+1)}{2}}\frac{j!}{(n-k-j)!}L^{n-k-j}\alpha.\qedhere
