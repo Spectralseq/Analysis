@@ -29,29 +29,21 @@
 \tableofcontents
 \setlength{\abovedisplayskip}{5pt}
 \setlength{\belowdisplayskip}{5pt}
-\iffalse
-\include{chapter/probability}
-\include{chapter/bundles}
-\include{chapter/ergodic}
-\include{chapter/topo}
-\include{chapter/Add-topic}
 
-
-\include{chapter/functional-analysis}
-
-
-\include{chapter/complex}
-\include{chapter/vector-field-flow}
-\include{chapter/Lie-group-algebra}
-\include{chapter/fund-manifold}
-
-\include{chapter/tensor-form}
-\include{chapter/Riemannian-Geometry}
-\include{chapter/TVS}
-\include{chapter/measure-and-int}
-\fi
-
-
+%\include{chapter/probability}
+%\include{chapter/bundles}
+%\include{chapter/ergodic}
+%\include{chapter/topo}
+%\include{chapter/Add-topic}
+%\include{chapter/functional-analysis}
+%\include{chapter/complex}
+%\include{chapter/vector-field-flow}
+%\include{chapter/Lie-group-algebra}
+%\include{chapter/fund-manifold}
+%\include{chapter/tensor-form}
+%\include{chapter/Riemannian-Geometry}
+%\include{chapter/TVS}
+%\include{chapter/measure-and-int}
 \chapter{Complex manifolds}
 \section{Local theory of complex vector spaces}
 \subsection{Complex and Hermitian Structures}
@@ -61,7 +53,7 @@ Since $\langle\cdot\ ,\cdot\rangle$ is compatible with $J$, it is easy to see $\
 \[\omega(v,w)=\langle Jv,w\rangle=\langle J^2v,Jw\rangle=-\langle v,Jw\rangle=-\omega(w,v).\]
 Moreover, we note that $\omega$ is invariant under $J$:
 \[(J\omega)(v,w)=\omega(Jv,Jw)=\langle J^2v,Jw\rangle=\langle Jv,w\rangle=\omega(v,w)\]
-so that $\omega\in\bigw^{1,1}V^*_{\C}$. We also note that two of the three structures $\{\langle\cdot\ ,\cdot\rangle,J,\omega\}$ determine the remaining
+so that $\omega\in\bigw^{1,1}V^*$. We also note that two of the three structures $\{\langle\cdot\ ,\cdot\rangle,J,\omega\}$ determine the remaining
 one.\par
 Following a standard procedure, the scalar product and the fundamental form are encoded by a natural hermitian form.
 \begin{proposition}\label{almost complex space induce Hermitian}
@@ -105,7 +97,7 @@ Often, it is useful to do calculations in coordinates. Let us see how the above 
 \[\langle\sum_{i=1}^{n}a_iz_i,\sum_{j=1}^{n}b_jz_j\rangle_{\C}=\frac{1}{2}\sum_{i,j=1}^{n}h_{ij}a_i\widebar{b}_j.\]
 By Proposition~\ref{almost complex space Hermitian form relation}, the Hermitian form $(\cdot\ ,\cdot)$ on $(V,J)$ with respect to the basis $x_i$ is given by $(h_{ij})$. We want to compute the fundamental form $\omega$ in this case, with respect to the basis $x_i,y_i$.
 \begin{proposition}\label{almost complex space fundamental class express}
-The fundamental basis $\omega$ on $(V,J)$ is given by
+The fundamental form $\omega$ on $(V,J)$ is given by
 \begin{align}\label{almost complex space fundamental class express-1}
 \omega=-\sum_{i<j}(\Im h_{ij})(x^i\wedge x^j+y^i\wedge y^j)+\sum_{i,j=1}^{n}(\Re h_{ij})x^i\wedge y^j
 \end{align}
@@ -139,12 +131,12 @@ If $x_i,y_i$ is an orthonormal basis for $V$ with respect to $\langle\cdot\ ,\cd
 then by Proposition~\ref{almost complex space fundamental class express}, we have
 \[\omega=\frac{\i}{2}\sum_{i=1}^{n}z^i\wedge\bar{z}^i=\sum_{i=1}^{n}x^i\wedge y^i.\]
 \end{example}
-With the fundamental class $\omega$, we now define the Lefschetz operator $L:\bigw^*V^*_{\C}\to\bigw^*V^*_{\C}$ by $\alpha\mapsto\omega\wedge\alpha$. It is clear that $L$ is the $\C$-linear of the real operator $\bigw^*V\to\bigw^*V$ given by $\alpha\mapsto\omega\wedge\alpha$, and since $\omega$ is of bidegree $(1,1)$, $L$ is of bidegree $(1,1)$, i.e.,
+With the fundamental class $\omega$, we now define the Lefschetz operator $L:\bigw^*V^*_{\C}\to\bigw^*V^*_{\C}$ by $\alpha\mapsto\omega\wedge\alpha$. It is clear that $L$ is the $\C$-linear extension of the real operator $\bigw^*V\to\bigw^*V$ given by $\alpha\mapsto\omega\wedge\alpha$, and since $\omega$ is of bidegree $(1,1)$, $L$ is of bidegree $(1,1)$, i.e.,
 \[L\Big(\bigw^{p,q}V^*\Big)\sub\bigw^{p+1,q+1}V^*.\]
 We shall show that the power
 \[L^k:\bigw^kV^*\to\bigw^{2n-k}V^*\]
 is an isomorphism for all $k\leq n$, where we write $\dim_{\R}V=2n$. An elementary proof can be given by choosing a basis, but it is slightly cumbersome. A more elegant but less elementary argument, using $\sl(2,\C)$-representation theory, will be given below.\par
-The Lefschetz operator comes along with its dual $\Lambda$. In order to define and to describe $\Lambda$ we need to recall the Hodge $\ast$-operator on a real vector space. Let $(V,\langle\cdot\ ,\cdot\rangle)$ be an oriented euclidian vector space of dimension $d$, then $\langle\cdot\ ,\cdot\rangle)$ can be extended to all the exterior powers $\bigw^kV$. Explicitly, if $e_1,\dots,e_d\in V$ is an orthonormal basis of $V$, then $e^I\in\bigw^kV$ is an orthonormal basis of $\bigw^kV$, where $I=\{i_1<\cdots<i_k\}$ is a subset of $\{1,\dots,d\}$. Let $\mathrm{vol}\in\bigw^dV$ be the orientation of $V$ of norm $1$ given by $\mathrm{vol}=e_1\wedge\cdots\wedge e_d$. Then the Hodge $\ast$-operator is defined by
+The Lefschetz operator comes along with its dual $\Lambda$. In order to define and to describe $\Lambda$ we need to recall the Hodge $\ast$-operator on a real vector space. Let $(V,\langle\cdot\ ,\cdot\rangle)$ be an oriented euclidian vector space of dimension $d$, then $\langle\cdot\ ,\cdot\rangle$ can be extended to all the exterior powers $\bigw^kV$. Explicitly, if $e_1,\dots,e_d\in V$ is an orthonormal basis of $V$, then $e^I\in\bigw^kV$ is an orthonormal basis of $\bigw^kV$, where $I=\{i_1<\cdots<i_k\}$ is a subset of $\{1,\dots,d\}$. Let $\mathrm{vol}\in\bigw^dV$ be the orientation of $V$ of norm $1$ given by $\mathrm{vol}=e_1\wedge\cdots\wedge e_d$. Then the Hodge $\ast$-operator is defined by
 \[\alpha\wedge\ast\beta=\langle\alpha,\beta\rangle\cdot\mathrm{vol}\]
 for $\alpha,\beta\in\bigw^*V$. This determines $\ast$ since the exterior product defines a nondegenerate pairing $\bigw^kV\times\bigw^{d-k}V=\mathrm{vol}\cdot\R$. One easily sees that $\ast:\bigw^kV\to\bigw^{d-k}V$. The most important properties of the Hodge $\ast$-operator are collected in the following proposition.
 \begin{proposition}\label{almost complex space Hodge star operator prop}
@@ -164,9 +156,9 @@ In our situation we will usually have $d=2n$ and $\ast$ and $\langle\cdot\ ,\cdo
 \[\langle\Lambda\alpha,\beta\rangle=\langle\alpha,L\beta\rangle\]
 for all $\beta\in\bigw^*V^*$. The $\C$-linear extension of the dual Lefschetz operator will also be denoted by $\Lambda$.
 \begin{remark}
-Recall that $J$ induces a natural orientation on $V$ (Corollary~\ref{}). Thus, the Hodge $\ast$-operator is well-defined. Using an orthonormal basis $x_i,y_i=Jx_i$ as above, a straightforward calculation yields
+Recall that $J$ induces a natural orientation on $V$. Thus, the Hodge $\ast$-operator is well-defined. Using an orthonormal basis $x_i,y_i=Jx_i$ as above, a straightforward calculation yields
 \[\omega^n=n!\cdot\mathrm{vol}\]
-where w is the associated fundamental form.
+where $\omega$ is the associated fundamental form.
 \end{remark}
 \begin{proposition}\label{almost complex space Lefschetz dual operator expression}
 The dual Lefschetz operator $\Lambda$ is of degree $-2$ and we have $\Lambda=\ast^{-1}\circ L\circ\ast$.
@@ -193,7 +185,7 @@ We continue to assume that $\dim_{\R}V=2n$, and let $H:\bigw^*V\to\bigw^*V$ be t
 \[H=\sum_{k=0}^{2n}(n-k)\cdot\Pi^k.\]
 It is clear that each $\bigw^kV^*$ is an eigenspace of $H$. With $H$, $L$, $\Lambda$, $\Pi$, etc., we dispose of a large number of linear operators on $\bigw^*V^*$ and one might wonder whether they commute. In fact, they do not, but their commutators can be computed.
 \begin{theorem}\label{almost complex space sl(2,C) representation}
-Let $(V,\langle\cdot\ ,\cdot\rangle)$ be an Euclidian vector space endowed with a compatible almost complex structure $J$. Consider the linera operators $H$, $L$, $\Lambda$, and $\Pi$.
+Let $(V,\langle\cdot\ ,\cdot\rangle)$ be an Euclidian vector space endowed with a compatible almost complex structure $J$. Consider the linear operators $H$, $L$, $\Lambda$, and $\Pi$.
 \begin{itemize}
 \item[(a)] $[L,J]=[\Lambda,J]=0$.
 \item[(b)] $[H,L]=2L$, $[H,\Lambda]=-2\Lambda$, and $[\Lambda,L]=H$.
@@ -214,6 +206,47 @@ for a nonvanishing constant $\gamma(a,b,m)$, where $a=|A|$, $b=|B|$, $m=|M|$, an
 \[\gamma(a,b,m)=\i^{a-b}(-1)^{\frac{p(p+1)}{2}+m}(-2\i)^{p-n}\]
 where $p=a+b+2m$ is the total degree of $z^A\wedge z^B\wedge\alpha^M$.
 \end{lemma}
+\begin{proof}
+Let $\beta=z^A\wedge\bar{z}^B\wedge\alpha^M$. If $A=A_1\cup A_2$ for some multiindex $A$, let
+\[\epsilon_A^{A_1A_2}=\begin{cases}
+0&\text{if $A_1\cap A_2\neq\emp$}\\
+1&\text{$A_1A_2$ is an even permutation of $A$}\\
+-1&\text{$A_1A_2$ is an odd permutation of $A$}
+\end{cases}\]
+Using this notation it is easy to see that
+\[z^A=\sum_{A=A_1\cup A_2}'\epsilon_A^{A_1A_2}\cdot\i^{a_2}x^{A_1}\wedge y^{A_2},\]
+where the sum runs over all decompositions of $A$ into increasing multiindices, and we set $a_1=|A_1|$, $a_2=|A_2|$, etc. We then obtain 
+\[\beta=(-2\i)^m\sum'_{\substack{A=A_1\cup A_2\\B=B_1\cup B_2}}\epsilon_A^{A_1A_2}\epsilon_B^{B_1B_2}\cdot\i^{a_2-b_2}x^{A_1}\wedge y^{A_2}\wedge x^{B_1}\wedge y^{B_2}\wedge\prod_{\mu\in M}x^\mu\wedge y^\mu.\]
+We want to compute $\ast\beta$, having expressed $\beta$ in terms of a real basis, and we shall do this term by term and then sum the result. To simplify the notation, consider the case where $B=\emp$. In this case,
+\begin{align}\label{almost complex space Hodge star on standard form lemma-1}
+\ast(z^A\wedge\alpha^M)=(-2\i)^m\sum_{A=A_1\cup A_2}\epsilon_A^{A_1A_2}\i^{a_2}\ast\Big\{x^{A_1}\wedge y^{A_2}\wedge\prod_{\mu\in M}x^\mu\wedge y^\mu\Big\}.
+\end{align}
+It is clear that the result of $\ast$ acting on the bracketed expression is of the form
+\begin{align}\label{almost complex space Hodge star on standard form lemma-2}
+\pm x^{A_2}\wedge y^{A_1}\wedge\prod_{\mu\in N}x^\mu\wedge y^\mu
+\end{align}
+where $N=(A\cup M)^c$. The only problem is to determine the sign. To do this it suffices (because of the commutativity of $\prod_{\mu\in M}x^\mu\wedge y^\mu)$ to consider the product
+\[x^{A_1}\wedge y^{A_2}\wedge x^{A_2}\wedge y^{A_1}=(-1)^{a_2^2}x^{A_1}\wedge y^{A_1}\wedge x^{A_2}\wedge y^{A_2}.\]
+In general, we have
+\[x^C\wedge y^C=(-1)^{\frac{|C|(|C|-1)}{2}}x^{\mu_1}\wedge y^{\mu_2}\wedge\cdots\wedge x^{\mu_{|C|}}\wedge y^{\mu_{|C|}}\]
+and applying this to our problem above, we see immediately that the sign in (\ref{almost complex space Hodge star on standard form lemma-2}) is of the form
+\[(-1)^{a_2^2+\frac{a_1(a_1-1)}{2}+\frac{a_2(a_2-1)}{2}}=:(-1)^r\]
+From this and (\ref{almost complex space Hodge star on standard form lemma-1}), we conclude that
+\begin{align}\label{almost complex space Hodge star on standard form lemma-3}
+\ast(z^A\wedge\alpha^M)=(-2\i)^m\sum'_{A=A_1\cup A_2}\epsilon_A^{A_1A_2}\i^{a_2}(-1)^rx^{A_2}\wedge y^{A_1}\wedge\prod_{\mu\in N}x^\mu\wedge y^\mu.
+\end{align}
+The idea now is to change variables in the summation. We write
+\[\epsilon_A^{A_1A_2}=(-1)^{a_1a_2}\epsilon_A^{A_2A_1},\quad \i^{a_2}=\i^a(-1)^{a_1}\i^{a_1},\]
+and by substituting this in (\ref{almost complex space Hodge star on standard form lemma-3}), we obtain that
+\begin{align*}
+\ast(z^A\wedge\alpha^M)=\i^a(-2\i)^m\sum'_{A=A_1\cup A_2}\epsilon_A^{A_2A_1}\i^{a_1}\cdot\{(-1)^{r+a_1+a_1a_2}\}\cdot x^{A_2}\wedge y^{A_1}\wedge\prod_{\mu\in N}x^\mu\wedge y^\mu,
+\end{align*}
+which is, modulo the bracketed term, of the right form to be $(z^A\wedge\alpha^M)$. A priori, this term depends on the decompositions $A=A_1\cup A_2$; however, one can verify that in fact
+\[(-1)^{r+a_1+a_1a_2}=(-1)^{\frac{a(a+1)}{2}}=(-1)^{\frac{p(p+1)}{2}+m}\]
+and the bracketed constant pulls out in front the summation, so
+\[\ast(z^A\wedge\alpha^M)=\i^a(-1)^{\frac{p(p+1)}{2}+m}(-2\i)^{p-n}z^A\wedge\alpha^N.\]
+The general case can be treated similarly.
+\end{proof}
 \begin{proof}[\textbf{Proof of Theorem~\ref{almost complex space sl(2,C) representation}}]
 The first assertion follows from the fact that $L$ and $\Lambda$ are homogeneous operators and are real. We now prove the second one. It is immediate that, for $\alpha\in\bigw^kV^*$, we have
 \begin{align*}
@@ -459,7 +492,7 @@ Finally, if $\alpha$ is a primitive $(1,1)$-form, then
 Let $(V,\langle\cdot\ ,\cdot\rangle,J)$ be as before and let $\omega$ be the associated fundamental form. The \textbf{Hodge-Riemann pairing} of $V$ is the bilinear form
 \[Q:\bigw^kV^*\times\bigw^kV^*\to\R,\quad (\alpha,\beta)\mapsto(-1)^{\frac{k(k-1)}{2}}\alpha\wedge\beta\wedge\omega^{n-k}\]
 where $\bigw^{2n}V^*$ is identified with $\R$ via the volume form $\mathrm{vol}$. By definition $Q=0$ on $\bigw^kV^*$ for $k>n$. We will also denote by $Q$ the $\C$-linear extension of the Hodge-Riemann pairing to $\bigw^*V^*_{\C}$. Our final result will be an orthogonal condition on $Q$:
-\begin{proposition}[\textbf{Hodge-Riemann bilinear relation}]\label{almost complex space Hodge-Riemann bilinera relation}
+\begin{proposition}[\textbf{Hodge-Riemann bilinear relation}]\label{almost complex space Hodge-Riemann bilinear relation}
 Let $(V,\langle\cdot\ ,\cdot\rangle,J)$ be an Euclidian vector space endowed with a compatible almost complex structure. Then the associated Hodge-Riemann pairing $Q$ satisfies
 \[Q(\bigw^{p,q}V^*,\bigw^{p',q'}V^*)=0\]
 for $(p,q)\neq(q',p')$ and

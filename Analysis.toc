@@ -2,5 +2,5 @@
 \contentsline {chapter}{\numberline {1}Complex manifolds}{5}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Local theory of complex vector spaces}{5}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Complex and Hermitian Structures}{5}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Tangent space and differential forms on $\mathbb {C}^n$}{17}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Complex manifolds}{21}{section.1.2}%
+\contentsline {subsection}{\numberline {1.1.2}Tangent space and differential forms on $\mathbb {C}^n$}{18}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Complex manifolds}{23}{section.1.2}%
