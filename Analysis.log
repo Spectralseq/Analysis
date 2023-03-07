@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.14)  6 MAR 2023 21:29
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.14)  7 MAR 2023 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1311,7 +1311,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box108
 \@float@everytoks=\toks54
 \@floatcapt=\box109
-) (./Analysis.aux)
+) (./Analysis.aux (./chapter/tensor-form.aux))
 \openout1 = `Analysis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 26.
@@ -1492,43 +1492,490 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 \tf@toc=\write7
 \openout7 = `Analysis.toc'.
 
- [3] [4
+ [3] [4]
+\openout2 = `chapter/tensor-form.aux'.
 
-]
+ (./chapter/tensor-form.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 47.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 48.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 49.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 59.
-(d:/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
+[5
+
+
+] [6]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 76.
+ (d:/texlive/2019/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [5] [6] [7] [8] [9] [10]
+
+Overfull \hbox (17.31697pt too wide) in paragraph at lines 77--78
+[][][]\T1/ppl/m/it/10.95 Suppose $\OML/ntxmi/m/it/10.95 V[]; [] ; V[]$ \T1/ppl/m/it/10.95 are real vec-tor spaces
+ []
+
+[7] [8]
+Missing character: There is no ¹ in font cmbsy10!
+Missing character: There is no º in font cmbsy10!
+
+Overfull \hbox (0.7401pt too wide) in paragraph at lines 146--148
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 V$ \T1/ppl/m/it/10.95 be a finite-dimensional vec-tor space. There is a nat-u-ral (basis-independent)
+ []
+
+[9]
+Overfull \hbox (26.31973pt too wide) in paragraph at lines 181--183
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 ^^K$ \T1/ppl/m/it/10.95 be a co-vari-ant ten-sor on a finite-dimensional
+ []
+
+[10] [11]
+
+LaTeX Warning: Reference `tangent bundle struct' on page 12 undefined on input line 254.
+
+
+LaTeX Warning: Reference `tangent bundle as vector bundle' on page 12 undefined on input line 254.
+
+
+Overfull \hbox (13.93323pt too wide) in paragraph at lines 258--259
+[]\T1/ppl/m/n/10.95 The spaces of smooth sec-tions of these ten-sor bun-dles, $\U/ntxmia/m/it/10.95 ^^@\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 T[]T[]M\LMS/ntxsy/m/n/10.95 º$\T1/ppl/m/n/10.95 , $\U/ntxmia/m/it/10.95 ^^@\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 T[]TM\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/n/10.95 and $\U/ntxmia/m/it/10.95 ^^@\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 T[]TM\LMS/ntxsy/m/n/10.95 º$\T1/ppl/m/n/10.95 ,
+ []
+
+[12]
+Overfull \hbox (0.36928pt too wide) in paragraph at lines 268--271
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be a smooth man-i-fold with
+ []
+
+[13]
+
+LaTeX Warning: Reference `vector bundle homo char' on page 14 undefined on input line 306.
+
+
+Overfull \hbox (22.13686pt too wide) in paragraph at lines 306--306
+[]\T1/ppl/m/n/10.95 We al-ready noted that if $\OML/ntxmi/m/it/10.95 A$ \T1/ppl/m/n/10.95 is a smooth co-vari-ant $\OML/ntxmi/m/it/10.95 k$\T1/ppl/m/n/10.95 -tensor field, then the map $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 X[]; [] ; X[]\LMS/ntxsy/m/n/10.95 º 7!
+ []
+
+
+LaTeX Warning: Reference `vector bundle homo char' on page 14 undefined on input line 309.
+
+[14] [15]
+
+LaTeX Warning: Reference `flow boundary' on page 16 undefined on input line 372.
+
+
+LaTeX Warning: Reference `Lie derivative exist' on page 16 undefined on input line 380.
+
+File: pictures/Lie-derivative-tensor.pdf Graphic file (type pdf)
+<use pictures/Lie-derivative-tensor.pdf>
+[16]
+
+LaTeX Warning: Reference `diff function curve' on page 17 undefined on input line 404.
+
+
+LaTeX Warning: Reference `Lie derivative bracket' on page 17 undefined on input line 407.
+
+[17]
+
+LaTeX Warning: Reference `vector field commute iff' on page 18 undefined on input line 449.
+
+
+LaTeX Warning: Reference `Lie derivative t_0' on page 18 undefined on input line 452.
+
+[18]
+
+LaTeX Warning: Reference `Lie derivative t_0' on page 19 undefined on input line 462.
+
+[19]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 524.
+ (d:/texlive/2019/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+) [20] [21]
+
+LaTeX Warning: Reference `vector field section' on page 22 undefined on input line 581.
+
+
+LaTeX Warning: Reference `polar frame R^2' on page 22 undefined on input line 591.
+
+
+LaTeX Warning: Reference `commute frame eg' on page 22 undefined on input line 591.
+
+
+LaTeX Warning: Reference `Gram-Schmidt frame' on page 22 undefined on input line 593.
+
+Missing character: There is no – in font pplr8t!
+Missing character: There is no – in font pplr8t!
+[22]
+
+LaTeX Warning: Reference `smooth subm prop' on page 23 undefined on input line 622.
+
+[23]
+
+LaTeX Warning: Reference `smooth embedd if' on page 24 undefined on input line 649.
+
+[24]
+
+LaTeX Warning: Reference `flow commute canonical form' on page 25 undefined on input line 696.
+
+[25]
 LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/it' tried instead on input line 250.
- [11] [12] [13]
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 738.
+
+
+LaTeX Warning: Reference `immerse local embedd' on page 26 undefined on input line 742.
+
+
+LaTeX Warning: Reference `vector subbundle crit' on page 26 undefined on input line 748.
+
+
+Overfull \hbox (3.16379pt too wide) in paragraph at lines 763--767
+[][][]\T1/ppl/m/it/10.95 If $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 M; g\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/it/10.95 is a smooth Rie-man-nian
+ []
+
+[26]
+
+LaTeX Warning: Reference `surfaces of revolution' on page 27 undefined on input line 802.
+
+[27] [28] [29]
+Overfull \hbox (0.6869pt too wide) in paragraph at lines 901--904
+[][][]\T1/ppl/m/it/10.95 Let $[]$ and $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be smooth man-i-folds,
+ []
+
+Missing character: There is no – in font pplr8t!
+[30]
+Overfull \hbox (2.84766pt too wide) in paragraph at lines 1008--1014
+[]\T1/ppl/m/n/10.95 Under the given hy-pothe-ses, the quo-tient man-i-fold the-o-rem shows that $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/n/10.95 has a unique
+ []
+
+[31]
+
+LaTeX Warning: Reference `submersion iff local section' on page 32 undefined on input line 1029.
+
+
+LaTeX Warning: Reference `smooth cover prop' on page 32 undefined on input line 1050.
+
+
+LaTeX Warning: Reference `Lie discrete covering map' on page 32 undefined on input line 1064.
+
+[32]
+
+LaTeX Warning: Reference `Lie group coveing group discrete' on page 33 undefined on input line 1075.
+
+
+LaTeX Warning: Reference `Lie discrete covering map' on page 33 undefined on input line 1077.
+
+
+LaTeX Warning: Reference `smooth quotient unique' on page 33 undefined on input line 1081.
+
+
+LaTeX Warning: Reference `vector bundle homo char' on page 33 undefined on input line 1112.
+
+
+LaTeX Warning: Reference `vector bundle smooth iso iff bi' on page 33 undefined on input line 1119.
+
+[33] [34]
+
+LaTeX Warning: Reference `subm level set' on page 35 undefined on input line 1188.
+
+
+LaTeX Warning: Reference `tangent space level set' on page 35 undefined on input line 1199.
+
+[35] [36] [37]
+
+LaTeX Warning: Reference `cotangent bundle section' on page 38 undefined on input line 1326.
+
+[38]
+
+LaTeX Warning: Reference `connect by smooth curve' on page 39 undefined on input line 1420.
+
+[39]
+File: pictures/Riemann-metric-1.pdf Graphic file (type pdf)
+<use pictures/Riemann-metric-1.pdf>
+File: pictures/Riemann-metric-2.pdf Graphic file (type pdf)
+<use pictures/Riemann-metric-2.pdf>
+ [40] [41] [42]
+Missing character: There is no – in font pplr8t!
+Missing character: There is no – in font pplr8t!
+ [43]
+Overfull \hbox (4.83359pt too wide) in paragraph at lines 1612--1616
+[][][]\T1/ppl/m/it/10.95 Suppose $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 V; q\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/it/10.95 is an $\OML/ntxmi/m/it/10.95 n$\T1/ppl/m/it/10.95 -dimensional scalar
+ []
+
+Missing character: There is no – in font pplb8t!
+[44]
+Overfull \hbox (1.09471pt too wide) in paragraph at lines 1670--1672
+[][][]\T1/ppl/m/it/10.95 Let $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 M; g\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/it/10.95 be
+ []
+
+Missing character: There is no ¹ in font cmbsy10!
+Missing character: There is no º in font cmbsy10!
+
+Overfull \hbox (38.79416pt too wide) in paragraph at lines 1678--1682
+\T1/ppl/m/n/10.95 de-noted by $\U/ntxsym/m/n/10.95 R[]$\T1/ppl/m/n/10.95 , to be the man-i-fold $\U/ntxsym/m/n/10.95 R[]$\T1/ppl/m/n/10.95 , with stan-dard co-or-di-nates de-noted by $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 ^^X[]; [] ; ^^X[]; ^^\[]; [] ; ^^\[]\LMS/ntxsy/m/n/10.95 º$\T1/ppl/m/n/10.95 ,
+ []
+
+
+LaTeX Warning: Reference `vector subbundle crit' on page 45 undefined on input line 1711.
+
+[45]
+Missing character: There is no – in font pplr8t!
+
+
+LaTeX Warning: Reference `regular value level set' on page 46 undefined on input line 1776.
+
+
+LaTeX Warning: Reference `tangent space level set' on page 46 undefined on input line 1776.
+
+[46]
+Missing character: There is no – in font pplr8t!
+
+Overfull \hbox (4.53595pt too wide) in paragraph at lines 1820--1825
+[]\T1/ppl/m/n/10.95 For $\OML/ntxmi/m/it/10.95 p \LMS/ntxsy/m/n/10.95 2 \OML/ntxmi/m/it/10.95 M$\T1/ppl/m/n/10.95 , choose a neigh-bor-hood $\OML/ntxmi/m/it/10.95 U$ \T1/ppl/m/n/10.95 con-tains $\OML/ntxmi/m/it/10.95 p$\T1/ppl/m/n/10.95 , with a lo-cal triv-i-al-iza-tion $\OML/ntxmi/m/it/10.95 ^^H \OT1/lmr/m/n/10.95 : \OML/ntxmi/m/it/10.95 ^^Y[]\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 U\LMS/ntxsy/m/n/10.95 º !
+ []
+
+
+LaTeX Warning: Reference `ext lem smooth func' on page 47 undefined on input line 1831.
+
+[47]
+Overfull \hbox (3.42381pt too wide) in paragraph at lines 1861--1864
+[][][]\T1/ppl/m/n/10.95 Show that the short-est path be-tween two points in Eu-clidean space is a straight
+ []
+
+[48]
+
+LaTeX Warning: Reference `Euclidean group' on page 49 undefined on input line 1878.
+
+[49]
+
+LaTeX Warning: Reference `tangent space level set' on page 50 undefined on input line 1950.
+
+[50]
+
+LaTeX Warning: Reference `regular domain' on page 51 undefined on input line 1962.
+
+File: pictures/Morse-setup.pdf Graphic file (type pdf)
+<use pictures/Morse-setup.pdf>
+
+LaTeX Warning: Reference `vector flow escape lemma' on page 51 undefined on input line 1990.
+
+[51] [52]
+Overfull \hbox (6.19716pt too wide) in paragraph at lines 2037--2038
+\T1/ppl/m/n/10.95 For com-pu-ta-tions with al-ter-nat-ing ten-sors, the fol-low-ing no-ta-tion is ex-ceed-ingly use-ful. Given
+ []
+
+[53]
+Missing character: There is no ¹ in font cmbsy10!
+Missing character: There is no º in font cmbsy10!
+ [54]
+Overfull \hbox (4.82925pt too wide) detected at line 2136
+[]
+ []
+
+[55] [56] [57] [58] [59]
+Overfull \hbox (2.65773pt too wide) in paragraph at lines 2283--2285
+\T1/ppl/m/n/10.95 Therefore, the left-hand side of $\LMS/ntxsy/m/n/10.95 ¹[][][][]\OT1/lmr/m/n/10.95 3\OML/ntxmi/m/it/10.95 :\OT1/lmr/m/n/10.95 22[][]\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/n/10.95 gives $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 u \LMS/ntxsy/m/n/10.95 ^^N \OML/ntxmi/m/it/10.95 F\LMS/ntxsy/m/n/10.95 º¹[] \OML/ntxmi/m/it/10.95 @F\LMS/ntxsy/m/n/10.95 º$ \T1/ppl/m/n/10.95 when ap-plied to $\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 @\LMS/ntxsy/m/n/10.95 ^^9d\OML/ntxmi/m/it/10.95 @x[]; [] ; @\LMS/ntxsy/m/n/10.95 ^^9d\OML/ntxmi/m/it/10.95 @x[]\LMS/ntxsy/m/n/10.95 º$\T1/ppl/m/n/10.95 .
+ []
+
+
+Overfull \hbox (42.06784pt too wide) in paragraph at lines 2283--2285
+\T1/ppl/m/n/10.95 On the other hand, the right-hand side gives the same thing, be-cause $\OML/ntxmi/m/it/10.95 dx[] \LMS/ntxsy/m/n/10.95 ^ [] ^ \OML/ntxmi/m/it/10.95 dx[]\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 @\LMS/ntxsy/m/n/10.95 ^^9d\OML/ntxmi/m/it/10.95 @x[]; [] ; @\LMS/ntxsy/m/n/10.95 ^^9d\OML/ntxmi/m/it/10.95 @x[]\LMS/ntxsy/m/n/10.95 º \U/ntxmia/m/it/10.95 =
+ []
+
+[60] [61] [62] [63]
+
+LaTeX Warning: Reference `covector closed iff' on page 64 undefined on input line 2441.
+
+[64] [65]
+
+LaTeX Warning: Reference `Lie bracket two product rule' on page 66 undefined on input line 2494.
+
+[66] [67] [68] [69] [70]
+Overfull \hbox (0.5118pt too wide) in paragraph at lines 2674--2675
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be a smooth $\OML/ntxmi/m/it/10.95 n$\T1/ppl/m/it/10.95 -manifold
+ []
+
+[71]
+Overfull \hbox (9.83005pt too wide) in paragraph at lines 2692--2693
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be a smooth positive-dimensional
+ []
+
+[72] [73]
+File: pictures/vector-field-along.pdf Graphic file (type pdf)
+<use pictures/vector-field-along.pdf>
+File: pictures/orientation-hyper.pdf Graphic file (type pdf)
+<use pictures/orientation-hyper.pdf>
+ [74]
+
+LaTeX Warning: Reference `vector field inward' on page 75 undefined on input line 2781.
+
+
+LaTeX Warning: Reference `inward outward vector iff' on page 75 undefined on input line 2791.
+
+[75]
+File: pictures/boundary-para.pdf Graphic file (type pdf)
+<use pictures/boundary-para.pdf>
+ [76]
+File: pictures/spherical-coordinates.pdf Graphic file (type pdf)
+<use pictures/spherical-coordinates.pdf>
+ [77] [78] [79]
+
+LaTeX Warning: Reference `inward derivative crit' on page 80 undefined on input line 2912.
+
+
+LaTeX Warning: Reference `local section unique' on page 80 undefined on input line 2940.
+
+[80]
+
+LaTeX Warning: Reference `Mobius bundle' on page 81 undefined on input line 2947.
+
+[81]
+Overfull \hbox (4.55247pt too wide) in paragraph at lines 2970--2972
+[][][]\T1/ppl/m/it/10.95 Suppose $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 is a con-nected, smooth,
+ []
+
+[82]
+
+LaTeX Warning: Reference `covering mani' on page 83 undefined on input line 2987.
+
+
+LaTeX Warning: Reference `local section unique' on page 83 undefined on input line 2991.
+
+[83]
+Overfull \hbox (3.77478pt too wide) in paragraph at lines 3019--3020
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be a nonori-entable con-nected
+ []
+
+[84]
+
+LaTeX Warning: Reference `tangent bundle struct' on page 85 undefined on input line 3063.
+
+[85]
+
+LaTeX Warning: Reference `local frame completion' on page 86 undefined on input line 3084.
+
+
+LaTeX Warning: Reference `Mobius bundle' on page 86 undefined on input line 3116.
+
+[86]
+File: pictures/int-form-Rn.pdf Graphic file (type pdf)
+<use pictures/int-form-Rn.pdf>
+ [87]
+File: pictures/int-form-onechart.pdf Graphic file (type pdf)
+<use pictures/int-form-onechart.pdf>
+File: pictures/int-form-coordinate.pdf Graphic file (type pdf)
+<use pictures/int-form-coordinate.pdf>
+ [88] [89]
+Overfull \hbox (1.55315pt too wide) in paragraph at lines 3215--3217
+[]\T1/ppl/m/it/10.95 Diffeomorphism in-vari-ance: If $\OML/ntxmi/m/it/10.95 F \OT1/lmr/m/n/10.95 : \OML/ntxmi/m/it/10.95 M \LMS/ntxsy/m/n/10.95 ! \OML/ntxmi/m/it/10.95 N$ \T1/ppl/m/it/10.95 is an orientation-preserving or orientation-reversing
+ []
+
+[90]
+Overfull \hbox (1.17944pt too wide) in paragraph at lines 3231--3233
+[][][]\T1/ppl/m/it/10.95 Let $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 be an ori-ented smooth $\OML/ntxmi/m/it/10.95 n$\T1/ppl/m/it/10.95 -manifold
+ []
+
+File: pictures/int-form-para.pdf Graphic file (type pdf)
+<use pictures/int-form-para.pdf>
+[91] [92] [93] [94]
+
+LaTeX Warning: Reference `inward outward vector iff' on page 95 undefined on input line 3350.
+
+[95]
+Overfull \hbox (6.73105pt too wide) in paragraph at lines 3368--3369
+[][][]\T1/ppl/m/it/10.95 Suppose $\OML/ntxmi/m/it/10.95 M$ \T1/ppl/m/it/10.95 is a com-pact ori-ented
+ []
+
+
+LaTeX Warning: Reference `covector closed not exact eg' on page 96 undefined on input line 3381.
+
+[96]
+File: pictures/inv-corner.pdf Graphic file (type pdf)
+<use pictures/inv-corner.pdf>
+ [97]
+Missing character: There is no — in font pplr8t!
+Missing character: There is no — in font pplr8t!
+ [98]
+
+LaTeX Warning: Reference `homotopy to smooth' on page 99 undefined on input line 3477.
+
+[99]
+
+LaTeX Warning: Reference `line integral prop' on page 100 undefined on input line 3482.
+
+
+LaTeX Warning: Reference `homotopy to smooth' on page 100 undefined on input line 3496.
+
+
+LaTeX Warning: Reference `homotopy to smooth' on page 100 undefined on input line 3496.
+
+
+Overfull \hbox (15.15474pt too wide) in paragraph at lines 3497--3498
+[]\T1/ppl/m/n/10.95 Now let $\OML/ntxmi/m/it/10.95 ^^M[]; ^^M[]$ \T1/ppl/m/n/10.95 be ho-mo-topic piece-wise smooth curves with $\OML/ntxmi/m/it/10.95 m$ \T1/ppl/m/n/10.95 non-s-mooth points $\LMS/ntxsy/m/n/10.95 f\OML/ntxmi/m/it/10.95 a[]; [] ; a[]\LMS/ntxsy/m/n/10.95 g$\T1/ppl/m/n/10.95 ,
+ []
+
+[100] [101] [102] [103]
+Missing character: There is no – in font pplb8t!
+ [104] [105] [106]
+
+LaTeX Warning: Reference `vector bundle chart lemma' on page 107 undefined on input line 3706.
+
+
+Overfull \hbox (10.43561pt too wide) in paragraph at lines 3706--3709
+[]\T1/ppl/m/n/10.95 We will con-struct lo-cal triv-i-al-iza-tions and use the vec-tor bun-dle chart lemma (Lemma [][][]).
+ []
+
+
+LaTeX Warning: Reference `vector bundle chart lemma' on page 107 undefined on input line 3720.
+
+
+Overfull \hbox (36.6203pt too wide) in paragraph at lines 3719--3722
+\T1/ppl/m/n/10.95 Thus, the hy-pothe-ses of Lemma [][][] are sat-is-fied, with the tran-si-tion func-tions equal to $\OML/ntxmi/m/it/10.95 c\LMS/ntxsy/m/n/10.95 j[] ¹\OML/ntxmi/m/it/10.95 @[]\LMS/ntxsy/m/n/10.95 ^^9d\OML/ntxmi/m/it/10.95 @x[]\LMS/ntxsy/m/n/10.95 ºj$\T1/ppl/m/n/10.95 .
+ []
+
+[107]
+Overfull \hbox (7.11787pt too wide) in paragraph at lines 3763--3765
+\T1/ppl/m/n/10.95 where $\OML/ntxmi/m/it/10.95 D$ \T1/ppl/m/n/10.95 is any open set con-tain-ing the sup-port of $\OML/ntxmi/m/it/10.95 ^^V$\T1/ppl/m/n/10.95 . The key fact is that this is diffeomorphism-
+ []
+
+[108] [109]
+
+LaTeX Warning: Reference `homotopy to smooth' on page 110 undefined on input line 3848.
+
+[110]
+Overfull \hbox (10.32527pt too wide) in paragraph at lines 3871--3873
+[]\T1/ppl/m/n/10.95 Show that the di-ver-gence op-er-a-tor sat-is-fies the fol-low-ing prod-uct rule for $\OML/ntxmi/m/it/10.95 f \LMS/ntxsy/m/n/10.95 2 \OML/ntxmi/m/it/10.95 C[]\LMS/ntxsy/m/n/10.95 ¹\OML/ntxmi/m/it/10.95 M\LMS/ntxsy/m/n/10.95 º\OML/ntxmi/m/it/10.95 ; X \LMS/ntxsy/m/n/10.95 2
+ []
+
+[111] [112]) [113] [114
+
+
+]
+Chapter 2.
+[115] [116] [117] [118] [119] [120] [121] [122] [123]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10.95> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 368.
- [14] [15] [16] [17] [18]
+ [124] [125] [126] [127] [128]
 
-LaTeX Warning: Reference `' on page 19 undefined on input line 549.
+LaTeX Warning: Reference `' on page 129 undefined on input line 549.
 
-[19] [20] [21] [22] [23]
+[129] [130] [131] [132] [133]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 657.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 657.
- (./Analysis.aux)
+ (./Analysis.aux (./chapter/tensor-form.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 657.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 657.
-Package rerunfilecheck Info: File `Analysis.out' has not changed.
-(rerunfilecheck)             Checksum: E3683109319DCD4188C37BF56A4CB020;425.
 
+
+Package rerunfilecheck Warning: File `Analysis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Analysis.out':
+(rerunfilecheck)             Before: A0FE4639238D108679C5FF45B1D8D96C;2826
+(rerunfilecheck)             After:  ACDCEB75EF82ECEC392C58476EB02269;2826.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.64499pt have occurred.
@@ -1539,12 +1986,12 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 657.
  ) 
 Here is how much of TeX's memory you used:
- 44075 strings out of 492473
- 845383 string characters out of 6132687
- 952467 words of memory out of 5000000
- 47808 multiletter control sequences out of 15000+600000
- 650330 words of font info for 223 fonts, out of 8000000 for 9000
+ 44829 strings out of 492473
+ 863262 string characters out of 6132687
+ 976059 words of memory out of 5000000
+ 48533 multiletter control sequences out of 15000+600000
+ 667545 words of font info for 254 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 64i,13n,99p,972b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,18n,99p,1221b,1058s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Analysis.pdf (23 pages).
+Output written on Analysis.pdf (133 pages).
