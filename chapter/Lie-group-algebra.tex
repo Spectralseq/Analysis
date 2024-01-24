@@ -792,11 +792,8 @@ Suppose $G$ is a Lie group and $\g$ is its Lie algebra. If $\h$ is a Lie subalge
 \caption{Finding a subgroup whose Lie algebra is $\h$.}
 \end{figure}
 \begin{proof}
-Suppose $\h$ is a Lie subalgebra of $\g$. Let $D\sub TG$ be the involutive distribution of $\h$. Let $\mathcal{H}$ 
-denote the foliation determined by $D$, and for any $g\in G$, let $\mathcal{H}_g$ denote the leaf of $\mathcal{H}$ 
-containing $g$. Because $D$ is left-invariant, it follows from Proposition~\ref{distribution invariant} that each 
-left translation takes leaves to leaves: for any $g,g'\in G$, we have $L_g(\mathcal{H}_{g'})=\mathcal{H}_{gg'}$.\par
-Define $H=\mathcal{H}_e$, the leaf containing the identity. We will show that $H$ is the desired Lie subgroup.\par
+Suppose $\h$ is a Lie subalgebra of $\g$. Let $D\sub TG$ be the involutive distribution of $\h$. Let $\mathcal{H}$ denote the foliation determined by $D$, and for any $g\in G$, let $\mathcal{H}_g$ denote the leaf of $\mathcal{H}$ containing $g$. Because $D$ is left-invariant, it follows from Proposition~\ref{distribution invariant} that each left translation takes leaves to leaves: for any $g,g'\in G$, we have $L_g(\mathcal{H}_{g'})=\mathcal{H}_{gg'}$. Define $H=\mathcal{H}_e$, the leaf containing the identity. We will show that $H$ is the desired Lie subgroup.
+
 First, to see that $H$ is a subgroup, observe that for any $h,h'\in H$,
 \[hh'=L_h(h')\in L_h(H)=L_h(\mathcal{H}_e)=\mathcal{H}_h=H.\]
 Similarly,
@@ -1139,7 +1136,7 @@ Let $\widehat{X}\in\X(M)$ be the infinitesimal generator of this flow, so for ea
 \widehat{X}_p=\frac{d}{dt}\Big|_{t=0}p\cdot\exp tX.
 \end{align}
 Thus we obtain a map $\widehat{\theta}:\mathfrak{Lie}(G)\to\X(M)$, defined by $\widehat{\theta}(X)=\widehat{X}$.\par
-There is a useful alternative characterization of $\widehat{X}$ in terms of the orbit map $\theta^{(p)}:G\to M$ defined by $\theta^{(p)}(g)=p\cdot g$. Since $\gamma(t)=\exp tX$ is a smooth curve in $G$ whose initial velocity is $\gamma'(0)=X_e$, it follows from Corollary~\ref{compute diff by curve} that for each $p\in M$ we have
+There is a useful alternative characterization of $\widehat{X}$ in terms of the orbit map $\theta^{(p)}:G\to M$ defined by $\theta^{(p)}(g)=p\cdot g$. Since $\gamma(t)=\exp tX$ is a smooth curve in $G$ whose initial velocity is $\gamma'(0)=X_e$, it follows from \cref{compute diff by curve} that for each $p\in M$ we have
 \begin{align}\label{infinitesimal generator diff of orbit map}
  d(\theta^{(p)})_e(X_e)=(\theta^{(p)}\circ\gamma)'=\frac{d}{dt}\Big|_{t=0}p\cdot\exp tX=\widehat{X}_p.
 \end{align}
@@ -1587,6 +1584,7 @@ The resulting complex-analytic diffeomorphisms from $\mathbb{U}$ to itself are c
 Next we describe a construction that can be used to generate a great number of homogeneous spaces, as quotients of Lie groups by closed subgroups. Let $G$ be a Lie group and $H\sub G$ be a Lie subgroup. A subset of $G$ of the form
 \[gH=\{gh:h\in H\}\]
 for some $g\in G$ is called a \textbf{left coset} of $H$. The left cosets form a partition of $G$, and the quotient space determined by this partition (i.e., the set of left cosets with the quotient topology) is called the \textbf{left coset space of $\bm{G}$ modulo $\bm{H}$}, and is denoted by $G/H$. Two elements $g_1,g_2\in G$ are in the same left coset of $H$ if and only if $g_1^{-1}g_2\in H$; in this case we write $g_1\equiv g_2$ mod $H$ and say $g_1$ and $g_2$ are congruent modulo $H$.
+
 \begin{theorem}[\textbf{Homogeneous Space Construction Theorem}]\label{homogenerous construct}
 Let $G$ be a Lie group and let $H$ be a closed subgroup of $G$. The left coset space $G/H$ is a topological manifold of dimension equal to $\dim G-\dim H$, and has a unique smooth structure such that the quotient map $\pi:G\to G/H$ is an $H$-bundle. The left action of $G$ on $G/H$ given by
 \[g_1\cdot(g_2H)=(g_1g_2)H\]

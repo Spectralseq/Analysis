@@ -1268,7 +1268,7 @@ For smooth vector fields $V$ and $W$ on a smooth manifold $M$, the following are
 \end{itemize}
 \end{theorem}
 \begin{proof}
-Suppose $V,W\in\X(M)$, and let $\theta$ denote the flow of $V$. If (b) holds, then $d(\theta_t)_p(W_p)=W_{\theta_t(p)}$ whenever $(t,p)$ is in the domain of $\theta$. Applying $d(\theta_{-t})_{\theta_t(p)}$ to both sides, we conclude that $d(\theta_{-t})_{\theta_t(p)}(W_{\theta_t(p)})=W_p$, which obviously implies $\mathfrak{L}_VW=[V,W]=0$ directly from the definition of the Lie derivative. The same argument shows that (c) implies (a).\par
+Suppose $V,W\in\X(M)$, and let $\theta$ denote the flow of $V$. If (b) holds, then $d(\theta_t)_p(W_p)=W_{\theta_t(p)}$ whenever $(t,p)$ is in the domain of $\theta$. Applying $d(\theta_{-t})_{\theta_t(p)}$ to both sides, we then conclude that $d(\theta_{-t})_{\theta_t(p)}(W_{\theta_t(p)})=W_p$, which obviously implies $\mathfrak{L}_VW=[V,W]=0$ directly from the definition of the Lie derivative. The same argument shows that (c) implies (a).\par
 To prove that (a) implies (b), assume that $[V,W]=\mathfrak{L}_VW=0$. Let $p\in M$ be arbitrary, and let $X(t)=d(\theta_{-t})_{\theta_t(p)}\big(W_{\theta_t(p)}\big)$ for $t\in\mathcal{D}^{(p)}$. Proposition~\ref{Lie derivative t_0} shows that $X'(t)\equiv 0$. Since $X(0)=W_p$, this implies that $X(t)\equiv W_p$ for all $t\in\mathcal{D}^{(p)}$, and applying $d(\theta_t)_p$ to both sides yields the identity that says $W$ is invariant under $\theta$. The same proof also shows that (a) implies (c).
 \end{proof}
 \begin{corollary}
@@ -1375,10 +1375,10 @@ Consider the smooth vector field $\widetilde{V}$ on $J\times M$ defined by
 where $s$ is the standard coordinate on $J\sub\R$, and we identify $T_{(s,p)}(J\times M)$ with $T_sJ\oplus T_pM$ as usual. Let $\widetilde{\theta}:\widetilde{\mathcal{D}}\to J\times M$ denote the flow of $\widetilde{V}$. If we write the component functions of $\widetilde{\theta}$ as
 \[\widetilde{\theta}(t,(s,p))=\big(\alpha(t,(s,p)),\beta(t,(s,p))\big),\]
 then $\alpha:\widetilde{\mathcal{D}}\to J$ and $\psi:\widetilde{\mathcal{D}}\to M$ satisfy
-\begin{flalign*}
-&&\frac{\partial\alpha}{\partial t}(t,(s,p))&=1,&\alpha(0,(s,p))&=s;&\\
-&&\frac{\partial\beta}{\partial t}(t,(s,p))&=V\big(\alpha(t,(s,p)),\psi(t,(s,p))\big),&\beta(0,(s,p))&=p.&
-\end{flalign*}
+\begin{alignat*}{3}
+\frac{\partial\alpha}{\partial t}(t,(s,p))&=1,&\quad\quad&\alpha(0,(s,p))&=s;&\\
+\frac{\partial\beta}{\partial t}(t,(s,p))&=V\big(\alpha(t,(s,p)),\psi(t,(s,p))\big),&\quad\quad&\beta(0,(s,p))&=p.&
+\end{alignat*}
 It follows immediately that $\alpha(t,(s,p))=t+s$, and therefore $\beta$ satisfies
 \begin{align}\label{flow fundamental thm time-dependent-2}
 \frac{\partial\beta}{\partial t}(t,(s,p))=V(t+s,\beta(t,(s,p))).

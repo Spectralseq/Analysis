@@ -38,7 +38,7 @@ For any integer $p$, the assignment $M\mapsto H^p_{dR}(M),F\mapsto F^*$ is a con
 \begin{corollary}[\textbf{Diffeomorphism Invariance of de Rham Cohomology}]
 Diffeomorphic smooth manifolds $($with or without boundary$)$ have isomorphic de Rham cohomology groups.
 \end{corollary}
-\subsubsection{Elementary computations}
+\paragraph{Elementary computations}
 The direct computation of the de Rham groups is not easy in general. However, there are a number of special cases that can be easily computed by various techniques. 
 \begin{proposition}[\textbf{Cohomology of Disjoint Unions}]
 Let $\{M_j\}$ be a countable collection of smooth $n$-manifolds with or without boundary, and let $M=\amalg_jM_j$. For each $p$, the inclusion maps $\iota_j:M_j\hookrightarrow M$ induce an isomorphism from $H^p_{dR}(M)$ to the direct product space $\prod_jH^p_{dR}(M_j)$.
@@ -70,7 +70,7 @@ Suppose $M$ and $N$ are smooth manifolds with or without boundary. If $F:M\to N$
 The key to our proof of homotopy invariance is to construct a homotopy operator
 first in the following special case. Let $M$ be a smooth manifold with or without boundary, and for each $t\in I$, let it $i_t:M\to M\times I$ be the map
 \[i_t(x)=(x,t).\]
-If $M$ has empty boundary, then $M\times I$ is a smooth manifold with boundary, and all of the results above apply to it. But if $\partial M\neq\emp$, then $M\times I$ has to be considered as a smooth manifold with corners. It is straightforward to check that the definitions of the de Rham groups and induced homomorphisms make perfectly good sense on manifolds with corners, and Proposition~\ref{cohomology induced map} is valid in that context as well.
+If $M$ has empty boundary, then $M\times I$ is a smooth manifold with boundary, and all of the results above apply to it. But if $\partial M\neq\emp$, then $M\times I$ has to be considered as a smooth manifold with corners. It is straightforward to check that the definitions of the de Rham groups and induced homomorphisms make perfectly good sense on manifolds with corners, and \cref{cohomology induced map} is valid in that context as well.
 \begin{lemma}[\textbf{Existence of a Homotopy Operator}]
 For any smooth manifold $M$ with or without boundary, there exists a homotopy operator between the two maps $i_0^*,i_1^*:\Omega^*(M\times I)\to\Omega^*(M)$.
 \end{lemma}
@@ -93,7 +93,7 @@ d(h\omega)+h(d\omega)&=\int_{0}^{1}d\big(i_t^*(S\intprod\omega)\big)dt+\int_{0}^
 \end{align*}
 To simplify this last expression, we use the flow of $S$ on $M\times\R$. (If $M$ has
 nonempty boundary, note that $S$ is tangent to $\partial(M\times\R)=\partial M\times\R$.) The flow is given explicitly by $\theta_t(q,s)=(q,t+s)$, so $S$ is complete. 
-It follows that we can write it $i_t=\theta_t\circ i_0$, and therefore by Proposition~\ref{Lie der tensor t_0},
+It follows that we can write it $i_t=\theta_t\circ i_0$, and therefore by \cref{Lie der tensor t_0},
 \[i_t^*(\mathfrak{L}_S\omega)=i_0^*\circ\theta_t^*(\mathfrak{L}_S\omega)=i_0^*\Big(\frac{d}{dt}(\theta_t^*\omega)\Big)=\frac{d}{dt}i_0^*(\theta_t^*\omega)=\frac{d}{dt}i_t^*\omega.\]
 Applying the fundamental theorem of calculus, we obtain $(\ref{cochain homotopy-1})$.
 \end{proof}
@@ -101,7 +101,7 @@ Applying the fundamental theorem of calculus, we obtain $(\ref{cochain homotopy-
 Suppose $M$ and $N$ are smooth manifolds with or without boundary, and $F,G:M\to N$ are homotopic smooth maps. For every $p$, the induced cohomology maps $F^*$ and $G^*$ are equal.
 \end{proposition}
 \begin{proof}
-The preceding lemma implies that the two cohomology maps $i_0^*$ and $i_1^*$ are equal. By Theorem~\ref{homotopy smooth boundary}, there is a smooth homotopy $H:M\times I\to N$ from $F$ to $G$. Because $F=H\circ i_0$ and $G=H\circ i_1$, Proposition~\ref{cohomology induced map} implies
+The preceding lemma implies that the two cohomology maps $i_0^*$ and $i_1^*$ are equal. By \cref{homotopy smooth boundary}, there is a smooth homotopy $H:M\times I\to N$ from $F$ to $G$. Because $F=H\circ i_0$ and $G=H\circ i_1$, \cref{cohomology induced map} implies
 \[F^*=i_0^*\circ H^*=i_1^*\circ H=G^*.\]
 \end{proof}
 \begin{theorem}[\textbf{Homotopy Invariance of de Rham Cohomology}]
@@ -111,7 +111,7 @@ If $M$ and $N$ are homotopy equivalent smooth manifolds with or without boundary
 Suppose $F:M\to N$ is a homotopy equivalence, with homotopy inverse $G:N\to M$. By the Whitney approximation theorem, there are smooth maps $\widetilde{F}:M\to N$ homotopic to $F$ and $\widetilde{G}:N\to M$ homotopic to $G$. Because homotopy is preserved by composition, it follows that 
 \[\widetilde{F}\circ\widetilde{G}\simeq F\circ G\simeq\mathrm{id}_M,\quad \widetilde{G}\circ\widetilde{F}\simeq G\circ F\simeq\mathrm{id}_N.\]
 so $\widetilde{F}$ and $\widetilde{G}$ are homotopy inverses of each other.\par
-Proposition~\ref{cohomology homotopy map} shows that, on cohomology,
+\cref{cohomology homotopy map} shows that, on cohomology,
 \[\widetilde{F}^*\circ\widetilde{G}^*=\mathrm{id},\quad \widetilde{G}^*\circ\widetilde{F}^*=\mathrm{id}.\]
 so $\widetilde{F}^*:H^p_{dR}(M)\to H^p_{dR}(N)$ is an isomorphism.
 \end{proof}
@@ -124,7 +124,7 @@ This result is remarkable, because the definition of the de Rham groups of M
 is intimately tied up with its smooth structure, and we had no reason to expect that
 different differentiable structures on the same topological manifold should give rise
 to the same de Rham groups.
-\subsubsection{Computations using homotopy invariance}
+\paragraph{Computations using homotopy invariance}
 We can use homotopy invariance to compute a number of de Rham groups. We begin with the simplest case of homotopy equivalence. A topological space $X$ is said to
 be \textbf{contractible} if the identity map of $X$ is homotopic to a constant map.
 \begin{theorem}[\textbf{Cohomology of Contractible Manifolds}]
@@ -149,9 +149,9 @@ where $[\gamma]$ is any path homotopy class in $\pi_1(M,q)$, and $\widetilde{\ga
 Suppose $M$ is a connected smooth manifold. For each $q\in M$, the linear map $\varPhi:H^1_{dR}(M)\to\Hom(\pi_1(M,q),\R)$ is an isomorphism.
 \end{theorem}
 \begin{proof}
-Given $[\gamma]\in\pi_1(M,q)$, it follows from the Whitney approximation theorem that there is some smooth closed curve segment $\widetilde{\gamma}$ in the same path class as $\gamma$, and from Theorem~\ref{int homotopy path} that $\int_{\widetilde{\gamma}}\omega$ gives the same result for every piecewise smooth curve $\widetilde{\gamma}$ in the given class. Moreover, if $\widetilde{\omega}$ is another smooth $1$-form in the same cohomology class as $\omega$, then $\omega-\widetilde{\omega}=df$ for some smooth function $f$, which implies
+Given $[\gamma]\in\pi_1(M,q)$, it follows from the Whitney approximation theorem that there is some smooth closed curve segment $\widetilde{\gamma}$ in the same path class as $\gamma$, and from \cref{int homotopy path} that $\int_{\widetilde{\gamma}}\omega$ gives the same result for every piecewise smooth curve $\widetilde{\gamma}$ in the given class. Moreover, if $\widetilde{\omega}$ is another smooth $1$-form in the same cohomology class as $\omega$, then $\omega-\widetilde{\omega}=df$ for some smooth function $f$, which implies
 \[\int_{\widetilde{\gamma}}\omega-\int_{\widetilde{\gamma}}\widetilde{\omega}=\int_{\widetilde{\gamma}}df=f(q)-f(q)=0.\]
-Thus $\varPhi$ is well defined. It follows from Proposition~\ref{line integral prop}(c) that $\varPhi[\omega]$ is a group homomorphism from $\pi_1(M,q)$ to $\R$, and 
+Thus $\varPhi$ is well defined. It follows from \cref{line integral prop}(c) that $\varPhi[\omega]$ is a group homomorphism from $\pi_1(M,q)$ to $\R$, and 
 from linearity of the line integral that $\varPhi$ itself is a linear map.\par
 To see that $\varPhi$ is an isomorphism, we will use the following facts:
 \[H_1(M;\R)\cong\mathrm{Ab}(\pi_1(M),q),\quad H^1_{dR}(M)\cong H.\]
@@ -159,7 +159,7 @@ The first is the Hurwitz isomorphism, and the second is the de Rham theorem. Now
 \[\Hom(\pi_1(M,q),\R)=\Hom(\mathrm{Ab}(\pi_1(M,q)),\R)\]
 and that $\varPhi$ is exactly the isomorphism in the de Rham theorem, the claim follows.
 \end{proof}
-It follows from Corollary~\ref{simply con 1 form} that $H^1_{dR}(M)=0$ when $M$ is simply connected. The next corollary generalizes that result.
+It follows from \cref{simply con 1 form} that $H^1_{dR}(M)=0$ when $M$ is simply connected. The next corollary generalizes that result.
 \begin{proposition}
 A group $G$ is called a \textbf{torsion group} if for each $g\in G$ there exists an integer $k$ such that $g^k=1$. If $M$ is a connected smooth manifold whose fundamental group is a torsion group, then $H^1_{dR}(M)=0$.
 \end{proposition}
@@ -253,7 +253,7 @@ We find that $\delta[\omega]=\sigma$, provided there exists $(\eta,\eta')\in\Ome
 \[i_U^*\eta-i_V^*\eta'=\omega,\quad (j_U^*\sigma,j_V^*\sigma)=(d\eta,d\eta').\]
 It can be easily checked that our definition of $\sigma$ satisfies the conditions.
 \end{proof}
-\subsubsection{Computations using the Mayer-Vietoris sequence}
+\paragraph{Computations using the Mayer-Vietoris sequence}
 Using the Mayer-Vietoris theorem, it is a simple matter to compute all of the de Rham cohomology groups of spheres.
 \begin{theorem}[\textbf{Cohomology of Spheres}]\label{cohomology S^n}
 For $n\geq1$, the de Rham cohomology groups of $S^n$ are
@@ -264,8 +264,8 @@ For $n\geq1$, the de Rham cohomology groups of $S^n$ are
 The cohomology class of any smooth orientation form is a basis for $H^n_{dR}(S^n)$.
 \end{theorem}
 \begin{proof}
-Proposition~\ref{cohomology degree 0} shows that $H^0_{dR}(S^n)=\R$, so we need only prove for $p\geq1$. We do so by induction on $n$. For $n=1$, note first that any orientation form on $S^1$ has nonzero integral, so it is not exact by Corollary~\ref{int exact form} thus $\dim H^1_{dR}(S^1)\geq 1$. On the other hand, Theorem~\ref{cohomology fundamental group} implies that there is an injective linear map from $H^1_{dR}(S^1)$ into $\Hom(\pi_1(S^1,1),\R)$, which is $1$-dimensional. Thus, $H^1_{dR}(S^1)$ has dimension exactly $1$, and is spanned by the cohomology class of any orientation form.\par
-Next, suppose $n\geq 2$ and assume by induction that the theorem is true for $S^{n-1}$. Because $S^n$ is simply connected, $H^1_{dR}(S^n)=0$ by Corollary~\ref{simply con 1 form}. For $p>1$, we use the Mayer-Vietoris theorem as follows. Let $N$ and $S$ be the north and south poles in $S^n$, respectively, and let $U=S^n-\{S\},V=S^n-\{V\}$. By stereographic projection, both $U$ and $V$ are diffeomorphic to $\R^n$, and thus $U\cap V$ is diffeomorphic to $\R^n-\{0\}$.\par
+\cref{cohomology degree 0} shows that $H^0_{dR}(S^n)=\R$, so we need only prove for $p\geq1$. We do so by induction on $n$. For $n=1$, note first that any orientation form on $S^1$ has nonzero integral, so it is not exact by \cref{int exact form} thus $\dim H^1_{dR}(S^1)\geq 1$. On the other hand, \cref{cohomology fundamental group} implies that there is an injective linear map from $H^1_{dR}(S^1)$ into $\Hom(\pi_1(S^1,1),\R)$, which is $1$-dimensional. Thus, $H^1_{dR}(S^1)$ has dimension exactly $1$, and is spanned by the cohomology class of any orientation form.\par
+Next, suppose $n\geq 2$ and assume by induction that the theorem is true for $S^{n-1}$. Because $S^n$ is simply connected, $H^1_{dR}(S^n)=0$ by \cref{simply con 1 form}. For $p>1$, we use the Mayer-Vietoris theorem as follows. Let $N$ and $S$ be the north and south poles in $S^n$, respectively, and let $U=S^n-\{S\},V=S^n-\{V\}$. By stereographic projection, both $U$ and $V$ are diffeomorphic to $\R^n$, and thus $U\cap V$ is diffeomorphic to $\R^n-\{0\}$.\par
 Part of the Mayer-Vietoris sequence for $\{U,V\}$ read
 \[\begin{tikzcd}
 H^{p-1}_{dR}(U)\oplus H^{p-1}_{dR}(V)\ar[r]&H^{p-1}_{dR}(U\cap V)\ar[r]&H^{p}_{dR}(S^n)\ar[r]&H^p_{dR}(U)\oplus H^p_{dR}(V)
@@ -277,20 +277,20 @@ when $p>1$, which implies that $H^{p-1}_{dR}(U\cap V)\cong H^p_{dR}(S^n)$. Moreo
 Let $\omega$ be a closed $n$-form on $S^n$, then $\omega$ is exact if and only if $\int_{S^n}\omega=0$.
 \end{corollary}
 \begin{proof}
-Let $\omega_{S^n}$ be an orientation form of $S^n$, then by Theorem~\ref{cohomology S^n} $\omega=a\omega_{S^n}+d\eta$ for some $a\in\R$ and $\eta\in\Omega^{n-1}(S^n)$. Since $\int_{S^n}d\eta=0$, we get the claim.
+Let $\omega_{S^n}$ be an orientation form of $S^n$, then by \cref{cohomology S^n} $\omega=a\omega_{S^n}+d\eta$ for some $a\in\R$ and $\eta\in\Omega^{n-1}(S^n)$. Since $\int_{S^n}d\eta=0$, we get the claim.
 \end{proof}
 \begin{corollary}[\textbf{Cohomology of Punctured Euclidean Space}]\label{cohomology punctured R^n}
 Suppose $n\geq2$ and $x\in\R^n$, and let $M=\R^n-\{x\}$. The only nontrivial de Rham groups of $M$ are $H^0_{dR}(M)$ and $H^{n-1}_{dR}(M)$, both of which are $1$-dimensional. A closed $(n-1)$-form $\omega$ on $M$ is exact if and only if $\int_S\omega=0$ for some $($and hence every$)$ $(n-1)$-dimensional sphere $S\sub M$ centered at $x$.\par 
 The same statement remains true if $\R^n-\{x\}$ is replaced by $\R^n-\widebar{B}$ for some closed ball $\widebar{B}\sub\R^n$.
 \end{corollary}
 \begin{proof}
-Let $S\sub M$ be any $(n-1)$-dimensional sphere centered at $x$. Because inclusion $\iota:S\hookrightarrow M$ is a homotopy equivalence, $H^p_{dR}(M)\to H^p_{dR}(S)$ is an isomorphism for each $p$, so the assertion about the dimension of $H^p_{dR}(M)$ follows from Theorem~\ref{cohomology S^n}. If $\omega$ is a closed $(n-1)$-form on $M$, it follows that $\omega$ is exact if and only if $\iota^*\omega$ is exact on $S$, which in turn is true if and only $\int_S\iota^*\omega=0$ by Corollary~\ref{closed n-form S^n exact iff}.
+Let $S\sub M$ be any $(n-1)$-dimensional sphere centered at $x$. Because inclusion $\iota:S\hookrightarrow M$ is a homotopy equivalence, $H^p_{dR}(M)\to H^p_{dR}(S)$ is an isomorphism for each $p$, so the assertion about the dimension of $H^p_{dR}(M)$ follows from \cref{cohomology S^n}. If $\omega$ is a closed $(n-1)$-form on $M$, it follows that $\omega$ is exact if and only if $\iota^*\omega$ is exact on $S$, which in turn is true if and only $\int_S\iota^*\omega=0$ by \cref{closed n-form S^n exact iff}.
 \end{proof}
 \begin{corollary}\label{cohomology U-x}
 Suppose $n\geq 2$, $U\sub\R^n$ is any open subset, and $x\in U$. Then $H^{n-1}_{dR}(U-\{x\})\neq 0$.
 \end{corollary}
 \begin{proof}
-Because $U$ is open, there is an $(n-1)$-dimensional sphere $S$ centered at $x$ such that $S\sub U-\{x\}$. Let $\iota:S\hookrightarrow U-\{x\}$ be inclusion and $r:U-\{x\}\to S$ be the radial projection onto $S$. Then $r$ and $\iota$ are smooth with $r\circ\iota=\mathrm{id}_S$. This implies $\iota^*\circ r^*=\mathrm{id}$, and therefore $r^*:H^{n-1}_{dR}(U-\{x\})\to H^{n-1}_{dR}(S)$ is injective. Since $H^{n-1}_{dR}(S)\neq 0$ by Theorem~\ref{cohomology S^n}, the result follows.
+Because $U$ is open, there is an $(n-1)$-dimensional sphere $S$ centered at $x$ such that $S\sub U-\{x\}$. Let $\iota:S\hookrightarrow U-\{x\}$ be inclusion and $r:U-\{x\}\to S$ be the radial projection onto $S$. Then $r$ and $\iota$ are smooth with $r\circ\iota=\mathrm{id}_S$. This implies $\iota^*\circ r^*=\mathrm{id}$, and therefore $r^*:H^{n-1}_{dR}(U-\{x\})\to H^{n-1}_{dR}(S)$ is injective. Since $H^{n-1}_{dR}(S)\neq 0$ by \cref{cohomology S^n}, the result follows.
 \end{proof}
 Here is an important application of the topological invariance of the de Rham cohomology groups. Recall the theorem on invariance of dimension; it is a surprising fact that this purely topological theorem can be proved using de Rham cohomology. Before proving the theorem, we restate it here for convenience.
 \begin{proposition}[\textbf{Topological Invariance of Dimension}]
@@ -298,7 +298,7 @@ A nonempty $n$-dimensional topological manifold cannot be homeomorphic to an $m$
 \end{proposition}
 \begin{proof}
 If $M$ is a topological $n$-manifold that is homeomorphic to an $m$-manifold, then $M$ is itself both an $n$-manifold and an $m$-manifold. The case in which $m$ or $n$ is zero is easily proved, so assume that $m>n\geq 1$. Because $M$ is an $m$-manifold, there is an open subset $V\sub M$ that is homeomorphic to $\R^m$. Because an open subset of an $n$-manifold is itself an $n$-manifold, any point $x\in V$ has a neighborhood $U\sub V$ that is homeomorphic to $\R^n$. On the one hand, because $U$ is homeomorphic to $\R^n$, we can use the homeomorphism to define a smooth structure
-on $U$, and then $H^{m-1}_{dR}(U-\{x\})$ by Corollary~\ref{cohomology punctured R^n}. On the other hand, because $U$ is homeomorphic to an open subset of $\R^m$, we can use that homeomorphism to define another smooth structure on $U$, and then Corollary~\ref{cohomology U-x} implies that $H^{m-1}_{dR}(U-\{x\})\neq 0$. This contradicts the topological invariance of de Rham cohomology.
+on $U$, and then $H^{m-1}_{dR}(U-\{x\})$ by \cref{cohomology punctured R^n}. On the other hand, because $U$ is homeomorphic to an open subset of $\R^m$, we can use that homeomorphism to define another smooth structure on $U$, and then \cref{cohomology U-x} implies that $H^{m-1}_{dR}(U-\{x\})\neq 0$. This contradicts the topological invariance of de Rham cohomology.
 \end{proof}
 \subsection{The de Rham cohomology with compact supports}
 For some purposes it is useful to define a generalization of the de Rham cohomology groups using only compactly supported forms. Let $M$ be a smooth manifold with or 
@@ -306,7 +306,7 @@ without boundary and let $\Omega^p_c(M)$ denote the vector space of compactly su
 of $M$ is the quotient space
 \[H^p_c(M)=\frac{\ker\big(d:\Omega^p_c(M)\to\Omega^{p+1}_c(M)\big)}{\im\big(d:\Omega^{p-1}_c(M)\to\Omega^{p}_c(M)\big)}.\]
 Of course, when $M$ is compact, this just reduces to ordinary de Rham cohomology. But for noncompact manifolds the two groups can be different.\par
-As another application of Corollary~\ref{cohomology punctured R^n}, we prove a generalization of the Poincar\'e lemma for compactly supported forms. We will use it below to compute top-degree cohomology groups.
+As another application of \cref{cohomology punctured R^n}, we prove a generalization of the Poincar\'e lemma for compactly supported forms. We will use it below to compute top-degree cohomology groups.
 \begin{lemma}[\textbf{Poincar\'e Lemma with Compact Support}]\label{Poincare lem compact suup}
 Let $n\geq p\geq1$, and suppose $\omega$ is a compactly supported closed $p$-form on $\R^n$. If $p=n$, suppose in addition that $\int_{\R^n}\omega=0$. Then there exists a compactly supported smooth $(p-1)$-form $\omega$ on $\R^n$ such that $d\eta=\omega$.
 \end{lemma}
@@ -318,8 +318,8 @@ By the fundamental theorem of calculus, $dF=F'dx=\omega$. Choose $R>0$ such that
 so, in fact, $\supp(F)\sub[-R,R]$. This completes the proof for the case $n=p=1$.\par
 Now assume $n\geq2$, and let $B,B'\sub\R^n$ be open balls centered at the origin such that $\supp(\omega)\sub B\sub\widebar{B}\sub B'$. By the ordinary Poincar\'e lemma, there exists a smooth (but not necessarily compactly supported) $(p-1)$-form $\eta_0$ on $\R^n$ such that $d\eta_0=\omega$. This implies, in particular, that $d\eta_0=0$ on $\R^n-\widebar{B}$. To complete the proof, we consider three cases.\par
 Consider $p=1$. In this case $\eta_0$ is a smooth function. Because $\R^n-\widebar{B}$ is connected when $n\geq 2$, it follows that $\eta_0$ is equal to a constant $c$ there. Letting $\eta=\eta_0-c$, we find that $\eta$ is compactly supported and satisfies $d\eta=\omega$ as claimed.\par
-Let $1<p<n$. Now the restriction of $\eta_0$ to $\R^n-\widebar{B}$ is a closed $(p-1)$-form. Because $H^{p-1}_{dR}(\R^n-\widebar{B})=0$ by Corollary~\ref{cohomology punctured R^n}, there is a smooth $(p-2)$-form $\gamma$ on $\R^n-\widebar{B}$ such that $d\gamma=\eta_0$ there. If we let $\psi$ be a smooth bump function that is supported in $\R^n-\widebar{B}$ and equal to $1$ on $\R^n-B'$, then $\eta=\eta_0-d(\psi\gamma)$ is smooth on all of $\R^n$ and satisfies $d\eta=d\eta_0=\omega$. Because $d(\psi\gamma)=d\gamma=\eta_0$ on $\R^n-B'$, $\eta$ is compactly supported.
-Finally, let $p=n$. In this case, we cannot use the same argument because $H^{n-1}_{dR}(\R^n-\widebar{B})\neq0$. However, it follows from Corollary~\ref{cohomology punctured R^n} that the restriction of $\eta_0$ to $\R^n-\widebar{B}$ is exact provided its integral is zero over some sphere centered at the origin and contained in $\R^n-\widebar{B}$. Stokes's theorem implies that
+Let $1<p<n$. Now the restriction of $\eta_0$ to $\R^n-\widebar{B}$ is a closed $(p-1)$-form. Because $H^{p-1}_{dR}(\R^n-\widebar{B})=0$ by \cref{cohomology punctured R^n}, there is a smooth $(p-2)$-form $\gamma$ on $\R^n-\widebar{B}$ such that $d\gamma=\eta_0$ there. If we let $\psi$ be a smooth bump function that is supported in $\R^n-\widebar{B}$ and equal to $1$ on $\R^n-B'$, then $\eta=\eta_0-d(\psi\gamma)$ is smooth on all of $\R^n$ and satisfies $d\eta=d\eta_0=\omega$. Because $d(\psi\gamma)=d\gamma=\eta_0$ on $\R^n-B'$, $\eta$ is compactly supported.
+Finally, let $p=n$. In this case, we cannot use the same argument because $H^{n-1}_{dR}(\R^n-\widebar{B})\neq0$. However, it follows from \cref{cohomology punctured R^n} that the restriction of $\eta_0$ to $\R^n-\widebar{B}$ is exact provided its integral is zero over some sphere centered at the origin and contained in $\R^n-\widebar{B}$. Stokes's theorem implies that
 \[0=\int_{\R^n}\omega=\int_{\widebar{B}'}\omega=\int_{\widebar{B}'}d\eta_0=\int_{\partial\widebar{B}'}\eta_0.\]
 Thus $\eta_0$ is exact on $\R^n-\widebar{B}$, and the proof proceeds exactly as above.
 \end{proof}
@@ -331,8 +331,8 @@ For $n\geq1$, the compactly supported de Rham cohomology groups of $\R^n$ are
 \end{cases}\]
 \end{theorem}
 \begin{proof}
-It follows from Lemma~\ref{Poincare lem compact suup} and Proposition~\ref{cohomology degree 0} that $H^p_c(\R^n)=0$ for $0\leq p<n$.\par 
-For $H^n_c(\R^n)$, define a $\R$-linear map $\varPhi:H^n_c(\R^n)\to\R$ by $\varPhi[\omega]=\int_{\R^n}\omega$. Then $\varPhi$ is injective by Lemma~\ref{Poincare lem compact suup}, and since there exist a form $\omega\in\Omega^n_c(\R^n)$ satisfying $\int_{\R^n}\omega\neq 0$, $\varPhi$ is also surjective.
+It follows from \cref{Poincare lem compact suup} and \cref{cohomology degree 0} that $H^p_c(\R^n)=0$ for $0\leq p<n$.\par 
+For $H^n_c(\R^n)$, define a $\R$-linear map $\varPhi:H^n_c(\R^n)\to\R$ by $\varPhi[\omega]=\int_{\R^n}\omega$. Then $\varPhi$ is injective by \cref{Poincare lem compact suup}, and since there exist a form $\omega\in\Omega^n_c(\R^n)$ satisfying $\int_{\R^n}\omega\neq 0$, $\varPhi$ is also surjective.
 \end{proof}
 There is also a Mayer-Vietoris sequence for compactly supported cohomology. But before taking it up we need to discuss the functorial properties of $\Omega_c^*(M)$, the 
 algebra of forms with compact support on the manifold $M$. In general the pullback by a smooth map of a form with compact support need not have compact support; for 
@@ -394,7 +394,7 @@ the supports of $\rho_U$ and $\rho_V$.
 Now we provide a far-reaching generalization of the Poincar\'e lemma, which asserts that on an orientable manifold $M$ we have a nondegenerate map
 \[I:H^p_{dR}(M)\otimes H^{n-p}_c(M)\to\R\]
 which induces an isomorphism $H^p_{dR}(M)\cong H^{n-p}_c(M)^*$.
-\subsubsection{Poincar\'e duality on an orientable manifold}
+\paragraph{Poincar\'e duality on an orientable manifold}
 Let $M$ be a smooth manifold with or without boundary, and let $\omega\in\Omega^p(M),\eta\in\Omega^p(M)$ be closed forms. If $\omega=d\sigma$, then
 \[\omega\wedge\eta= d\sigma\wedge\eta=d(\sigma\wedge\eta)-(-1)^{p-1}\sigma\wedge d\eta=d(\sigma\wedge\eta).\]
 so $[\omega\wedge\eta]=0$. Thus we conclude that $[\omega\wedge\eta]$ only depends on $[\omega]$ and $[\eta]$, and thus there is a well-defined bilinear map 
@@ -434,7 +434,7 @@ of $A_i$. Since $f$ is an exhaustion function, $A_i$ is compact, and therefore i
 collection of sets. By the condition of $\{U_\alpha\}$, this is a finite $\mathcal{P}$-cover of $B_i$, so by Step $1$, $B_i$ satisfies $\mathcal{P}$.
 \begin{figure}[htbp]
 \centering
-\includegraphics{induction-principle}
+\includegraphics{pictures/induction-principle}
 \caption{Proof of the induction principle, Step $2$.}
 \end{figure}
 
@@ -558,11 +558,11 @@ to compact support deleted.
 If $M$ is a connected nonorientable smooth $n$-manifold, then $H^n_c(M)=0$ and $H^n_{dR}(M)=0$.
 \end{theorem}
 \begin{proof}
-First consider the case of compactly supported cohomology. By the preceding lemma, it suffices to show that $\widehat{\pi}^*:H^p_{c}(M)\to H^p_{c}(\widehat{M})$ is the zero map, where $\widehat{\pi}:\widehat{M}\to M$ is the orientation covering of $M$. Let $\alpha:\widehat{M}\to\widehat{M}$ be the nontrivial covering automorphism as in the preceding proof. Now, $\alpha$ cannot be orientation-preserving: if it were, the entire covering automorphism group $\{\mathrm{id},\alpha\}$ would be orientation-preserving, and then $M$ would be orientable by Theorem~\ref{orientation covering thm}. By connectedness of $\widehat{M}$ and the fact that $\alpha$ is a diffeomorphism, it follows that $\alpha$ is orientation-reversing.\par
-Suppose $\omega$ is any compactly supported smooth $n$-form on $M$, and let $\widehat{\omega}=\widehat{\pi}^*\omega$. Because $\widehat{\pi}$ is proper, $\widehat{\omega}$ is compactly supported, and $\widehat{\pi}\circ\alpha=\widehat{\pi}$ implies $\alpha^*\widehat{\omega}=\widehat{\omega}$. Because $\alpha$ is orientation-reversing, we conclude from Proposition~\ref{int form prop} that
+First consider the case of compactly supported cohomology. By the preceding lemma, it suffices to show that $\widehat{\pi}^*:H^p_{c}(M)\to H^p_{c}(\widehat{M})$ is the zero map, where $\widehat{\pi}:\widehat{M}\to M$ is the orientation covering of $M$. Let $\alpha:\widehat{M}\to\widehat{M}$ be the nontrivial covering automorphism as in the preceding proof. Now, $\alpha$ cannot be orientation-preserving: if it were, the entire covering automorphism group $\{\mathrm{id},\alpha\}$ would be orientation-preserving, and then $M$ would be orientable by \cref{orientation covering thm}. By connectedness of $\widehat{M}$ and the fact that $\alpha$ is a diffeomorphism, it follows that $\alpha$ is orientation-reversing.\par
+Suppose $\omega$ is any compactly supported smooth $n$-form on $M$, and let $\widehat{\omega}=\widehat{\pi}^*\omega$. Because $\widehat{\pi}$ is proper, $\widehat{\omega}$ is compactly supported, and $\widehat{\pi}\circ\alpha=\widehat{\pi}$ implies $\alpha^*\widehat{\omega}=\widehat{\omega}$. Because $\alpha$ is orientation-reversing, we conclude from \cref{int form prop} that
 \[\int_{\widehat{M}}\widehat{\omega}=-\int_{\widehat{M}}\alpha^*\widehat{\omega}=-\int_{\widehat{M}}\widehat{\omega}.\]
-This implies that $\int_{\widehat{M}}\widehat{\omega}=0$, so $[\widehat{\omega}]=0\in H^p_c(\widehat{M})$ by Theorem~\ref{cohomology n orientable compact supp}. This completes the proof that $H^n_c(M)=0$.\par
-It remains only to handle ordinary cohomology. If $M$ is compact, it follows from the argument above that $H^n_{dR}(M)=H^n_c(M)=0$. On the other hand, if $M$ is noncompact, then so is $\widehat{M}$, and Theorem~\ref{cohomology n orientable noncompact} shows that $H^n_{dR}(\widehat{M})=0$. It follows from the previous lemma that $H^n_{dR}(M)=0$ as well.
+This implies that $\int_{\widehat{M}}\widehat{\omega}=0$, so $[\widehat{\omega}]=0\in H^p_c(\widehat{M})$ by \cref{cohomology n orientable compact supp}. This completes the proof that $H^n_c(M)=0$.\par
+It remains only to handle ordinary cohomology. If $M$ is compact, it follows from the argument above that $H^n_{dR}(M)=H^n_c(M)=0$. On the other hand, if $M$ is noncompact, then so is $\widehat{M}$, and \cref{cohomology n orientable noncompact} shows that $H^n_{dR}(\widehat{M})=0$. It follows from the previous lemma that $H^n_{dR}(M)=0$ as well.
 \end{proof}
 \subsection{Degree theory}
 Now that we know the top-degree cohomology groups of all compact smooth manifolds, we can use them to draw a number of significant conclusions about smooth maps between certain compact manifolds of the same dimension. They all follow from the fact that we can associate an integer to each such map, called its degree, in
@@ -578,11 +578,11 @@ where $\sgn(x)=1$ if $dF_x$ is orientation-preserving, and $-1$ if it is orienta
 \end{itemize}
 \end{theorem}
 \begin{proof}
-By Theorem~\ref{cohomology n orientable compact}, two smooth $n$-forms on either $M$ or $N$ are cohomologous if and only if they have the same integral. Let $\theta$ be any smooth $n$-form on $N$ such that $\int_N\theta=1$, and let $k=\int_MF^*\theta$. If $\omega\in\Omega^n(N)$ is arbitrary, then $\omega$ is cohomologous to $a\theta$, where $a=\int_N\omega$, and therefore $F^*\omega$ is cohomologous to $aF^*\theta$. It follows that
+By \cref{cohomology n orientable compact}, two smooth $n$-forms on either $M$ or $N$ are cohomologous if and only if they have the same integral. Let $\theta$ be any smooth $n$-form on $N$ such that $\int_N\theta=1$, and let $k=\int_MF^*\theta$. If $\omega\in\Omega^n(N)$ is arbitrary, then $\omega$ is cohomologous to $a\theta$, where $a=\int_N\omega$, and therefore $F^*\omega$ is cohomologous to $aF^*\theta$. It follows that
 \[\int_MF^*\omega=a\int_MF^*\theta=ak=k\int_N\omega.\]
 Thus $k$ satisfies (a), and is clearly the only number that does so.\par
 Next we show that $k$ also has the characterization given in part (b), from which it follows that it is an integer. Let $q\in N$ be an arbitrary regular value of $F$. Because $F^{-1}(q)$ is a properly embedded $0$-dimensional submanifold of $M$, it is finite. Suppose first that $F^{-1}(q)$ is not empty---say, $F^{-1}(q)=\{x_1,\dots,x_r\}$. By the inverse function theorem, for each $i$ there is a neighborhood $U_i$ of $x_i$ such that $F$ is a diffeomorphism from $U_i$ to a neighborhood $W_i$ of $q$, and by shrinking the $U_i$'s if necessary, we may assume that they are pairwise disjoint. Then $K:=M-\bigcup_{i=1}^{r}U_i$ is closed in $M$ and thus compact, so $F(K)$ is closed in $N$ and disjoint from $q$. Let $W$ be the connected component of $\bigcap_{i=1}^{r}W_i\cap(N-F(K))$ containing $q$, and let $V_i=F^{-1}(W)\cap U_i$. It follows that $W$ is a connected neighborhood of $q$ whose preimage under $F$ is the disjoint union $V_1\cup\cdots\cup V_r$, and $F$ restricts to a diffeomorphism from each $V_i$ to $W$. Since each $V_i$ is connected, the restriction of $F$ to $V_i$ must be either orientation-preserving or orientation-reversing.\par
-Let $\omega$ be a smooth $n$-form on $N$ that is compactly supported in $W$ and satisfies $\int_N\omega=\int_W\omega=1$. It follows from part (a) that $\int_MF^*\omega=k$. Since $F^*\omega$ is compactly supported in $F^{-1}(W)$, we have $\int_MF^*\omega=\sum_{i=1}^{r}\int_{V_i}F^*\omega=k$. From Proposition~\ref{int form prop}(d), since $F$ restricts to a diffeomorphism on each $V_i$, we conclude that $\int_{V_i}\omega=\pm 1$, with the positive sign if $F$ is orientation-preserving on $V_i$ and the negative sign otherwise. This proves (b) when $F^{-1}(q)\neq\emp$.\par
+Let $\omega$ be a smooth $n$-form on $N$ that is compactly supported in $W$ and satisfies $\int_N\omega=\int_W\omega=1$. It follows from part (a) that $\int_MF^*\omega=k$. Since $F^*\omega$ is compactly supported in $F^{-1}(W)$, we have $\int_MF^*\omega=\sum_{i=1}^{r}\int_{V_i}F^*\omega=k$. From \cref{int form prop}(d), since $F$ restricts to a diffeomorphism on each $V_i$, we conclude that $\int_{V_i}\omega=\pm 1$, with the positive sign if $F$ is orientation-preserving on $V_i$ and the negative sign otherwise. This proves (b) when $F^{-1}(q)\neq\emp$.\par
 On the other hand, suppose $F^{-1}(q)=\emp$. Then $q$ has a neighborhood $W$ contained in $N-F(M)$ (because $F(M)$ is compact and thus closed). If $\omega$ is any smooth $n$-form on $N$ that is compactly supported in $W$, then $\int_MF^*\omega=0$, so $k=0$. This proves (b).
 \end{proof}
 \begin{corollary}
@@ -627,7 +627,7 @@ Suppose $f$ has an extension to a continuous map $F:X\to N$. By the Whitney appr
 to $F$. Replacing $F$ by $\widetilde{F}$ and $f$ by $\widetilde{F}|_{\partial X}$ we may assume that both $f$ and $F$ are smooth.\par
 Let $\omega$ be any smooth $n$-form on $N$. Then $d\omega=0$ because it is an $(n+1)$-form on an $n$-manifold. From Stokes's theorem, we obtain
 \[\int_{\partial X}f^*\omega=\int_{\partial X}F^*\omega=\int_Xd(F^*\omega)=\int_XF^*(f\omega)=0.\]
-It follows from Theorem~\ref{degree def} that $f$ has degree zero.
+It follows from \cref{degree def} that $f$ has degree zero.
 \end{proof}
 \begin{theorem}[\textbf{Brouwer Fixed-Point Theorem}]
 Every continuous map from $\widebar{B}^n$ to itself has a fixed point.
@@ -639,13 +639,13 @@ and let $g=G|_{S^{n-1}}:S^{n-1}\to S^{n-1}$. On the one hand, the previous theor
 $H:S^{n-1}\times I\to S^{n-1}$ defined by
 \[H(x,t)=\frac{x-tF(x)}{|x-tF(x)|}\]
 The denominator never vanishes when $t=1$ because $F$ has no fixed points, and when $t<1$ it cannot vanish because $|x|=1$ while $|tF(x)|=t<1$. Thus $H$ is continuous, 
-so it is a homotopy from the identity to $g$. It follows from Proposition~\ref{degree prop} that $g$ has degree $1$, which is a contradiction.
+so it is a homotopy from the identity to $g$. It follows from \cref{degree prop} that $g$ has degree $1$, which is a contradiction.
 \end{proof}
 \subsection{The de Rham theorem}
 The topological invariance of the de Rham groups suggests that there should be some purely topological way of computing them. There is indeed, and the connection 
 between the de Rham groups and the singular cohomology groups was first proved by Georges de Rham himself in the 1930s. The theorem that bears his name is a major 
 landmark in the development of smooth manifold theory. The purpose of this part is to give a proof of this theorem.
-\subsubsection{Smooth singular homology}
+\paragraph{Smooth singular homology}
 The connection between the singular and de Rham cohomology groups will be established by integrating differential forms over singular chains. More precisely, given a 
 singular $p$-simplex $\sigma$ in a manifold $M$ and a $p$-form $\omega$ on $M$, we would like to pull $\omega$ back by $\sigma$ and integrate the resulting form over 
 $\Delta_p$. However, there is an immediate problem with this approach, because forms can be pulled back only by smooth maps, while singular simplices are in general 
@@ -663,7 +663,7 @@ For any smooth manifold $M$, the map $\iota_*:H_p^{\infty}(M)\to H_p(M)$ induced
 The basic idea of the proof is to construct, with the help of the Whitney approximation theorem, two operators: first, a smoothing operator $s:C_p(M)\to C_p^{\infty}(M)$ 
 such that $s\circ\partial=\partial\circ s$ and $s\circ\iota$ is the identity on $C_p^{\infty}(M)$; and second, a homotopy operator that shows that $\iota\circ s$ induces 
 the identity map on $H^p(M)$. Since the details are highly technical, we do not present them here.
-\subsubsection{The de Rham theorem}
+\paragraph{The de Rham theorem}
 Suppose $M$ is a smooth manifold, $\omega$ is a closed $p$-form on $M$; and $\sigma$ is a smooth $p$-simplex in $M$. We define the integral of $\omega$ over $\sigma$ to 
 be
 \[\int_{\sigma}\omega=\int_{\Delta_p}\sigma^*\omega.\]
@@ -678,12 +678,12 @@ If $c$ is a smooth $p$-chain in a smooth manifold $M$, and $\omega$ is a smooth 
 \begin{proof}
 It suffices to prove the theorem when $c$ is just a smooth simplex $\sigma$. Since $\Delta_p$ is a manifold with corners, Stokes's theorem says that
 \[\int_{\sigma}d\omega=\int_{\Delta_p}\sigma^*d\omega=\int_{\Delta_p}d\sigma^*\omega=\int_{\partial\Delta_p}\sigma^*\omega.\]
-The face maps $F_{i,p}:\Delta_{p-1}\to\Delta_p$ are parametrizations of the boundary faces of $\Delta_p$ satisfying the conditions of Proposition~\ref{int mani para}, 
+The face maps $F_{i,p}:\Delta_{p-1}\to\Delta_p$ are parametrizations of the boundary faces of $\Delta_p$ satisfying the conditions of \cref{int mani para}, 
 except possibly that they might not be orientation-preserving. To check the orientations, note that $F_{i,p}$ is the restriction to $\Delta_p\cap\partial\H^p$ of the 
 affine diffeomorphism sending the simplex $[e_0,\dots,e_p]$ to $[e_0,\dots,\widehat{e}_i,\dots,e_p,e_i]$. This is easily seen to be orientation-preserving if and only 
 if $(e_0,\dots,\widehat{e}_i,\dots,e_p,e_i)$ is an even permutation of $(e_0,\dots,e_p)$, which is the case if and only if $p-i$ is even. Since the standard coordinates 
 on $\partial\H^p$ are positively oriented if and only if $p$ is even, the upshot is that $F_{i,p}$ is orientation-preserving for $\partial\Delta_p$ if and only if $i$ is 
-even. Thus, by Proposition~\ref{int mani para},
+even. Thus, by \cref{int mani para},
 \begin{align*}
 \int_{\partial\Delta_p}\sigma^*\omega&=\sum_{i=0}^{p}(-1)^i\int_{\Delta_{p-1}}F_{i,p}^*\sigma^*\omega=\sum_{i=0}^{p}(-1)^i\int_{\Delta_{p-1}}(\sigma\circ F_{i,p})^*\omega=\sum_{i=0}^{p}(-1)^i\int_{\sigma\circ F_{i,p}}\omega.
 \end{align*}
@@ -692,7 +692,7 @@ By definition of the singular boundary operator, this is equal $\int_{\partial\s
 Using this theorem, we define a natural linear map $\mathscr{I}:H_{dR}^p(M)\to H^p(M;\R)$, called the \textbf{de Rham homomorphism}, as follows. For any $[\omega]\in H^p_{dR}(M)$ 
 and $[c]\in H_p(M)\cong H_p^{\infty}(M)$, we define
 \[\mathscr{I}[\omega][c]=\int_{\widetilde{c}}\omega.\]
-where $\widetilde{c}$ is any smooth $p$-cycle representing the homology class $[c]$. This is well defined by Theorem~\ref{Stokes's theorem for chains}.
+where $\widetilde{c}$ is any smooth $p$-cycle representing the homology class $[c]$. This is well defined by \cref{Stokes's theorem for chains}.
 \begin{proposition}[\textbf{Naturality of the de Rham Homomorphism}]\label{de Rham homomorphism naturality}
 For a smooth manifold $M$ and nonnegative integer $p$, let $\mathscr{I}:H^p_{dR}(M)\to H^p(M;\R)$ denote the de Rham homomorphism.
 \begin{itemize}
@@ -724,7 +724,7 @@ for any $[\omega]\in H^{p-1}_{dR}(U\cap V)$ and any $[e]\in H^p_{dR}(M)$. Using 
 If $\sigma$ is a smooth $p$-form representing $\delta[\omega]$ and $c$ is a smooth $(p-1)$-chain representing $\partial_*[e]$, this is the same as 
 \[\int_e\sigma=\int_c\omega.\]
 By the characterization of $\partial_*$, we can let $c=\partial f$, where $f,f'$ are smooth $p$-chains in $U$ and $V$, respectively, such that $f+f'$ represents the 
-same homology class as $e$. Similarly, by Corollary~\ref{Mayer-Vietoris de Rham connect}, we can choose $\eta\in\Omega^{p-1}(U)$ and $\eta'\in\Omega^{p-1}(V)$ such that $\omega=\eta|_{U\cap V}-\eta'|_{U\cap V}$, 
+same homology class as $e$. Similarly, by \cref{Mayer-Vietoris de Rham connect}, we can choose $\eta\in\Omega^{p-1}(U)$ and $\eta'\in\Omega^{p-1}(V)$ such that $\omega=\eta|_{U\cap V}-\eta'|_{U\cap V}$, 
 and then let $\sigma$ be the $p$-form that is equal to $d\eta$ on $U$ and to $d\eta'$ on $V$. Then, because $\partial f+\partial f'=\partial e=0$ and $d\eta|_{U\cap V}-d\eta'|_{U\cap V}=d\omega=0$, 
 we have
 \begin{align*}
@@ -750,18 +750,18 @@ singular cohomology, we obtain the following commutative diagram, in which the h
 H_{dR}^{p-1}(U)\oplus H_{dR}^{p-1}(V)\ar[r]\ar[d]&H^{p-1}_{dR}(U\cup V)\ar[r]\ar[d]&H^p_{dR}(U\cup V)\ar[r]\ar[d]&H^p_{dR}(U)\oplus H^p_{dR}(V)\ar[d]\\
 H^{p-1}(U;\R)\oplus H^{p-1}(V;\R)\ar[r]&H^{p-1}(U\cup V;\R)\ar[r]&H^p(U\cup V;\R)\ar[r]&H^p(U;\R)\oplus H^p(V;\R)
 \end{tikzcd}\]
-The commutativity of the diagram is an immediate consequence of Proposition~\ref{de Rham homomorphism naturality}. Then by the five lemma the de Rham theorem is true on 
+The commutativity of the diagram is an immediate consequence of \cref{de Rham homomorphism naturality}. Then by the five lemma the de Rham theorem is true on 
 $U\cup V$.\par
 Finally, consider a disjoint union $\amalg_iU_i$. For both de Rham and singular cohomology the inclusions $\iota_i:U_i\hookrightarrow\amalg_iU_i$ induce isomorphisms 
-between the cohomology groups of the disjoint union and the direct product of the cohomology groups of the manifolds $U_i$. By Proposition~\ref{de Rham homomorphism naturality}, 
+between the cohomology groups of the disjoint union and the direct product of the cohomology groups of the manifolds $U_i$. By \cref{de Rham homomorphism naturality}, 
 $\mathscr{I}$ commutes with these isomorphisms. Now use the induction principal we get the claim.
 \end{proof}
-Recall that by Theorem~\ref{homotopy equiv Int M to M} the inclusion $\iota:\Int M\hookrightarrow M$ is a homotopy equivalence, so for manifolds with boundary the de Rham theorem also holds.
+Recall that by \cref{homotopy equiv Int M to M} the inclusion $\iota:\Int M\hookrightarrow M$ is a homotopy equivalence, so for manifolds with boundary the de Rham theorem also holds.
 \begin{proposition}
 For every smooth manifold with boundary $M$ and nonnegative integer $p$, the de Rham homomorphism $\mathscr{I}:H^p_{dR}(M)\to H^p(M;\R)$ is an isomorphism.
 \end{proposition}
 \subsection{The Thom isomorphism}
-\subsubsection{Compact vertical cohomology and integration along the fiber}
+\paragraph{Compact vertical cohomology and integration along the fiber}
 For vector bundles there is a third kind of cohomology. Instead of $\Omega^p_c(E)$, the complex of forms with compact support, we consider $\Omega_{cv}^p(E)$, the 
 complex of forms with compact support in the vertical direction, defined as follows: a smooth $n$-form $\omega$ on $E$ is in $\Omega^p_{cv}(E)$ if and only if for 
 every compact set $K$ in $M$, $\supp(\omega)\cap\pi^{-1}(K)$ is compact. If $\omega\in\Omega^p_{cv}(E)$, then since $\supp(\omega|_{\pi^{-1}(p)})\sub\supp(\omega)\cap\pi^{-1}(p)$ 
@@ -905,7 +905,7 @@ is exact. So we have the diagram of Mayer-Vietoris sequences
 \cdots\ar[r]&H^p_{cv}(E|_{U\cup V})\ar[r]\ar[d,"\pi_*"]&H^p_{cv}(E|_{U})\oplus H^p_{cv}(E|_{V})\ar[r]\ar[d,"\pi_*"]&H^p_{cv}(E|_{U\cap V})\ar[r,"\delta^*"]\ar[d,"\pi_*"]&H^{p+1}_{cv}(E|_{U\cup V})\ar[r]\ar[d,"\pi_*"]&\cdots\\
 \cdots\ar[r]&H^{p-k}(U\cup V)\ar[r]&H^{p-k}(U)\oplus H^{p-k}(V)\ar[r]&H^{p-k}(U\cap V)\ar[r,"\delta^*"]&H^{p+1-k}(U\cup V)\ar[r]&\cdots
 \end{tikzcd}\]
-The commutativity of this diagram is trivial for the first two squares; we will check that of the third. Recalling from Corollary~\ref{Mayer-Vietoris de Rham connect} 
+The commutativity of this diagram is trivial for the first two squares; we will check that of the third. Recalling from \cref{Mayer-Vietoris de Rham connect} 
 the explicit formula for the coboundary operator $\delta^*$, we have by the projection formula
 \[\pi_*\delta^*\omega=\pi_*(d\pi^*\rho_U)\wedge\omega=\pi_*(\pi^*(d\rho_U)\wedge\omega)=(d\rho_U)\wedge\pi_*\omega=\delta^*\pi_*\omega.\]
 So the diagram in question is commutative. The theorem now follows from the induction principle.
@@ -948,13 +948,13 @@ where $k$ is the rank of $E$.
 The result above is not ture if $E\to M$ is not orientable. For example, the M\"obious bundle has trivial compact cohomology, but the compact cohomology of 
 $S^1$ is nontrivial.
 \end{remark}
-\subsubsection{Poincar\'e duality and the Thom class}
+\paragraph{Poincar\'e duality and the Thom class}
 Let $S$ be a properly embedded oriented submanifold of dimension $k$ in an oriented manifold $M$ of dimension $n$. The \textbf{Poincar\'e dual of $\bm{S}$} is the 
 cohomology class of the closed $(n-k)$-form $\eta_S$ characterized by the property
 \[\int_S\omega=\int_M\omega\wedge\eta_S\]
 for any closed $k$-form with compact support on $M$. Now we will explain how the Poincar\'e dual of a submanifold relates to the Thom class of a bundle. To this end we 
 first recall the notion of a tubular neighborhood of $S$ in $M$; this is by definition an open neighborhood of $S$ in $M$ diffeomorphic to a vector bundle of rank $n-k$ 
-over $S$ such that $S$ is diffeomorphic to the zero section. The tubular neighborhood theorem (Theorem~\ref{Riemann tubular neighborhood}) states that every submanifold 
+over $S$ such that $S$ is diffeomorphic to the zero section. The tubular neighborhood theorem (\cref{Riemann tubular neighborhood}) states that every submanifold 
 $S$ in $M$ has a tubular neighborhood $T$, and that in fact $T$ is diffeomorphic to the normal bundle of $S$ in $M$. Let $j:T\hookrightarrow M$ be the inclusion of a 
 tubular neighborhood $T$ of $S$ in $M$. Since $S$ and $M$ are orientable, the normal bundle $NS$, being the quotient of $TM|_S$ by $TS$, is also orientable. By 
 convention it is oriented in such a way that
@@ -982,7 +982,7 @@ Now suppose $E$ is an oriented vector bundle over an oriented manifold $M$. Then
 \[\begin{tikzcd}
 0\ar[r]&TM\ar[r]&TE|_M\ar[r]&E\ar[r]&0
 \end{tikzcd}\]
-i.e., the normal bundle of $M$ in $E$ is $E$ itself. By Proposition~\ref{Thom class Poincare dual}, we have the following.
+i.e., the normal bundle of $M$ in $E$ is $E$ itself. By \cref{Thom class Poincare dual}, we have the following.
 \begin{corollary}
 The Thom class of an oriented vector bundle $\pi:E\to M$ over an oriented manifold $M$ and the Poincar\'e dual of the zero section of $E$ can be represented by the same 
 form.
@@ -1007,10 +1007,10 @@ Poincar\'e dual is $\rho(x)dx$ where $\rho$ is a bump function with total integr
 Using the explicit construction of the Poincare dual as the Thom class of the normal bundle, we now prove two basic properties of Poincar\'e duality. recall that two 
 submanifolds $R$ and $S$ in $M$ are said to intersect transversally if
 \[T_pR+T_pS=T_pM\]
-at all points $p$ in the intersection $R\cap S$. For such a transversal intersection the codimension in $M$ is additive: (Theorem~\ref{transverse int subm})
+at all points $p$ in the intersection $R\cap S$. For such a transversal intersection the codimension in $M$ is additive: (\cref{transverse int subm})
 \[\codim R\cap S=\codim R+\codim S.\]
 This implies that the normal bundle of $R\cap S$ in $M$ is $N(R\cap S)=NR\oplus NS$. Assume $M$ to be an oriented manifold, and $R$ and $S$ to be closed oriented 
-submanifolds. Denoting the Thom class of an oriented vector bundle $E$ by $\Phi(E)$, we have by Proposition~\ref{Thom class disrect sum}
+submanifolds. Denoting the Thom class of an oriented vector bundle $E$ by $\Phi(E)$, we have by \cref{Thom class disrect sum}
 \[\Phi(N(R\cap S))=\Phi(NR\oplus NS)=\Phi(NR)\wedge\Phi(NR).\]
 Therefore $\eta_{R\cap S}=\eta_R\wedge\eta_S$; i.e., under Poincar\'e duality the transversal intersection of closed oriented submanifolds corresponds to the wedge 
 product of forms.\par
@@ -1023,7 +1023,7 @@ H^*(F^{-1}(S))\ar[r]&H^{*+n-k}_{cv}(F^{-1}(T))
 \end{tikzcd}\]
 we see that $\Phi(F^{-1}(T))=F^*\Phi(T)$. This then implies $\eta_{F^{-1}(S)}=F^*\eta_S$; i.e., under Poincar\'e duality the induced map on cohomology corresponds to 
 the pre-image in geometry. By the Transversality Homotopy Theorem, the transversality hypothesis on $F$ is in fact not necessary.
-\subsubsection{Relative de Rham theory}
+\paragraph{Relative de Rham theory}
 Let $f:N\to M$ be a smooth map between two manifolds. We know that the pullback $f^*:\Omega^*(M)\to\Omega^*(N)$ is a cochain map. Now consider the mapping cone of $f^*$:
 \[\Omega^p(f)=\Omega^{p}(M)\oplus\Omega^{p-1}(N),\quad d(\omega,\eta)=(d\omega,-d\eta+f^*\omega).\]
 Note that a cohomology class in $\Omega^*(f)$ is represented by a closed form on $M$ which becomes exact when pulled back to $N$. By definition we have an exact 
@@ -1106,7 +1106,7 @@ The case $p=0$ is immediate. When $p=1$, since $H^0_{dR}(U)=H^0_{dR}(M)=H^0_{dR}
 \R^2\ar[r]&\R\ar[r]&H^1_{dR}(M)\ar[r]&H^1_{dR}(M-\{x\})\ar[r]&0
 \end{tikzcd}\]
 hence $H^1_{dR}(M)\to H^1_{dR}(M-\{x\})$ is surjective. To prove injectivity, we need $H^0_{dR}(S^{n-1})\to H^1_{dR}(M)$ to be trivial. For this, it's enough to show $H^0_{dR}(U)\oplus H^0_{dR}(M-\{x\})\to H^0_{dR}(S^{n-1})$ is surjective, which is obvious since all these $0$-degree cohomology groups are generated by constant functions.\par
-For $p=n-1$, if $M$ is compact and orientable, then $H^n_{dR}(M)=\R$ and $H^n_{dR}(M-\{x\})=0$, by Theorem~\ref{cohomology n orientable compact} and \ref{cohomology n orientable noncompact}. The sequence becomes
+For $p=n-1$, if $M$ is compact and orientable, then $H^n_{dR}(M)=\R$ and $H^n_{dR}(M-\{x\})=0$, by \cref{cohomology n orientable compact} and \ref{cohomology n orientable noncompact}. The sequence becomes
 \[\begin{tikzcd}
 0\ar[r]&H^{n-1}_{dR}(M)\ar[r]&H^{n-1}_{dR}(M-\{x\})\ar[r]&H^{n-1}_{dR}(S^{n-1})\ar[r]&H^n_{dR}(M)\ar[r]&0
 \end{tikzcd}\]
@@ -1175,11 +1175,11 @@ induces an isomorphism in cohomology:
 \[r^*:H^*_{dR}(M)\to H^*_{TC}(C^*(\mathcal{U},\Omega^*)).\]
 \end{theorem}
 \begin{proof}
-This follows from Proposition~\ref{de Rham MV generalized} and a spectral sequence argument.
+This follows from \cref{de Rham MV generalized} and a spectral sequence argument.
 \end{proof}
 We can improve a bit this result. For $p\geq 0$ define
 \[K:C^p(\mathcal{U},\Omega^q)\to C^{p-1}(\mathcal{U},\Omega^q),\quad K^p=h\]
-where $h$ is the homotopy operator constructed in the proof of Proposition~\ref{de Rham MV generalized}. Then
+where $h$ is the homotopy operator constructed in the proof of \cref{de Rham MV generalized}. Then
 \[K\delta+\delta K=\id.\]
 
 For an element $\omega\in T^p(C^*(\mathcal{U},\Omega^*))$, we can write
@@ -1224,8 +1224,8 @@ f(\omega)&=\sum_{i=0}^{p}(-dK)^i\omega_i-\sum_{j=1}^{p}K(-dK)^{j-1}d\omega_j-\su
 \end{align*}
 Observe that $f(\omega)\in C^0(\mathcal{U},\Omega^q)$. In fact $f(\omega)$ lies in the image of $r:\Omega^q(M)\to C^0(\mathcal{U},\Omega^q)$: we have $\delta f(\omega)=0$, 
 which means that the collection $\{f(\omega)_\alpha\}$ satisfies $f(\omega)_\alpha=f(\omega)_\beta$ on $U_{\alpha\beta}$.\par
-Now we can give the proof of Theorem~\ref{Cech de Rham collating formula}.
-\begin{proof}[Proof of Theorem~\ref{Cech de Rham collating formula}]
+Now we can give the proof of \cref{Cech de Rham collating formula}.
+\begin{proof}[Proof of \cref{Cech de Rham collating formula}]
 Let us first show that $fD=df$. Let
 \[\omega=\sum_{i=0}^{p}\omega_i,\quad\omega_i\in C^i(\mathcal{U},\Omega^{p-i}),\quad D\omega=\sum_{j=0}^{p+1}\eta_j,\quad\eta_j\in C^{j}(\mathcal{U},\Omega^{p+1-j}).\]
 From the definition $(\ref{collating formula def})$, we deduce
@@ -1244,7 +1244,7 @@ and
 \begin{align*}
 LD\omega_i=Ld\omega_i+L\delta\omega_i=\sum_{j=0}^{i-1}K(-dK)^{i-1-j}d\omega_i+\sum_{k=0}^{i}K(-dK)^{i-k}\delta\omega_i.
 \end{align*}
-Using Lemma~\ref{collating formula lemma} we deduce
+Using \cref{collating formula lemma} we deduce
 \[(-dK)^{i-k}\delta=\delta(-dK)^{i-k}-(-dK)^{i-k-1}d.\]
 On the other hand the homotopy property of $K$ implies
 \[K\delta(-dK)^{i-k}=(-dK)^{i-k}-\delta K(-dK)^{i-k},\]
@@ -1297,7 +1297,7 @@ Now for a good cover $\mathcal{U}$, the augmented columns are also exact, so we 
 If $\mathcal{U}$ is a good cover of the manifold $M$, then the de Rham cohomology of $M$ is isomorphic to the \v{C}ech cohomology of the good cover
 \[H^*_{dR}(M)\cong H^*(\mathcal{U},\R).\]
 \end{theorem}
-A priori there is no reason why different covers of $M$ should have the same \v{C}ech cohomology. However, i.t follows from Theorem~\ref{de Rham Cech good cover} that
+A priori there is no reason why different covers of $M$ should have the same \v{C}ech cohomology. However, i.t follows from \cref{de Rham Cech good cover} that
 \begin{corollary}
 The \v{C}ech cohomology $H^*(\mathcal{U},\R)$ is the same for all good covers $\mathcal{U}$ of $M$.
 \end{corollary}
@@ -1363,7 +1363,7 @@ where $\iota:F\to E$ is the inclusion.
 By replacing the $\omega_\alpha$'s by $e_i$'s, the proof goes as the previous one, with the observation that any fiber bundle on $\R^n$ is trivial, hence the theorem holds 
 on it.
 \end{proof}
-\subsubsection{Product structures}
+\paragraph{Product structures}
 In this part we define product structures on the \v{C}ech-de Rham complex $C^*(\mathcal{U},\Omega^*)$, the de Rham cohomology, and the \v{C}ech cohomology, and show that 
 the isomorphism between de Rham and \v{C}ech is an isomorphism of graded algebras. We also discuss the product structures on a spectral sequence.\par
 Let $Z$ be the closed forms and $B$ the exact forms on a manifold $M$. From the antiderivation property of the exterior derivative
@@ -1407,14 +1407,14 @@ $r$-cochain, then
 \begin{align}\label{Cech cup prod}
 (\omega\cup\eta)_{i_0\dots i_{p+r}}=\omega_{i_0\dots i_p}\eta_{i_p\dots i_{p+r}}.
 \end{align}
-By Proposition~\ref{Cech de Rham cup prod prop}, $\delta$ is an antiderivation relative to this product. So just as in the case of de Rham cohomology this makes the 
+By \cref{Cech de Rham cup prod prop}, $\delta$ is an antiderivation relative to this product. So just as in the case of de Rham cohomology this makes the 
 \v{C}ech cohomology $H^*(\mathcal{U},\R)$ into a graded algebra. If $\mathcal{V}$ is a refinement of $\mathcal{U}$, then the restriction map 
 $H^*(\mathcal{U},\R)\to H^*(\mathcal{V},\R)$ is a homomorphism of algebras. Hence the direct limit $H^*(M,\R)$ is also a graded algebra. Note that $(\ref{Cech cup prod})$ 
 also makes sense for the \v{C}ech complex $C^*(\mathcal{U},\R)$ on a topological space $X$; this gives a product structure on the \v{C}ech cohomology $H^*(X,\R)$ of any 
 topological space $X$.\par
 With the product structures just defined, both inclusions
 \[r^*:\Omega^*(M)\to C^*(\mathcal{U},\Omega^*),\quad i^*:C^*(\mathcal{U},\R)\to C^*(\mathcal{U},\Omega^*)\]
-are algebra homomorphisms. Since as we saw in Proposition~\ref{de Rham Cech good cover}, for a good cover these homomorphisms induce bijective maps in cohomology
+are algebra homomorphisms. Since as we saw in \cref{de Rham Cech good cover}, for a good cover these homomorphisms induce bijective maps in cohomology
 \[H^*_{dR}(M)\cong H^*_{TC}(C^*(\mathcal{U},\Omega^*)),\quad H^*(\mathcal{U},\R)\cong H^*_{TC}(C^*(\mathcal{U},\Omega^*)),\]
 the isomorphism between $H^*_{dR}(M)$ and $H^*(\mathcal{U},\R)$ is an algebra isomorphism. Because $H^*(M,\R)=H^*(\mathcal{U},\R)$ for a good cover $\mathcal{U}$, we 
 have the following
@@ -1438,7 +1438,7 @@ global $k$-form on $E$ whose restriction to each fiber generates the cohomology 
 \[H^*(E)=H^*(M)\otimes H^*(S^k).\]
 It is therefore of interest to know when such a global form exists. We will see that the existence of a global form as above entails overcoming two obstructions: 
 orientability and the Euler class.
-\subsubsection{Orientability}
+\paragraph{Orientability}
 In this part the base space of the bundle is assumed to be connected. A sphere bundle with fiber $S^k$ ($k\geq 1$) is said to be orientable if for each fiber $E_p$ it 
 is possible to choose a generator $[\sigma_p]$ of $H^k(E_p)$ satisfying the \textbf{local compatibility condition}: around any point there is a neighborhood $U$ and a 
 generator $[\sigma_U]$ of $H^k(E|_U)$ such that for any $p$ in $U$, $[\sigma_U]$ restricted to the fiber $E_p$ is the chosen generator $[\sigma_p]$; equivalently, 
@@ -1496,14 +1496,14 @@ A vector bundle $E\to M$ is orientable if and only if its determinant bundle $\d
 \end{proposition}
 \begin{proof}
 The determinant bundle of $E$ is a line bundle on $M$ with transition functions $\det\tau_{\alpha\beta}$, where $\tau_{\alpha\beta}$ is the transition function of a 
-trivialization $\{(U_\alpha,\varPsi_\alpha)\}$ of $E$. For another trivilization $\{(U_\alpha,\varPsi_\alpha)\}$, by Lemma~\ref{vector bundle equivalent transition lem} 
+trivialization $\{(U_\alpha,\varPsi_\alpha)\}$ of $E$. For another trivilization $\{(U_\alpha,\varPsi_\alpha)\}$, by \cref{vector bundle equivalent transition lem} 
 there exist maps $\sigma_\alpha:U_\alpha\to\GL_k(\R)$ such that
 \[\tau_{\alpha\beta}'(p)=\sigma_\alpha(p)\tau_{\alpha\beta}(p)\sigma^{-1}_{\beta}(p),\quad p\in U_\alpha\cap U_\beta.\]
 By taking determinant we see that $\{\det\tau_{\alpha\beta}\}$ is equivalent to $\{\det\tau_{\alpha\beta}'\}$, so they define the same bundle.\par 
 It is clear that this definition does not depends on the trivialization. An orthogonal matrix $\tau_{\alpha\beta}$ assumes values in $\SO(k+1)$ if and only if 
 $\det\tau_{\alpha\beta}$ is positive, so the proposition follows.
 \end{proof}
-Whether $E$ is orientable or not, the $0$-sphere bundle $S(\det E)$ is always a $2$-sheeted covering of $M$. Combining Proposition~\ref{vector bundle otientable iff det orientable}, 
+Whether $E$ is orientable or not, the $0$-sphere bundle $S(\det E)$ is always a $2$-sheeted covering of $M$. Combining \cref{vector bundle otientable iff det orientable}, 
 we see that over a connected base space a vector bundle $E$ is orientable if and only if $S(\det E)$ is disconnected. Since a simply connected base space cannot have 
 any connected covering space of more than one sheet, we have proven the following.
 \begin{proposition}\label{vector bundle on simply connected orientable}
@@ -1513,7 +1513,7 @@ In particular, the tangent bundle of a simply connected manifold is orientable. 
 \begin{corollary}
 Every simply connected manifold is orientable.
 \end{corollary}
-\subsubsection{The Euler class of an oriented sphere bundle}
+\paragraph{The Euler class of an oriented sphere bundle}
 We first consider the case of a circle bundle $\pi:E\to M$ with structure group $\Diff(S^1)$. Our problem is to find a closed global $1$-form on $E$ which restricts to 
 a generator of the cohomology on each fiber. As a first approximation, in each $U_\alpha$ of a good cover $\{U_\alpha\}$ of $M$ we choose a generator $[\sigma_\alpha]$ 
 of $H^1(E|_{U_\alpha})$. The collection $\{\sigma_\alpha\}$ is an element $\sigma^{1,0}$ in the double complex $C^*(\pi^{-1}(\mathcal{U}),\Omega^*)$. From the 
@@ -1605,10 +1605,10 @@ If the oriented sphere bundle $E$ has a global section, then its Euler class van
 Let $s$ be a section of $E$. It follows from $\pi\circ s=\id$ that $s^*\circ\pi^*=\id$. We saw in the construction of the Euler class that 
 \[D\sigma=-\pi^*\eps\]
 for some $D$-cochain $\sigma$. Applying $s^*$ to both sides gives $s^*D\sigma=Ds^*\sigma=\eps$. By the same diagram chasing as in the proof of 
-Proposition~\ref{sphere bundle global generator iff Euler class vanish}, we can show that $\eps$ is a coboundary in $H^*(\mathcal{U},\R)$. Therefore the Eucler class 
+\cref{sphere bundle global generator iff Euler class vanish}, we can show that $\eps$ is a coboundary in $H^*(\mathcal{U},\R)$. Therefore the Eucler class 
 $e(E)$ vanishes.
 \end{proof}
-\subsubsection{The global angular form}
+\paragraph{The global angular form}
 Using the collating formula we will now construct a form $\psi$ on any oriented $S^k$-bundle such that
 \begin{itemize}
 \item its restriction to each fiber is a generator of the cohomology of the fiber.
@@ -1640,7 +1640,7 @@ is a global form on $E$. Furthermore, we have
 \begin{align*}
 d\psi=df(\alpha)=f(D\alpha)=f(-\pi^*\eps)=-\pi^*(-dK)^{k+1}\eps=-\pi^*e.
 \end{align*}
-By Corollary~\ref{Cech de Rham to de Rham} the global form $\psi$ to each fiber is $d$-cohomologous to $\alpha_0$, hence is a generator of the cohomology of the fiber. 
+By \cref{Cech de Rham to de Rham} the global form $\psi$ to each fiber is $d$-cohomologous to $\alpha_0$, hence is a generator of the cohomology of the fiber. 
 The global $n$-form $\psi$ on the sphere bundle $E$ is called the \textbf{global angular form} on the sphere bundle.
 \begin{proposition}\label{sphere bundle Euler class supp}
 Let $\{U_i\}$ be an open cover of $M$ which trivializes the $k$-sphere bundle $E$ and let $\psi$ and $e$ be the global angular form and the Euler class. Then
@@ -1651,7 +1651,7 @@ By $(\ref{de Rham MV generalized homotopy})$ we have
 \[\supp(K\omega)_{i_0\dots i_{p-1}}\sub\bigcup_i\omega_{i,i_0\dots i_p}\sub\bigcup_{i}U_{i,i_0\dots i_p}.\]
 Since $\eps\in C^{k+1}(\mathcal{U},\R)$, we must have $\supp(\eps)\sub\bigcup U_{i_0\dots i_{k+1}}$. Then the claim follows from $d\psi=-\pi^*e$ and $e=f(\eps)$.
 \end{proof}
-\subsubsection{The Euler class of an oriented rank \boldmath$2$ vector bundle}
+\paragraph{The Euler class of an oriented rank \boldmath$2$ vector bundle}
 In this part we will construct explicitly the Euler class of an oriented rank $2$ vector bundle $\pi:E\to M$, using such data as a partition of unity on $M$ and the 
 transition functions of $E$.\par
 Now let $\pi:E\to M$ be a rank $2$ vector bundle on a manifold $M$ and $\{U_\alpha\}$ be a coordinate open cover of $M$ that trivializes $E$. Since $E$ has a 
@@ -1669,7 +1669,7 @@ diagram:
 \dfrac{d\theta_\alpha}{2\pi}\ar[r,"\delta"]&\dfrac{\pi^*d\varphi_{\alpha\beta}}{2\pi}\\
 &\dfrac{\pi^*\varphi_{\alpha\beta}}{2\pi}\ar[u,"d"]\ar[r,"\delta"]&-\pi^*\eps
 \end{tikzcd}\]
-By Corollary~\ref{Cech de Rham to de Rham}, the Euler class $e$ is given by the cohomology class of $(-d_vK)^2\eps$. Since $-\eps=\delta(\varphi/2\pi)$, we have
+By \cref{Cech de Rham to de Rham}, the Euler class $e$ is given by the cohomology class of $(-d_vK)^2\eps$. Since $-\eps=\delta(\varphi/2\pi)$, we have
 \begin{align*}
 (-d_vK)^2\eps&=-d_vKd_vK\delta(\frac{\varphi}{2\pi})=dKdK\delta(\frac{\varphi}{2\pi})=dKd(\frac{\varphi}{2\pi}-\delta K(\frac{\varphi}{2\pi}))\\
 &=dK(\frac{d\varphi}{2\pi})-dKd\delta K(\frac{\varphi}{2\pi}).
@@ -1697,7 +1697,7 @@ Therefore on $U_\alpha$ we have
 \begin{align}\label{Euler class rank 2 transition}
 e(E)=d\xi=-\frac{1}{2\pi i}\sum_{\gamma}d(\rho_\gamma d\log\tau_{\gamma\alpha}).
 \end{align}
-\subsubsection{Euler number and the isolated singularities of a section}
+\paragraph{Euler number and the isolated singularities of a section}
 Let $\pi:E\to M$ be an oriented $(n-1)$-sphere bundle over a compact oriented manifold of dimension $n$. Since $H^n(M)=\R$, the Euler class of $E$ may be identified 
 with the number $\int_Me(E)$, which is by definition the \textbf{Euler number} of $E$. The Euler number of the manifold $M$ is defined to be that of its unit tangent 
 bundle $S(TM)$ relative to some Riemannian structure on $M$. While the Euler number of an orientable sphere bundle is defined only up to sign, depending on the 
@@ -1746,7 +1746,7 @@ the Euler number of $E$ is the sum of the local degrees of $s$ at $p_1,\dots,p_r
 \end{theorem}
 \begin{proof}
 Let $\{U_\alpha\}$ be an open cover of $M$ which trivializes $E$. By the lemma we may assume that each $p_i$ has a neighborhood $W_i$ which is contained in exactly one 
-$U_\alpha$. Construct the global angular form $\psi$; and the form $e$ relative to $\{U_\alpha\}$. By Proposition~\ref{sphere bundle Euler class supp}, the form 
+$U_\alpha$. Construct the global angular form $\psi$; and the form $e$ relative to $\{U_\alpha\}$. By \cref{sphere bundle Euler class supp}, the form 
 $e$ must vanish on $W_i$ for all $i=1,\dots,r$. So $e$ is supported away from the points $p_i$.\par
 For each $i$ choose an open ball $D_i$ around the point $p_i$ so that $\widebar{D}_i\sub W_i$. Then
 \begin{align*}
@@ -1774,14 +1774,14 @@ Let $S(TS^2)$ be the unit tangent bundle to $S^2$. It is a circle bundle over $S
 Fix a unit tangent vector $v$ at the north pole $N$. We can define a smooth vector field on $S^2\setminus\{S\}$ by parallel translating $v$ along the great circles from 
 the north pole to the south pole, where $S$ is the south pole. This gives a section $s$ of $S(TS^2)$ over $S^2\setminus\{S\}$. On a small circle around the south pole, 
 as we go around the circle $90$, the vectors rotate through $180$; therefore, the local degree of $s$ at the south pole is $2$. By 
-Theorem~\ref{sphere bundle Euler number local degree}, the Euler number of the unit tangent bundle to $S^2$ is $2$.\par
+\cref{sphere bundle Euler number local degree}, the Euler number of the unit tangent bundle to $S^2$ is $2$.\par
 More generally, the same technique can be used to compute the Euler number of $S(TS^n)$. Since there exists nonvanishing vector fields on $S^{k+1}$, we find that
 \[e(S(TS^n))=\begin{cases}
 0,&\text{$n$ is odd},\\
 2&\text{$n$ is even}.
 \end{cases}\]
 \end{example}
-\subsubsection{Euler characteristic and the Hopf index theorem}
+\paragraph{Euler characteristic and the Hopf index theorem}
 In this part we show that the Euler number $\int_Me(TM)$ is the same as the Euler characteristic $\chi(M)=\sum_p(-1)^p\dim H^p(M)$ and deduce as a corollary the Hopf 
 index theorem. The manifold $M$ is assumed to be compact and oriented.
 Let $\{\omega_i\}$ be a basis of the vector space $H^*(M)$, $\{\tau_j\}$ be the dual basis under Poincare duality, i.e., $\int_M\omega_i\wedge\tau_j=\delta_{ij}$, and 
@@ -1831,7 +1831,7 @@ Recall that the Poincare dual of a closed oriented submanifold $S$ is represente
 \int_{\Delta}\eta_{\Delta}&=\int_{\Delta}\Phi(N\Delta)=\int_{\Delta}e(N\Delta)=\int_{\Delta}e(T\Delta)=\int_Me(TM).
 \end{align*}
 Here we use the fact that the Thom class restricted to the zero section of the bundle is the Euler class. We will prove later. Now the right-hand side of 
-Lemma~\ref{Poincare dual diagonal} evaluated on the diagonal $\Delta$ is
+\cref{Poincare dual diagonal} evaluated on the diagonal $\Delta$ is
 \begin{align*}
 \int_\Delta\eta_{\Delta}&=\sum_i(-1)^{\deg\omega_i}\int_{\Delta}\pi_1^*\omega_i\wedge\pi_2^*\tau_i=\sum_i(-1)^{\deg\omega_i}\int_{M}\omega_i\wedge\tau_i\\
 &=\sum_i(-1)^{\deg\omega_i}=\sum_p(-1)^p\dim H^p(M)\\
@@ -1839,12 +1839,12 @@ Lemma~\ref{Poincare dual diagonal} evaluated on the diagonal $\Delta$ is
 \end{align*}
 \end{proof}
 It is now a simple matter to derive the Hopf index theorem. Let $V$ be a vector field with isolated zeros on $M$. The \textbf{index} of $V$ at a zero $p$ is defined to 
-be the local degree at $p$ of $V/|V|$ as a section of the unit tangent bundle of $M$ relative to some Riemannian metric on $M$. By Theorem~\ref{sphere bundle Euler number local degree} 
+be the local degree at $p$ of $V/|V|$ as a section of the unit tangent bundle of $M$ relative to some Riemannian metric on $M$. By \cref{sphere bundle Euler number local degree} 
 the sum of the indices of $V$ is the Euler number of $M$. The equality of the Euler number and the Euler characteristic then yields the following.
 \begin{theorem}[\textbf{Hopf Index Theorem}]
 The sum of the indices of a vector field on a compact oriented manifold $M$ is the Euler characteristic of $M$.
 \end{theorem}
-Now we would like to give a generalization of Theorem~\ref{Euler number Euler char}. Consider a smooth map $f:M\to M$ of a compact orientable manifold $M$ and the 
+Now we would like to give a generalization of \cref{Euler number Euler char}. Consider a smooth map $f:M\to M$ of a compact orientable manifold $M$ and the 
 induced map $H(f)$ on $H^*(M)$. Let $\Gamma\sub M\times M$ be the graph of $f$. Let $F:M\to\Gamma$ be the map $F(p)=(p,f(p))$, then we have
 \begin{align*}
 \int_\Delta\eta_\Gamma&=\int_{M\times M}\eta_\Gamma\wedge\eta_\Delta=(-1)^{n^2}\int_{M\times M}\eta_\Delta\wedge\eta_\Gamma=(-1)^n\int_\Gamma\eta_\Delta\\
@@ -1883,7 +1883,7 @@ I&I
 The determinant of this matrix is $\det(df_p-\id)$, therefore the number $m_p$ gives the orientation of $\Gamma\cap\Delta$. With this, we then conclude
 \[L(f)=\sum_pm_p.\]
 \subsection{Thom isomorphism and Poincar\'e duality revisited}
-\subsubsection{Thom isomorphism}
+\paragraph{Thom isomorphism}
 Let $\pi:E\to M$ be a rank $k$ vector bundle. $E$ is not assumed to be orientable. We are interested in the cohomology of $E$ with compact support in the vertical 
 direction $H_{cv}^*(E)$. Recall that
 \[H^*_{c}(\R^n)=\begin{cases}
@@ -1931,11 +1931,11 @@ $\Phi|_U$ and for $V\sub U$ the restriction map from $\mathscr{H}^k_{cv}(U)$ to 
 $\Phi|_U$ for every open set $U$ to the generator $1$ of the constant presheaf $\R$, the presheaf $\mathscr{H}^k_{cv}$ is isomorphic to $\R$. The Thom isomorphism 
 theorem then assumes the form
 \[H^*_{cv}(E)\cong H^{*-k}(\mathcal{U},\mathscr{H}^k_{cv})\cong H^{*-k}(\mathcal{U},\R)\cong H^{*-k}(M).\]
-for an orientable rank $k$ vector bundle $E$. This agrees with Proposition~\ref{Thom iso}. It holds in particular when $M$ is simply connected, since by 
-Corollary~\ref{vector bundle on simply connected orientable}, every vector bundle over a simply connected manifold is orientable.
+for an orientable rank $k$ vector bundle $E$. This agrees with \cref{Thom iso}. It holds in particular when $M$ is simply connected, since by 
+\cref{vector bundle on simply connected orientable}, every vector bundle over a simply connected manifold is orientable.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{Thom-iso-function}
+\includegraphics[width=0.5\textwidth]{pictures/Thom-iso-function}
 \caption{The function $\rho(r)$.}
 \label{Thom iso function rho(r)}
 \end{figure}
@@ -1961,7 +1961,7 @@ E\ar[r,"\pi"]&M
 \end{tikzcd}\]
 we see that $\iota_p^*\pi^*e=0$, therefore
 \[\int_{\R^k}\iota_p^*\Phi=\int_{\R^k}(d\rho(r))\wedge\iota_p^*\psi=\int_{\R}d\rho(r)\int_{S^{k-1}}\iota_p^*\psi=1.\]
-Thus by Proposition~\ref{Thom iso} $\Phi$ is the Thom class of $E$.
+Thus by \cref{Thom iso} $\Phi$ is the Thom class of $E$.
 \end{proof}
 We now have our promised fact about the Thom class and the Euler class.
 \begin{proposition}\label{Thom class pullback Euler class}
@@ -1987,12 +1987,12 @@ Using the description of the Euler class as the pullback of the Thom class, it i
 If $E$ and $F$ are two oriented vector bundles, then $e(E\oplus F)=e(E)\wedge e(F)$.
 \end{proposition}
 \begin{proof}
-By Proposition~\ref{Thom class disrect sum}, the Thorn class of $E\oplus F$ is
+By \cref{Thom class disrect sum}, the Thorn class of $E\oplus F$ is
 \[\Phi(E\oplus F)=\pi_1^*\Phi(E)\wedge\pi_2^*\Phi(F).\]
-Let $s$ be the zero section of $E\oplus F$. Then $\pi_1\circ s$ sand $\pi_2\circ s$ are the zero sections of $E$ and $F$. By Proposition~\ref{Thom class pullback Euler class},
+Let $s$ be the zero section of $E\oplus F$. Then $\pi_1\circ s$ sand $\pi_2\circ s$ are the zero sections of $E$ and $F$. By \cref{Thom class pullback Euler class},
 \[e(E\oplus F)=s^*\Phi(E\oplus F)=s^*\pi_1^*\Phi(E)\wedge s^*\pi_2^*\Phi(F)=e(E)\wedge e(F).\]
 \end{proof}
-\subsubsection{Euler class and the zero locus of a section}
+\paragraph{Euler class and the zero locus of a section}
 Let $\pi:E\to M$ be a vector bundle and $S_0$ the image of the zero section in $E$. A section $s$ of $E$ is \textbf{transversal} if its image $S=s(M)$ intersects $S_0$ 
 transversally.
 \begin{proposition}\label{tran section normal bundle zero locus}
@@ -2022,7 +2022,7 @@ Let $\pi:E\to M$ be an oriented vector bundle over an oriented manifold $M$. The
 \end{proposition}
 \begin{proof}
 We will identify $M$ with the image $S_0$ of the zero section. If $S$ is the image in $E$ of the transversal section $s:M\to E$, then the zero locus of $s$ is $Z=S\cap S_0$. 
-$Z$ is a closed oriented submanifold of $M$ and by Proposition~\ref{tran section normal bundle zero locus}, its normal bundle in $M$ is $NZ\cong E|_Z$. Since $S$ is 
+$Z$ is a closed oriented submanifold of $M$ and by \cref{tran section normal bundle zero locus}, its normal bundle in $M$ is $NZ\cong E|_Z$. Since $S$ is 
 diffeomorphic to $M$, the normal bundle of $Z$ in $S$ is also isomorphic to $E|_Z$. The normal bundles of $Z$ in $M$ and $S$, denoted by $N_MZ$ and $N_SZ$, will be 
 identified with the tubular neighborhoods of $Z$ in $M$ and in $S$, respectively.\par
 Choose the Thom class $\Phi$ of $E$ to have support so close to the zero section that $\Phi$ restricted to the tubular neighborhood $N_SZ$ in $S$ has compact support 
@@ -2037,10 +2037,10 @@ Therefore we get
 \begin{align*}
 \int_{M_p}s^*\Phi=\int_{M_p}s^*\alpha^*\Phi=\int_{S_p}\alpha^*\Phi=\int_{E_p}\Phi=1.
 \end{align*}
-So $s^*\Phi$ is the Thom class of $N_MZ$. By Proposition~\ref{Thom class pullback Euler class}, $s^*\Phi=e(E)$. Since by Proposition~\ref{Thom class Poincare dual} the 
+So $s^*\Phi$ is the Thom class of $N_MZ$. By \cref{Thom class pullback Euler class}, $s^*\Phi=e(E)$. Since by \cref{Thom class Poincare dual} the 
 Thom class of $N_MZ$ is Poincare dual to $Z$ in $M$, the Euler class $e(E)$ is Poincare dual to $Z$ in $M$.
 \end{proof}
-\subsubsection{Poincar\'e duality}
+\paragraph{Poincar\'e duality}
 Let $M$ be a manifold of dimension $n$ and $\mathcal{U}=\{U_i\}$ any open cover of $M$. Define the coboundary operator
 \[\delta:\bigoplus\Omega^*_c(U_{i_0\dots i_p})\to\bigoplus\Omega^*_c(U_{i_0\dots i_{p-1}})\]
 by the formula
@@ -2077,7 +2077,7 @@ Therefore $\delta K+K\delta=\id$ and we conclude the claim.
 Consider the double complex $C^*(\mathcal{U},\Omega^*_c)$, where $\mathcal{U}$ is a locally finite cover. In this double complex the $\delta$-operator goes in the wrong 
 direction, so we define a new complex
 \[K^{-p,q}=C^p(\mathcal{U},\Omega^q_c).\]
-Then by Proposition~\ref{Generalized MV compact supp} and a spectral sequence argument, we get
+Then by \cref{Generalized MV compact supp} and a spectral sequence argument, we get
 \[H_{TC}^*(K)=H_c^*(M).\]
 On the other hand, by definition we have
 \[_{v}E_1^{-p,q}=C^p(\mathcal{U},\mathscr{H}_c^q)\]
@@ -2096,7 +2096,7 @@ Let $M$ be a manifold of dimension $n$ and $\mathcal{U}$ any locally finite good
 where $\mathscr{H}^n_c$ is the covariant functor $\mathscr{H}^n_c(U)=H^n_c(U)$.
 \end{proposition}
 \subsection{Monodromy}
-\subsubsection{When is a locally constant presheaf constant}
+\paragraph{When is a locally constant presheaf constant}
 In the preceding part we saw that the compact vertical cohomology $H^*_{cv}(E)$ of a vector bundle $E$ may be computed as the cohomology of the base with 
 coefficients in the presheaf $\mathscr{H}_{cv}^n$. When the presheaf $\mathscr{H}_{cv}^n$ is the constant presheaf $\R^n$, $H^*_{cv}(E)$ is expressible in terms of the 
 de Rham cohomology of the base manifold. In this case the problem of computing $H^*_{cv}(E)$ is greatly simplified. It is therefore important to 
@@ -2216,7 +2216,7 @@ H^p(\mathcal{U},\R)&q=0,n-1\\
 \end{cases}\]
 Moreover, by the isomorphism $H^*(M)=H^*(\mathcal{U},\R)$ and the simply connected condition, we further have
 \[E_2^{1,0}=E_2^{1,n-1}=0.\]
-This, together with Example~\ref{Orientability of sphere bundle spectral seq}, shows that there is an element in $C^0(\pi^{-1}(\mathcal{U}),\mathscr{H}^{n-1})$ which 
+This, together with \cref{Orientability of sphere bundle spectral seq}, shows that there is an element in $C^0(\pi^{-1}(\mathcal{U}),\mathscr{H}^{n-1})$ which 
 can be extended one step down toward being a $D$-cocycle. Therefore $S(TM)$ and also $M$ are orientable. This gives an alternative proof of the orientability of a simply 
 connected manifold.
 \end{example}
@@ -2257,7 +2257,7 @@ Note that $S^{2n-1}$ is a circle bundle on $\CP^n$, so we can compute its Euler 
 \end{tikzcd}\]
 where $\sigma$ is a generator of $E_2^{0,1}$. By our choice of $a$ and $x$, it is clear that $x=-e$, therefore the Euler class of $S^{2n-1}$ generates the cohomology ring of $\CP^n$.
 \end{example}
-\subsubsection{The Gysin sequence}
+\paragraph{The Gysin sequence}
 The spectral sequence of a fiber bundle is essentially a way of describing the complicated algebraic relations among the cohomology of the base space, the fiber, and 
 the total space of the bundle, In certain special situations the spectral sequence simplifies to a long exact sequence, One such special case is the cohomology of a 
 sphere bundle. The resulting sequence is called the \textbf{Gysin sequence}, which we now derive.
@@ -2311,7 +2311,7 @@ Let $\pi:E\to M$ be an oriented sphere bundle with fiber $S^k$. Then there is a 
 \end{tikzcd}\]
 where $e$ is the Euler class of $E$.
 \end{theorem}
-\subsubsection{Leray's construction}
+\paragraph{Leray's construction}
 We consider now more generally not a fiber bundle but any map $f:X\to Y$ from one manifold to another, and study how the cohomology groups of $X$ relate to those of $Y$. 
 Let $\mathcal{U}$ be any cover for $Y$, not necessarily a good cover. Then $\pi^{-1}(\mathcal{U})$ is a cover for $X$. By the Mayer-Vietoris principle
 \[H^*(X)=H^*_{TC}(C^*(\pi^{-1}(\mathcal{U}),\Omega^*).\]
@@ -2337,7 +2337,7 @@ If in particular $\pi:X\to Y$ is a fiber bundle with fiber $F$, $Y$ admits a fin
 \end{align*}
 \end{example}
 \subsection{Spectral sequence for singular cohomology}
-\subsubsection{The Mayer-Vietoris sequence for singular chains}
+\paragraph{The Mayer-Vietoris sequence for singular chains}
 Let $U=\{U_i\}$ be an open cover of the topological space $X$. Just as for differential forms on a manifold, the sequence of inclusions
 \[\begin{tikzcd}
 X&\coprod_iU_i\ar[l]&\coprod_{i,j}U_{ij}\ar[l]&\cdots\ar[l]
@@ -2350,7 +2350,7 @@ Now we define a boundary operator
 \[\delta:\bigoplus C_q(U_{i_0\dots i_p})\to \bigoplus C_q(U_{i_0\dots i_{p-1}})\]
 by the alternating sum formula
 \[(\delta c)_{i_0\dots i_p}=\sum_ic_{i,i_0\dots i_{p-1}}.\]
-Here, as always, we adopt the alternating convention for chains. The fact that $\delta^2=0$ is proved as in Proposition~\ref{Generalized MV compact supp}. The boundary 
+Here, as always, we adopt the alternating convention for chains. The fact that $\delta^2=0$ is proved as in \cref{Generalized MV compact supp}. The boundary 
 operator $\delta$ on $\bigoplus C_q(U_i)\to C_q(X)$ is simply the sum; we denote this by $\eps$.
 \begin{proposition}
 The following sequence is exact
@@ -2403,7 +2403,7 @@ as $R$-algebras.
 In this part we will study the characteristic classes of a complex vector bundle. To begin with we define the first Chern class of a complex line bundle as the Euler 
 class of its underlying real bundle. Applying the Leray-Hirsch theorem, we then compute the cohomology ring of the projectivization $P(E)$ of a complex vector bundle $E$ 
 and define the Chern classes of $E$ in terms of the ring structure of $H^*(P(E))$. We conclude with a list of the main properties of the Chern classes.
-\subsubsection{The first Chern class of a complex line bundle}
+\paragraph{The first Chern class of a complex line bundle}
 Recall that a complex vector bundle of rank $n$ is a fiber bundle with fiber $\C^n$ and structure group $\GL(n,\C)$. A complex vector bundle of rank $1$ is also called 
 a complex line bundle. Just as the structure group of a real vector bundle can be reduced to the orthogonal group $\O(n)$, by the Hermitian analogue the structure group 
 of a rank $n$ complex vector bundle can be reduced to the unitary group $\U(n)$. Every complex vector bundle $E$ of rank $n$ has an underlying real vector bundle $E_\R$ 
@@ -2436,13 +2436,13 @@ We now compute the cohomology of $\mathbb{P}(V)$. Endow $V$ with a Hermitian met
 \[E=\{(\ell,v):v\in\ell,\|v\|=1\}.\]
 Since the complement of the zero section $S^0$ is diffeomorphic to $V\setminus\{0\}$, we see the map $\pi:E\to\mathbb{P}(V)$ gives a fibering
 \[S^1\to S^{2n-1}\to \mathbb{P}(V).\]
-By a computation similar to Example~\ref{cohomology CP^n}, the cohomology ring $H^*(\mathbb{P}(V))$ is seen to be generated by the Euler class of the circle bundle $E$, i.e., the first Chern class 
+By a computation similar to \cref{cohomology CP^n}, the cohomology ring $H^*(\mathbb{P}(V))$ is seen to be generated by the Euler class of the circle bundle $E$, i.e., the first Chern class 
 of the universal subbundle $S$. It is customary to take $x=c_1(S^*)=-c_1(S)$ to be the generator and write
 \[H^*(\mathbb{P}(V))=\R[x]/(x^n),\quad n=\dim_\C V.\]
 We then see that the Poincar\'e series of the projective space $\mathbb{P}(V)$ is
 \[P_t(\mathbb{P}(V))=1+t^2+\cdots+t^{2(n-1)}=\frac{1-t^{2n}}{1-t^2}.\]
 \end{example}
-\subsubsection{The projectivization of a vector bundle}
+\paragraph{The projectivization of a vector bundle}
 Let $\rho:E\to M$ be a complex vector bundle with transition functions $\tau_{\alpha\beta}:U_\alpha\cap U_\beta\to\GL(n,\C)$. We write $E_p$ for the fiber over $p$ and 
 $\PGL(n,\C)$ for the projective general linear group $\GL(n,\C)/\{\text{scalar matrices}\}$. The projectivization of $E$, $\pi:\mathbb{P}(E)\to M$, is by definition the 
 fiber bundle whose fiber at a point $p$ in $M$ is the projective space $\mathbb{P}(E_p)$ and whose transition functions 
@@ -2511,7 +2511,7 @@ The last equation $-xy_{n-1}=c_{n}$ translates into
 \[x^n+c_1x^{n-1}+\cdots+x_n=0.\]
 Hence $H^*(M)[c(S),c(Q)]/(c(S)c(Q)=\pi^*c(E))$ is isomorphic to the polynomial ring over $H^*(M)$ with the single generator $x$ and the single relation above.
 \end{proof}
-\subsubsection{Main properties of the Chern classes}
+\paragraph{Main properties of the Chern classes}
 Now we collect together some basic properties of the Chern classes.
 \begin{proposition}
 If $f$ is a map from $N$ to $M$ and $E$ is a complex vector bundle over $M$, then $c(f^*E)=f^*c(E)$.
@@ -2553,7 +2553,7 @@ By our abuse of notation this really means $\widetilde{s}^*\pi^*c_n=0$. Therefor
 In this part we prove the Whitney product formula and compute a few Chern classes. The proof and the computations are based on the splitting principle, which, roughly 
 speaking, states that if a polynomial identity in the Chern classes holds for direct sums of line bundles, then it holds for general vector bundles. In the course of 
 establishing the splitting principle we introduce the flag manifolds. We conclude by computing the cohomology ring of a flag manifold.
-\subsubsection{The splitting principle}
+\paragraph{The splitting principle}
 Let $\rho:E\to M$ be a smooth complex vector bundle of rank $n$ over a manifold $M$. Our goal is to construct a space $F(E)$ and a map $\sigma:F(E)\to M$ such that:
 \begin{itemize}
 \item the pullback of $E$ to $F(E)$ splits into a direct sum of line bundles: $\sigma^*E=L_1\oplus\cdots\oplus L_n$.
@@ -2586,7 +2586,7 @@ M&\mathbb{P}(E)\ar[l]&\mathbb{P}(Q_1)\ar[l]&\cdots\ar[l]&\mathbb{P}(Q_{n-2})=F(E
 So for a bundle $E$ of any rank $n$, a split manifold $F(E)$ exists and is given explicitly by $(\ref{split manifold construction})$. Its cohomology $H^*(F(E))$ is a 
 free $H^*(M)$-module having as a basis all monomials of the form
 \[x_1^{\alpha_1}x_2^{\alpha_2}\cdots x_{n-1}^{\alpha_{n-1}},\quad 0\leq\alpha_i\leq n-i\]
-where $x_i=c_1(S_i^*)$ in the notation of the diagram. Using Proposition~\ref{cohomology P(E) description} and an induction, we see the cohomology ring of 
+where $x_i=c_1(S_i^*)$ in the notation of the diagram. Using \cref{cohomology P(E) description} and an induction, we see the cohomology ring of 
 $H^*(F(E))$ can also be written into
 \[H^*(F(E))=H^*(M)[x_1,\dots,x_n]/(\prod_{i=1}^{n}(1+x_i)=\pi^*c(E)).\]
 
@@ -2605,7 +2605,7 @@ where $\sigma^*E$ and $\sigma^*F$ are direct sums of line bundles. So if the ide
 \[\sigma^*P(c(E),c(F),c(E\otimes F))=0,\]
 and the injectivity of $\sigma^*$,
 \[P(c(E),c(F),c(E\otimes F))=0.\]
-\subsubsection{Whitney product formula and the top Chern class}
+\paragraph{Whitney product formula and the top Chern class}
 \begin{proposition}[\textbf{Whitney Product Formula}]
 Let $E$ and $E'$ be smooth complex vector bundles, then $c(E\oplus E')=c(E)c(E')$.
 \end{proposition}
@@ -2680,7 +2680,7 @@ on the split manifold $F(E)$. Then
 \end{align*}
 By the injectivity of $\sigma^*$ on cohomology, $c_n(E)=e(E_\R)$.
 \end{proof}
-\subsubsection{Computation of some Chern classes}
+\paragraph{Computation of some Chern classes}
 Given a rank $n$ complex vector bundle $E$ we may write formally
 \[c(E)=\prod_{i=1}^{n}(1+x_i)\]
 where the $x_i$'s may be thought of as the first Chern class of the line bundles into which $E$ splits when pulled back to the splitting manifold $F(E)$. Since the 
@@ -2765,10 +2765,11 @@ c(T)&=c(S^*\otimes Q)=\sum_{i=0}^{n}c_i(Q)(1+x)^{n-i}=\sum_{i=0}^{n}x^i(1+x)^{n-
 \end{align*}
 \end{itemize}
 \end{example}
+
 \subsection{Pontrjagin classes}
 Although the Chern classes are invariants of a complex bundle, they can be used to define invariants of a real vector bundle, called the Pontrjagin classes. In this part 
 we define the Pontrjagin classes, compute a few examples, and as an application obtain an embedding criterion for differentiable manifolds.
-\subsubsection{Conjugate bundles}
+\paragraph{Conjugate bundles}
 Let $V$ be a complex vector space. If $z\in\C$ and $v\in V$, the formula $z\cdot v:=\widebar{z}v$ defines an action of $\C$ on $V$. The underlying additive group of $V$ 
 with this action as scalar multiplication is called the conjugate vector space of $V$, denoted $\widebar{V}$. The conjugate space $\widebar{V}$ may be thought of as $V$ 
 with the opposite complex structure; as a vector space, $V$ is anti-isomorphic to $V$. A linear map $T:V\to W$ of two complex vector spaces $V$ and $W$ is also a linear 
@@ -2782,13 +2783,14 @@ which is the composition
 \end{tikzcd}\]
 In terms of transition functions, if the cocycle $\{\tau_{\alpha\beta}\}$ defines $E$, then
 \begin{align*}
-\widebar{\varPhi}_\alpha\circ\widebar{\varPhi}_\beta^{-1}(p,v)=\widebar{\varPhi}_\alpha\circ\varPhi_\beta^{-1}(p,\widebar{v})=(p,\widebar{\tau_{\alpha\beta}\widebar{v}})=(p,\widebar{\tau}_{\alpha\beta}v).
+\widebar{\varPhi}_\alpha\circ\widebar{\varPhi}_\beta^{-1}(p,v)=\widebar{\varPhi}_\alpha\circ\widebar{\varPhi}_\beta^{-1}(p,\bar{v})=(p,\overline{\tau_{\alpha\beta}\bar{v}})=(p,\widebar{\tau}_{\alpha\beta}v).
 \end{align*}
 Therefore $\{\widebar{\tau}_{\alpha\beta}\}$ defines $\widebar{E}$.\par
 By endowing a complex vector bundle on a manifold with a Hermitian metric, we can reduce its structure group to the unitary group. Since unitary matrices $\tau_{\alpha\beta}$ 
-satisfy $\widebar{\tau}_{\alpha\beta}=(\tau_{\alpha\beta}^T)^{-1}$, we see that the conjugate bundle $\widebar{E}$ and the dual bundle $E^*$ have the same transition 
-functions and hence are isomorphic. So by Example~\ref{Chern dual bundle}, if $c(E)=\prod(1+x_i)$, then $c(\widebar{E})=\prod(1-x_i)$.
-\subsubsection{Realization and complexification}
+satisfy $\widebar{\tau}_{\alpha\beta}=(\tau_{\alpha\beta}^t)^{-1}$, we see that the conjugate bundle $\widebar{E}$ and the dual bundle $E^*$ have the same transition 
+functions and hence are isomorphic. So by \cref{Chern dual bundle}, if $c(E)=\prod(1+x_i)$, then $c(\widebar{E})=\prod(1-x_i)$.
+
+\paragraph{Realization and complexification}
 By simply forgetting the complex structure, we can regard a linear map of complex vector spaces $L:\C^n\to\C^n$ with coordinates $z_1,\dots,z_n$ as a linear map of the 
 underlying real vector spaces $L_{\R}:\R^{2n}\to\R^{2n}$ with coordinates $x_1,\dots,x_2$ where $z_k=x_{2k-1}+iy_{2k}$. Conversely, via the natural embedding of $\R^{n}$ 
 in $\C^n$, a linear map of real vector spaces $L:\R^n\to\R^n$ gives rise to a map $L\otimes\C:\C^n\to\C^n$. The first operation is called \textbf{realization} and the 
@@ -2848,14 +2850,14 @@ For the general case, we can take $B$ to be
 \end{pmatrix}\]
 \end{proof}
 If $E$ is a complex vector bundle of rank $n$ with transition functions $\{\tau_{\alpha\beta}\}$, then $E_{\R}\otimes\C$ is the complex vector bundle of rank $2n$ with 
-transition functions $\{(\tau_{\alpha\beta})_{\R}\otimes\C\}$. By Lemma~\ref{complexification matrix},
+transition functions $\{(\tau_{\alpha\beta})_{\R}\otimes\C\}$. By \cref{complexification matrix},
 \[E_{\R}\otimes\C\cong E\oplus\widebar{E}\]
 This result may be seen alternatively as follows. On the complex vector space $E_{\R}\otimes\C$, multiplication by $i$ is a linear transformation $J$ satisfying 
 $J^2=-\id$. Therefore, the eigenvalues of $J$ are $\pm i$ and $E_{\R}\otimes\C$ accordingly decomposes into a direct sum
 \[E_{\R}\otimes\C=E_{i}\oplus E_{-i}.\]
 On the $i$-eigenspace, $J$ acts as multiplication by $i$, hence $E\sub E_{i}$. Similarly, $\widebar{E}\sub E_{-i}$. It follows by reasons of dimension that 
 \[E_{\R}\otimes\C=E\oplus\widebar{E}.\]
-\subsubsection{The Pontrjagin classes of a real vector bundle}
+\paragraph{The Pontrjagin classes of a real vector bundle}
 By their naturality property the Chern classes of a smooth complex vector bundle are invariants of the bundle. For a real vector bundle $E$ similar invariants may be 
 obtained by considering the Chern classes of its complexification $E\otimes_\R\C$; these are the \textbf{Pontrjagin classes} of $E$. More precisely, if $E$ is a rank $n$ 
 real vector bundle over $M$, then its total Pontrjagin class is
@@ -2891,11 +2893,11 @@ class.
 Let $M$ be a compact oriented manifold of dimension $4n$. By Poincar\'e duality the wedge product $\wedge:H^{2n}(M)\otimes H^{2n}(M)\to\R$ is a nondegenerate symmetric 
 bilinear form and hence has a signature; this is called the signature of $M$. Hirzebruch proved that the signature is expressible in terms of the Pontrjagin classes.
 \[\sgn(M)=(-1)^n\int_ML(p_1(M),\dots,p_n(M)).\]
-where $L$ is the polynomial defined in Example~\ref{L-class and Todd class}.
+where $L$ is the polynomial defined in \cref{L-class and Todd class}.
 \end{remark}
-\subsubsection{Application to the embedding of a manifold in a Euclidean space}
+\paragraph{Application to the embedding of a manifold in a Euclidean space}
 \begin{example}[\textbf{Decide if $\bm{\CP^n}$ can be differentiably embedded in $\bm{\R^m}$}]
-By Example~\ref{Chern class CP^n} and Example~\ref{Pontrjagin class complex mani} the Pontrjagin class of $\CP^n$ is
+By \cref{Chern class CP^n} and \cref{Pontrjagin class complex mani} the Pontrjagin class of $\CP^n$ is
 \[p(\CP^n)=c(T\CP^n)c(\overline{T\CP^n})=(1+x)^{n+1}(1-x)^{n+1}=(1-x^2)^{n+1}.\]
 If $\CP^n$ can be differentiably embedded in $\R^m$, then there is an exact sequence
 \[\begin{tikzcd}
@@ -2912,640 +2914,3 @@ which is
 \[m\geq 2n+2[\frac{n}{2}].\]
 Therefore there is no embedding of $\CP^n$ into $\R^m$ provided $m<2n+2[n/2]$.
 \end{example}
-
-\section{Symplectic manifolds}
-\subsection{Symplectic tensors}
-We begin with linear algebra. A $2$-covector $\omega$ on a finite-dimensional vector space $V$ is said to be \textbf{nondegenerate} if the linear map $\widehat{\omega}:V\to V^*$ defined by $\widehat{\omega}(v)=v\intprod\omega$ is invertible for every nonzero $v\in V$.
-\begin{proposition}
-The following are equivalent for $2$-covector $\omega$ on a finite-dimensional vector space $V$:
-\begin{itemize}
-\item[(a)] $\omega$ is nondegenerate.
-\item[(b)] For each nonzero $v\in V$, there exists $w\in V$ such that $\omega(v,w)\neq 0$.
-\item[(c)] In terms of some $($hence every$)$ basis, the matrix $(\omega_{ij})$ representing $\omega$ is nonsingular.
-\end{itemize}
-\end{proposition}
-\begin{proof}
-The nondegenerate condition is to say: for each nonzero $v\in V$, $v\intprod\omega\neq0$, which is exactly (b). Now let $(E_1,\dots,E_n)$ be a basis of $V$, and $W=(\omega_{ij})$ be the matrix. Then for $v=v^iE_i$ and $w=w^jE_j$,
-\[\omega(v,w)=\omega_{ij}v^iw^j.\]
-Thus
-\begin{align*}
-\omega(v,w)=0\text{ for all $w\in V$}\iff \omega_{ij}v^i=0\text{ for all $j$}\iff\text{$v$ is a solution of $W^TX=0$}.
-\end{align*}
-so $\omega$ is nondegenerate if and only if $W$ is nonsingular.
-\end{proof}
-A nondegenerate $2$-covector is called a \textbf{symplectic tensor}. A vector space $V$ endowed with a specific symplectic tensor is called a \textbf{symplectic vector space}.
-\begin{example}\label{symplectic tensor eg}
-Let $V$ be a $2n$-dimensional vector space. Let $(A_1,\dots,A_n,B_1,\dots,B_n)$ be a basis of $V$ and $(\alpha^1,\dots,\alpha^n,\beta^1,\dots,\beta^n)$ denote the corresponding dual basis for $V^*$, and let $\omega\in\bigwedge^2(V^*)$ be the $2$-covector defined by
-\begin{align}\label{symplectic tensor-1}
-\omega=\sum_{i=1}^{n}\alpha^i\wedge\beta^i.
-\end{align}
-Note that the action of $\omega$ on basis vectors is given by
-\begin{align}\label{symplectic tensor-2}
-\omega(A_i,A_j)=\omega(B_i,B_j)=0,\quad \omega(A_i,B_j)=-\omega(B_j,A_i)=\delta_{ij}.
-\end{align}
-and the matrix $(\omega_{ij})$ representing $\omega$ is
-\[\begin{pmatrix}
-0&I_n\\
--I_n&0
-\end{pmatrix}\]
-Thus $\omega$ is nondegenerate, and so is a symplectic tensor.
-\end{example}
-If $(V,\omega)$ is a symplectic vector space and $S\sub V$ is any linear subspace, we define the \textbf{symplectic complement} of $S$, denoted by $S^\bot$, to be the subspace
-\[S^\bot=\{v\in V:\omega(v,w)=0\text{ for all $w\in S$}\}.\]
-As the notation suggests, the symplectic complement is analogous to the orthogonal complement in an inner product space. Just as in the inner product case, the dimension of $S^\bot$ is the codimension of $S$, as the next lemma shows.
-\begin{lemma}\label{symplectic complement dim}
-Let $(V,\omega)$ be a symplectic vector space. For any linear subspace
-$S\sub V$, we have $\dim S+\dim S^\bot=\dim V$.
-\end{lemma}
-\begin{proof}
-Let $S\sub V$ be a subspace, and define a linear map $\varPhi:V\to S^*$ by $\varPhi(v)=(v\intprod\omega)|_S$, or equivalently
-\[\varPhi(v)(w)=\omega(v,w).\]
-Suppose $\varphi$ is an arbitrary element of $S^*$, and let $\widetilde{\varphi}\in V^*$ be any extension of $\varphi$ to a linear functional on all of $V$. Since the map $\widehat{\omega}:V\to V^*$ is an isomorphism, there exists $v\in V$ such that $v\intprod\omega=\widetilde{\varphi}$. It follows that $\varPhi(v)=\varphi$, and therefore $\varPhi$ is surjective. By the rank-nullity law, $S^\bot=\ker\varPhi$ has dimension equal to $\dim V-\dim S^*=\dim V-\dim S$.
-\end{proof}
-\begin{proposition}
-Let $(V,\omega)$ be a symplectic vector space and $S\sub V$ be a linear subspace. Then $(S^\bot)^\bot=S$.
-\end{proposition}
-\begin{proof}
-By definition, since $\omega(v,w)=-\omega(w,v)$, we have $S\sub(S^\bot)^\bot$. Now note that
-\[\dim(S^\bot)^\bot=\dim V-\dim S^\bot=\dim S,\]
-thus $(S^\bot)^\bot=S$.
-\end{proof}
-Symplectic complements differ from orthogonal complements in one important respect: although it is always true that $S\cap S^\bot=0$ in an inner product space, this need not be true in a symplectic vector space. Indeed, if $S$ is $1$-dimensional, the fact that $\omega$ is alternating forces $\omega(v,v)=0$ for every $v\in S$, so $S=S^\bot$. Carrying this idea a little further, a linear subspace $S\sub V$ is said to be
-\begin{itemize}
-\item \textbf{symplectic} if $S\cap S^\bot=\{0\}$.
-\item \textbf{isotropic} if $S\sub S^\bot$.
-\item \textbf{coisotropic} if $S\sups S^\bot$.
-\item \textbf{Lagrangian} if $S=S^\bot$.
-\end{itemize}
-\begin{proposition}\label{symplectic subspace iff}
-Let $(V,\omega)$ be a symplectic vector space and $S\sub V$ be a linear subspace. Then
-\begin{itemize}
-\item[(a)] $S$ is symplectic if and only if $S^\bot$ is symplectic.
-\item[(b)] $S$ is symplectic if and only if $\omega|_S$ is nondegenerate.
-\item[(c)] $S$ is isotropic if and only if $\omega|_S=0$.
-\item[(d)] $S$ is coisotropic if and only if $S^\bot$ is isotropic.
-\item[(e)] $S$ is Lagrangian if and only if $\omega|_S=0$ and $\dim S=\dfrac{1}{2}\dim V$.
-\end{itemize}
-\end{proposition}
-\begin{proof}
-Since $(S^\bot)^\bot=S$, part (a) and (d) are immediate. Next, we note that
-\[\text{$v\in S\cap S^\bot$}\iff\text{$\omega(v,w)=0$ for all $w\in S$}.\]
-Thus $S$ is symplectic if and only if $\omega|_S$ is nondegenerate, and $S$ is isotropic if and only if $\omega|_S=0$.\par
-Finally, $S$ is Lagrangian means $S$ and $S^\bot$ are both isotropic, which implies $\omega|_S=0$ and $\dim S=\frac{1}{2}\dim V$. Conversely, if $S$ is isotropic and $\dim S=\frac{1}{2}\dim V$, then
-$S\sub S^\bot$ with $\dim S=\dim S^\bot$. Thus $S=S^\bot$ and $S$ is Lagrangian. 
-\end{proof}
-The symplectic tensor $\omega$ defined in Example~\ref{symplectic tensor eg} turns out to be the prototype of all symplectic tensors, as the next proposition shows. This can be viewed as a symplectic version of the Gram–Schmidt algorithm.
-\begin{proposition}[\textbf{Canonical Form for a Symplectic Tensor}]\label{symplectic tensor canonical form}
-Let $\omega$ be a symplectic tensor on an $m$-dimensional vector space $V$. Then $V$ has even dimension $m=2n$, and there exists a basis for $V$ in which $\omega$ has the form $(\ref{symplectic tensor-1})$.
-\end{proposition}
-\begin{proof}
-The tensor $\omega$ has the form $(\ref{symplectic tensor-1})$ with respect to a basis $(A_1,\dots,A_n,B_1,\dots,B_n)$ if and only if its action on basis vectors is given by $(\ref{symplectic tensor-2})$.We prove the theorem by induction on $m=\dim V$ by showing that there is a basis with this property.\par
-For $m=0$ there is nothing to prove. Suppose $(V,\omega)$ is a symplectic vector space of dimension $m=1$, and assume that the proposition is true for all symplectic vector spaces of dimension less than $m$. Let $A_1$ be any nonzero vector in $V$. Since $\omega$ is nondegenerate, there exists $B_1\in V$ such that $\omega(A_1,B_1)\neq0$. Multiplying $B_1$ by a constant if necessary, we may assume that $\omega(A_1,B_1)=1$. Because $\omega$ is alternating, $B_1$ cannot be a multiple of $A_1$, so the set $\{A_1,B_1\}$ is linearly independent, and hence $\dim V\geq2$.\par
-Let $S\sub V$ be the span of $\{A_1,B_1\}$. Then $\dim S^\bot=\dim m-2$ by Lemma~\ref{symplectic complement dim}. Since $\omega|_S$ is nondegenerate, by Proposition~\ref{symplectic subspace iff} it follows that $S$ is symplectic, and thus $S^\bot$ is also symplectic. By induction, $S^\bot$ is even-dimensional and there is a basis $(A_2,\dots,A_n,B_2,\dots,B_n)$ for $S^\bot$ such that $(\ref{symplectic tensor-2})$ is satisfied for $2\leq i,j\leq n$. It follows easily that $(A_1,\dots,A_n,B_1,\dots,B_n)$ is the required basis for $V$.
-\end{proof}
-Because of this, if $(V,\omega)$ is a symplectic vector space, a basis $(A_1,\dots,A_n,B_1,\dots,B_n)$ for $V$ is called a \textbf{symplectic basis} if $(\ref{symplectic tensor-2})$ holds, which is equivalent to $\omega$ being given by $(\ref{symplectic tensor-1})$ in terms of the dual basis. The proposition then says that every symplectic vector space has a symplectic basis.\par
-This leads to another useful criterion for $2$-covector to be nondegenerate. For an alternating tensor $\omega$, the notation $\omega^k$ denotes the $k$-fold wedge product $\omega\wedge\cdots\wedge\omega$.
-\begin{proposition}\label{symplectic tensor iff n-fold product nonzero}
-Suppose $V$ is a $2n$-dimensional vector space and $\omega\in\bigwedge^2(V^*)$. Then $\omega$ is a symplectic tensor if and only if $\omega^n\neq 0$.
-\end{proposition}
-\begin{proof}
-Suppose first that $\omega$ is a symplectic tensor. Let $(A_i,B_i)$ be a symplectic basis for $V$, and write $\omega=\sum_{i=1}^{n}\alpha^i\wedge\beta^i$ in terms of the dual coframe. Then we compute
-\[\omega^n=\sum'_{I}\alpha^{i_1}\wedge\beta^{i_1}\wedge\cdots\wedge\alpha^{i_n}\wedge\beta^{i_n}=n!(\alpha^1\wedge\beta^1\wedge\cdots\wedge\alpha^n\wedge\beta^n)\neq 0.\]
-
-Conversely, suppose $\omega$ is degenerate. Then there is a nonzero vector $v\in V$ such that $v\intprod\omega=\widehat{\omega}(v)=0$. Since interior multiplication by $v$ is an antiderivation, by induction we can show
-\[v\intprod(\omega^n)=n(v\intprod\omega)\wedge\omega^{n-1}=0.\]
-We can extend $v$ to a basis $(E_1,\dots,E_{2n})$ for $V$ with $E_1=v$, and then $\omega^n(E_1,\dots,E_{2n})=0$, which implies $\omega^n=0$.
-\end{proof}
-\subsection{Symplectic structures on manifolds}
-Now let us turn to a smooth manifold $M$. A \textbf{nondegenerate $2$-form} on $M$ is a $2$-form $\omega$ such that $\omega_p$ is a nondegenerate $2$-covector for each $p\in M$. A \textbf{symplectic form} on $M$ is a closed nondegenerate $2$-form. A smooth manifold endowed with a specific choice of symplectic form is called a \textbf{symplectic manifold}. A choice of symplectic form is also sometimes called a \textbf{symplectic structure}.\par
-If $(M_1,\omega_1)$ and $(M_2,\omega_2)$ are symplectic manifolds, a diffeomorphism $F:M_1\to M_2$ satisfying $F^*\omega_2=\omega_1$ is called a \textbf{symplectomorphism}. The study of properties of symplectic manifolds that are invariant under symplectomorphisms is known as symplectic geometry or symplectic topology.
-\begin{example}[\textbf{Symplectic Manifolds}]
-\mbox{}
-\begin{itemize}
-\item[(a)] With standard coordinates on $\R^{2n}$ denoted by $(x^1,\dots,x^n,y^1,\dots,y^n)$, the $2$-form
-\[\omega=\sum_{i=1}^{n}dx^i\wedge dy^i\]
-is symplectic: it is obviously closed, and it is nondegenerate because its value at each point is the symplectic tensor of Example~\ref{symplectic tensor eg}. This is called the \textbf{standard symplectic form} on $\R^{2n}$.
-\item[(b)] Suppose $\Sigma$ is any orientable smooth $2$-manifold and $\omega$ is a nonvanishing smooth $2$-form on $\omega$. Then $\omega$ is closed because $d\omega$ is a $3$-form on a $2$-manifold.
-Moreover, in two dimensions every nonvanishing $2$-form is nondegenerate (by Proposition~\ref{symplectic tensor iff n-fold product nonzero}), so $(\Sigma,\omega)$ is a symplectic manifold.
-\end{itemize}
-\end{example}
-Suppose $(M,\omega)$ is a symplectic manifold. An (immersed or embedded) submanifold $S\sub M$ is said to be a symplectic, isotropic, coisotropic, or Lagrangian submanifold if $T_pS$ (thought of as a subspace of $T_pM$) has the corresponding property at each point $p\in S$. More generally, a smooth immersion (or embedding) $F:N\to M$ is said to have one of these properties if the subspace $dF_p(T_pN)\sub T_{F(p)}M$ has the corresponding property for every $p\in N$. Thus a submanifold is symplectic (isotropic, etc.) if and only if its inclusion map has the same property.
-\begin{proposition}\label{symplectic isotropic map iff pullback}
-Suppose $(M,\omega)$ is a symplectic manifold and $F:N\to M$ is a smooth immersion. Then $F$ is isotropic if and only if $F^*\omega=0$, and $F$ is symplectic if and only if $F^*\omega$ is a symplectic form.
-\end{proposition}
-\begin{proof}
-By Proposition~\ref{symplectic subspace iff}, $F$ is isotropic means $\omega|_{dF(TN)}=0$, which means for all $v,w\in T_pN$ we have
-\[0=\omega(dF_p(v),dF_p(w))=F^*\omega(v,w).\]
-So Therefore $F$ is isotropic if and only if $F^*\omega=0$ on $N$. Similarly, by Proposition~\ref{symplectic subspace iff} we can show that $F$ is symplectic if and only if $F^*\omega$ is nondegenerate on $N$, which is to say $F^*\omega$ is a symplectic form.
-\end{proof}
-\subsubsection{The canonical symplectic form on the cotangent bundle}
-The most important symplectic manifolds are total spaces of cotangent bundles, which carry canonical symplectic structures that we now define. First, there is a natural $1$-form $\tau$ on the total space of $T^*M$, called the \textbf{tautological $\bm{1}$-form}, defined as follows. A point in $T^*M$ is a covector $\varphi\in T_q^*M$ for some $q\in M$, we denote such a point by the notation $(q,\varphi)$. We define $\tau\in\Omega^1(T^*M)$ (a $1$-form on the total space of $T^*M$) by
-\[\tau_{(q,\varphi)}=d\pi^*_{(q,\varphi)}\varphi.\]
-where $\pi:T^*M\to M$ is the projection. In other words, the value of $\tau$ at $(q,\varphi)$ is the pullback with respect to $\pi$ of the covector $\varphi$ itself. If $v$ is a tangent vector in $T_{(q,\varphi)}(T^*M)$, then
-\begin{align}\label{tautological form def}
-\tau_{(q,\varphi)}(v)=\varphi\big(d\pi_{(q,\varphi)}(v)\big).
-\end{align}
-\begin{proposition}\label{tautological form symplectic}
-Let $M$ be a smooth manifold. The tautological $1$-form $\tau$ is smooth, and $\omega=-d\tau$ is a symplectic form on the total space of $T^*M$.
-\end{proposition}
-\begin{figure}[htbp]
-\centering
-\includegraphics{tautological-form}
-\caption{The tautological $1$-form on $T^*M$.}
-\end{figure}
-\begin{proof}
-Let $(x^i)$ be smooth coordinates on $M$, and let $(x^i,\xi_i)$ denote the corresponding natural coordinates on $T^*M$. Recall that the coordinates of $(q,\varphi)\in T^*M$ are defined to be $(x^i,\xi_i)$, where $(x^i)$ is the coordinate representation of $q$, and $\xi_idx^i$ is the coordinate representation of $\varphi$. In terms of these coordinates, the projection $\pi:T^*M\to M$ has the coordinate expression $\pi(x,\xi)=x$. This implies that $d\pi^*(dx^i)=dx^i$, so the coordinate expression for $\tau$ is
-\[\tau_{(x,\xi)}=d\pi^*_{(x,\xi)}(\xi_idx^i)=\xi_idx^i.\]
-It follows immediately that $\tau$ is smooth, because its component functions in these coordinates are linear.\par
-Let $\omega=-d\tau\in\Omega^2(T^*M)$. Clearly, $\omega$ is closed, because it is exact. Moreover, in natural coordinates,
-\[\omega=\sum_{i=1}^{n}dx^i\wedge d\xi_i.\]
-Under the identification of an open subset of $T^*M$ with an open subset of $\R^{2n}$ by means of these coordinates, $\omega$ corresponds to the standard symplectic form on $\R^{2n}$. It follows that $\omega$ is symplectic.
-\end{proof}
-The symplectic form defined in this proposition is called the canonical symplectic form on $T^*M$. One of its many uses is in giving the following somewhat more geometric interpretation of what it means for a $1$-form to be closed.
-\begin{proposition}\label{one form is embedding}
-Let $M$ be a smooth manifold, and let $\sigma$ be a smooth $1$-form on $M$. Thought of as a smooth map from $M$ to $T^*M$, $\sigma$ is a smooth embedding, and $\sigma$ is closed if and only if its image $\sigma(M)$ is a Lagrangian submanifold of $T^*M$.
-\end{proposition}
-\begin{proof}
-Throughout this proof we need to remember that  $\sigma:M\to T^*M$ is playing two roles: on the one hand, it is a $1$-form on $M$, and on the other hand, it is a smooth map between manifolds. Since they are literally the same map, we do not use different notations to distinguish between them; but you should be careful to think about which role $\sigma$ is playing at each step of the argument.\par
-In terms of smooth local coordinates $(x^i)$ for $M$ and corresponding natural coordinates $(x^i,\xi_i)$ for $T^*M$, the map $\sigma:M\to T^*M$ has the coordinate representation
-\[\sigma(x^1,\dots,x^n)=(x^1,\dots,x^n,\sigma_1(x),\dots,\sigma_n(x)),\]
-where $\sigma_idx^i$ is the coordinate representation of $\sigma$ as a $1$-form. It follows immediately that $\sigma$ is a smooth immersion, and it is injective because 
-$\pi\circ\sigma=\mathrm{id}_M$. To show that it is an embedding, it suffices by Proposition~\ref{smooth embedd if} to show that it is a proper map. This in turn follows from the fact that $\pi$ is a left inverse for $\sigma$, by Proposition~\ref{proper map if}.\par
-Because $\sigma(M)$ is $n$-dimensional, it is Lagrangian if and only if it is isotropic, which is the case if and only if  $\sigma^*\omega=0$ (Proposition~\ref{symplectic isotropic map iff pullback}). The pullback of the tautological form $\tau$ under $\sigma$ is
-\[\sigma^*\tau=\sigma^*(\xi_idx^i)=\sigma_idx^i=\sigma.\]
-This can also be seen somewhat more invariantly from the computation
-\[(\sigma^*\tau)_p(v)=\tau_{\sigma(p)}\big(d\sigma_p(v)\big)=\sigma_p\big(d\pi_{\sigma(p)}\circ d\sigma_p(v)\big)=\sigma_p(d(\pi\circ\sigma)_p(v))=\sigma_p(v).\]
-which follows from the definition of $\tau$ and the fact that $\pi\circ\sigma=\mathrm{id}_M$. Therefore,
-\[\sigma^*\omega=-\sigma^*d\tau=-d(\sigma^*\tau)=-d\sigma.\]
-It follows that $\sigma$ is a Lagrangian embedding if and only if $d\sigma=0$.
-\end{proof}
-\begin{proposition}\label{submani of T^*M is section iff}
-Let $M$ be a smooth manifold, and let $S$ be an embedded Lagrangian submanifold of the total space of $T^*M$.
-\begin{itemize}
-\item[(a)] If $S$ is transverse to the fiber of $T^*M$ at a point $q\in T^*M$, then there exist a neighborhood $V$ of $q$ in $S$ and a neighborhood $U$ of $\pi(q)$ in $M$ such that $V$ is the image of a smooth closed $1$-form defined on $U$.
-\item[(b)] $S$ is the image of a globally defined smooth closed $1$-form on $M$ if and only if $S$ intersects each fiber transversely in exactly one point.
-\end{itemize}
-\end{proposition}
-\begin{proof}
-If $S$ is transverse to the fiber of $T^*M$ at a point $q\in T^*M$, then $d(\pi)_q:T_{q}S\to T_{\pi(q)}M$ is an isomorphism. Therefore $\pi|_S$ restricts to a diffeomorphism from a neighborhood $V$ of $q$ in $S$ to a neighborhood $U$ of $\pi(q)$. Then $V$ is the graph of $\sigma=\rho\circ(\pi)^{-1}$, where $\rho$ is the projection to the fiber.\par
-If $S$ intersects each fiber transversely in exactly one point, then the projection $\pi|_S$ is bijective and a submersion, hence a diffeomorphism. Therefore $(\pi|_S)^{-1}$ is a closed $1$-form whose image is $S$.
-\end{proof}
-\subsection{The Darboux theorem}
-Our next theorem is one of the most fundamental results in symplectic geometry. It is a nonlinear analogue of the canonical form for a symplectic tensor given in Proposition~\ref{symplectic tensor canonical form}. It illustrates the most dramatic difference between symplectic structures and Riemannian metrics: unlike the Riemannian case, there is no local obstruction to a symplectic structure being locally equivalent to the standard flat model.
-\begin{theorem}[\textbf{Darboux}]
-Let $(M,\omega)$be a $2n$-dimensional symplectic manifold. For any $p\in M$, there are smooth coordinates $(x^1,\dots,x^n,y^1,\dots,y^n)$ centered at $p$ in which $\omega$ has the coordinate representation
-\begin{align}\label{Darboux theorem-1}
-\omega=\sum_{i=1}^{n}x^i\wedge y^i.
-\end{align}
-\end{theorem}
-We will prove the theorem below. Any coordinates satisfying $(\ref{Darboux theorem-1})$ theorem are called Darboux coordinates, symplectic coordinates, or canonical coordinates. Obviously, the standard coordinates $(x^1,\dots,^n,y^1,\dots,y^n)$ on $\R^{2n}$ are Darboux coordinates. The proof of Proposition~\ref{tautological form symplectic} showed that the natural coordinates $(x^i,\xi_i)$ are Darboux coordinates for $T^*M$ with its canonical symplectic structure.\par
-First, recall that Proposition~\ref{Lie der tensor t_0} shows how to use Lie derivatives to compute the derivative of a tensor field under a flow.We need the following generalization of that result to the case of time-dependent flows.
-\begin{proposition}\label{Lie der tensor t_0 time-dependent vector}
-Let $M$ be a smooth manifold. Suppose $V:J\times M\to TM$ is a smooth time-dependent vector field and $\psi:\mathcal{E}\to M$ is its time-dependent flow. For any smooth covariant tensor field $A$ on $M$ and any $(t_1,t_0,p)\in\mathcal{E}$,
-\begin{align}\label{Lie der tensor t_0 time-dependent vector-1}
-\frac{d}{dt}\Big|_{t=t_1}(\psi_{t,t_0}^*A)_p=\big(\psi_{t_1,t_0}^*(\mathfrak{L}_{V_{t_1}}A)\big)_p.
-\end{align}
-\end{proposition}
-\begin{proof}
-First, assume $t_1=t_0$. In this case, $\psi_{t_0,t_1}$ is the identity map of $M$. so we need to prove
-\begin{align}\label{Lie der tensor t_0 time-dependent vector-2}
-\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*A)_p=(\mathfrak{L}_{V_{t_1}}A)_p.
-\end{align}
-We begin with the special case in which $A=f$ is a smooth $0$-tensor field:
-\[\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*f)(p)=\frac{\partial}{\partial t}\Big|_{t=t_0}(f(\psi(t,t_0,p)))=V(t_0,\psi(t_0,t_0,p))f=(\mathfrak{L}_{V_{t_0}}f)(p).\]
-Next consider an exact $1$-form $A=df$. In any smooth local coordinates $(x^i)$, the function $\psi^*_{t,t_0}f(x)=f(\psi(t,t_0,x))$ depends smoothly on all $n+1$ variables $(t,x^1,\dots,x^n)$. Thus, the operator $\partial/\partial$ commutes with each of the partial derivatives $\partial/\partial x^i$ when applied to $\psi^*_{t,t_0}f$. In particular, this means that the exterior derivative operator $d$ commutes with $\partial/\partial t$, and so by Corollary~\ref{Lie der ext der commute}
-\begin{align*}
-\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*df)(p)&=\frac{\partial}{\partial t}\Big|_{t=t_0}d(\psi_{t,t_0}^*f)_p=d\Big(\frac{\partial}{\partial t}\Big|_{t=t_0}(\psi^*_{t,t_0}f)\Big)_p=d(\mathfrak{L}_{V_{t_0}}f)_p=(\mathfrak{L}_{V_{t_0}}df)_p.
-\end{align*}
-Thus, the result is proved for $0$-tensors and for exact $1$-forms.\par
-Now suppose that $A=B\otimes C$ for some smooth covariant tensor fields $B$ and $C$, and assume that the proposition is true for $B$ and $C$. (We include the possibility that $B$ or $C$ has rank $0$, in which case the tensor product is just ordinary multiplication.) By the product rule for Lie derivatives (Proposition~\ref{tensor Lie derivative prop}(c)), the right-hand side of $(\ref{Lie der tensor t_0 time-dependent vector-2})$ satisfies
-\[(\mathfrak{L}_{V_{t_0}}(B\otimes C))_p=(\mathfrak{L}_{V_{t_0}}B)_p\otimes C_p+B_p\otimes(\mathfrak{L}_{V_{t_0}}C)_p.\]
-On the other hand, by an argument entirely analogous to that in the proof of Proposition~\ref{tensor Lie derivative prop}, the left-hand side satisfies a similar product rule:
-\begin{align*}
-\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*(B\otimes C))_p=\Big(\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*B)\Big)_p\otimes C_p+B_p\otimes\Big(\frac{d}{dt}\Big|_{t=t_0}(\psi_{t,t_0}^*C)\Big)_p.
-\end{align*}
-This shows that $(\ref{Lie der tensor t_0 time-dependent vector-2})$ holds for $A=B\otimes C$, provided it holds for $B$ and $C$. The case of arbitrary tensor fields now follows by induction, using the fact that any smooth covariant tensor field can be written locally as a sum of tensor fields of the form $A=f\,dx^{i_1}\otimes\cdots\otimes dx^{i_k}$.\par
-To handle arbitrary $t_1$, we use Theorem~\ref{flow fundamental thm time-dependent}(d), which shows that $\psi_{t,t_0}=\psi_{t,t_1}\circ\psi_{t_1,t_0}$ wherever the right-hand side is defined. Therefore, because the linear map $d(\psi_{t_1,t_0})_p^*$ does not depend on $t$,
-\begin{align*}
-\frac{d}{dt}\Big|_{t=t_1}(\psi_{t,t_0}^*A)_p&=\frac{d}{dt}\Big|_{t=t_1}d(\psi_{t,t_0})_p^*(A_{\psi_{t,t_0}(p)})=\frac{d}{dt}\Big|_{t=t_1}d(\psi_{t_1,t_0})_p^*\circ d(\psi_{t,t_1})_{\psi_{t_1,t_0}(p)}^*(A_{\psi_{t,t_0}(p)})\\
-&=d(\psi_{t_1,t_0})_p^*\Big(\frac{d}{dt}\Big|_{t=t_1}d(\psi_{t,t_1})_{\psi_{t_1,t_0}(p)}^*(A_{\psi_{t,t_1}\circ\psi_{t_1,t_0}(p)})\Big)=\big(\psi_{t_1,t_0}^*(\mathfrak{L}_{V_{t_1}}A)\big)_p.
-\end{align*}
-This finishes the proof.
-\end{proof}
-A \textbf{smooth time-dependent tensor field} on a smooth manifold $M$ is a smooth map $A:J\times M\to T^kT^*M$, where $J\sub\R$ is an interval, satisfying $A(t,p)\in T^k(T_p^*M)$ for each $(t,p)\in J\times M$.
-\begin{proposition}\label{Lie der tensor time-dependent}
-Let $M$ be a smooth manifold and $J\sub\R$ be an open interval. Suppose $V:J\times M\to TM$ is a smooth time-dependent vector field on $M$, $\psi:\mathcal{E}\to M$ is its time-dependent flow, and $A:J\times M\to T^kT^*M$ is a smooth time-dependent tensor field on $M$. Then for any $(t_1,t_0,p)\in\mathcal{E}$,
-\begin{align}\label{Lie der tensor time-dependent-1}
-\frac{d}{dt}\Big|_{t=t_1}(\psi^*_{t,t_0}A_t)_p=\Big(\psi_{t_1,t_0}^*\Big(\mathfrak{L}_{V_{t_1}}A_{t_1}+\frac{d}{dt}\Big|_{t=t_1}A_t\Big)\Big)_p.
-\end{align}
-\end{proposition}
-\begin{proof}
-For sufficiently small $\eps>0$, consider the smooth map $F:(t_1-\eps,t_1+\eps)\times(t_1-\eps,t_1+\eps)\to T^k(T_p^*M)$ defined by
-\[F(u,v)=(\psi^*_{u,t_0}A_v)_p=d(\psi_{u,t_0})_p^*(A_v|_{\psi_{u,t_0}(p)}).\]
-Since $F$ takes its values in the finite-dimensional vector space $T^k(T_p^*M)$, we can apply the chain rule together with Proposition~\ref{Lie der tensor t_0 time-dependent vector} to conclude that
-\begin{align*}
-\frac{d}{dt}\Big|_{t=t_1}F(t,t)&=\frac{\partial F}{\partial u}(t_1,t_1)+\frac{\partial F}{\partial v}(t_1,t_1)=(\psi_{t_1,t_0}^*(\mathfrak{L}_{V_{t_1}}A_{t_1}))_p+\frac{\partial}{\partial v}\Big|_{t=t_1}d(\psi_{t_1,t_0}^*)_p(A_v|_{\psi_{u,t_0}(p)}).
-\end{align*}
-Just as in the proof of Proposition~\ref{Lie der tensor t_0 time-dependent vector}, the linear map $d(\psi_{t_1,t_0}^*)_p$ commutes past $\partial/\partial v$, yielding $(\ref{Lie der tensor time-dependent-1})$.
-\end{proof}
-\begin{proof}[Proof of the Darboux theorem]
-Let $\omega_0$ denote the given symplectic form on $M$, and let $p_0\in M$ be arbitrary. The theorem will be proved if we can find a smooth coordinate
-chart $(U_0,\varphi)$ centered at $p_0$ such that $\varphi^*\omega_0=\omega_1$, where $\omega_1=\sum_{i=1}^{n}dx^i\wedge dy^i$ is the standard symplectic form on $\R^{2n}$. Since this is a local question, by choosing smooth coordinates $(x^1,\dots,x^n,y^1,\dots,y^n)$ in a neighborhood of $p_0$, we may replace $M$ with an open ball $U\sub\R^{2n}$. Proposition~\ref{symplectic tensor canonical form} shows that we can arrange by a linear change of coordinates that $\omega_0|_{p_0}=\omega_1|_{p_0}$.\par
-Let $\eta=\omega_1-\omega_0$. Because $\omega$ is closed, the Poincar\'e lemma shows that we can find a smooth $1$-form $\alpha$ on $U$ such that $d\alpha=-\eta$. By subtracting a constant-coefficient (and thus closed) $1$-form from $\alpha$, we may assume without loss of generality that $\alpha_{p_0}=0$.\par
-For each $t\in\R$, define a closed $2$-form $\omega_t$ on $U$ by
-\[\omega_t=\omega_0+t\eta=(1-t)\omega_0+t\omega_1.\]
-Let $J$ be a bounded open interval containing $[0,1]$. Because $\omega_t|_{p_0}=\omega_0|_{p_0}$ is nondegenerate for all $t$, a simple compactness argument shows that there is some neighborhood $U_1\sub U$ of $p_0$ such that $\omega_t$ is nondegenerate on $U_1$ for all $t\in\widebar{J}$. Because of this nondegeneracy, the smooth bundle homomorphism $\widehat{\omega}_t:TU_1\to T^*U_1$ defined by $\widehat{\omega}_t(X)=X\intprod\omega_t$ is an isomorphism for each $t\in\widebar{J}$.\par
-Define a smooth time-dependent vector field $V:J\times U_1\to TU_1$ by $V_t=\widehat{\omega}_t^{-1}\alpha$, or equivalently
-\[V_t\intprod\omega_t=\alpha.\]
-Our assumption that $\alpha_{p_0}=0$ implies that $V_t|_{p_0}=0$ for each $t$. If $\psi:\mathcal{E}\to U_1$ denotes the time-dependent flow of $V$, it follows that $\psi(t,0,p_0)=p_0$ for all $t\in J$, so $J\times\{0\}\times\{p_0\}\sub\mathcal{E}$. Because $E$ is open in $J\times J\times M$ and $[0,1]$ is compact, there is some neighborhood $U_0$ of $p_0$ such that $[0,1]\times\{0\}\times U_0\sub\mathcal{E}$.\par
-For each $t_1\in[0,1]$, it follows from Proposition~\ref{Lie der tensor time-dependent} that
-\begin{align*}
-\frac{d}{dt}\Big|_{t=t_1}\psi^*_{t,0}\omega_t&=\psi_{t_1,0}^*\Big(\mathfrak{L}_{V_{t_1}\omega_{t_1}}+\frac{d}{dt}\Big|_{t=t_1}\omega_t\Big)\\
-&=\psi_{t_1,0}^*\big(V_{t_1}\intprod d\omega_{t_1}+d(V_{t_1}\intprod\omega_t)+\eta\big)\\
-&=\psi_{t_1,0}^*(V_{t_1}\intprod 0+d\alpha+\eta)=0.
-\end{align*}
-Therefore, $\psi_{t,0}^*\omega_t=\psi_{0,0}^*\omega_0=\omega_0$ for all $t$. In particular, $\psi_{1,0}^*\omega_1=\omega_0$. It follows from Theorem~\ref{flow fundamental thm time-dependent}(c) that $\psi_{1,0}^*$ is a diffeomorphism onto its image, so it is a coordinate map. Because $\psi_{1,0}(p_0)=p_0$, these coordinate are centered at $p_0$.
-\end{proof}
-\subsection{Hamiltonian vector fields}
-One of the most useful constructions on symplectic manifolds is a symplectic analogue of the gradient, defined as follows. Suppose $(M,\omega)$ is a symplectic manifold. For any smooth function $f\in C^\infty(M)$, we define the Hamiltonian vector field of $f$ to be the smooth vector field $X_f$ defined by
-\[X_f=\widehat{\omega}^{-1}(df),\]
-where $\widehat{\omega}:TM\to T^*M$ is the bundle isomorphism determined by $\omega$. Equivalently,
-\[X_f\intprod \omega=df.\]
-or for any vector field $Y$,
-\[\omega(X_f,Y)=df(Y)=Yf.\]
-
-In any Darboux coordinates, $X_f$ can be computed explicitly as follows. Writing
-\[X_f=\sum_{i=1}^{n}\Big(a^i\frac{\partial}{\partial x^i}-b^i\frac{\partial}{\partial y^i}\Big)\]
-for some coefficient functions $(a^i,b^i)$ to be determined, we compute
-\[X_f\intprod\omega=\sum_{j=1}^{n}\Big(a^j\frac{\partial}{\partial x^j}+b^j\frac{\partial}{\partial y^j}\Big)\intprod\sum_{i=1}^{n}dx^i\wedge dy^i=\sum_{i=1}^{n}(a^idy^i-b^idx^i).\]
-On the other hand,
-\[df=\sum_{i=1}^{n}\Big(\frac{\partial f}{\partial x^i}dx^i+\frac{\partial f}{\partial x^i}dy^i\Big).\]
-Setting these two expressions equal to each other, we find that $a^i=\partial f/\partial y^i$ and $b^i=-\partial f/\partial x^i$, which yields the following formula for the Hamiltonian vector field of $f$ in Darboux coordinates:
-\begin{align}\label{Hamiltonian vector field}
-X_f=\sum_{i=1}^{n}\Big(\frac{\partial f}{\partial y^i}\frac{\partial}{\partial x^i}-\frac{\partial f}{\partial x^i}\frac{\partial}{\partial y^i}\Big).
-\end{align}
-This formula holds, in particular, on $\R^{2n}$ with its standard symplectic form.\par
-Although the definition of the Hamiltonian vector field is formally analogous to that of the gradient on a Riemannian manifold, Hamiltonian vector fields differ from gradients in some very significant ways, as the next lemma shows.
-\begin{proposition}[\textbf{Properties of Hamiltonian Vector Fields}]\label{Hamiltonian vector field prop}
-Let $(M,\omega)$ be a symplectic manifold and let $f\in C^\infty(M)$.
-\begin{itemize}
-\item[(a)] $f$ is constant along each integral curve of $X_f$.
-\item[(b)] At each regular point of $f$, the Hamiltonian vector field $X_f$ is tangent to the level set of $f$.
-\end{itemize}
-\end{proposition}
-\begin{proof}
-Both assertions follow from the fact that
-\[X_ff=df(X_f)=\omega(X_f,X_f)=0\]
-because $\omega$ is alternating.
-\end{proof}
-A smooth vector field $X$ on $M$ is said to be \textbf{symplectic} if $\omega$ is invariant under the flow of $X$. It is said to be \textbf{Hamiltonian} (or \textbf{globally Hamiltonian}) if there exists a function $f\in C^\infty(M)$ such that $X=X_f$, and \textbf{locally Hamiltonian} if each point $p$ has a neighborhood on which $X$ is Hamiltonian. Clearly, every globally Hamiltonian vector field is locally Hamiltonian.
-\begin{proposition}[\textbf{Hamiltonian and Symplectic Vector Fields}]\label{Hamiltonian and symplectic vector field}
-Let $(M,\omega)$ be a symplectic manifold. A smooth vector field on $M$ is symplectic if and only if it is locally Hamiltonian. Every locally Hamiltonian vector field on $M$ is globally Hamiltonian if and only if $H^1_{dR}(M)=0$.
-\end{proposition}
-\begin{proof}
-By Theorem~\ref{tensor filed invariant flow iff}, a smooth vector field $X$ is symplectic if and only if $\mathfrak{L}_X\omega=0$. Using Cartan’s magic formula, we compute
-\begin{align}\label{Hamiltonian and symplectic vector field-1}
-\mathfrak{L}_X\omega=d(X\intprod\omega)+X\intprod d\omega=d(X\intprod\omega).
-\end{align}
-Therefore, $X$ is symplectic if and only if the $1$-form $X\intprod\omega$ is closed. On the one hand, if $X$ is locally Hamiltonian, then in a neighborhood of each point there is a real-valued function $f$ such that $X=X_f$, so $X\intprod\omega=df$, which is certainly closed. Conversely, if $X$ is symplectic, then by the Poincar\'e lemma each point $p\in M$ has a neighborhood $U$ on which the closed $1$-form $X\intprod\omega$ is exact. This means there is a smooth real-valued function $f$ defined on $U$ such that $X\intprod\omega=df$; because $\omega$ is nondegenerate, this implies that $X=X_f$ on $U$.\par
-Now suppose $M$ is a smooth manifold with $H^1_{dR}(M)=0$. If $X$ is a locally Hamiltonian vector field, then it is symplectic, so $(\ref{Hamiltonian and symplectic vector field-1})$ shows that $X\intprod\omega$ is closed. The hypothesis then implies that there is a function $f\in C^\infty(M)$ such that $X\intprod\omega=df$. This means that $X=X_f$, so $X$ is globally Hamiltonian. Conversely, suppose every locally Hamiltonian vector field is globally Hamiltonian. Let $\eta$ be a closed $1$-form, and let $X$ be the vector field $X=\widehat{\omega}^{-1}\eta$. Then $(\ref{Hamiltonian and symplectic vector field-1})$ shows that $\mathfrak{L}_X\omega=0$, so $X$ is symplectic and therefore locally Hamiltonian. By hypothesis, there is a global smooth real-valued function $f$ such that $X=X_f$, and then unwinding the definitions, we find that $\eta=df$.
-\end{proof}
-A symplectic manifold $(M,\omega)$ together with a smooth function $H\in C^\infty(M)$ is called a \textbf{Hamiltonian system}. The function $H$ is called the \textbf{Hamiltonian} of the system; the flow of the Hamiltonian vector field $X_H$ is called its \textbf{Hamiltonian flow}, and the integral curves of $X_H$ are called the \textbf{trajectories} or \textbf{orbits} of the system. In Darboux coordinates, formula $(\ref{Darboux theorem-1})$ implies that the orbits are those curves $\gamma(t)=(x^i(t),y^i(t))$ that satisfy
-\begin{equation}\label{Hamilton's equations}
-\left\{
-\begin{array}{l}
-\dot{x}^i(t)=\dfrac{\partial H}{\partial y^i}(x(t),y(t)),\\[8pt]
-\dot{y}^i(t)=-\dfrac{\partial H}{\partial y^i}(x(t),y(t)).
-\end{array}
-\right.
-\end{equation}
-These are called Hamilton's equations.\par
-Hamiltonian systems play a central role in classical mechanics. We illustrate how they arise with a simple example.
-\begin{example}[\textbf{The $\bm{n}$-Body Problem}]
-Consider $n$ physical particles moving in space, and suppose their masses are $m_1,\dots,m_n$. For many purposes, an effective model of such a system is obtained by idealizing the particles as points in $\R^3$, which we denote by $\mathbf{q}_1,\dots,\mathbf{q}_n$. Writing the coordinates of $\mathbf{q}_k$ at time $t$ as $(q_k^1(t),q_k^2(t),q_k^3(t))$, we can represent the evolution of the system over time by a curve in $\R^{3n}$:
-\[q(t)=(q_1^1(t),q_1^2(t),q_1^3(t),\dots,q_n^1(t),q_n^2(t),q_n^3(t)).\]
-The \textbf{collision set} is the subset $\mathcal{C}\sub\R^{3n}$ where two or more particles occupy the same position in space:
-\[\mathcal{C}=\{q\in\R^{3n}:\mathbf{q}_k=\mathbf{q}_l\text{ for some }k\neq l\}.\]
-We consider only motions with no collisions, so we are interested in curves in the open subset $Q=\R^{3n}\setminus\mathcal{C}$.\par
-Suppose the particles are acted upon by forces that depend only on the positions of all the particles in the system. (A typical example is gravitational forces.) If we denote the components of the net force on the kth particle by $(F_k^1(q),F_k^2(q),F_k^3(q))$, then Newton's second law of motion asserts that the particles' motion satisfies $m_k\ddot{\mathbf{q}}_k=\mathbf{F}_k(\mathbf{q}(t))$ for each $k$, which translates into the $3n\times 3n$ system of second-order ODEs
-\begin{equation*}
-\left\{
-\begin{array}{l}
-m_k\ddot{q}_k^1(t)=F_k^1(q(t)),\\[8pt]
-m_k\ddot{q}_k^2(t)=F_k^2(q(t)),\\[8pt]
-m_k\ddot{q}_k^3(t)=F_k^3(q(t)),
-\end{array}
-\right.
-\end{equation*}
-for $k=1,\dots,n$.\par
-This can be written in a more compact form if we relabel the $3n$ position coordinates as $q(t)=(q^1(t),\dots,q^{3n}(t))$ and the $3n$ components of the forces as $F(q)=(F_1(q),\dots,F_{3n}(q))$, and let $M=(M_{ij})$ denote the $3n\times 3n$ diagonal matrix $\mathrm{diag}(m_1,m_1,m_1,\dots,m_n,m_n,m_n)$. Then Newton's second law can be written
-\begin{align}\label{n-body problem-1}
-M_{ij}\ddot{q}^j(t)=F_i(q(t)).
-\end{align}
-We assume that the forces depend smoothly on $q$, so we can interpret $F(q)=(F_1(q),\dots,F_{3n}(q))$ as the components of a smooth covector field on $Q$. We assume further that the forces are conservative, which by Proposition~\ref{covector conservative iff exact} is equivalent to the existence of a smooth function $V\in C^\infty(Q)$ (called the potential energy of the system) such that $F=-dV$.\par
-Under the physically reasonable assumption that all of the masses are positive, the matrix $M$ is positive definite, and thus can be interpreted as a (constant-coefficient) Riemannian metric on $Q$. It therefore defines a smooth bundle isomorphism $\widehat{M}:TQ\to T^*Q$. If we denote the natural coordinates on $TQ$ by $(q^i,v^i)$ and those on $T^*Q$ by $(q^i,p_i)$, then $M(v,w)=M_{ij}v^iw^j$, and $\widehat{M}$ has the coordinate representation
-\[(q^i,p_i)=\widehat{M}(q^i,v^i)=(q^i,M_{ij}v^j).\]
-If $q'(t)=(\dot{q}^1(t),\dots,\dot{q}^{3n}(t))$ is the velocity vector of the system of particles at time $t$, then the covector $p(t)=\widehat{M}(q'(t))$ is given by the formula
-\begin{align}\label{n-body problem-2}
-p_i(t)=M_{ij}\dot{q}^j(t).
-\end{align}
-To give this equation a physical interpretation, we can revert to our original labeling of the coordinates and write
-\[p(t)=(p_1^1(t),p_1^2(t),p_1^3(t),\dots,p_n^1(t),p_n^2(t),p_n^3(t)),\]
-and then $\mathbf{p}_k(t)=(p_k^1(t),p_k^2(t),p_k^3(t))=m_k\dot{\mathbf{q}}_k(t)$ is interpreted as the momentum of the $k$-th particle at time $t$.\par
-Using $(\ref{n-body problem-2})$, we see that a curve $q(t)$ in $Q$ satisfies Newton's second law $(\ref{n-body problem-1})$ if and only if the curve $\gamma(t)=(q(t),p(t))$ in $T^*Q$ satisfies the first-order system of ODEs
-\begin{equation}\label{n-body problem-3}
-\left\{
-\begin{array}{l}
-\dot{q}^i(t)=M^{ij}p_j(t),\\[8pt]
-\dot{p}^i(t)=-\dfrac{\partial V}{\partial q^i}(q(t)),
-\end{array}
-\right.
-\end{equation}
-where $(M^{ij})$ is the inverse of the matrix of $(M_{ij})$. Define a function $E\in C^\infty(T^*Q)$, called the \textbf{total energy} of the system, by
-\[E(q,p)=V(q)+K(p),\]
-where $V$ is the potential energy introduced above, and $K$ is the \textbf{kinetic energy}, defined by
-\[K(p)=\frac{1}{2}M^{ij}p_ip_j.\]
-Since $(q^i,p_i)$ are Darboux coordinates on $T^*Q$, a comparison of $(\ref{n-body problem-3})$ with $(\ref{Hamilton's equations})$ shows that $(\ref{n-body problem-3})$ is precisely Hamilton's equations for the Hamiltonian flow of $E$. The fact that $E$ is constant along the trajectories of its own Hamiltonian flow is known as the \textbf{law of conservation of energy}.
-\end{example}
-\subsubsection{Poisson brackets}
-Hamiltonian vector fields allow us to define an operation on real-valued functions on a symplectic manifoldM similar to the Lie bracket of vector fields. Given $f,g\in C^\infty(M)$, we define their Poisson bracket $\{f,g\}\in C^\infty(M)$ by any of the following equivalent formulas:
-\begin{align}\label{Possion bracket}
-\{f,g\}=\omega(X_f,X_g)=df(X_g)=X_gf.
-\end{align}
-Two functions are said to Poisson commute if their Poisson bracket is zero.\par
-The geometric interpretation of the Poisson bracket is evident from the characterization $\{f,g\}=X_gf$: it is a measure of the rate of change of $f$ along the Hamiltonian flow of $g$. In particular, $f$ and $g$ Poisson commute if and only if $f$ is constant along the Hamiltonian flow of $g$.\par
-Using $(\ref{Hamiltonian vector field})$, we can readily compute the Poisson bracket of two functions $f,g$ in Darboux coordinates:
-\[\{f,g\}=\sum_{i=1}^{n}\frac{\partial f}{\partial x^i}\frac{\partial g}{\partial y^i}-\frac{\partial f}{\partial y^i}\frac{\partial g}{\partial x^i}.\]
-\begin{proposition}[\textbf{Properties of the Poisson Bracket}]
-Suppose $(M,\omega)$ is a symplectic manifold, and $f,g\in C^\infty(M)$.
-\begin{itemize}
-\item[(a)] Bilinearity: $\{f,g\}$ is linear over $\R$ in $f$ and $g$.
-\item[(b)] Antisymmetry: $\{f,g\}=-\{g,f\}$.
-\item[(c)] Jacobi identity: $\{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0$.
-\item[(d)] $X_{\{f,g\}}=-[X_f,X_g]$.   
-\end{itemize}
-\end{proposition}
-\begin{proof}
-Parts (a) and (b) are obvious from the characterization $\{f,g\}=\omega(X_f,X_g)$ together with the fact that $X_f=\widehat{\omega}^{-1}(df)$ depends linearly on $f$. Because of the nondegeneracy of $\omega$, to prove (d), it suffices to show that the following holds for every vector field $Y$:
-\begin{align}\label{Possion bracket prop-1}
-\omega(X_{\{f,g\}},Y)+\omega([X_f,X_g],Y)=0.
-\end{align}
-On the one hand, note that $\omega(X_{\{f,g\}},Y)=d(\{f,g\})(Y)=Y\{f,g\}=YX_gf$. On the other hand, because Hamiltonian vector fields are symplectic, the Lie derivative formula of Corollary~\ref{Lie derivative tensor} yields
-\begin{align*}
-0&=(\mathfrak{L}_{X_g}\omega)(X_f,Y)=X_g(\omega(X_f,Y))-\omega([X_g,X_f],Y)-\omega(X_f,[X_g,Y])\\
-&=X_g(df(Y))+\omega([X_f,X_g],Y)-df([X_g,Y])\\
-&=X_gYf+\omega([X_f,X_g],Y)-[X_g,Y]f\\
-&=\omega([X_f,X_g],Y)+YX_gf.
-\end{align*}
-Therefore (d) follows.\par
-Finally, (c) follows from (d), (b), and $(\ref{Possion bracket})$:
-\begin{align*}
-\{f,\{g,h\}\}&=X_{\{g,h\}}f=-[X_g,X_h]f=-X_gX_hf+X_hX_gf\\
-&=-X_g\{f,h\}+X_h\{f,g\}=-\{\{f,h\},g\}+\{\{f,g\},h\}\\
-&=-\{g,\{h,f\}\}-\{h,\{f,g\}\}.
-\end{align*}
-\end{proof}
-The following corollary is immediate.
-\begin{corollary}
-If $(M,\omega)$ is a symplectic manifold, the vector space $C^\infty(M)$ is a Lie algebra under the Poisson bracket.
-\end{corollary}
-If $(M,\omega,H)$ is a Hamiltonian system, any function $f\in C^\infty(M)$ that is constant on every integral curve of $X_H$ is called a \textbf{conserved quantity} of the system. Conserved quantities turn out to be deeply related to symmetries, as we now show.\par
-A smooth vector field $V$ on $M$ is called an \textbf{infinitesimal symmetry} of $(M,\omega,H)$ if both $\omega$ and $H$ are invariant under the flow of $V$.
-\begin{proposition}
-Let $(M,\omega,H)$ be a Hamiltonian system.
-\begin{itemize}
-\item[(a)] A function $f\in C^\infty(M)$ is a conserved quantity if and only if $\{f,H\}=0$.
-\item[(b)] The infinitesimal symmetries of $(M,\omega,H)$ are precisely the symplectic vector fields $V$ that satisfy $VH=0$.
-\item[(c)] If $\theta$ is the flow of an infinitesimal symmetry and $\gamma$ is a trajectory of the system, then for each $s\in\R$, $\theta_s\circ\gamma$ is also a trajectory on its domain of definition.
-\end{itemize}
-\end{proposition}
-\begin{proof}
-Since the Possion bracket $\{f,H\}$ measures the rate of change of $f$ along the Hamiltonian flow of $H$, it is clear that $f$ is conserved if and only if $\{f,H\}=0$. This proves (a). For (b), $\omega$ is invairant under the flow of $V$ if and only if $V$ is symplectic, and $H$ is invairant under the flow of $V$ if and only if $VH=0$. Therefore (b) is clear.\par
-Finally, for (c), $\gamma$ is a trajectory of the system means $\gamma'(t)=X_H|_{\gamma(t)}$. Since $\theta$ is a flow of an infinitesimal symmetry, $\omega$ and $H$ are invairant under $V$. This then implies 
-\[(\theta_s\circ\gamma)'(t)=d(\theta_s)_{\gamma(t)}(\gamma'(t))=d(\theta_s)_{\gamma(t)}(V_{\gamma(t)})=V_{\theta_s\circ\gamma(t)}.\]
-Therefore $\theta_s\circ\gamma$ is still a trajectory of the system.
-\end{proof}
-The following theorem, first proved (in a somewhat different form) by Emmy
-Noether in 1918, has had a profound influence on both physics and mathematics. It shows that for many Hamiltonian systems, there is a one-to-one correspondence between conserved quantities (modulo constants) and infinitesimal symmetries.
-\begin{theorem}[\textbf{Noether's Theorem}]
-Let $(M,\omega,H)$ be a Hamiltonian system. If $f$ is any conserved quantity, then its Hamiltonian vector field is an infinitesimal symmetry. Conversely, if $H^1_{dR}(M)=0$, then each infinitesimal symmetry is the Hamiltonian vector field of a conserved quantity, which is unique up to addition of a function that is constant on each component of $M$.
-\end{theorem}
-\begin{proof}
-Suppose $f$ is a conserved quantity. Proposition 22.21 shows that $\{f,H\}=0$. This in turn implies that $X_fH=\{H,f\}=0$, so $H$ is constant along the flow of $X_f$. Since $\omega$ is invariant along the flow of any Hamiltonian vector field by Proposition~\ref{Hamiltonian and symplectic vector field}, this shows that $X_f$ is an infinitesimal symmetry.\par
-Now suppose that $M$ is a smooth manifold with $H^1_{dR}(M)=0$. Let $V$ be an infinitesimal symmetry of $(M,\omega,H)$. Then $V$ is symplectic by definition, and globally Hamiltonian by Proposition~\ref{Hamiltonian and symplectic vector field}. Writing $V=X_f$, the fact that $H$ is constant along the flow of $V$ implies that $\{H,f\}=X_fH=VH=0$, so $f$ is a conserved quantity. If $\widetilde{f}$ is any other function that satisfies $X_{\widetilde{f}}=X_f$, then $d(\widetilde{f}-f)=\widehat{\omega}(X_{\widetilde{f}}-X_f)=0$, so $\widetilde{f}-f$ must be constant on each component of $M$.
-\end{proof}
-There is one conserved quantity that every Hamiltonian system possesses: the Hamiltonian $H$ itself. The infinitesimal symmetry corresponding to it, of course, generates the Hamiltonian flow of the system, which describes how the system evolves over time. Since $H$ is typically interpreted as the total energy of the system, one usually says that the symmetry corresponding to conservation of energy is "translation in the time variable".
-\subsubsection{Hamiltonian Flowouts}
-Hamiltonian vector fields are powerful tools for constructing isotropic and Lagrangian submanifolds. Because Lagrangian submanifolds of $T^*M$ correspond to closed $1$-forms (Proposition~\ref{one form is embedding}), which in turn correspond locally to differentials of functions, such constructions have numerous applications in PDE theory.
-\begin{theorem}[\textbf{Hamiltonian Flowout Theorem}]\label{Hamiltonian flowout}
-Suppose $(M,\omega)$ is a symplectic manifold, $H\in C^\infty(M)$, $\Gamma$ is an embedded isotropic submanifold of $M$ that is contained in a single level set of $H$, and the Hamiltonian vector field $X_H$ is nowhere tangent to $\Gamma$. If $\mathcal{S}$ is a flowout from $\Gamma$ along $X_H$, then $\mathcal{S}$ is also isotropic and contained in the same level set of $H$.
-\end{theorem}
-\begin{proof}
-Let $\theta$ be the flow of $X_H$. Recall from Theorem~\ref{flowout} that the flowout is parametrized by the restriction of $\theta$ to a neighborhood $\mathcal{O}_\delta$ of $\{0\}\times\Gamma$ in $\R\times\Gamma$. First consider a point $p\in\Gamma\sub\mathcal{S}$. If we choose a basis $E_1,\dots,E_k$ for $T_p\Gamma$, then $T_p\mathcal{S}$ is spanned by $(X_H|_p,E_1,\dots,E_k)$. The assumption that $\Gamma$ is isotropic implies that $\omega_p(E_i,E_j)=0$ for all $i$ and $j$. On the other hand, by definition of the Hamiltonian vector field,
-\[\omega_p(X_H|_p,E_j)=dH_p(E_j)=0.\]
-because $E_j$ is tangent to $\Gamma$, which is contained in a level set of $H$. This shows that the restriction of $\omega$ to $T_p\mathcal{S}$ is zero when $p\in\Gamma$.\par
-Any other point $p;'\in\mathcal{S}$ is of the form $p'=\theta_t(p)$ for some $(t,p)\in\mathcal{O}_\delta$. Because $\theta_t$ is a local diffeomorphism that maps a neighborhood of $p$ in $\mathcal{S}$ to a neighborhood of $p'$ in $\mathcal{S}$, its differential takes $T_p\mathcal{S}$ isomorphically onto $T_{p'}\mathcal{S}$. Thus, for any vectors $v,w\in T_{p'}\mathcal{S}$, there are vectors $\widehat{v},\widehat{w}$ such that $d(\theta_t)_p(\widehat{v})=v$ and $d(\theta_t)_p(\widehat{w})=w$. Moreover, because $X_H$ is a symplectic vector field, its flow preserves $\omega$. Therefore,
-\[\omega_{p'}(v,w)=\omega_{p'}(d(\theta_t)_p(\widehat{v}),d(\theta_t)_p(\widehat{w}))=(\theta_t^*\omega)_p(\widehat{v},\widehat{w})=\omega_p(\widehat{v},\widehat{w})=0.\]
-It follows that $\mathcal{S}$ is isotropic. By Proposition~\ref{Hamiltonian vector field prop}, $H$ is constant along each integral curve of $X_H$, so $\mathcal{S}$ is contained in the same level set of $H$ as $\Gamma$.
-\end{proof}
-\subsection{Contact structures}
-As we have seen, symplectic manifolds must be even-dimensional; but there is a closely related structure called a contact structure that one can define on odd-dimensional manifolds. It also has important applications in geometry and analysis. In this part, we introduce the main elements of contact geometry.\par
-Suppose $M$ is a smooth manifold of odd dimension $2n+1$. A contact form on $M$ is a nonvanishing smooth $1$-form $\theta$ with the property that for each $p\in M$, the restriction of $d\theta_p$ to the subspace $\ker\theta_p\sub T_pM$ is nondegenerate, which is to say it is a symplectic tensor. A \textbf{contact structure} on $M$ is a smooth distribution $H\sub TM$ of rank $2n$ with the property that any smooth local defining form $\theta$ for $H$ is a contact form (see Lemma~\ref{distribution smooth crit}). A contact manifold is a smooth manifold $M$ together with a contact structure on $M$. If $(M,H)$ is a contact manifold, any (local or global) defining form for $H$ is called a \textbf{contact form} for $H$.
-\begin{proposition}
-A smooth $1$-form $\theta$ on a $(2n+1)$-manifold is a contact form if and only if $\theta\wedge (d\theta)^n$ is nonzero everywhere on $M$, where $(d\theta)^n$ represents the $n$-fold wedge product of $d\theta$.
-\end{proposition}
-\begin{proof}
-By Lemma~\ref{distribution annihilate iff}, $(d\theta)^n|_p$ annihilates $\ker\theta_p$ if and only if there is a $(2n-1)$-form $\alpha_p$ such that
-\[(d\theta)^n|_p=\theta|_p\wedge\alpha_p.\]
-This is, in turn, equivalent to $\theta_p\wedge(d\theta)^n|_p=0$.
-\end{proof}
-\begin{proposition}
-Suppose $H$ is a contact structure on a smooth manifold $M$. Show that if $\theta_1$ and $\theta_2$ are any two local contact forms for $H$, then on their common domain there is a smooth nonvanishing function $f$ such that $\theta_2=f\theta_1$.
-\end{proposition}
-\begin{proof}
-This follows from the fact that two 1-forms defines the same kernel if and only if they differ by a constant.
-\end{proof}
-It follows from the result of Proposition~\ref{involutivity local coframe crit} that a codimension-$1$ distribution $H\sub TM$ is integrable if and only if any local defining form $\theta$ satisfies $\theta\wedge d\theta=0$. If $H$ is a contact structure, by contrast, not only is  nonzero everywhere on $M$, but it remains nonzero after taking $n-1$ more wedge products with $d\theta$. Thus, a contact structure is, in a sense, a "maximally nonintegrable distribution".
-\begin{example}[\textbf{Contact Forms}]\label{contact forms eg}
-\mbox{}
-\begin{itemize}
-\item[(a)] On $\R^{2n+1}$ with coordinates $(x^1,\dots,x^n,y^1,\dots,y^n,z)$, define a $1$-form $\theta$ by
-\begin{align}\label{contact form standard}
-\theta=dz-\sum_{i=1}^{n}y^idx^i.
-\end{align}
-and let $H\sub T\R^{2n+1}$ be the rank-$2n$ distribution annihilated by $\theta$. Then $d\theta=\sum_{i=1}^{n}dx^i\wedge dy^i$. If we define vector fields $X_i,Y_i$ by
-\[X_i=\frac{\partial}{\partial x^i}+y^i\frac{\partial}{\partial z},\quad Y^i=\frac{\partial}{\partial y^i}.\]
-then $(X_i,Y_i)$ is a smooth frame for $H$, and it is straightforward to check that it satisfies $d\theta(X_i,X_j)=d\theta(Y_i,Y_j)=0$ and $d\theta(X_i,Y_j)=\delta_{ij}$. It follows just as in Example~\ref{symplectic tensor eg} that $d\theta|_H$ is nondegenerate, so $\theta$ is a contact form.
-\item[(b)] Let $M$ be a smooth $n$-manifold, and define a smooth $1$-form $\theta$ on the $(2n+1)$-manifold $\R\times T^*M$ by $\theta=dz-\tau$, where $z$ is the standard coordinate on $\R$ and $\tau$ is the tautological $1$-form on $T^*M$. In terms of natural coordinates $(x^i,\xi_i)$ for $T^*M$; the form $\theta$ has the coordinate representation
-\[\theta=dz-\sum_{i=1}^{n}\xi_i dx^i.\]
-so it is a contact form by the same argument as in part (a).
-\item[(c)] On $\R^{2n+2}$ with coordinates $(x^1,\dots,x^{n+1},y^1,\dots,y^n)$, consider the $1$-form
-\[\varTheta=\sum_{i=1}^{n+1}(x^idy^i-y^idx^i).\]
-The \textbf{standard contact form on $\bm{S^{2n+1}}$} is the smooth $1$-form $\theta=\iota^*\varTheta$, where $\iota:S^{2n+1}\to\R^{2n+2}$ is inclusion. To see that $\theta$ is indeed a contact form, note first that $d\theta=\sum_{i=1}^{n+1}(dx^i\wedge dy^i)$ is a symplectic form on $\R^{2n+2}$. Consider the following vector fields on $\R^{2n+2}\setminus\{0\}$:
-\[N=x^i\frac{\partial}{\partial x^i}+y^i\frac{\partial}{\partial y^i},\quad T=x^i\frac{\partial}{\partial y^i}-y^i\frac{\partial}{\partial x^i}.\]
-A computation shows that $N$ is normal to $S^{2n+1}$ (with respect to the Euclidean metric) and $T$ is tangent to it. Let $S\sub T(\R^{2n+2}\setminus\{0\})$ denote the subbundle spanned by $N$ and $T$, and let $S^\bot$ denote its symplectic complement with respect to $d\varTheta$. For each $p\in S^{2n+1}$, $S^\bot_p$ is the set of vectors $X\in T_p\R^{2n+2}$ such that $d\varTheta_p(N_p,X_p)=d\varTheta_p(T_p,X_p)=0$. We compute
-\begin{align*}
-N\intprod d\varTheta&=2\sum_{i=1}^{n+1}(x^idy^i-y^idx^i)=2\varTheta,\\
-T\intprod d\varTheta&=2\sum_{i=1}^{n+1}(x^idx^i+y^idy^i)=d(|x|^2+|y|^2).
-\end{align*}
-It follows that $S^\bot_p$ is the common kernel of $\varTheta_p$ and $d(|x|^2+|y|^2)_p$, which is $\ker\varTheta_p\cap T_pS^{2n+1}=\ker\theta_p$. Because $d\varTheta(N,T)=|x|^2+|y|^2\neq 0$, $S_p$ is a symplectic subspace of $T_p\R^{2n+2}$, and thus $\ker\theta_p=S^\bot_p$ is also a symplectic subspace by Proposition~\ref{symplectic subspace iff}(a). Because the restriction of $d\theta_p$ to $\ker\theta_p$ is the same as the restriction of $d\varTheta_p$, it is nondegenerate, so $\theta$ is a contact form.
-\end{itemize}
-\end{example}
-\begin{theorem}[\textbf{The Reeb Field}]
-Let $(M,H)$ be a contact manifold, and suppose $\theta$ is a contact form for $H$. There is a unique vector field $T\in\X(M)$, called the Reeb field of $\theta$, that satisfies the following two conditions:
-\begin{align}\label{Reed field def}
-T\intprod d\theta=0,\quad\theta(T)=1.
-\end{align}
-\end{theorem}
-\begin{proof}
-Define a smooth bundle homomorphism $\varPhi:TM\to T^*M$ by $\varPhi(X)=X\intprod d\theta$, and for each $p\in M$, let $\varPhi_p$ denote the linear map $\varPhi|_{T_pM}:T_pM\to T^*_pM$. The fact that $d\theta_p$ restricts to a nondegenerate $2$-tensor on $H_p$ implies that $\varPhi_p|_{H_p}$ is injective, so $\varPhi_p$ has rank at least $2n$ (where $2n+1$ is the dimension of $M$). On the other hand, $\varPhi_p$ cannot have rank $2n+1$, because then $d\theta_p$ would be nondegenerate, which is impossible because $T_pM$ is odd-dimensional. Thus $\varPhi_p$ has rank exactly $2n$, so $\dim\ker\varPhi_p=1$. Since $\ker\varPhi_p$ is not contained in $H_p=\ker\theta_p$, there is a unique vector $T_p\in\ker\varPhi_p$ satisfying $\theta_p(T_p)=1$. This shows that there is a unique rough vector field $T$ satisfying $(\ref{Reed field def})$.\par
-To see that $T$ is smooth, note that $\ker\varPhi$ is a smooth rank-$1$ subbundle of $TM$ by Theorem~\ref{distribution smooth crit}. Given $p\in M$, let $X$ be any smooth nonvanishing section of $\ker\varPhi$ on a neighborhood of $p$. Because $\theta(X)\neq 0$, we can write the Reeb field locally as $T=X/\theta(X)$, which is also smooth.
-\end{proof}
-\begin{remark}
-Let $\theta$ be a contact form and $T$ be its Reeb field. Note that
-\[\mathfrak{L}_{T}\theta=d(T\intprod\theta)+T\intprod d\theta=d(\theta(T))+T\intprod d\theta=0.\]
-Therefore $\theta$ is invairant under the flow of $T$.
-\end{remark}
-\begin{example}
-The Reeb fields of the contact forms of Example~\ref{contact forms eg}(a),(b) are given by $\partial/\partial z$, and that of (c) is given by
-\[T=\Big(x^i\frac{\partial}{\partial y^i}-y^i\frac{\partial}{\partial x^i}\Big)\Big|_{S^{2n+1}}.\]
-\end{example}
-Many of the constructs that we described for symplectic manifolds have analogues in contact geometry. We begin with an analogue of the Darboux theorem.
-\begin{theorem}[\textbf{Contact Darboux Theorem}]
-Suppose $\theta$ is a contact form on a $(2n+1)$-dimensional manifold $M$. For each $p\in M$, there are smooth coordinates $(x^1,\dots,x^n,y^1,\dots,y^n,z)$ centered at $p$ in which $\theta$ has the form
-\[\theta=dz-\sum_{i=1}^{n}y^idx^i.\]
-\end{theorem}
-\begin{proof}
-Let $p\in M$ be arbitrary. Let $(U,(u^i))$ be a smooth coordinate cube centered at $p$ in which the Reeb field of $\theta$ has the form $T=\partial/\partial u^1$, and let $Y\sub U$ be the slice defined by $u^1=0$. Because $T$ is nowhere tangent to $Y$, it follows that the pullback of $d\theta$ to $Y$ is a symplectic form. After shrinking $U$ and $Y$ if necessary, we can find Darboux coordinates $(x^1,\dots,x^n,y^1,\dots,y^n)$ for $Y$ centered at $p$, and extend them to $U$ by requiring them to be independent of $u^1$ (or equivalently, to be constant on the integral curves of $T$). Let $\alpha$ be the $1$-form $\sum_iy^idx^i$ on $U$, so the pullbacks of $d\theta$ and $-d\alpha$ to $Y$ agree. Because $T\intprod d\theta=T\intprod d\alpha=0$, it follows that $d\theta+d\alpha=0$ at points of $Y$. Then $\mathfrak{L}_T\theta=\mathfrak{L}_T\alpha=0$ implies that $d(\theta+\alpha)$ is invariant under the flow of $T$, so in fact $d(\theta+\alpha)=0$ on all of $U$. By the Poincar\'e lemma, there is a smooth function $z$ on $U$ such that $dz=\theta+\alpha$ by subtracting a constant, we may arrange that $z(p)=0$. Because $dz_p(T_p)=\theta_p(T_p)=1$, it follows that $(dx^i|_p,dy^i|_p,dz|_p)$ are linearly independent, so there is a neighborhood of $p$ on which $(x^1,\dots,x^n,y^1,\dots,y^n,z)$ are the coordinates we seek.
-\end{proof}
-The next proposition describes a contact analogue of Hamiltonian vector fields.
-\begin{proposition}\label{contact Hamiltonian vector field}
-Suppose $(M,H)$ is a contact manifold and $\theta$ is a contact form for $H$. For any function $f\in C^\infty(M)$, there is a unique vector field $X_f$, called the \textbf{contact Hamiltonian vector field} of $f$, that satisfies $\theta(X_f)=f$ and $(X_f\intprod d\theta)|_H=-df|_H$.
-\end{proposition}
-\begin{proof}
-Suppose $f\in C^\infty(M)$. Because the restriction of $d\theta$ to $H$ is nondegenerate, there is a unique smooth vector field $B\in\Gamma(H)$ such that $B\intprod d\theta|_H=-df|_H$. If we set $X_f=fT+B$, where $T$ is the Reeb field for $\theta$, then it is easy to check that the required conditions are satisfied.
-\end{proof}
-Suppose $(M,H)$ is a contact manifold. A smooth vector field $X\in\X(M)$ is
-called a \textbf{contact vector field} if its flow $\varphi$ preserves the contact structure, in the sense that $d(\varphi_t)_p(H_p)=H_{\varphi_t(p)}$ for all $(t,p)$ in the domain of $\varphi$.
-\begin{theorem}
-If $(M,H)$ is a contact manifold and $\theta$ is a contact form for $H$, then a smooth vector field on $M$ is a contact vector field if and only if it is a contact Hamiltonian vector field.
-\end{theorem}
-\begin{proof}
-Since $H$ is characterized as the kernel of $\theta$, the equality $d(\varphi_t)_p(H_p)=H_{\varphi_t(p)}$ is equivalent to
-\[\theta_{\varphi_t(p)}(d(\varphi_t)_p(H_p))=d(\varphi_t)_p^*\theta_{\varphi_t(p)}(H_p)=0.\]
-Since $\theta_p$ is zero on $H_p$, this is equivalent to $\mathfrak{L}_{X}\theta|_H=0$. That is,
-\[(X\intprod d\theta)|_H=-d(X\intprod\theta)|_H=-d(\theta(X))|_H.\]
-It is clear that this condition is satisfied if $X$ is a contact Hamiltonian vector field.\par
-Conversely, if $X$ is a contact vector field, then we have
-\[0=\mathfrak{L}_X\theta|_H=(X\intprod d\theta)|_H+d(X\intprod\theta)|_H=(X\intprod d\theta)|_H+d(\theta(X))|_H.\]
-Then, from the proof of Proposition~\ref{contact Hamiltonian vector field}, we see that 
-\[X_{\theta(X)}=\theta(X)T+X|_H\]
-where $X|_H$ is the component of $X$ in $H$. Since $TM$ is generated by $T$ and $H$, the right-hand side $\theta(X)T+X|_H$ is exactly $X$. Therefore $X=X_{\theta(X)}$ is a contact Hamiltonian vector field.
-\end{proof}
-If $(M,H)$ is a contact manifold, a smooth submanifold $S\sub M$ is said to be \textbf{isotropic} if $TS\sub H$, or equivalently if $\iota^*\theta=0$ for any contact form $\theta$, where $\iota:S\hookrightarrow M$ is inclusion. If $S\sub M$ is isotropic, then $\iota^*d\theta=d\iota^*\theta=0$. This implies that for each $p\in S$, the tangent space $T_pS$ is an isotropic subspace of the symplectic vector space $H_p$, and thus its dimension cannot be any larger than $n$, where $2n+1$ is the dimension of $M$. An isotropic submanifold of the maximum possible dimension $n$ is called a \textbf{Legendrian submanifold}.\par
-The next theorem is a contact analogue of the Hamiltonian flowout theorem, and is proved in much the same way. It is the main tool for constructing solutions of fully nonlinear PDEs.
-\begin{theorem}[\textbf{Contact Flowout Theorem}]\label{contact flowout}
-Suppose that $(M,H)$ is a contact manifold, $f\in C^\infty(M)$, $\Gamma$ is an embedded isotropic submanifold of $M$ that is contained in a single level set of $f$, and the contact Hamiltonian vector field $X_F$ is nowhere tangent to $\Gamma$. If $\mathcal{S}$ is a flowout from $\Gamma$ along $X_f$, then $\mathcal{S}$ is also isotropic and contained in the same level set of $f$.
-\end{theorem}
-\begin{proof}
-In this case, $\iota^*T\Gamma\sub H$. Let $p\in\Gamma$. If $v\in T_p\Gamma$ then by defintion we have
-\[d\theta_p(X_f|_p,v)=(X_f\intprod d\theta)_p(v)=-df_p(v)=0.\]
-This shows the restriction of $d\theta$ is zero on $T_p\mathcal{S}$ when $p\in\Gamma$. Since $H$ is preserved by the flow of $X_f$, we can apply the method used in Theorem~\ref{Hamiltonian flowout} to get the claim.
-\end{proof}
-\subsection{Nonlinear first-order PDEs}
-In Section~\ref{flow section}, we discussed first-order partial differential equations, and showed how to use the theory of flows to solve them in the linear and quasilinear cases. In this part, we show how to use symplectic and contact geometry to solve fully nonlinear first-order equations (i.e., equations that are not quasilinear).\par
-We begin with a somewhat special case. A first-order partial differential equation that involves only the first derivatives of the unknown function but not the values of the function itself is called a \textbf{Hamilton-Jacobi equation}. Such an equation for an unknown function $u(x^1,\dots,x^n)$ can be written in the form
-\begin{align}\label{Hamilton-Jacobi equation-1}
-F\Big(x^1,\dots,x^n,\frac{\partial u}{\partial x^1}(x),\dots,\frac{\partial u}{\partial x^n}(x))=0.
-\end{align}
-where $F$ is a smooth function defined on an open subset of $\R^{2n}$.\par
-More generally, if $M$ is a smooth manifold, a Hamilton-Jacobi equation on $M$ is given by a smooth real-valued function $F$ defined on an open subset $W\sub T^*M$ and a solution to the equation is a smooth real-valued function $u$ defined on an open subset $U\sub M$ such that the image of $du$ lies in the zero set of $F$:
-\begin{align}\label{Hamilton-Jacobi equation-2}
-F(x,du(x))=0\text{ for all }x\in U.
-\end{align}
-(We write the covector $du_x\in T_xM$ as $(x,du(x))$, in order to be more consistent with the coordinate representation $(\ref{Hamilton-Jacobi equation-1})$ of the equation.) We are interested in solving a Cauchy problem for $(\ref{Hamilton-Jacobi equation-2})$: given an embedded hypersurface $S\sub M$ and a smooth function $\varphi:S\to\R$, we wish to find a smooth function $u$ defined on a neighborhood of $S$ in $M$ and satisfying $(\ref{Hamilton-Jacobi equation-2})$ together with the initial condition
-\begin{align}\label{Hamilton-Jacobi equation boundary}
-u|_S=\varphi.
-\end{align}
-Just as in Section~\ref{flow section}, in order to obtain solutions we need to assume that the problem is of a type called noncharacteristic; we will describe what this means below.\par
-Because Equation $(\ref{Hamilton-Jacobi equation-2})$ involves only $du$, not $u$ itself, we look first for a closed $1$-form $\alpha$ satisfying $F(x,\alpha(x))\equiv 0$; then the Poincar\'e lemma guarantees that locally $\alpha=du$ for some function $u$, which then satisfies $(\ref{Hamilton-Jacobi equation-2})$. By Proposition~\ref{one form is embedding}, it suffices to construct a Lagrangian submanifold of $T^*M$ that is the image of a $1$-form and is contained in $F^{-1}(0)$. The key to finding such a submanifold is the Hamiltonian flowout theorem (Theorem~\ref{Hamiltonian flowout}): after identifying an appropriate isotropic embedded initial submanifold $\Gamma\sub T^*M$, we will construct the image of $\alpha$ as the flowout from $\Gamma$ along the Hamiltonian field of $F$.\par
-The first challenge is to construct an appropriate initial submanifold $\Gamma\sub T^*M$. The image of $d\varphi$ will not do, because it lies in $T^*S$, not $T^*M$ (and there is no canonical way to identify $T^*S$ as a subset of $T^*M$). Thus, we must first look for an appropriate section of the restricted bundle $TM|_S$, that is, a smooth map $\sigma:S\to T^*M$ such that $\sigma(x)\in T_x^*M$ for each $x\in S$. This will be the value of $du$ along $S$ for our eventual solution $u$. Thus, we should expect that it matches $d\varphi$ when restricted to vectors tangent to $S$, and that it satisfies the PDE at points of $S$. In summary, we require $\sigma$ to satisfy the following conditions:
-\begin{flalign}
-&&&&&&&&\sigma(x)|_{T_xS}&=d\varphi(x)&\text{for all }x\in S,&&&&&&&&\label{Hamilton-Jacobi equation noncharacteristic-1}\\
-&&&&&&&&F(x,\sigma(x))&=0&\text{for all }x\in S.&&&&&&&&\label{Hamilton-Jacobi equation noncharacteristic-2}
-\end{flalign}
-To find such a $\sigma$, at least locally, begin by extending $\varphi$ to a smooth function $\widetilde{\varphi}$ in a neighborhood of $S$ and choosing a smooth local defining function $\psi$ for $S$. Since $\sigma$ must agree with $d\varphi$ when restricted to $TS$, and the annihilator of $TS$ at each point is spanned by $d\psi$, the only possibility for $\sigma$ is a section of the form $\sigma=d\widetilde{\varphi}+fd\psi$ for some unknown real-valued function $f$ defined in a neighborhood of $S$. You can then insert this into the equation $F(x,\sigma(x))=0$ and attempt to solve for the values of $f$ along $S$.\par
-The Cauchy problem $(\ref{Hamilton-Jacobi equation-2})$--$(\ref{Hamilton-Jacobi equation boundary})$ is said to be noncharacteristic if there exists a smooth section $\sigma\in\Gamma(T^*M|_S)$ satisfying $(\ref{Hamilton-Jacobi equation noncharacteristic-1})$--$(\ref{Hamilton-Jacobi equation noncharacteristic-2})$, with the additional property that if $(x^i)$ are any local coordinates on $M$ and $(x^1,\dots,x^n,\xi_1,\dots,\xi_n)$ are the corresponding natural coordinates on $T^*M$, the following vector field along $S$ is nowhere tangent to $S$:
-\begin{align}\label{Hamilton-Jacobi equation vector field}
-A^\sigma|_x=\frac{\partial F}{\partial\xi_1}(x,\sigma(x))\frac{\partial}{\partial x^1}+\cdots+\frac{\partial F}{\partial\xi_n}(x,\sigma(x))\frac{\partial}{\partial x^n}.
-\end{align}
-(As we will see in the proof of the next theorem, $A^\sigma$ is actually globally defined as a vector field along $S$, and does not depend on the choice of coordinates.) When this condition is satisfied, we can solve the Cauchy problem.
-\begin{theorem}[\textbf{The Cauchy Problem for a Hamilton-Jacobi Equation}]\label{Hamilton-Jacobi equation solution}
-Suppose that $M$ is a smooth manifold, $W\sub T^*M$ is an open subset, $F:W\to\R$ is a smooth function, $S\sub M$ is an embedded hypersurface, and $\varphi:S\to\R$ is a smooth function. If the Cauchy problem $(\ref{Hamilton-Jacobi equation-2})$--$(\ref{Hamilton-Jacobi equation boundary})$ is noncharacteristic, then for each $p\in S$ there is a smooth solution defined on some neighborhood of $p$ in $M$.
-\end{theorem}
-\begin{proof}
-Given $\sigma:S\to T^*M|_S$ satisfying $(\ref{Hamilton-Jacobi equation noncharacteristic-1})$--$(\ref{Hamilton-Jacobi equation noncharacteristic-2})$, let $\Gamma\sub W$ be the image of $\sigma$. Then $\Gamma$ is an embedded submanifold of dimension $n-1$, where $n=\dim M$. In order to apply the Hamiltonian flowout theorem, we need to check first that $\Gamma$ is isotropic with respect to the canonical symplectic structure $\omega$ on $T^*M$. Since $\sigma:S\to T^*M$ is a smooth embedding whose image is $\Gamma$, this is equivalent to showing that $\sigma^*\omega=0$. Let $\pi:T^*M\to M$ be the projection; then $\pi\circ\sigma$ is equal to the inclusion $\iota:S\hookrightarrow M$. If $\tau$ denotes the tautological $1$-form on $T^*M$, the defining equation $(\ref{tautological form def})$ for $\tau$ implies
-\[(\sigma^*\tau)(p)=d\sigma_p^*(d\pi_{\sigma(p)}^*\sigma(p))=d(\pi\circ\sigma)^*\sigma(p)=d\iota_p^*\sigma(p)=d\varphi(p).\]
-Thus $\sigma^*\tau=d\varphi$, and it follows that $\sigma^*\tau=-d^2\varphi=0$. Therefore $\Gamma$ is isotropic.\par
-Next we need to check that the Hamiltonian vector field $X_F$ is nowhere tangent to $\Gamma$. This follows from the noncharacteristic condition just as in the proof of Theorem~\ref{quasilinear PDE solution}: because $\pi:T^*M\to M$ restricts to a diffeomorphism from $\Gamma$ to $S$, if $X_F$ were tangent to $\Gamma$ at some point $(p,\sigma(p))\in\Gamma$, then $d\pi(X_F|_{(p,\sigma(p)})$ would be tangent to $S$ at $p$. Using $(\ref{Hamiltonian vector field})$ in natural coordinates $(x^i,\xi_i)$ on $T^*M$ (which are Darboux coordinates for the canonical symplectic form), we find that
-\[X_F=\frac{\partial F}{\partial\xi_1}\frac{\partial}{\partial x^1}+\cdots+\frac{\partial F}{\partial\xi_n}\frac{\partial}{\partial x^n}-\frac{\partial F}{\partial x^1}\frac{\partial}{\partial \xi_1}+\cdots+\frac{\partial F}{\partial x^n}\frac{\partial}{\partial\xi_n}\]
-Thus $d\pi(X_F|_{(p,\sigma(p))})=A^\sigma|_p$, so the assumption that the Cauchy problem is noncharacteristic guarantees that $X_F$ is nowhere tangent to $\Gamma$. (This calculation also shows that $A^\sigma$ is well defined independently of coordinates, because it is the pushforward of $X_F$ from points of $\Gamma$.)\par
-Let $\mathcal{S}$ be a flowout from $\Gamma$ along $X_F$. The Hamiltonian flowout theorem guarantees that $\mathcal{S}$ is an $n$-dimensional isotropic---and therefore Lagrangian---submanifold of $T^*M$ contained in $F^{-1}(0)$. Using the result of Proposition~\ref{submani of T^*M is section iff}, we conclude that it will be the image of a closed $1$-form on a neighborhood of $p$ provided that it is transverse to the fiber of $\pi$ at $(p,\sigma(p))$. Once again, we use the fact that $T_{(p,\sigma(p))}\mathcal{S}$ is spanned by $T_{(p,\sigma(p)}\Gamma$ and $X_F|_{(p,\sigma(p))}$. Because $d\pi$ maps $X_F|_{(p,\sigma(p))}$ to $A^\sigma|_p$ and maps $T_{(p,\sigma(p))}\Gamma$ isomorphically onto $T_pS$, the noncharacteristic assumption guarantees that $T_{(p,\sigma(p))}T^*M=T_{(p,\sigma(p))}\mathcal{S}\oplus\ker d\pi_{(p,\sigma(p))}$, and thus $\mathcal{S}$ intersects the fiber transversely at $(p,\sigma(p))$. By Proposition~\ref{submani of T^*M is section iff}, there is a closed $1$-form $\alpha$ defined on a neighborhood $U$ of $p$ whose graph is an open subset of $\mathcal{S}$. Because the image of $\alpha$ is contained in $\mathcal{S}$, it follows that
-\begin{align}\label{Hamilton-Jacobi equation solution-1}
-\alpha(x)=\sigma(x)\text{ for all }x\in S\cap U.
-\end{align}
-By the Poincar\'e lemma, after shrinking $U$ further if necessary, we can find a smooth function $u:U\to\R$ such that $du=\alpha$. Because $\mathcal{S}\sub F^{-1}(0)$, we conclude that $u$ satisfies $(\ref{Hamilton-Jacobi equation-2})$. To ensure that the initial condition is also satisfied, shrink $U$ further so that $S\cap U$ is connected. By adding a constant to $u$, we may arrange that $u(p)=\varphi(p)$. Then for any $x\in S\cap U$, it follows from $(\ref{Hamilton-Jacobi equation noncharacteristic-1})$ and $(\ref{Hamilton-Jacobi equation solution-1})$ that
-\[du(x)|_{T_xS}=\alpha(x)|_{T_xS}=\sigma(x)|_{T_xS}=d\varphi(x).\]
-Because $S\cap U$ is connected, this means that $u-\varphi$ is constant on $S\cap U$. Since this difference vanishes at $p$, it vanishes identically, so $(\ref{Hamilton-Jacobi equation boundary})$ is satisfied on $S\cap U$.
-\end{proof}
-Note that we did not claim any uniqueness in this theorem. In Cauchy problems for fully nonlinear equations, even local uniqueness can fail. For example, consider the following Cauchy problem in the plane:
-\[\Big(\frac{\partial u}{\partial x}\Big)^2=1,\quad u(0,y)=0.\]
-This is noncharacteristic, as you can check. Both $u(x,y)=x$ and $u(x,y)=-x$ are solutions to this problem, but they are not equal in any open subset. The problem here is that there are two possible choices for the initial $1$-form $\sigma$ (namely, $\sigma=dx$ and $\sigma=-dx$), and they yield different initial manifolds $\sigma$ and therefore different solutions to the Cauchy problem. However, by a similar argument as in the quasilinear case, we can see that once $\sigma$ is chosen, the local uniqueness still holds.
-\begin{example}[\textbf{A Hamilton-Jacobi Equation}]
-Consider the following Cauchy problem in the plane:
-\[\frac{\partial u}{\partial x}-\Big(\frac{\partial u}{\partial y}\Big)^2=0,\quad u(0,y)=y^2.\]
-The corresponding function on $T^*\R^2$ is $F(x,y,\xi,\eta)=\xi-\eta^2$, where we use $(x,y,\xi,\eta)$ to denote natural coordinates on $T^*\R^2$ associated with $(x,y)$. To check that the problem is noncharacteristic, we need to find a suitable $1$-form $\sigma$ along the initial manifold $S=\{(x,y):x=0\}$. Since $x$ is a defining function for $S$, we can write $\sigma=d(y^2)+f(y)dx=f(y)dx+2ydy$ and solve the equation
-\[F(0,y,f(y),2y)=f(y)-(2y)^2\]
-to obtain $f(y)=4y^2$. Thus we can set $\sigma(y)=4y^2dx+2ydy$. The vector field $A^\sigma$ is given by
-\[A^\sigma=\frac{\partial}{\partial x}-4y\frac{\partial}{\partial y}\]
-which is nowhere tangent to $S$.\par
-The initial curve $S$ can be parametrized by $X(s)=(0,s)$, and therefore the initial curve $\Gamma\sub T^*\R^2$ (the image of $\sigma$) can be parametrized by $\widetilde{X}(s)=(0,s,4s^2,2s)$. The Hamiltonian field of $F$ is
-\[X_F|_{(x,y,\xi,\eta)}=\frac{\partial}{\partial x}-2\eta\frac{\partial}{\partial y}.\]
-and it is an easy matter to solve the corresponding system of ODEs with initial conditions $(x,y,\xi,\eta)=(0,s,4s^2,2s)$ to obtain the following parametrization of $\mathcal{S}$:
-\[\varPsi(t,s)=(t,s-4st,4s^2,2s).\]
-Solving $(x,y)$ from $(x,y)=(t,s-4st)$ and inserting into the formulas for $(\xi,\eta)$, we find that $\mathcal{S}$ is the image of the following $1$-form:
-\[\alpha=\frac{4y^2}{(1-4x)^2}dx+\frac{2y}{1-4x}dy.\]
-This is indeed a closed $1$-form, and we find that $\alpha=du$ on the set $\{(x,y):x<1/4\}$, where
-\[u(x,y)=\frac{y^2}{1-4x}.\]
-In principle, we might have to add a constant to $u$ to satisfy the initial condition, but in this case $u(0,y)=y^2$ already, so this is the solution to our Cauchy problem.
-\end{example}
-\subsubsection{General nonlinear equations}
-Finally, we show how the preceding method can be adapted to solve arbitrary first-order PDEs by using contact geometry in place of symplectic geometry. For this purpose, we introduce one last geometric construction. If $M$ is a smooth manifold, the $1$-jet bundle of $M$ is the smooth vector bundle $J^1M=\R\times T^*M\to M$, whose fiber at $x\in M$ is $R\times T_x^*M$. (It is the Whitney sum of a trivial $\R$-bundle with $T^*M$.) If $u:M\to\R$ is a smooth function, the $1$-jet of $u$ is the section $j^1u:M\to J^1M$ defined by $j^1u(x)=(u(x),du(x))$. A point in the fiber of $J^1M$ over $x\in M$ can be viewed as a first-order Taylor polynomial at $x$ of a smooth function on $M$, represented invariantly as the values of the function and its differential at $x$. (One can also define higher-order jet bundles that give invariant representations of higher-order Taylor polynomials. They are useful for studying higher-order PDEs, but we do not pursue them here.)\par
-The canonical contact form on $J^1M$ is the $1$-form $\theta=dz-\tau$ defined in Example~\ref{contact forms eg}(b). A smooth (local or global) section $\eta:M\to J^1M$ is said to be \textbf{Legendrian} if its image is a Legendrian submanifold of $J^1M$, or equivalently if $\eta^*\theta=0$. The next proposition is a contact analogue of Proposition~\ref{one form is embedding}.
-\begin{proposition}
-Let $M$ be a smooth manifold. A smooth local section of $J^1M$ is the $1$-jet of a smooth function if and only if it is Legendrian.
-\end{proposition}
-\begin{proof}
-Let $\eta:M\to J^1M$ be a smooth local section. Then we can write $\eta(x)=(u(x),\sigma_x)$, then by Proposition~\ref{one form is embedding} we have
-\[\eta^*\theta=(u,\sigma)^*(dz-\tau)=u^*(dz)-(\sigma)^*\tau=du-\sigma.\]
-Therefore $\eta$ is Legendrian if and only if it is a $1$-jet.
-\end{proof}
-The $1$-jet bundle provides the most general setting in which to consider first-order partial differential equations. If $M$ is a smooth manifold, a first-order PDE for a function $u:M\to\R$ can be viewed as a real-valued function $F$ on the $1$-jet bundle of $M$, and a solution is a function whose $1$-jet takes its values in the zero set of $F$.\par
-Let $M$ be a smooth manifold, and suppose we are given a function $F\in C^\infty(W)$ on some open subset $W\sub J^1M$, a smooth hypersurface $S\sub M$, and a smooth function $\varphi:S\to\R$. We wish to solve the following Cauchy problem for $u$:
-\begin{align}
-F(x,u(x),du(x))&=0,\label{general first-order PDE-1}\\
-u|_S&=\varphi.\label{general first-order PDE-2}
-\end{align}
-This problem is said to be noncharacteristic if there exists a smooth section $\sigma\in\Gamma(T^*M|_S)$ taking its values in $W$ and satisfying
-\begin{flalign}
-&&&&&&&&\sigma(x)|_{T_xS}&=d\varphi(x)&\text{for all }x\in S,&&&&&&&&\label{general first-order PDE noncharacteristic-1}\\
-&&&&&&&&F(x,\varphi(x),\sigma(x))&=0&\text{for all }x\in S.&&&&&&&&\label{general first-order PDE noncharacteristic-2}
-\end{flalign}
-and such that the following vector field along $S$ is nowhere tangent to $S$:
-\begin{align}\label{general first-order PDE vector field}
-A^\sigma|_x=\frac{\partial F}{\partial\xi_1}(x,\varphi(x),\sigma(x))\frac{\partial}{\partial x^1}+\cdots+\frac{\partial F}{\partial\xi_n}(x,\varphi(x),\sigma(x))\frac{\partial}{\partial x^n}.
-\end{align}
-The proof of the next theorem is very similar to that of Theorem~\ref{Hamilton-Jacobi equation solution}, but uses the contact flowout theorem instead of the Hamiltonian one.
-\begin{theorem}[\textbf{The General First-Order Cauchy Problem}]
-Suppose $M$ is a smooth manifold, $W\sub J^1M$ is an open subset, $F:W\to\R$ is a smooth function, $S\sub M$ is an embedded hypersurface, and $\varphi:S\to\R$ is a smooth function. If the Cauchy problem $(\ref{general first-order PDE-1})$--$(\ref{general first-order PDE-2})$ is noncharacteristic, then for each $p\in S$ there is a smooth solution on some neighborhood of $p$ in $M$.
-\end{theorem}

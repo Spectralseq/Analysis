@@ -1,11 +1,13 @@
 \usepackage[utf8]{inputenc}
-\usepackage[colorlinks,linkcolor=blue,hyperfootnotes=false]{hyperref}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue,hyperfootnotes=true,bookmarksopen=true]{hyperref}
+\usepackage{footnotebackref}
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage[capitalize,nameinlink]{cleveref}%动态ref定理，推论，引理等
 \usepackage{textgreek,bm,upgreek,mathrsfs}
 \usepackage{arydshln}
-\usepackage{textcomp}
+%\usepackage{textcomp}
 \usepackage{stmaryrd}
 \expandafter\def\csname opt@stmaryrd.sty\endcsname
 {only,shortleftarrow,shortrightarrow}
@@ -18,7 +20,8 @@
 \usepackage[english]{babel}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
-\usepackage{microtype} 
+\usepackage{microtype}
+\usepackage{float}
 \usepackage[framemethod=tikz]{mdframed} 
 \usepackage[tikz]{bclogo}
 \usepackage{wrapfig}
@@ -28,17 +31,57 @@
 \usepackage{tikz-cd}
 \usepackage{tikz}
 \usepackage{fancyhdr}
+\usepackage{titlesec}%定义section的格式
+\usepackage{tocloft}
+\usepackage{titletoc}%定义目录样式
+\usepackage{sectsty}%定义section的格式
+\usepackage{sectsty}%标题居中
 \usepackage{booktabs}
+\usepackage{easybmat}%定义大型分块矩阵
+\usepackage{dsfont}%定义bold 1
+\usepackage{calligra}
 
 \usepackage[T1]{fontenc}
-\usepackage{newtxmath}
-\usepackage{palatino}
+\PassOptionsToPackage{no-math}{fontspec}
+%\usepackage{newtxmath}
+%\usepackage{palatino}
+\usepackage[noBBpl]{mathpazo}
 
-\linespread{1.05}
+%\usepackage{bbold}%定义bbold符号
+\usepackage{l3draw,xparse}
+\usepackage{accents}%创建新的widetilde
+\usepackage{scalerel} %放大数学字体
+\usepackage{calligra,mathrsfs}%for sheaf Hom
+\usepackage{mathtools}%def new widetilde
+\usepackage{calc}%定义箭头不同样式symbol
+\usepackage[normalem]{ulem}%定义合适的下划线
 
-\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+%-----------------------------------------------------
+%定义BOONDOX包的字体
+\DeclareMathAlphabet{\mathbbb}{U}{bbold}{m}{n}
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+%-----------------------------------------------------
+\DeclareFontFamily{U}{BOONDOX-cal}{\skewchar\font=45}
+\DeclareFontShape{U}{BOONDOX-cal}{m}{n}{
+  <-> s*[1] BOONDOX-r-cal}{}
+\DeclareMathAlphabet{\mathscr}{U}{BOONDOX-cal}{m}{n}
+%-----------------------------------------------------
+\DeclareFontFamily{U}{BOONDOX-frak}{\skewchar\font=45}
+\DeclareFontShape{U}{BOONDOX-frak}{m}{n}{
+  <-> s*[1]  BOONDOX-r-frak}{}
+%\DeclareMathAlphabet{\mathfrak}{U}{BOONDOX-frak}{m}{n}
 
-\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+%----------------------------------------------------
+%设置目录中number和文字的间距
+\usepackage{tocloft}
+%\setlength{\cftsecnumwidth}{25pt} % resets space for section number (usually 2.3em)
+%\setlength{\cftsubsecnumwidth}{35pt} % resets space for subsection number (usually 3.2em)
+
+%-----------------------------------------------------
+%设置页面样式
+%\geometry{top=3.5cm,bottom=3.5cm}
+%\linespread{1.15}
+\geometry{hcentering}
 \pagestyle{fancy}
 \setlength{\headheight}{15.0pt}
 \fancyhf{}
@@ -47,7 +90,56 @@
 \fancyhead[LO]{\bf\nouppercase{\leftmark}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+%-------------------------------------------------------
 
+%------------------------------------------------------
+%重新定义autoref的section和subsection的名字
+\renewcommand{\sectionautorefname}{\S\!}
+\renewcommand{\subsectionautorefname}{\S\S\!}
+
+%-------------------------------------------------------
+%定义能编号的paragraph
+\renewcommand{\theparagraph}{\thesubsection.\arabic{paragraph}}% How paragraphs are numbered
+\setcounter{secnumdepth}{4}
+
+%---------------------------------------------------------
+%---控制enumerate编号正体
+\usepackage{enumitem}
+\setlist[enumerate,1]{font=\upshape}
+\setlist[enumerate,2]{font=\upshape}
+
+\makeatletter%define roman numbers
+\newcommand{\rmnum}[1]{\textup{\romannumeral #1}}
+\newcommand{\Rmnum}[1]{\textup{\expandafter\@slowromancap\romannumeral #1@}}
+\makeatother
+
+\chapterfont{\centering}%chapter居中
+\sectionfont{\centering}%section居中
+
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{bending}
+\tikzset{
+  commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>={Computer Modern Rightarrow[length=5pt,width=4pt]}},
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  },
+  row sep/normal=8mm,
+  column sep/normal=8mm
+}
+
+%------------------------------------------------
+%引入mathabx包的widecheck
+\DeclareFontFamily{U}{mathx}{}
+\DeclareFontShape{U}{mathx}{m}{n}{ <-> mathx10 }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathAccent{\widecheck}{0}{mathx}{"71}
+%\DeclareMathAccent{\widebar}{0}{mathx}{"73}
+%------------------------------------------------
 
 \def\sub{\subseteq}
 \def\sups{\supseteq}
@@ -162,22 +254,28 @@
 \renewcommand{\Im}{\operatorname{Im}}
 \renewcommand{\i}{\mathrm{i}}
 
-\tikzcdset{scale/.style={every label/.append style={scale=#1},
+\tikzcdset{
+    scale/.style={every label/.append style={scale=#1},
     cells={nodes={scale=#1}}}}
 \newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}}
 
 \makeatletter
-\newcommand{\rmnum}[1]{\romannumeral #1}
-\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \newcommand{\nunder}[2][5]{\mathrlap{\mkern\the\numexpr#1/2mu\relax\underline{\phantom{\mathrm{#2}\mkern-#1mu}}}#2}
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
 \newcommand{\intprod}{\mathbin{\raisebox{\depth}{\scalebox{1}[-1]{$\lnot$}}}}%defining interior product
 \newcommand{\bigw}{\scalebox{.95}[1]{\boldmath{$\bigwedge$}\hspace{-1pt}}}%define a nice wedge product
 
+%调整图片和方程编号方式----------------------
+%\makeatletter
+%\@addtoreset{figure}{subsection}
+%\makeatother
+%\renewcommand{\thefigure}{\arabic{section}.\arabic{subsection}.\arabic{figure}}
+\counterwithin*{figure}{subsection}
 
-\@addtoreset{figure}{section}
-\makeatother
+%\renewcommand{\theequation}{\arabic{section}.\arabic{subsection}.\arabic{equation}}
+\numberwithin{equation}{subsection}
+%-------------------------------------------
 
 \def\llim{\varprojlim\limits}
 \def\rlim{\varinjlim\limits}
@@ -198,13 +296,15 @@
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 
-
+%--------------------------------------------------------
+%定义widebar
+\makeatletter
 \let\save@mathaccent\mathaccent
 \newcommand*\if@single[3]{%
-	\setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
-	\setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
-	\ifdim\ht0=\ht2 #3\else #2\fi
-}
+  \setbox0\hbox{${\mathaccent"0362{#1}}^H$}%
+  \setbox2\hbox{${\mathaccent"0362{\kern0pt#1}}^H$}%
+  \ifdim\ht0=\ht2 #3\else #2\fi
+  }
 %The bar will be moved to the right by a half of \macc@kerna, which is computed by amsmath:
 \newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
 %If there's a superscript following the bar, then no negative kern may follow the bar;
@@ -213,57 +313,57 @@
 %Use a separate algorithm for single symbols:
 \newcommand*\wide@bar[2]{\if@single{#1}{\wide@bar@{#1}{#2}{1}}{\wide@bar@{#1}{#2}{2}}}
 \newcommand*\wide@bar@[3]{%
-	\begingroup
-	\def\mathaccent##1##2{%
-		%Enable nesting of accents:
-		\let\mathaccent\save@mathaccent
-		%If there's more than a single symbol, use the first character instead (see below):
-		\if#32 \let\macc@nucleus\first@char \fi
-		%Determine the italic correction:
-		\setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
-		\setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
-		\dimen@\wd\tw@
-		\advance\dimen@-\wd\z@
-		%Now \dimen@ is the italic correction of the symbol.
-		\divide\dimen@ 3
-		\@tempdima\wd\tw@
-		\advance\@tempdima-\scriptspace
-		%Now \@tempdima is the width of the symbol.
-		\divide\@tempdima 10
-		\advance\dimen@-\@tempdima
-		%Now \dimen@ = (italic correction / 3) - (Breite / 10)
-		\ifdim\dimen@>\z@ \dimen@0pt\fi
-		%The bar will be shortened in the case \dimen@<0 !
-		\rel@kern{0.6}\kern-\dimen@
-		\if#31
-		\overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
-		\advance\dimen@0.4\dimexpr\macc@kerna
-		%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
-		\let\final@kern#2%
-		\ifdim\dimen@<\z@ \let\final@kern1\fi
-		\if\final@kern1 \kern-\dimen@\fi
-		\else
-		\overline{\rel@kern{-0.6}\kern\dimen@#1}%
-		\fi
-	}%
-	\macc@depth\@ne
-	\let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
-	\mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
-	\macc@set@skewchar\relax
-	\let\mathaccentV\macc@nested@a
-	%The following initialises \macc@kerna and calls \mathaccent:
-	\if#31
-	\macc@nested@a\relax111{#1}%
-	\else
-	%If the argument consists of more than one symbol, and if the first token is
-	%a letter, use that letter for the computations:
-	\def\gobble@till@marker##1\endmarker{}%
-	\futurelet\first@char\gobble@till@marker#1\endmarker
-	\ifcat\noexpand\first@char A\else
-	\def\first@char{}%
-	\fi
-	\macc@nested@a\relax111{\first@char}%
-	\fi
-	\endgroup
+  \begingroup
+  \def\mathaccent##1##2{%
+%Enable nesting of accents:
+    \let\mathaccent\save@mathaccent
+%If there's more than a single symbol, use the first character instead (see below):
+    \if#32 \let\macc@nucleus\first@char \fi
+%Determine the italic correction:
+    \setbox\z@\hbox{$\macc@style{\macc@nucleus}_{}$}%
+    \setbox\tw@\hbox{$\macc@style{\macc@nucleus}{}_{}$}%
+    \dimen@\wd\tw@
+    \advance\dimen@-\wd\z@
+%Now \dimen@ is the italic correction of the symbol.
+    \divide\dimen@ 3
+    \@tempdima\wd\tw@
+    \advance\@tempdima-\scriptspace
+%Now \@tempdima is the width of the symbol.
+    \divide\@tempdima 10
+    \advance\dimen@-\@tempdima
+%Now \dimen@ = (italic correction / 3) - (Breite / 10)
+    \ifdim\dimen@>\z@ \dimen@0pt\fi
+%The bar will be shortened in the case \dimen@<0 !
+    \rel@kern{0.6}\kern-\dimen@
+    \if#31
+      \overline{\rel@kern{-0.6}\kern\dimen@\macc@nucleus\rel@kern{0.4}\kern\dimen@}%
+      \advance\dimen@0.4\dimexpr\macc@kerna
+%Place the combined final kern (-\dimen@) if it is >0 or if a superscript follows:
+      \let\final@kern#2%
+      \ifdim\dimen@<\z@ \let\final@kern1\fi
+      \if\final@kern1 \kern-\dimen@\fi
+    \else
+      \overline{\rel@kern{-0.6}\kern\dimen@#1}%
+    \fi
+  }%
+  \macc@depth\@ne
+  \let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+  \mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+  \macc@set@skewchar\relax
+  \let\mathaccentV\macc@nested@a
+%The following initialises \macc@kerna and calls \mathaccent:
+  \if#31
+    \macc@nested@a\relax111{#1}%
+  \else
+%If the argument consists of more than one symbol, and if the first token is
+%a letter, use that letter for the computations:
+    \def\gobble@till@marker##1\endmarker{}%
+    \futurelet\first@char\gobble@till@marker#1\endmarker
+    \ifcat\noexpand\first@char A\else
+      \def\first@char{}%
+    \fi
+    \macc@nested@a\relax111{\first@char}%
+  \fi
+  \endgroup
 }
-
+\makeatother

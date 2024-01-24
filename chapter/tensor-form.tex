@@ -417,7 +417,7 @@ If $V$ is a smooth vector field and $A$ is a smooth covariant $k$-tensor field, 
 \end{align}
 \end{corollary}
 \begin{proof}
-From Proposition~\ref{tensor Lie derivative prop}(d) we have
+From Proposition~\ref{tensor Lie derivative prop}~(d) we have
 \[(\mathfrak{L}_VA)(X_1,\dots,X_k)=\mathfrak{L}_V(A(X_1,\dots,X_k))-\sum_{i=1}^{k}A(X_1,\dots,\mathfrak{L}_VX_i,\dots,X_k).\]
 Replace $\mathfrak{L}_V(A(X_1,\dots,X_k))$ by $V\big(A(X_1,\dots,X_k)\big)$ and $\mathfrak{L}_VX_i$ by $[V,X_i]$, we get the claim.
 \end{proof}
@@ -2277,11 +2277,15 @@ F^*(u\,dy^1\wedge\cdots\wedge dy^n)&=(u\circ F)(\det\partial F)\,dx^1\wedge\cdot
 where $\partial F$ represents the Jacobian matrix of $F$ in these coordinates.
 \end{proposition}
 \begin{proof}
-Because the fiber of $\bigwedge^nT^*M$ is spanned by $dx^1\wedge\cdots\wedge dx^n$ at each point, it suffices to show that both sides of $(\ref{pull back n form-1})$ give the same result when evaluated on $(\partial/\partial x^1,\dots,\partial/\partial x^n)$. From Lemma~\ref{form pull back formula},
-\[F^*(u\,dy^1\wedge\cdots\wedge dy^n)=(u\circ F)\,dF^1\wedge\cdots\wedge dF^n.\]
-Proposition~\ref{wedge prod prop}(d) shows that
-\[dF^1\wedge\cdots\wedge dF^n\Big(\frac{\partial}{\partial x^1},\dots,\frac{\partial}{\partial x^n}\Big)=\det\Big(\frac{\partial F^j}{\partial x^i}\Big).\]
-Therefore, the left-hand side of $(\ref{pull back n form-1})$ gives $(u\circ F)(\det\partial F)$ when applied to $(\partial/\partial x^1,\dots,\partial/\partial x^n)$. On the other hand, the right-hand side gives the same thing, because $dx^1\wedge\cdots\wedge dx^n(\partial/\partial x^1,\dots,\partial/\partial x^n)=1$.
+Because the fiber of $\bigwedge^nT^*M$ is spanned by $dx^1\wedge\cdots\wedge dx^n$ at each point, it suffices to show that both sides of $(\ref{pull back n form-1})$ give the same result when evaluated on $(\partial/\partial x^1,\dots,\partial/\partial x^n)$. From Lemma~\ref{form pull back formula} and Proposition~\ref{wedge prod prop}(d), we see that
+\begin{gather*}
+F^*(u\,dy^1\wedge\cdots\wedge dy^n)=(u\circ F)\,dF^1\wedge\cdots\wedge dF^n,\\
+dF^1\wedge\cdots\wedge dF^n\Big(\frac{\partial}{\partial x^1},\dots,\frac{\partial}{\partial x^n}\Big)=\det\Big(\frac{\partial F^j}{\partial x^i}\Big).
+\end{gather*}
+Therefore, the left-hand side of $(\ref{pull back n form-1})$ gives $(u\circ F)(\det\partial F)$ when applied to the element $(\partial/\partial x^1,\dots,\partial/\partial x^n)$. On the other hand, the right-hand side gives the same thing, because we have
+\begin{equation*}
+dx^1\wedge\cdots\wedge dx^n(\partial/\partial x^1,\dots,\partial/\partial x^n)=1.\qedhere
+\end{equation*}
 \end{proof}
 \begin{corollary}
 If $(U,(x^i))$ and $(\widetilde{U},(\widetilde{x}^j))$ are overlapping smooth coordinate charts on $M$, then the following identity holds on $U\cap\widetilde{U}$:
